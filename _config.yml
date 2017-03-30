@@ -1,0 +1,18 @@
+title: Stefan Devai | webdesign | gamedev | política
+email: stedevai@gmail.com
+description: >
+  Página de Stefan Devai sobre historia, política, programación y otros temas.
+baseurl: ""
+url: "http://stefandevai.me"
+twitter_username: SteDevai
+github_username:  stefandevai
+
+# Build settings
+markdown: kramdown
+theme: minima
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
