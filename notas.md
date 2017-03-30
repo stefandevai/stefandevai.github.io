@@ -1,6 +1,6 @@
 ---
 layout: default_layout
-title: Notas
+title: notas
 permalink: /notas/
 ---
 

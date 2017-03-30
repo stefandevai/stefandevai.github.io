@@ -1,7 +1,7 @@
 ---
 layout: default_layout
-title: About
-permalink: /about/
+title: sobre
+permalink: /sobre/
 ---
 
 ## Stefan Devai

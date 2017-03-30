@@ -15,4 +15,11 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+ 
+# Menu settings
+ordered_pages:
+  - blog
+  - proyectos
+  - notas
+  - sobre
 
