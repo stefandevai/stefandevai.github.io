@@ -1,0 +1,57 @@
+html, body {
+	height: 100% !important;
+	font-family: $base-font !important;
+	color: $base-color !important;
+}
+
+h1,h2,h3,h4 {
+	font-family: $head-font !important;
+	color: $head-color !important;
+}
+
+p,span,ul {
+	font-size: 1.2em;
+}
+
+a {
+	color: inherit !important;
+}
+
+.wrapper {
+	background-image: url("/assets/img/factory.jpg");
+	background-size: cover;
+	height: 100%;
+}
+
+.main-heading {
+	margin-top: 100px;
+
+	h1 {
+		font-size: 9.0em;
+		line-height: 1.2;
+	}
+
+	span {
+		font-size: 1.6em;
+		letter-spacing: 2px;
+	}
+}
+
+.menu {
+	text-align: right;
+	margin-top: 180px;
+
+	ul {
+		list-style-type: none;
+		li {
+			margin-top: 20px;
+			padding-right: 10px;
+		}
+	}
+}
+
+.menu-highlight {
+	border-right: 3px solid $brand-color;
+	color: $brand-color;
+	font-weight: 900;
+}
