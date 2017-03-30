@@ -19,11 +19,17 @@ a {
 
 .wrapper {
 	background-image: url("/assets/img/factory.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
 	background-size: cover;
-	height: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	min-height: 100%;
 }
 
 .page-content {
+	position: relative;
+	overflow: hidden;
 	margin-top: 120px;
 }
 
