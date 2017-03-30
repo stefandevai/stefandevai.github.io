@@ -1,10 +1,9 @@
 <nav class="menu">
 	<ul>
-		<li class="menu-highlight"><a href="/"><em>início</em></a></li>
-		<li><a href="/about"><em>sobre</em></a></li>
-		<li><a href="/proyectos"><em>proyectos</em></a></li>
-		<li><a href="/blog"><em>blog</em></a></li>
-		<li><a href="/notas"><em>notas</em></a></li>
+		<li {% if page.url == '/' %}class="menu-highlight"{% else %}{% endif %}><a href="/"><em>início</em></a></li>
+		{% for pag in site.pages %}
+			<li {% if pag.title == page.title %}class="menu-highlight"{% else %}{% endif %}><a href="{{ pag.url }}"><em>{{ pag.title }}</em></a></li>
+		{% endfor %}
 	</ul>
 </nav>
 
