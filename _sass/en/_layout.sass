@@ -12,8 +12,12 @@ a
   text-decoration: none
   color: inherit
 
-h1,h2
+h1,h2,h3,h4
   margin: 0
+  padding: 0
+
+ul
+  list-style-type: none
 
 .menu
   color: $color-font-main
@@ -39,11 +43,38 @@ h1,h2
     border-color: $color-font-secondary
 
 .content
+  color: $color-font-dark
   width: 80%
   +breakpoint(md)
-    width: 60%
+    width: 70%
   min-height: 40vh
   margin: $margin-unit*2 auto
+  font-size: 1.5em
+
+  a
+    font-weight: 900
+    font-style: italic
+    text-decoration: underline
+
+  h3
+    margin-bottom: $margin-unit/2
+    margin-top: $margin-unit*2
+    +breakpoint(md)
+      font-size: 1.7em
+
+  h4
+    margin-bottom: $margin-unit/2
+    margin-top: $margin-unit*2
+    +breakpoint(md)
+      font-size: 1.2em
+
+  ul
+    padding-left: $margin-unit/2
+
+  li:before
+    content: "- "
+    font-weight: 900
+    color: $color-font-dark
 
 @import header
 @import footer
