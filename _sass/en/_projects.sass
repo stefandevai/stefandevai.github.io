@@ -6,18 +6,18 @@
   +breakpoint(md)
     display: inline
 
-ul.projects-menu
-  color: $color-font-main
-  font-weight: 900
-  margin: $margin-unit*2 auto 0 auto
-  padding: 0
-  display: inline-block
+//ul.projects-menu
+  //color: $color-font-main
+  //font-weight: 900
+  //margin: $margin-unit*2 auto 0 auto
+  //padding: 0
+  //display: inline-block
 
-  li
-    display: inline
-    float: left
-    margin-left: $margin-unit/4
-    margin-right: $margin-unit/4
+  //li
+    //display: inline
+    //float: left
+    //margin-left: $margin-unit/4
+    //margin-right: $margin-unit/4
 
 section
   color: $color-font-dark
@@ -44,7 +44,9 @@ section
   +project-header("../img/stella-engine-sm.png", "../img/stella-engine.png")
 
 #n-flakes>header
-  +project-header("../img/n-flakes.png", "../img/n-flakes.png")
+  +project-header("../img/n-flakes-sm.png", "../img/n-flakes.png")
+  background-size: contain
+  background-color: #020102
 
 #beep-player>header
   +project-header("../img/beep-player-sm.png", "../img/beep-player-lg.png")

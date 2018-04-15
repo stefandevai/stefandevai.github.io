@@ -15,12 +15,35 @@ a
 h1,h2
   margin: 0
 
+.menu
+  color: $color-font-main
+  font-weight: 900
+  margin: $margin-unit*2 auto 0 auto
+  padding: 0
+  display: inline-block
+
+  li
+    display: inline
+    float: left
+    margin-left: $margin-unit/4
+    margin-right: $margin-unit/4
+    border-bottom: 2px solid transparent
+
+    -o-transition: .2s
+    -ms-transition: .2s
+    -moz-transition: .2s
+    -webkit-transition: .2s
+    transition: .2s 
+
+  li:hover
+    border-color: $color-font-secondary
+
 .content
   width: 80%
   +breakpoint(md)
     width: 60%
   min-height: 40vh
-  margin: $margin-unit auto
+  margin: $margin-unit*2 auto
 
 @import header
 @import footer
