@@ -1,16 +1,18 @@
-title: Stefan Devai
-email: stedevai@gmail.com
+# General settings
+title: Stefan Devai                                                                                                                                                                               
+email: stedevai@protonmail.com
 description: >
   Página de Stefan Devai sobre historia, política, programación y otros temas.
 baseurl: ""
-url: "http://stefandevai.me"
+url: "https://stefandevai.github.io"
 twitter_username: SteDevai
 github_username:  stefandevai
 
 # Build settings
 markdown: kramdown
-theme: minima
-gems:
+sass:
+  style: compressed
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile
@@ -18,8 +20,8 @@ exclude:
  
 # Menu settings
 ordered_pages:
-  - blog
   - proyectos
-  - notas
-  - sobre
+  - textos
+  - contacto
+  - blog
 
