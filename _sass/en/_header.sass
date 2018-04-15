@@ -7,33 +7,34 @@
   background-attachment: fixed
   background-size: 200% 200%
 
-  -webkit-animation: gradient-animation 36s ease infinite
-  -moz-animation: gradient-animation 36s ease infinite
-  animation: gradient-animation 36s ease infinite
+  +breakpoint(md)
+    -webkit-animation: gradient-animation 36s ease infinite
+    -moz-animation: gradient-animation 36s ease infinite
+    animation: gradient-animation 36s ease infinite
 
-  @-webkit-keyframes gradient-animation 
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
-  
-  @-moz-keyframes gradient-animation
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
- 
-  @keyframes gradient-animation 
-      0%
-        background-position:  0% 97%
-      50%
-        background-position:  100% 4%
-      100%
-        background-position:  0% 97%
+    @-webkit-keyframes gradient-animation 
+        0%
+          background-position: 0% 97%
+        50%
+          background-position: 100% 4%
+        100%
+          background-position: 0% 97%
+    
+    @-moz-keyframes gradient-animation
+        0%
+          background-position: 0% 97%
+        50%
+          background-position: 100% 4%
+        100%
+          background-position: 0% 97%
+   
+    @keyframes gradient-animation 
+        0%
+          background-position:  0% 97%
+        50%
+          background-position:  100% 4%
+        100%
+          background-position:  0% 97%
 
 h1.heading
   font-family: $font-secondary
@@ -61,7 +62,11 @@ h2.sub-heading
 .img-wrapper
   height: 100%
   min-height: 100vh
-  background: url("../img/factory2_alpha.png")
+
+  background: url("../img/factory3_alpha_sm.png")
+  +breakpoint(md)
+    background: url("../img/factory3_alpha.png")
+
   background-size: cover
 
 .page-wrapper
