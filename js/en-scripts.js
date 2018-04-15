@@ -1,3 +1,3 @@
 $(document).ready(function () {
-  $('div.page-wrapper').fadeIn(2000);
+  $('div.page-wrapper').fadeIn(1000);
 });

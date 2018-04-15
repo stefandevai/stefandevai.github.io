@@ -1,10 +1,11 @@
 /*******************************/
 /********** VARIABLES **********/
 /*******************************/
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100|Ubuntu:300,300i,700,700i')
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,700|Ubuntu:300,300i,700,700i')
 
 $color-font-main: white
 $color-font-secondary: Aquamarine
+$color-font-dark: #132020
 $font-main: 'Ubuntu', sans-serif
 $font-secondary: 'Roboto Slab', serif
 
@@ -12,6 +13,8 @@ $color-gradient1: rgba(0,204,153,0.8)
 $color-gradient2: rgba(14,14,38,0.8)
 
 $size-icon: 24px
+
+$margin-unit: 30px
 
 /*******************************/
 /*********** MIXINS ************/
@@ -26,4 +29,15 @@ $size-icon: 24px
   @else if $point == sm
     @media(min-width: 576px)
       @content
+
+=project-header($header-path-sm, $header-path-lg)
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url($header-path-sm)
+  background-repeat: no-repeat
+  background-size: cover
+
+  +breakpoint(md)
+    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url($header-path-lg)
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-size: cover
 

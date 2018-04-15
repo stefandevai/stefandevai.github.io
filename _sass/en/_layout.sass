@@ -15,5 +15,12 @@ a
 h1,h2
   margin: 0
 
+.content
+  width: 80%
+  +breakpoint(md)
+    width: 60%
+  min-height: 40vh
+  margin: $margin-unit auto
+
 @import header
 @import footer

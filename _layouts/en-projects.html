@@ -2,12 +2,19 @@
 <html lang="en">
   {% include en/head.html %}
 	<body>
-    <div class="bg-wrapper">
-      <div class="content-wrapper">
-        {% include en/projects.html%}
+    <div class="projects-header">
+      <div class="bg-wrapper">
+        <div class="img-wrapper">
+          <div class="page-wrapper">
+              {% include en/projects.html%}
+          </div>
+        </div>
       </div>
     </div>
+    {% include en/projects/generics.html%}
+    {% include en/projects/stella-engine.html%}
+    {% include en/projects/n-flakes.html%}
+    {% include en/projects/beep-player.html%}
 	</body>
 </html>
-
 

@@ -1,21 +1,38 @@
-.bg-wrapper
+.bg-wrapper-home
   height: 100%
-  min-height: 100vh
+  min-height: 100%
   background: url("../img/factory3-sm.jpg")
   +breakpoint(md)
     background: url("../img/factory3.jpg")
 
   background-size: cover
+  background-repeat: no-repeat
+
+.bg-wrapper
+  height: 100%
+  min-height: 100%
+
+  background: url("../img/factory3-sm.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+
+  +breakpoint(lg)
+    background: url("../img/factory.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 0 -250px
+    background-attachment: fixed
+
 
 h1.heading
   font-family: $font-secondary
 
-  font-size: 4.5em
+  font-size: 3.7em
   +breakpoint(md)
     font-size: 6em
 
   font-weight: 100
-  padding-top: 60px
+  padding-top: 90px
 
 .secondary-color
   font-weight: 700
@@ -23,14 +40,14 @@ h1.heading
 
 h2.sub-heading
   font-weight: 300
-
-  font-size: 1.3em
+  margin-top: $margin-unit/2
+  font-size: 1.2em
   +breakpoint(md)
     font-size: 1.5em
 
   color: $color-font-secondary
 
-.img-wrapper
+.img-wrapper-home
   height: 100%
   min-height: 100vh
 
@@ -68,20 +85,59 @@ h2.sub-heading
       100%
         background-position:  0% 97%
 
+.img-wrapper
+  height: 100%
+  min-height: 100%
+
+  background: -webkit-linear-gradient(190deg, $color-gradient1, $color-gradient2)
+  background: linear-gradient(190deg, $color-gradient1, $color-gradient2)
+  background-repeat: no-repeat
+  background-attachment: fixed
+  background-size: 150% 150%
+
+  -webkit-animation: gradient-animation 16s ease infinite
+  -moz-animation: gradient-animation 16s ease infinite
+  animation: gradient-animation 16s ease infinite
+
+  @-webkit-keyframes gradient-animation 
+      0%
+        background-position: 0% 97%
+      50%
+        background-position: 100% 4%
+      100%
+        background-position: 0% 97%
+  
+  @-moz-keyframes gradient-animation
+      0%
+        background-position: 0% 97%
+      50%
+        background-position: 100% 4%
+      100%
+        background-position: 0% 97%
+ 
+  @keyframes gradient-animation 
+      0%
+        background-position:  0% 97%
+      50%
+        background-position:  100% 4%
+      100%
+        background-position:  0% 97%
+
 .page-wrapper
+  width: 80%
   text-align: center
   margin: 0 auto
 
 ul.main-menu
   color: $color-font-main
   font-weight: 900
-  margin: 60px auto 0 auto
+  margin: $margin-unit*2 auto 0 auto
   padding: 0
   display: inline-block
 
   li
     display: inline
     float: left
-    margin-left: 7px
-    margin-right: 7px
+    margin-left: $margin-unit/4
+    margin-right: $margin-unit/4
 
