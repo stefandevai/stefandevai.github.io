@@ -1,40 +1,11 @@
 .bg-wrapper
   height: 100%
   min-height: 100vh
-  background: -webkit-linear-gradient(180deg, $color-gradient1, $color-gradient2)
-  background: linear-gradient(180deg, $color-gradient1, $color-gradient2)
-  background-repeat: no-repeat
-  background-attachment: fixed
-  background-size: 200% 200%
-
+  background: url("../img/factory3-sm.jpg")
   +breakpoint(md)
-    -webkit-animation: gradient-animation 36s ease infinite
-    -moz-animation: gradient-animation 36s ease infinite
-    animation: gradient-animation 36s ease infinite
+    background: url("../img/factory3.jpg")
 
-    @-webkit-keyframes gradient-animation 
-        0%
-          background-position: 0% 97%
-        50%
-          background-position: 100% 4%
-        100%
-          background-position: 0% 97%
-    
-    @-moz-keyframes gradient-animation
-        0%
-          background-position: 0% 97%
-        50%
-          background-position: 100% 4%
-        100%
-          background-position: 0% 97%
-   
-    @keyframes gradient-animation 
-        0%
-          background-position:  0% 97%
-        50%
-          background-position:  100% 4%
-        100%
-          background-position:  0% 97%
+  background-size: cover
 
 h1.heading
   font-family: $font-secondary
@@ -63,11 +34,39 @@ h2.sub-heading
   height: 100%
   min-height: 100vh
 
-  background: url("../img/factory3_alpha_sm.png")
-  +breakpoint(md)
-    background: url("../img/factory3_alpha.png")
+  background: -webkit-linear-gradient(190deg, $color-gradient1, $color-gradient2)
+  background: linear-gradient(190deg, $color-gradient1, $color-gradient2)
+  background-repeat: no-repeat
+  background-attachment: fixed
+  background-size: 150% 150%
 
-  background-size: cover
+  -webkit-animation: gradient-animation 16s ease infinite
+  -moz-animation: gradient-animation 16s ease infinite
+  animation: gradient-animation 16s ease infinite
+
+  @-webkit-keyframes gradient-animation 
+      0%
+        background-position: 0% 97%
+      50%
+        background-position: 100% 4%
+      100%
+        background-position: 0% 97%
+  
+  @-moz-keyframes gradient-animation
+      0%
+        background-position: 0% 97%
+      50%
+        background-position: 100% 4%
+      100%
+        background-position: 0% 97%
+ 
+  @keyframes gradient-animation 
+      0%
+        background-position:  0% 97%
+      50%
+        background-position:  100% 4%
+      100%
+        background-position:  0% 97%
 
 .page-wrapper
   text-align: center
