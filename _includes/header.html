@@ -1,4 +1,12 @@
 <header class="m-header">
   <h1 class="heading"><em>Si la clase obrera <strong>todo</strong> lo produce,<br/>a ella <strong>todo</strong> le pertenece.</em></h1>
+  <nav class="menu">
+    <ul>
+      <li {% if page.url == '/' %}class="menu-highlight"{% else %}{% endif %}><a href="/"><em>início</em></a></li>
+      {% for pag in site.ordered_pages %}
+        <li {% if pag == page.title %}class="menu-highlight"{% else %}{% endif %}><a href="/{{ pag }}"><em>{{ pag }}</em></a></li>
+      {% endfor %}
+    </ul>
+  </nav>
 </header>
 

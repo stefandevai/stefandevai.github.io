@@ -1,9 +1,1 @@
-<nav class="menu">
-  <ul>
-    <li {% if page.url == '/' %}class="menu-highlight"{% else %}{% endif %}><a href="/"><em>início</em></a></li>
-    {% for pag in site.ordered_pages %}
-      <li {% if pag == page.title %}class="menu-highlight"{% else %}{% endif %}><a href="/{{ pag }}"><em>{{ pag }}</em></a></li>
-    {% endfor %}
-  </ul>
-</nav>
 

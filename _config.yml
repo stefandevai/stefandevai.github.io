@@ -20,8 +20,6 @@ exclude:
  
 # Menu settings
 ordered_pages:
-  - proyectos
-  - textos
-  - contacto
-  - blog
+  - poesía
+  - sobre
 
