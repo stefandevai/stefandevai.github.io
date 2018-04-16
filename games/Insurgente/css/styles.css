@@ -1,0 +1,25 @@
+body
+{	
+	background-color: #1e1b1a;
+	margin: 0px auto 0 auto;
+	width: 80%;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+}
+
+.g-wrapper {
+	border-radius: 13px 13px 13px 13px;
+	-moz-border-radius: 13px 13px 13px 13px;
+	-webkit-border-radius: 13px 13px 13px 13px;
+
+	-webkit-box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:    5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+	box-shadow:         5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+
+	border: 10px solid #c6c0b9;
+	margin: 60px auto 60px auto;
+	width: 800px;
+	height: 512px;
+}
+

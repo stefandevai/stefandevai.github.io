@@ -1,0 +1,22 @@
+body
+{	
+	color: white;
+	background-color: #0e0d0d;
+	margin: 0 auto 0 auto;
+	width: 80%;
+}
+
+.wrapper {
+	border-radius: 13px 13px 13px 13px;
+	-moz-border-radius: 13px 13px 13px 13px;
+	-webkit-border-radius: 13px 13px 13px 13px;
+
+	-webkit-box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:    5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+	box-shadow:         5px 5px 3px 0px rgba(0, 0, 0, 0.3);
+
+	border: 10px solid #464141;
+	margin: 60px auto 60px auto;
+	width: 800px;
+	height: 512px;
+}
