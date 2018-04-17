@@ -1,3 +1,3 @@
 ---
-layout: en-projects
+layout: projects
 ---

@@ -4,11 +4,49 @@
   width: inherit
   min-height: 100vh
   background-image: url("/img/factory.jpg")
+  background-position: -50px 0
+  +breakpoint(sm)
+    background-image: url("/img/factory_flipped.jpg")
+    background-position: 0
   background-size: cover
   background-repeat: no-repeat
   background-attachment: fixed
 
 .heading
-  margin: 0
-  font-size: 3.6em
-  line-height: 1.2
+  width: 70%
+  margin: 120px auto
+
+  +breakpoint(sm)
+    width: 65%
+    text-align: left
+    margin: 60px auto
+
+  .heading-secondary
+    font-weight: 900
+    line-height: 1.5
+    font-style: italic
+
+    font-size: 0.7em
+    +breakpoint(sm)
+      font-size: 1.0em
+      padding-left: 10px
+      padding-right: 10px
+    +breakpoint(md)
+      font-size: 1.3em
+      padding-left: 15px
+      padding-right: 15px
+
+
+  .clase-obrera
+    font-family: $font-base
+    font-weight: 900
+
+    font-size: 2.0em
+    +breakpoint(sm)
+      font-size: 3.0em
+    +breakpoint(md)
+      font-size: 4.5em
+
+    line-height: 0.9
+    color: $color-branding
+    mix-blend-mode: multiply
