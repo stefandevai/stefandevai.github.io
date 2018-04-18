@@ -7,48 +7,22 @@
   background-position: -50px 0
   +breakpoint(sm)
     background-image: url("/img/factory_flipped.jpg")
-    background-position: center
-  background-size: cover
+    //background-position: center
+  //background-size: cover
   background-repeat: no-repeat
-  background-attachment: fixed
+  //background-attachment: fixed
+
+  -webkit-box-shadow: inset 0 -7px 28px -7px rgba(0,0,0,0.2)
+  -moz-box-shadow: inset 0 -7px 28px -7px rgba(0,0,0,0.2)
+  box-shadow: inset 0 -7px 28px -7px rgba(0,0,0,0.2)
 
 .heading
-  width: 70%
-  margin: 120px auto
+  width: 50%
+  margin: 0 auto 0 250px
+  font-weight: 900
 
-  +breakpoint(sm)
-    width: 65%
-    text-align: left
+  -webkit-transform: rotate(-90deg)
+  -moz-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
+  -o-transform: rotate(-90deg)
 
-  +breakpoint(md)
-    margin: 60px auto
-
-  .heading-secondary
-    font-weight: 900
-    line-height: 1.5
-    font-style: italic
-
-    font-size: 0.7em
-    +breakpoint(sm)
-      font-size: 1.0em
-      padding-left: 10px
-      padding-right: 10px
-    +breakpoint(md)
-      font-size: 1.3em
-      padding-left: 15px
-      padding-right: 15px
-
-
-  .clase-obrera
-    font-family: $font-base
-    font-weight: 900
-
-    font-size: 2.0em
-    +breakpoint(sm)
-      font-size: 3.0em
-    +breakpoint(md)
-      font-size: 4.5em
-
-    line-height: 0.9
-    color: $color-branding
-    mix-blend-mode: multiply
