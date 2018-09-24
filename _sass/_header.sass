@@ -23,9 +23,12 @@
     background-position: 0 -250px
     background-attachment: fixed
 
+.test-span
+  display: inline-block
 
 h1.heading
   font-family: $font-secondary
+  //position: relative
 
   font-size: 3.7em
   +breakpoint(md)
@@ -33,6 +36,37 @@ h1.heading
 
   font-weight: 100
   padding-top: 90px
+
+  span.name-title
+    -webkit-animation: reveal-title 1.3s ease
+    -moz-animation: reveal-title 1.3s ease
+    animation: reveal-title 1.3s ease
+
+    +breakpoint(sm)
+      +keyframes(reveal-title)
+        from
+          clip-path: inset(0 100% 0 0)
+        to
+          clip-path: inset(0 0 0 0)
+
+  span.right-bracket
+    -webkit-animation: slide-bracket 1.3s ease
+    -moz-animation: slide-bracket 1.3s ease
+    animation: slide-bracket 1.3s ease
+
+    +breakpoint(sm)
+      +keyframes(slide-bracket)
+        from
+          margin-left: -360px
+        to
+          margin-left: 0
+    +breakpoint(md)
+      +keyframes(slide-bracket)
+        from
+          margin-left: -600px
+        to
+          margin-left: 0
+
 
 .secondary-color
   font-weight: 700
@@ -60,24 +94,8 @@ h2.sub-heading
   -webkit-animation: gradient-animation 16s ease infinite
   -moz-animation: gradient-animation 16s ease infinite
   animation: gradient-animation 16s ease infinite
-
-  @-webkit-keyframes gradient-animation 
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
-  
-  @-moz-keyframes gradient-animation
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
  
-  @keyframes gradient-animation 
+  +keyframes(gradient-animation)
       0%
         background-position:  0% 97%
       50%
@@ -99,23 +117,7 @@ h2.sub-heading
   -moz-animation: gradient-animation 16s ease infinite
   animation: gradient-animation 16s ease infinite
 
-  @-webkit-keyframes gradient-animation 
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
-  
-  @-moz-keyframes gradient-animation
-      0%
-        background-position: 0% 97%
-      50%
-        background-position: 100% 4%
-      100%
-        background-position: 0% 97%
- 
-  @keyframes gradient-animation 
+  +keyframes(gradient-animation)
       0%
         background-position:  0% 97%
       50%
