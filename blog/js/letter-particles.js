@@ -89,5 +89,11 @@ class LetterParticlesGenerator {
   }
 }
 
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+if (isChrome) {
+  CSSPlugin.defaultForce3D = false;
+}
+
 var particlesGenerator1 = new LetterParticlesGenerator('particle-generator-1');
 var particlesGenerator2 = new LetterParticlesGenerator('particle-generator-2');
+
