@@ -67,6 +67,7 @@ class LetterParticlesGenerator {
       x: this.currentX,
       y: this.currentY,
       rotation: 0,
+      color: "#444",
       fontSize: `${fontSize}px`,
       opacity: 1
     });
@@ -77,6 +78,7 @@ class LetterParticlesGenerator {
       opacity: 0,
       fontSize: `${35}px`,
       rotation: rotation,
+      color: "#771f1f",
       onCompleteParams: [particle],
       onComplete: function(p) {
         p.isActive = false;
