@@ -16,8 +16,36 @@
   -moz-box-shadow: 0 -7px 28px -7px rgba(0,0,0,0.2)
   box-shadow: 0 -7px 28px -7px rgba(0,0,0,0.2)
 
+#line-1
+  animation: reveal .5s ease
+  animation-fill-mode: forwards
+  clip-path: inset(0 100% 0 0)
+
+#line-2
+  animation: reveal .5s ease
+  animation-delay: .5s
+  animation-fill-mode: forwards
+  clip-path: inset(0 100% 0 0)
+
+#line-3
+  animation: reveal .5s ease
+  animation-delay: 1s
+  animation-fill-mode: forwards
+  clip-path: inset(0 100% 0 0)
+
+#line-4
+  animation: reveal .5s ease
+  animation-delay: 1.5s
+  animation-fill-mode: forwards
+  clip-path: inset(0 100% 0 0)
+
++keyframes(reveal)
+  from
+    clip-path: inset(0 100% 0 0)
+  to
+    clip-path: inset(0 0 0 0)
+
 .heading
-  color: $color-branding
   width: 80%
   margin: 0 auto
   font-size: 1.7em 
@@ -50,5 +78,5 @@
   display: inline-block
   position: absolute
   opacity: 1
-  color: $color-base
+  color: $color-branding
 

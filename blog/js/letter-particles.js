@@ -16,7 +16,8 @@ class LetterParticlesGenerator {
   }
 
   setupEvent() {
-    window.addEventListener('load', this.onPageLoad.bind(this), false);
+    var lastLineElement = document.getElementById("line-4");
+    lastLineElement.addEventListener("animationend", this.beginGenerator.bind(this), false);
   }
 
   createParticles() {
@@ -28,7 +29,7 @@ class LetterParticlesGenerator {
     }
   }
 
-  onPageLoad(e) {
+  beginGenerator (e) {
     requestAnimationFrame(this.loop.bind(this));
   }
 
@@ -40,7 +41,7 @@ class LetterParticlesGenerator {
       this.particleCounter = 0;
     }
 
-    if (this.counter % 3 == 0 && !this.particles[this.particleCounter].isActive) {
+    if (this.counter % 7 == 0 && !this.particles[this.particleCounter].isActive) {
       this.animateParticle(this.particles[this.particleCounter]);
       this.particleCounter++;
     }
@@ -51,20 +52,21 @@ class LetterParticlesGenerator {
 
   animateParticle(particle) {
     particle.isActive = true;
-    var angle =  Math.random() * Math.PI/2;
+    var angle =  Math.random() * Math.PI/8 + Math.PI/4;
     var length = Math.random() * (180 - 100) + 250;
     var xpos = (Math.cos(angle) * length) + this.currentX;
     var ypos = (Math.sin(angle) * length) + this.currentY;
     var duration = Math.random() * (2.5 - 1.0) + 4;
 
     var letter = this.getRandomLetter();
-    var fontSize = Math.floor(Math.random() * (40 - 10) + 10);
-    var rotation = Math.floor(Math.random() * (1440 - 360) + 360);
+    var fontSize = 30;
+    var rotation = Math.floor(Math.random() * (135 - 90) + 90);
     particle.element.innerHTML = letter;
 
     TweenMax.set(particle.element, {
       x: this.currentX,
       y: this.currentY,
+      rotation: 0,
       fontSize: `${fontSize}px`,
       opacity: 1
     });
@@ -73,17 +75,17 @@ class LetterParticlesGenerator {
       x: xpos,
       y: ypos,
       opacity: 0,
+      fontSize: `${35}px`,
       rotation: rotation,
       onCompleteParams: [particle],
       onComplete: function(p) {
         p.isActive = false;
       },
     });
-
   }
 
   getRandomLetter() {
-    var letters = "REVOLUCION";
+    var letters = "NÓICULOVER";
     var letter = letters.charAt(this.particleCounter % letters.length);
     return letter;
   }

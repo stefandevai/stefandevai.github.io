@@ -29,3 +29,13 @@ $color-branding: #df4c4c
     @media(min-width: 576px)
       @content
 
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
