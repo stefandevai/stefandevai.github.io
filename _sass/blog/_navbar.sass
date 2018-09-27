@@ -27,16 +27,23 @@
       transition: all .3s
       box-sizing: border-box
       transform: rotate(135deg)
+      margin-top: 5px
 
     input[type="checkbox"]:checked ~ label > .diagonal:last-child
       transition: all .3s
       box-sizing: border-box
       transform: rotate(-135deg)
-      margin-top: -9px
-      
-      
+      margin-top: -8px
 
-
+    .hamburger-bg
+      background-color: $color-branding
+      position: absolute
+      top: 14px
+      right: 22px
+      height: 36px
+      width: 36px
+      border-radius: 50%
+      
     label
       transition: all .3s
       box-sizing: border-box
@@ -45,10 +52,10 @@
       z-index: 99
       height: 100%
       width: 100%
-      top: 22px
-      right: 15px
-      height: 22px
-      width: 22px
+      top: 25px
+      right: 30px
+      height: 20px
+      width: 20px
 
       div
         transition: all .3s
