@@ -3,9 +3,7 @@
 /*******************************/
 
 /********* FONTS *********/
-//@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,900,900i|Raleway:400,400i,900,900i')
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i,900,900i')
-//$font-heading: 'Noto Serif', serif
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700|Raleway:400,400i,700,700i,900,900i')
 $font-heading: 'PT Serif', serif
 $font-base: 'Raleway', sans-serif
 
@@ -15,9 +13,11 @@ $color-font-dark: $color-base
 $color-heading: #333
 $color-branding: #e83825
 
-/*******************************/
-/*********** MIXINS ************/
-/*******************************/
+/***** GENERAL STYLING ****/
+
+/**************************/
+/******** MIXINS **********/
+/**************************/
 =breakpoint($point)
   @if $point == lg
     @media(min-width: 992px)

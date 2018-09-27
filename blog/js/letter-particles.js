@@ -52,7 +52,8 @@ class LetterParticlesGenerator {
 
   animateParticle(particle) {
     particle.isActive = true;
-    var angle =  Math.random() * Math.PI/8 + Math.PI/4;
+    //var angle =  Math.random() * Math.PI/8 + Math.PI/4;
+    var angle =  Math.random() * Math.PI/8 + Math.PI/1.3;
     var length = Math.random() * (180 - 100) + 250;
     var xpos = (Math.cos(angle) * length) + this.currentX;
     var ypos = (Math.sin(angle) * length) + this.currentY;

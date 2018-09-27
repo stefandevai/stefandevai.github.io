@@ -3,66 +3,112 @@
   margin: 0
   width: inherit
   min-height: 100vh
-  background-color: $color-branding
+
+  display: grid
+  grid-template-columns: repeat(16, minmax(50px, 1fr))
+  grid-template-rows: repeat(9, minmax(50px, 1fr))
+  grid-template-areas: ". n n n n n n n n n n n n n n ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . t t t t t t t ." ". . p p p p p . t t t t t t t ." ". . . . . . . . t t t t t t t ."
+
+  nav
+    text-align: center
+    color: white
+    font-weight: 600
+    font-size: 0.8rem
+
+    grid-area: n
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    ul
+      list-style-type: none
+      display: flex
+      li
+        padding-left: 1rem
+
+  h1
+    grid-area: t
+    text-align: right
+    font-weight: 700
+    font-size: 6rem
+    line-height: 5.5rem
+
+  .background-layer
+    grid-column: 1 / -1
+    grid-row: 1 / span 8
+    background-color: $color-branding
 
 #line-1
+  opacity: 0
+  -webkit-animation: reveal .5s ease
+  -moz-animation: reveal .5s ease
   animation: reveal .5s ease
   animation-fill-mode: forwards
-  clip-path: inset(0 100% 0 0)
 
 #line-2
+  opacity: 0
+  -webkit-animation: reveal .5s ease
+  -moz-animation: reveal .5s ease
   animation: reveal .5s ease
   animation-delay: .5s
   animation-fill-mode: forwards
-  clip-path: inset(0 100% 0 0)
 
 #line-3
+  opacity: 0
+  -webkit-animation: reveal .5s ease
+  -moz-animation: reveal .5s ease
   animation: reveal .5s ease
   animation-delay: 1s
   animation-fill-mode: forwards
-  clip-path: inset(0 100% 0 0)
 
 #line-4
+  opacity: 0
+  -webkit-animation: reveal .5s ease
+  -moz-animation: reveal .5s ease
   animation: reveal .5s ease
   animation-delay: 1.5s
   animation-fill-mode: forwards
-  clip-path: inset(0 100% 0 0)
 
 +keyframes(reveal)
   from
-    clip-path: inset(0 100% 0 0)
+    opacity: 0
   to
-    clip-path: inset(0 0 0 0)
+    opacity: 1
 
-.heading
-  width: 80%
-  margin: 0 auto
-  font-size: 1.7em 
+.poem
+  grid-area: p
+  position: relative
+
+  margin: 0
+  font-weight: 400
+  font-family: $font-heading
+  color: $color-heading
+
+  font-size: 1.5rem 
   font-weight: 900
   color: white
 
-  div.paragraph-wrapper
-    margin-bottom: 90px
-    margin-top: 60px
-    -webkit-transform: rotate(-90deg)
-    -moz-transform: rotate(-90deg)
-    -ms-transform: rotate(-90deg)
-    -o-transform: rotate(-90deg)
+  p
+    margin: 0
 
-  +breakpoint(md)
-    width: 50%
-    margin: 0 auto 0 250px
-    -webkit-transform: rotate(-90deg)
-    -moz-transform: rotate(-90deg)
-    -ms-transform: rotate(-90deg)
-    -o-transform: rotate(-90deg)
+  .paragraph-1, .paragraph-2
+    position: absolute
+    margin: 0
+    -webkit-transform: rotate(-180deg)
+    -moz-transform: rotate(-180deg)
+    -ms-transform: rotate(-180deg)
+    transform: rotate(-180deg)
+    writing-mode: vertical-rl
 
-    div.paragraph-wrapper
-      margin-top: 0
-      -webkit-transform: rotate(0deg)
-      -moz-transform: rotate(0deg)
-      -ms-transform: rotate(0deg)
-      -o-transform: rotate(0deg)
+  .paragraph-1
+    bottom: 0
+    left: 0
+
+  .paragraph-2
+    bottom: 0
+    right: 20%
+
     
 .letter-particle
   display: inline-block
