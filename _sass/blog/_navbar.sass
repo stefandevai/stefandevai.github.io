@@ -1,0 +1,91 @@
+.m-header
+  nav
+    position: fixed
+    text-align: center
+    color: white
+    font-weight: 600
+    font-size: 0.8rem
+    width: 100%
+    background-color: $color-branding
+    z-index: 9
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    input[type="checkbox"] 
+      transition: all .3s
+      box-sizing: border-box
+      display: none
+
+    input[type="checkbox"]:checked ~ label > .horizontal
+      transition: all .3s
+      box-sizing: border-box
+      opacity: 0
+
+    input[type="checkbox"]:checked ~ label > .diagonal:first-child
+      transition: all .3s
+      box-sizing: border-box
+      transform: rotate(135deg)
+
+    input[type="checkbox"]:checked ~ label > .diagonal:last-child
+      transition: all .3s
+      box-sizing: border-box
+      transform: rotate(-135deg)
+      margin-top: -9px
+      
+      
+
+
+    label
+      transition: all .3s
+      box-sizing: border-box
+      cursor: pointer
+      position: absolute
+      z-index: 99
+      height: 100%
+      width: 100%
+      top: 22px
+      right: 15px
+      height: 22px
+      width: 22px
+
+      div
+        transition: all .3s
+        box-sizing: border-box
+        position: absolute
+        height: 3px
+        width: 100%
+        background-color: #fff
+
+      .horizontal
+        transition: all .3s
+        box-sizing: border-box
+        position: relative
+        float: right
+        margin-top: 3px
+
+      .diagonal:first-child
+        transition: all .3s
+        box-sizing: border-box
+        position: relative
+        float: right
+
+      .diagonal:last-child
+        transition: all .3s
+        box-sizing: border-box
+        position: relative
+        float: right
+        margin-top: 3px
+        
+    .logo
+      padding-left: 2rem
+
+    ul
+      list-style-type: none
+      display: flex
+      li
+        padding-right: 1rem
+      li:last-child
+        padding-right: 2rem
+

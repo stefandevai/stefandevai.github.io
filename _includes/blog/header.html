@@ -2,24 +2,33 @@
   <div class="background-layer">
   </div>
   <nav>
-    <div class="logo"><a href="#">SD</a></div>
-    <ul>
-      <li><a href="#">LEER</a></li>
-      <li><a href="#">CATEGORÍAS</a></li>
-      <li><a href="#">SOBRE</a></li>
-    </ul>
+    {% comment %}<div class="logo"><a href="/">Stefan Dévai</a></div>{% endcomment %}
+    <div class="menu">
+      <input type="checkbox" class="open-menu" id="open-menu">
+      <label for="open-menu">
+        <div class="diagonal"></div>
+        <div class="horizontal"></div>
+        <div class="diagonal"></div>
+      </label>
+    </div>
+
+    {% comment %}<ul>{% endcomment %}
+      {% comment %}<li><a href="#posts">LEER</a></li>{% endcomment %}
+      {% comment %}<li><a href="#">CATEGORÍAS</a></li>{% endcomment %}
+      {% comment %}<li><a href="#">SOBRE</a></li>{% endcomment %}
+    {% comment %}</ul>{% endcomment %}
   </nav>
 
-  <div class="poem">
+  <div class="poem" id="poem">
 
-    <p class="paragraph-1" id="p1">
+    <p class="paragraph-1">
       <span id="line-1">Si la</span><br>
       <span id="line-2">clase</span><br>
       <span id="line-3">obrera</span><br>
       <span id="line-4">todo lo produce,</span><span id="particle-generator-1"></span>
     </p>
 
-    <p class="paragraph-2" id="p2">
+    <p class="paragraph-2">
       <span id="line-1">a la</span><br>
       <span id="line-2">clase</span><br>
       <span id="line-3">obrera</span><br>
@@ -28,6 +37,6 @@
 
   </div>
 
-  <h1>Axiomas<br>Extranjeros</h1>
+  <h1 id="blog-title">Axiomas<br>Extranjeros</h1>
 </header>
 
