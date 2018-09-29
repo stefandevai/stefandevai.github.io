@@ -1,23 +1,28 @@
 <section class="posts" id="posts">
+  <h2>Últimos posts</h2>
+
   {% for post in site.posts %}
     <article class="blog-post">
 
       <a class="post-link" href="{{ post.url }}">
       </a>
 
-      <h2 class="post-title">
+      <div class="post-date">
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+      </div>
+
+      <h3 class="post-title">
         <a href="{{ post.url }}">
           <span class="highlight-text">
             {{ post.title }}
           </span>
         </a>
-      </h2>
+      </h3>
+
+      <p class="post-content-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 
       <img class="post-thumbnail" src="https://ae01.alicdn.com/kf/HTB1PJM4NVXXXXcYXVXXq6xXFXXXk/photo-wallpaper-modern-art-Galactic-cosmic-sky-zenith-3d-nebula-mural-bedroom-living-room-large-mural.jpg_640x640.jpg" alt="">
 
-      <div class="post-info">
-        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-      </div>
 
 
     </article>
