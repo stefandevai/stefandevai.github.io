@@ -1,6 +1,4 @@
 <section class="posts" id="posts">
-  <h2>Últimos posts</h2>
-
   {% for post in site.posts %}
     <article class="blog-post">
 
@@ -8,22 +6,21 @@
       </a>
 
       <div class="post-date">
-        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: '%d.%m.%Y' }}</time>
       </div>
 
       <h3 class="post-title">
-        <a href="{{ post.url }}">
-          <span class="highlight-text">
-            {{ post.title }}
+          <span>
+            <a href="{{ post.url }}">
+                {{ post.title }}
+            </a>
           </span>
-        </a>
       </h3>
 
-      <p class="post-content-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <p class="post-content-preview"> {{ post.excerpt | strip_html | truncatewords:45 }} </p>
+      <a class="post-read-more" href="{{ post.url }}">Leer</a> 
 
-      <img class="post-thumbnail" src="https://ae01.alicdn.com/kf/HTB1PJM4NVXXXXcYXVXXq6xXFXXXk/photo-wallpaper-modern-art-Galactic-cosmic-sky-zenith-3d-nebula-mural-bedroom-living-room-large-mural.jpg_640x640.jpg" alt="">
-
-
+      <div class="post-thumbnail"><img src="{{ post.img }}" alt=""></img></div>
 
     </article>
   {% endfor %}

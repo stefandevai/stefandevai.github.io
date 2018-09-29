@@ -2,7 +2,6 @@
 layout: post
 title: "Huelga general brasileña"
 img: "img/posts/28042017.jpg"
-img-creadits: "Werther Santana/Estadão Conteúdo"
 ---
 
 Hoy, 28 de abril, es un día histórico para la lucha de clases en Brasil: máquinas fuera de servicio, herramientas en sus gabinetes, calderas apagadas, micros y tractores en el estacionamiento, ferrocarriles silenciosos, azadones en un rincón y libros cerrados por todo el país. Una histórica huelga general se levanta a partir de la movilización de las masas trabajadoras de 9 centrales sindicales (más de 92 categorías de trabajo sólo en São Paulo), campesinos, estudiantes, intelectuales y otros movimientos sociales.
