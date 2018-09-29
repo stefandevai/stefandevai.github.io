@@ -4,7 +4,7 @@ var title = document.getElementById("blog-title");
 var poem = document.getElementById("poem");
 
 function parallax(e) {
-  applyParallax(title, -.5);
+  applyParallax(title, -.2);
   applyParallax(poem, .2);
   requestAnimationFrame(parallax);
 }
