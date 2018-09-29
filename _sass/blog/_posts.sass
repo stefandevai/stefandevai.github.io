@@ -9,7 +9,7 @@
 article.blog-post
   display: grid
   grid-template-columns: repeat(8, 1fr)
-  grid-template-rows: repeat(5, $base-pixel-unit*3) minmax($base-pixel-unit*4, 1fr) $base-pixel-unit*3
+  grid-template-rows: repeat(5, $base-pixel-unit*4) minmax($base-pixel-unit*4, 1fr) $base-pixel-unit*3
 
   a.post-link
     z-index: 5
@@ -64,6 +64,7 @@ article.blog-post
 
   p.post-content-preview
     grid-column: 2 / 8
+    color: $color-p
 
   .post-date
     clip-path: inset(100% 0 100% 0)

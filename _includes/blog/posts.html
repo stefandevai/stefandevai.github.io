@@ -17,7 +17,7 @@
           </span>
       </h3>
 
-      <p class="post-content-preview"> {{ post.excerpt | strip_html | truncatewords:45 }} </p>
+      <p class="post-content-preview"><em> {{ post.excerpt | strip_html | truncatewords:44 }} </em></p>
       <a class="post-read-more" href="{{ post.url }}">Leer</a> 
 
       <div class="post-thumbnail"><img src="{{ post.img }}" alt=""></img></div>
