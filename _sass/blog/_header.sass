@@ -4,31 +4,52 @@
   overflow: hidden
   margin: 0
   width: inherit
-  min-height: 100vh
+  height: 100vh
 
   display: grid
-  grid-template-columns: repeat(16, minmax($base-pixel-unit*3, 1fr))
-  grid-template-rows: repeat(9, minmax($base-pixel-unit*3, 1fr))
-  grid-template-areas: ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . t t t t t t t ." ". . p p p p p . t t t t t t t ." ". . . . . . . . t t t t t t t ."
+  grid-template-columns: $base-pixel-unit*4 repeat(2, minmax($base-pixel-unit*2, 1fr)) $base-pixel-unit*4
+  +breakpoint(sm)
+    grid-template-columns: repeat(4, minmax($base-pixel-unit*2, 1fr))
+  grid-template-rows: repeat(5, minmax($base-pixel-unit, 1fr))
+  grid-template-areas: ". . . ." ". p p ." ". p p ." ". . . ." ". t t ."
+  //grid-template-areas: ". . . ." ". p p ." ". p p ." ". t t ." 
+
+  +breakpoint(lg)
+    grid-template-columns: repeat(16, minmax($base-pixel-unit*3, 1fr))
+    grid-template-rows: repeat(9, minmax($base-pixel-unit*3, 1fr))
+    grid-template-areas: ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . . . . . . . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . . . . . . . . ." ". . p p p p p . t t t t t t t ." ". . p p p p p . t t t t t t t ." ". . . . . . . . t t t t t t t ."
 
   h1
     grid-area: t
 
     display: flex
     align-items: center
-    justify-content: flex-end
+    justify-content: center
 
-    text-align: right
+    font-size: 2.3rem
+    line-height: 2.3rem
     font-weight: 700
-    font-size: calc(50px + 6.25vh)
-    line-height: calc(50px + 5vh)
-    //font-size: 6rem
-    //line-height: 5.5rem
+    text-align: center
+
+    +breakpoint(sm)
+      font-size: calc(50px + 3.25vh)
+      line-height: calc(50px + 3vh)
+
+    +breakpoint(md)
+      align-items: flex-end
+      justify-content: flex-end
+      text-align: right
+      font-size: calc(50px + 6.25vh)
+      line-height: calc(50px + 5vh)
 
   .background-layer
-    grid-column: 1 / -1
-    grid-row: 1 / span 8
     background-color: $color-branding
+    grid-column: 1 / -1
+    grid-row: 1 / -1
+
+    +breakpoint(lg)
+      grid-column: 1 / -1
+      grid-row: 1 / span 8
 
 #line-1
   opacity: 0
@@ -76,32 +97,56 @@
   font-family: $font-heading
   color: white
 
-  font-size: 1.5rem 
+  font-size: 1.3rem 
+  line-height: 1.5rem
   font-weight: 900
+
+  +breakpoint(sm)
+    font-size: 1.5rem 
 
   p
     margin: 0
 
   .paragraph-1, .paragraph-2
     position: absolute
-    margin: 0
-    -webkit-transform: rotate(-180deg)
-    -moz-transform: rotate(-180deg)
-    -ms-transform: rotate(-180deg)
-    transform: rotate(-180deg)
-    writing-mode: vertical-rl
+    +breakpoint(smd)
+      margin: 0
+      -webkit-transform: rotate(-180deg)
+      -moz-transform: rotate(-180deg)
+      -ms-transform: rotate(-180deg)
+      transform: rotate(-180deg)
+      writing-mode: vertical-rl
 
   .paragraph-1
-    bottom: 0
     left: 0
+    top: 0
+
+    +breakpoint(smd)
+      top: auto
+      bottom: 0
 
   .paragraph-2
     bottom: 0
-    right: 20%
+    left: 0
+
+    +breakpoint(smd)
+      left: auto
+      right: 0
+
+    +breakpoint(lg)
+      right: 20%
 
     
 .letter-particle
-  display: inline-block
-  position: absolute
-  opacity: 1
+  display: none
+
+  +breakpoint(md)
+    display: inline-block
+    position: absolute
+    opacity: 1
+
+  +breakpoint(lg)
+    display: inline-block
+    position: absolute
+    opacity: 1
 

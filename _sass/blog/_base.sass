@@ -12,8 +12,6 @@ $color-base: #333
 $color-p: lighten($color-base, 15%)
 $color-font-dark: $color-base
 $color-heading: #333
-//$color-branding: #e83825
-//$color-branding: #E82536
 $color-branding: #FC333B
 $color-hla: #FDF94C
 
@@ -26,13 +24,16 @@ $footer-height: $base-pixel-unit * 3
 /**************************/
 =breakpoint($point)
   @if $point == lg
-    @media(min-width: 992px)
+    @media(min-width: 1025px)
       @content
   @else if $point == md
-    @media(min-width: 768px)
+    @media(min-width: 799px)
+      @content
+  @else if $point == smd
+    @media(min-width: 522px)
       @content
   @else if $point == sm
-    @media(min-width: 576px)
+    @media(min-width: 435px)
       @content
 
 =keyframes($name)
