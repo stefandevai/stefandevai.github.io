@@ -9,16 +9,18 @@
         <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: '%d.%m.%Y' }}</time>
       </div>
 
-      <h3 class="post-title">
-          <span>
-            <a href="{{ post.url }}">
-                {{ post.title }}
-            </a>
-          </span>
-      </h3>
+      <div class="post-info">
+        <h3 class="post-title">
+            <span>
+              <a href="{{ post.url }}">
+                  {{ post.title }}
+              </a>
+            </span>
+        </h3>
 
-      <p class="post-content-preview"><em> {{ post.excerpt | strip_html | truncatewords:44 }} </em></p>
-      <a class="post-read-more" href="{{ post.url }}">Leer</a> 
+        <p class="post-content-preview"><em> {{ post.excerpt | strip_html | truncatewords:44 }} </em></p>
+        <a class="post-read-more" href="{{ post.url }}">Leer</a> 
+      </div>
 
       <div class="post-thumbnail"><img src="{{ post.img }}" alt=""></img></div>
 
