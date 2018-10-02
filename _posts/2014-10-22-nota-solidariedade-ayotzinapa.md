@@ -3,7 +3,7 @@ layout: post
 title: "Aos estudantes de Ayotzinapa"
 type: "nota"
 language: "português"
-description: "Nota de solidariedade aos estudantes de Ayotzinapa no México."
+description: "Nota em solidariedade aos estudantes sequestrados em Ayotzinapa, México."
 img: "img/posts/20141022.jpg"
 img-creadits: "Yuri Cortéz/AFP"
 ---

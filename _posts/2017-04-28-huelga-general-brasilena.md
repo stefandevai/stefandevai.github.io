@@ -3,7 +3,7 @@ layout: post
 title: "Huelga general brasileña"
 type: "nota"
 language: "español"
-description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
+description: "Nota sobre la huelga general del 28 de abril de 2017 en Brasil."
 img: "img/posts/28042017.jpg"
 img-creadits: "Werther Santana/Estadão Conteúdo"
 ---

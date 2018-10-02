@@ -3,7 +3,7 @@ layout: post
 title: "Pelegrino: um marreco que não voa"
 type: "microcuento"
 language: "português"
-description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
+description: "Sou um marreco mas não voo. Nos amenos dias de minha infância nadava serenamente..."
 img: "img/posts/20140419.jpg"
 img-creadits: "https://unsplash.com/@shwetha"
 ---
