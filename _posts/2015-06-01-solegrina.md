@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Solegrina"
+type: "poema"
+language: "português"
 description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
 img: "img/posts/20150601.jpg"
 img-creadits: "https://unsplash.com/@sh_sumon"

@@ -14,6 +14,9 @@
           </h3>
 
           <div class="post-meta">
+            <span class="post-type">{{ post.type }} |</span>
+            <span class="post-language">{{ post.language }}</span>
+            <br>
             <em>
               <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: '%d.%m.%Y' }}</time>
             </em>

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Fauna: abelhas operárias"
+type: "microcuento"
+language: "português"
 description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
 img: "img/posts/20140603.jpg"
 img-creadits: "honeycolony.com"

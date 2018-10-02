@@ -1,98 +1,97 @@
-.m-header
-  nav
-    position: fixed
-    text-align: center
-    color: white
-    font-weight: 600
-    font-size: 0.8rem
-    width: 100%
+nav.m-nav
+  position: fixed
+  text-align: center
+  color: white
+  font-weight: 600
+  font-size: 0.8rem
+  width: 100%
+  background-color: $color-branding
+  z-index: 9
+
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  input[type="checkbox"] 
+    transition: all .3s
+    box-sizing: border-box
+    display: none
+
+  input[type="checkbox"]:checked ~ label > .horizontal
+    transition: all .3s
+    box-sizing: border-box
+    opacity: 0
+
+  input[type="checkbox"]:checked ~ label > .diagonal:first-child
+    transition: all .3s
+    box-sizing: border-box
+    transform: rotate(135deg)
+    margin-top: 6px
+
+  input[type="checkbox"]:checked ~ label > .diagonal:last-child
+    transition: all .3s
+    box-sizing: border-box
+    transform: rotate(-135deg)
+    margin-top: -9px
+
+  .hamburger-bg
     background-color: $color-branding
-    z-index: 9
+    border-radius: 2px
+    position: absolute
+    top: 12px
+    right: 20px
+    height: 40px
+    width: 40px
+    
+  label
+    transition: all .3s
+    box-sizing: border-box
+    cursor: pointer
+    position: absolute
+    z-index: 99
+    height: 100%
+    width: 100%
+    top: 25px
+    right: 30px
+    height: 20px
+    width: 20px
 
-    display: flex
-    align-items: center
-    justify-content: space-between
-
-    input[type="checkbox"] 
+    div
       transition: all .3s
       box-sizing: border-box
-      display: none
-
-    input[type="checkbox"]:checked ~ label > .horizontal
-      transition: all .3s
-      box-sizing: border-box
-      opacity: 0
-
-    input[type="checkbox"]:checked ~ label > .diagonal:first-child
-      transition: all .3s
-      box-sizing: border-box
-      transform: rotate(135deg)
-      margin-top: 6px
-
-    input[type="checkbox"]:checked ~ label > .diagonal:last-child
-      transition: all .3s
-      box-sizing: border-box
-      transform: rotate(-135deg)
-      margin-top: -9px
-
-    .hamburger-bg
-      background-color: $color-branding
-      border-radius: 2px
       position: absolute
-      top: 12px
-      right: 20px
-      height: 40px
-      width: 40px
-      
-    label
-      transition: all .3s
-      box-sizing: border-box
-      cursor: pointer
-      position: absolute
-      z-index: 99
-      height: 100%
+      height: 3px
       width: 100%
-      top: 25px
-      right: 30px
-      height: 20px
-      width: 20px
+      background-color: white
 
-      div
-        transition: all .3s
-        box-sizing: border-box
-        position: absolute
-        height: 3px
-        width: 100%
-        background-color: white
+    .horizontal
+      transition: all .3s
+      box-sizing: border-box
+      position: relative
+      float: right
+      margin-top: 3px
 
-      .horizontal
-        transition: all .3s
-        box-sizing: border-box
-        position: relative
-        float: right
-        margin-top: 3px
+    .diagonal:first-child
+      transition: all .3s
+      box-sizing: border-box
+      position: relative
+      float: right
 
-      .diagonal:first-child
-        transition: all .3s
-        box-sizing: border-box
-        position: relative
-        float: right
+    .diagonal:last-child
+      transition: all .3s
+      box-sizing: border-box
+      position: relative
+      float: right
+      margin-top: 3px
+      
+  .logo
+    padding-left: 2rem
 
-      .diagonal:last-child
-        transition: all .3s
-        box-sizing: border-box
-        position: relative
-        float: right
-        margin-top: 3px
-        
-    .logo
-      padding-left: 2rem
-
-    ul
-      list-style-type: none
-      display: flex
-      li
-        padding-right: 1rem
-      li:last-child
-        padding-right: 2rem
+  ul
+    list-style-type: none
+    display: flex
+    li
+      padding-right: 1rem
+    li:last-child
+      padding-right: 2rem
 
