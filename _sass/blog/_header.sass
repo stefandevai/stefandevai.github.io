@@ -8,6 +8,7 @@
 
   display: grid
   grid-template-columns: $base-pixel-unit*4 repeat(2, minmax($base-pixel-unit*2, 1fr)) $base-pixel-unit*4
+
   +breakpoint(sm)
     grid-template-columns: repeat(4, minmax($base-pixel-unit*2, 1fr))
   grid-template-rows: repeat(5, minmax($base-pixel-unit, 1fr))
@@ -25,8 +26,8 @@
     align-items: center
     justify-content: center
 
-    font-size: 2.3rem
-    line-height: 2.3rem
+    font-size: 2.9rem
+    line-height: 2.9rem
     font-weight: 700
     text-align: center
 
@@ -43,8 +44,13 @@
 
   .background-layer
     background-color: $color-branding
+
     grid-column: 1 / -1
-    grid-row: 1 / -1
+    grid-row: 1 / span 4
+
+    +breakpoint(sm)
+      grid-column: 1 / -1
+      grid-row: 1 / -1
 
     +breakpoint(lg)
       grid-column: 1 / -1
