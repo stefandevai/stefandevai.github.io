@@ -1,125 +1,96 @@
 .posts
-  margin: $base-pixel-unit*4 0 $base-pixel-unit*4 0
+  margin: $base-pixel-unit*4 0 0  0
   +breakpoint(lg)
-    margin: $base-pixel-unit 0 $base-pixel-unit*4 0
+    margin: $base-pixel-unit $base-pixel-unit
 
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
-  +breakpoint(sm)
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr))
-  +breakpoint(md)
-    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr))
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr))
 
-  grid-column-gap: $base-pixel-unit
-  grid-row-gap: $base-pixel-unit*3
+  grid-column-gap: 7px
+  grid-row-gap: 7px
 
-article.blog-post
-  display: grid
-  grid-template-columns: repeat(8, 1fr)
-  grid-template-rows: repeat(5, $base-pixel-unit*5) minmax($base-pixel-unit*4, 1fr) $base-pixel-unit*3
+.blog-post:hover
+  background-color: #ddd
 
-  a.post-link
-    z-index: 5
-    grid-column: 1 / -1
-    grid-row: 1 / span 4
+.blog-post
+  background-color: #eee
+  -webkit-transition: all .3s
+  transition: all .3s
+  border-radius: 3px
 
-  a.post-link:hover ~ .post-thumbnail > img
-    -webkit-filter: none
-    filter: none
+  article
+    display: grid
+    grid-template-columns: repeat(8, 1fr)
+    grid-template-rows: repeat(7, $base-pixel-unit*5) 
 
-  a.post-link:hover ~ div.post-date
-    -webkit-animation: reveal-thumb .5s ease
-    -moz-animation: reveal-thumb .5s ease
-    animation: reveal-thumb .5s ease
-    clip-path: inset(0 0 0 0)
+    .post-link
+      z-index: 5
+      grid-column: 1 / -1
+      grid-row: 1 / -1
+
+    .post-link:hover ~ .post-info
+      -webkit-box-shadow: 3px 3px 25px 3px rgba(0,0,0,0.1)
+      -moz-box-shadow: 3px 3px 25px 3px rgba(0,0,0,0.1)
+      box-shadow: 3px 3px 25px 3px rgba(0,0,0,0.1)
+
+    .post-link:hover ~ .post-thumbnail > img
+      -webkit-filter: none
+      filter: none
+
+      -webkit-transform: scale(1.05)
+      transform: scale(1.05)
     
   div.post-thumbnail
     z-index: 1
     grid-column: 1 / -1
     grid-row: 1 / 5
+    overflow: hidden
     img
       width: 100%
       height: 100%
       object-fit: cover
-      -webkit-filter: grayscale(100%)
+
+      -webkit-filter: grayscale(100%) brightness(150%)
       filter: grayscale(100%) brightness(150%)
 
-      -webkit-transition: -webkit-filter .3s
-      transition: -webkit-filter .3s
-      -webkit-transition: filter .3s
-      transition: filter .3s
+      transition: all 1s
 
   div.post-info
+    padding-right: $base-pixel-unit*2
+    padding-left: $base-pixel-unit*2
+    padding-top: $base-pixel-unit*2
+    padding-bottom: $base-pixel-unit
+
     background-color: white
     z-index: 2
     grid-column: 2 / 8
-    grid-row: 4 / -1
+    grid-row: 4 / 7
 
-  h3
-    grid-column: 2 / 8
-    grid-row: 4 / 6
+    border-radius: 3px
+    -webkit-transition: all .6s
+    transition: all .6s
 
     display: flex
-    align-items: center
-    justify-content: center
-    text-align: center
+    flex-direction: column
 
-    +breakpoint(smd)
-      text-align: left
-      justify-content: flex-start
+  h3
+    font-family: $font-base
+    text-align: left
 
     z-index: 2
-    font-size: 1.6rem
+    font-size: 1.2rem
     font-weight: bold
     color: $color-heading
-
-    a
-      background-color: $color-hla
 
     a:hover
       text-decoration: underline
 
-  p.post-content-preview
-    grid-column: 2 / 8
+  .post-meta
+    font-size: 0.8rem
+    margin-top: 5px
     color: $color-p
 
-  .post-date
-    clip-path: inset(100% 0 100% 0)
-    z-index: 2
-    grid-column: 1 / -1
-    grid-row: 1 / span 4
-
-    color: white
-    font-weight: bold
-    font-style: italic
-    font-size: 2.3rem
-    background-color: black
-    opacity: 0.7
-    -webkit-transition: clip-path .2s
-    transition: clip-path .2s
-
-    display: flex
-    justify-content: center
-    align-items: center
-
-  .post-read-more
-    grid-column: 2 / span 2
-    display: flex
-    justify-content: center
-    align-items: center
-
-    text-transform: uppercase
-    font-weight: bold
-    font-size: 0.8rem
-    color: $color-base
-    background-color: lighten($color-base, 60%)
-    border-bottom: 2px solid lighten($color-base, 40%)
-    border-radius: 3px
-
-    -webkit-transition: all .3s
-    transition: all .3s
-
-  .post-read-more:hover
-    background-color: lighten($color-base, 45%)
-    border-bottom: 2px solid lighten($color-base, 30%)
+  .post-content-preview
+    font-size: 0.9rem
+    margin: auto 0
 

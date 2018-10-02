@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "La batalla en el campo de fresas: producción y conflicto en San Quintín"
+title: "Batalla en el campo de fresas"
+description: "Análisis del Conflicto en la producción de fresas en San Quintín"
 img: "img/posts/20180108.jpg"
 img-creadits: "https://unsplash.com/@barrymcgee"
 ---

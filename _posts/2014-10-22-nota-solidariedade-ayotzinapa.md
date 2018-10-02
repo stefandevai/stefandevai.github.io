@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Nota de Solidariedade aos estudantes de Ayotzinapa"
+title: "Aos estudantes de Ayotzinapa"
+description: "Nota de solidariedade aos estudantes de Ayotzinapa no México."
 img: "img/posts/20141022.jpg"
 img-creadits: "Yuri Cortéz/AFP"
 ---

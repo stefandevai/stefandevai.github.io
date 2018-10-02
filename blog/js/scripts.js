@@ -6,6 +6,7 @@ var poem = document.getElementById("poem");
 function parallax(e) {
   applyParallax(title, -.2);
   applyParallax(poem, .2);
+
   requestAnimationFrame(parallax);
 }
 

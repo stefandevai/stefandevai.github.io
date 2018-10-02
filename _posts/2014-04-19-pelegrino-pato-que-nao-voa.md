@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Pelegrino: um marreco que não voa"
+description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
 img: "img/posts/20140419.jpg"
 img-creadits: "https://unsplash.com/@shwetha"
 ---

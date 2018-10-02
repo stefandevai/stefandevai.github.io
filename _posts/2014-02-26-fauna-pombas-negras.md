@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Fauna: Pombas Negras"
+description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
 img: "img/posts/20140226.jpg"
 img-creadits: "https://unsplash.com/@dbruyter"
 ---

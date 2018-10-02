@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Fauna: abelhas operárias"
+description: "Descripción prueba para poner en la página por eso ando escribiendo cualquier cosa."
 img: "img/posts/20140603.jpg"
 img-creadits: "honeycolony.com"
 ---
