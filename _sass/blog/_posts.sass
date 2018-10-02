@@ -1,13 +1,13 @@
 .posts
   margin: $base-pixel-unit*4 0 0  0
   +breakpoint(lg)
-    margin: $base-pixel-unit $base-pixel-unit
+    margin: $base-pixel-unit/2 $base-pixel-unit
 
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr))
 
-  grid-column-gap: 7px
-  grid-row-gap: 7px
+  grid-column-gap: $base-pixel-unit/2
+  grid-row-gap: $base-pixel-unit/2
 
 .blog-post:hover
   background-color: #ddd
