@@ -1,12 +1,44 @@
-.bg-wrapper-home
+.video-container
+  z-index: -1
+  position: absolute
+  right: 0
+  bottom: 0
+  width: 100%
   height: 100%
-  min-height: 100%
+  overflow: hidden
   background: url("../img/factory3-sm.jpg")
   +breakpoint(md)
     background: url("../img/factory3.jpg")
 
   background-size: cover
-  background-repeat: no-repeat
+  background-repeat: repeat
+
+
+  video
+    pointer-events: none
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+
+    position: fixed
+    top: 50%
+    left: 50%
+
+    transform: translate(-45%, -40%)
+    +breakpoint(md)
+      transform: translate(-60%, -48%)
+
+//.bg-wrapper-home
+  //z-index: -2 !important
+  //height: 100%
+  //min-height: 100%
+  //background: url("../img/factory3-sm.jpg")
+  //+breakpoint(md)
+    //background: url("../img/factory3.jpg")
+
+  //background-size: cover
+  //background-repeat: no-repeat
 
 .bg-wrapper
   height: 100%
@@ -37,8 +69,8 @@ h1.heading
   padding-top: 90px
 
   span.name-title
-    //-webkit-animation: reveal-title 1.3s ease
-    //-moz-animation: reveal-title 1.3s ease
+    -webkit-animation: reveal-title 1.3s ease
+    -moz-animation: reveal-title 1.3s ease
     animation: reveal-title 1.3s ease
 
     +breakpoint(sm)
@@ -49,8 +81,8 @@ h1.heading
           clip-path: inset(0 0 0 0)
 
   span.right-bracket
-    //-webkit-animation: slide-bracket 1.3s ease-in
-    //-moz-animation: slide-bracket 1.3s ease-in
+    -webkit-animation: slide-bracket 1.3s ease-in
+    -moz-animation: slide-bracket 1.3s ease-in
     animation: slide-bracket 1.3s ease
 
     +breakpoint(sm)
@@ -106,6 +138,7 @@ h2.sub-heading
   height: 100%
   min-height: 100%
 
+  background-blend-mode: multiply
   background: -webkit-linear-gradient(190deg, $color-gradient1, $color-gradient2)
   background: linear-gradient(190deg, $color-gradient1, $color-gradient2)
   background-repeat: no-repeat

@@ -8,5 +8,7 @@
 //}
 
 $(document).ready(function () {
-  $('div.page-wrapper').fadeIn(1000);
+  $('video.factory-video').fadeIn(2000);
+  $('h2.sub-heading').fadeIn(1000);
+  $('footer').fadeIn(1000);
 });
