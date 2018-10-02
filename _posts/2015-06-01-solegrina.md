@@ -38,9 +38,9 @@ E dentre os céus<br>
 o séquito das vozes mais graves<br>
 com sinos de bronze nas mãos<br>
 entoa em negras frequências:<br>
-"De profundis clamavi ad te, Domine;<br>
+*"De profundis clamavi ad te, Domine;<br>
 Domine, exaudi vocem meam.<br>
-De profundis clamavi ad te, Domine…"<br>
+De profundis clamavi ad te, Domine…"*<br>
 A partir dessa fúnebre melodia<br>
 águas negras proliferam da noite,<br>
 agitam-se,<br>
