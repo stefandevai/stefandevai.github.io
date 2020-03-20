@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/SEO"
 import indexStyles from "./styles/index.module.sass"
-import {Helmet} from "react-helmet"
 
 const BlogIntro = props => {
   return (
@@ -32,11 +32,7 @@ const BlogPreview = props => {
 export default ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{data.site.siteMetadata.title}</title>
-        <link rel="canonical" href="https://stefandevai.me/" />
-      </Helmet>
+      <SEO titleTemplate={`%s`}/>
       <div>
         <BlogIntro
           title={data.site.siteMetadata.title}

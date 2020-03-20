@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Historical Bits`,
+    titleTemplate: `%s | Historical Bits`,
     author: `Stefan Devai`,
     description: `Stefan Devai's blog about history and programming.`,
-    longDescription: ``,
+    url: `https://stefandevai.me`,
   },
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
