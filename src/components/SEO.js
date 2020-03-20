@@ -73,7 +73,7 @@ const query = graphql`
         titleTemplate
         defaultTitle: title
         defaultDescription: description
-        siteUrl: url
+        siteUrl
         author
       }
     }

@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: `%s | Historical Bits`,
     author: `Stefan Devai`,
     description: `Stefan Devai's blog about history and programming.`,
-    url: `https://stefandevai.me`,
+    siteUrl: `https://stefandevai.me`,
   },
 
   plugins: [
@@ -26,6 +26,12 @@ module.exports = {
       options: {
         trackingId: "UA-137064053-2",
         head: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     `gatsby-transformer-remark`,
