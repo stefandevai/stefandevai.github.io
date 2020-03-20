@@ -32,10 +32,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    let templatePath = `./src/templates/blog-post.js`
+    let templatePath = `./src/templates/page.js`
 
-    if (node.fileAbsolutePath.match(/[^\/]\/pages\/[^\/]/)) {
-      templatePath = `./src/templates/page.js`
+    if (node.fileAbsolutePath.match(/[^\/]\/blog\/[^\/]/)) {
+      templatePath = `./src/templates/post.js`
     }
 
     createPage({

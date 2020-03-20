@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import indexStyles from "./styles/index.module.sass"
+import {Helmet} from "react-helmet"
 
 const BlogIntro = props => {
   return (
@@ -31,6 +32,11 @@ const BlogPreview = props => {
 export default ({ data }) => {
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{data.site.siteMetadata.title}</title>
+        <link rel="canonical" href="https://stefandevai.me/" />
+      </Helmet>
       <div>
         <BlogIntro
           title={data.site.siteMetadata.title}
@@ -47,7 +53,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {regex: "/\/posts\//"}}) {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {regex: "/\/blog\//"}}) {
       totalCount
       edges {
         node {
@@ -67,6 +73,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        author
       }
     }
   }
