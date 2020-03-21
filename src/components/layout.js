@@ -1,13 +1,16 @@
 import React from "react"
 import layoutStyles from "./styles/layout.module.sass"
 
-import Menu from "./menu"
+import Header from "./header"
 
 
 export default ({ children }) => {
-  return (<div className={layoutStyles.container}>
-    <Menu />
+  return (<div>
+    <Header />
+
+    <div className={layoutStyles.container}>
     {children}
+    </div>
   </div>
   )
 }

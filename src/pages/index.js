@@ -6,22 +6,22 @@ import indexStyles from "./styles/index.module.sass"
 
 const BlogIntro = props => {
   return (
-    <section>
+    <section className={indexStyles.blogIntro}>
       <h1>{props.title}</h1>
       <p>{props.description}</p>
     </section>
   )
 }
 
-const BlogPreview = props => {
+const PostPreview = props => {
   return (
     <div className={indexStyles.blogPreview} key={props.node.id}>
       <Link to={props.node.fields.slug}>
+        <span className={indexStyles.date} >
+        {props.node.frontmatter.date}
+        </span>
         <h3>
           {props.node.frontmatter.title}{" "}
-          <span className={indexStyles.date} >
-            — {props.node.frontmatter.date}
-          </span>
         </h3>
         <p>{props.node.excerpt}</p>
       </Link>
@@ -33,14 +33,14 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO titleTemplate={`%s`}/>
-      <div>
         <BlogIntro
           title={data.site.siteMetadata.title}
           description={data.site.siteMetadata.description}
         /> 
 
+      <div>
         {
-          data.allMarkdownRemark.edges.map(({ node }) => <BlogPreview node={node} /> )
+          data.allMarkdownRemark.edges.map(({ node }) => <PostPreview node={node} /> )
         }
       </div>
     </Layout>
@@ -56,7 +56,8 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD-MMM-YYYY")
+            language
           }
           fields {
             slug

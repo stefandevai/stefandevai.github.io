@@ -27,20 +27,17 @@ const SEO = props => (
       return (
         <>
           <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
+            <html lang={`en`} />
             <meta charSet="utf-8" />
+            <link rel="canonical" href={seo.url} />
             <meta name="description" content={seo.description} />
+
             {seo.url && <meta property="og:url" content={seo.url} />}
-            {(props.article ? true : null) && (
-              <meta property="og:type" content="article" />
-            )}
+            {(props.article ? true : null) && (<meta property="og:type" content="article" />)}
             {seo.title && <meta property="og:title" content={seo.title} />}
-            {seo.description && (
-              <meta property="og:description" content={seo.description} />
-            )}
+            {seo.description && (<meta property="og:description" content={seo.description} />)}
             {seo.title && <meta name="twitter:title" content={seo.title} />}
-            {seo.description && (
-              <meta name="twitter:description" content={seo.description} />
-            )}
+            {seo.description && (<meta name="twitter:description" content={seo.description} />)}
           </Helmet>
         </>
       )
