@@ -47,7 +47,15 @@ module.exports = {
         showSpinner: false,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    },
+
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
   ],

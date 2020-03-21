@@ -2,3 +2,10 @@
 
 .post
   margin-bottom: base-height(3)
+
+  code[class*="language-"]
+    font-size: $font-inline-code
+
+  pre[class*="language-"] > code[class*="language-"]
+    font-size: $font-code
+    font-family: $font-family-monospace
