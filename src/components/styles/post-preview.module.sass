@@ -5,7 +5,6 @@
   border-bottom: 1px solid $color-extra-light-grey
 
   a
-    text-decoration: none
     color: inherit
 
   h3
@@ -13,6 +12,12 @@
 
   p
     margin-top: base-height(0.5)
+
+  h3:hover ~ p
+    color: $color-grey
+
+  p:hover
+    color: $color-grey
 
 div.post-preview:first-child
   border-top: 1px solid $color-extra-light-grey

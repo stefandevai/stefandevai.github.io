@@ -43,15 +43,19 @@ const PostPreview = props => {
       <span className={postPreviewStyles.date} >
         {props.node.frontmatter.date}
       </span>
-      <Link to={props.node.fields.slug}>
-        <h3>
+      <h3>
+        <Link to={props.node.fields.slug}>
           {props.node.frontmatter.title}{" "}
-        </h3>
-      </Link>
-      <div>
+        </Link>
+      </h3>
+      <div className={postPreviewStyles.tags}>
         <LanguageTag language={props.node.frontmatter.language} />
       </div>
-      <p>{props.node.excerpt}</p>
+      <p>
+        <Link to={props.node.fields.slug}>
+        {props.node.excerpt}
+        </Link>
+      </p>
     </div>
   )
 }

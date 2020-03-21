@@ -1,11 +1,18 @@
 @import "src/styles/definitions"
 
-.container
+.site
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+.content
   margin: 0 auto
-  max-width: 900px
+  max-width: 800px
+  width: 100%
   padding-left: base-width(0.8)
   padding-right: base-width(0.8)
   padding-top: base-height(1.5)
   padding-bottom: base-height(1)
+  flex-grow: 1
 
   
