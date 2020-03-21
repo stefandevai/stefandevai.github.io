@@ -1,0 +1,43 @@
+@import "src/styles/definitions"
+
+.post-preview
+  padding: base-height(1) base-width(0.4)
+  border-bottom: 1px solid $color-extra-light-grey
+
+  a
+    text-decoration: none
+    color: inherit
+
+  h3
+    margin-bottom: 0
+
+  p
+    margin-top: base-height(0.5)
+
+div.post-preview:first-child
+  border-top: 1px solid $color-extra-light-grey
+
+.date
+  color: #888
+  font-size: $font-small
+  font-style: italic
+
+.tag
+  font-size: $font-small
+  color: $color-white
+  padding: base-height(0.1) base-width(0.2)
+  margin-left: base-width(0.2)
+  margin-right: base-width(0.2)
+  background-color: $color-accent
+
+  &:first-child
+    margin-left: 0
+
+.es
+  background-color: $color-purple
+.pt
+  background-color: $color-green
+.fr
+  background-color: $color-blue
+.en
+  background-color: $color-orange

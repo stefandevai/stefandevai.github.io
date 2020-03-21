@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
+import PostPreview from "../components/post-preview"
 import indexStyles from "./styles/index.module.sass"
 
 const BlogIntro = props => {
@@ -10,22 +11,6 @@ const BlogIntro = props => {
       <h1>{props.title}</h1>
       <p>{props.description}</p>
     </section>
-  )
-}
-
-const PostPreview = props => {
-  return (
-    <div className={indexStyles.blogPreview} key={props.node.id}>
-      <Link to={props.node.fields.slug}>
-        <span className={indexStyles.date} >
-        {props.node.frontmatter.date}
-        </span>
-        <h3>
-          {props.node.frontmatter.title}{" "}
-        </h3>
-        <p>{props.node.excerpt}</p>
-      </Link>
-    </div>
   )
 }
 
