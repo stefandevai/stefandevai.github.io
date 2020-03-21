@@ -7,9 +7,16 @@ import postStyles from "./styles/post.module.sass"
 
 export default ({ data }) => {
   const post = data.markdownRemark
+  let featuredImage = post.frontmatter.featuredImage
+  let featuredImagePath = null
+    
+  if (featuredImage) {
+    featuredImagePath = featuredImage.childImageSharp.fluid.src
+  }
+
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} article={true} />
+      <SEO title={post.frontmatter.title} article={true} image={featuredImagePath} />
 
       <section className={postStyles.post}>
         <h1>{post.frontmatter.title}</h1>
@@ -25,6 +32,13 @@ export const query = graphql`
       html
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

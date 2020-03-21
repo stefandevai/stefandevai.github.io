@@ -5,12 +5,16 @@ import SEO from "../components/SEO"
 
 export default ({ data }) => {
   const post = data.markdownRemark
-  let featuredImg = post.frontmatter.featuredImage.childImageSharp.fluid
+  let featuredImage = post.frontmatter.featuredImage
+  let featuredImagePath = null
+    
+  if (featuredImage) {
+    featuredImagePath = featuredImage.childImageSharp.fluid.src
+  }
 
-  console.log(featuredImg)
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} image={featuredImg.src} />
+      <SEO title={post.frontmatter.title} image={featuredImagePath} />
 
       <div>
         <h1>{post.frontmatter.title}</h1>
@@ -33,11 +37,6 @@ export const query = graphql`
             }
           }
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
       }
     }
   }

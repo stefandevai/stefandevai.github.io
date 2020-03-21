@@ -1,0 +1,2 @@
+
+      allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/^((?!\/blog\/).)*$/"}}) {
