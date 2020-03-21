@@ -1,6 +1,9 @@
 ---
 title: "About"
+featuredImage: "./me.jpg"
 ---
+
+![Image of Stefan Devai](./blog/me.jpg)
 
 Hi :)
 
