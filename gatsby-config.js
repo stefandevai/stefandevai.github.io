@@ -5,6 +5,7 @@ module.exports = {
     author: `Stefan Devai`,
     description: `Stefan Devai's blog about history and programming.`,
     siteUrl: `https://stefandevai.me`,
+    banner: `/images/banner.jpg`,
   },
 
   plugins: [
@@ -12,19 +13,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -63,6 +51,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/pages`,
       },
     },
   ],

@@ -2,14 +2,15 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
-import Img from "gatsby-image"
 
 export default ({ data }) => {
   const post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  let featuredImg = post.frontmatter.featuredImage.childImageSharp.fluid
+
+  console.log(featuredImg)
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={post.frontmatter.title} image={featuredImg.src} />
 
       <div>
         <h1>{post.frontmatter.title}</h1>

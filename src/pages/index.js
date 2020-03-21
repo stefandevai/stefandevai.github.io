@@ -25,7 +25,7 @@ export default ({ data }) => {
 
       <div>
         {
-          data.allMarkdownRemark.edges.map(({ node }) => <PostPreview node={node} /> )
+          data.allMarkdownRemark.edges.map(({ node }, index) => <PostPreview node={node} key={index} /> )
         }
       </div>
     </Layout>

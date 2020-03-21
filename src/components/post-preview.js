@@ -31,7 +31,7 @@ const LanguageTag = props => {
   }
 
   return (
-    <span class={`${postPreviewStyles.tag} ${langClass}`}>
+    <span className={`${postPreviewStyles.tag} ${langClass}`}>
       {lang}
     </span>
   )
