@@ -32,7 +32,6 @@ const Header = props => {
           </Link>
 
           <ul>
-            <MenuItem to={`/`}>Home</MenuItem>
             <MenuItem to={`/about/`}>About</MenuItem>
           </ul>
         </nav>
