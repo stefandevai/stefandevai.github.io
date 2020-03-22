@@ -4,6 +4,7 @@ import sceneStyles from "./styles/scene.module.sass"
 
 class Gear {
   constructor(props) {
+    this.clock = new THREE.Clock()
     this.zRotation = props.zRotation
 
     this.pausedDuration = props.pausedDuration
@@ -40,23 +41,19 @@ class Gear {
 
   animate() {
     if (this.isPaused && this.pausedDelay > 0) {
-      this.pausedDelay -= 0.1
-      console.log("1")
+      this.pausedDelay -= this.clock.getDelta()*1000
     }
     else if (this.pausedDuration && this.pausedDelay <= 0) {
       this.pausedDelay = this.pausedDuration
       this.isPaused = false
-      console.log("2")
     }
     else if (this.movingDuration && this.movingDelay <= 0) {
       this.movingDelay = this.movingDuration
       this.isPaused = true
-      console.log("3")
     }
     else if (this.movingDuration) {
-      this.movingDelay -= 0.1
+      this.movingDelay -= this.clock.getDelta()*1000
       this.geometry.rotation.z += this.zRotation
-      console.log("4")
     }
     else {
       this.geometry.rotation.z += this.zRotation
@@ -67,15 +64,17 @@ class Gear {
 class Scene extends React.Component {
   componentDidMount() {
     let scene = new THREE.Scene()
-    let camera = new THREE.PerspectiveCamera( 75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000 )
-    let renderer = new THREE.WebGLRenderer({ antialias: true })
+    this.camera = new THREE.PerspectiveCamera( 75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000 )
+    this.renderer = new THREE.WebGLRenderer({ antialias: true })
 
-    renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
-    renderer.setPixelRatio( window.devicePixelRatio );
-    this.mount.appendChild( renderer.domElement )
+    this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
+    this.renderer.setPixelRatio( window.devicePixelRatio );
+    this.mount.appendChild(this.renderer.domElement)
 
     scene.background = new THREE.Color(0x111111);
-    let gears = new Array(3)
+
+    const numberOfGears = 3
+    let gears = new Array(numberOfGears)
 
     gears[0] = new Gear({
       radius: 10,
@@ -90,8 +89,8 @@ class Scene extends React.Component {
       rotationCenter: {x: 0, y: 0},
       points: 10,
       zRotation: -0.01,
-      pausedDuration: 2,
-      movingDuration: 2,
+      pausedDuration: 500,
+      movingDuration: 500,
     })
     gears[2] = new Gear({
       radius: 0.5,
@@ -102,16 +101,35 @@ class Scene extends React.Component {
       lineWidth: 2,
       zRotation: -0.005,
     })
+    //gears[3] = new Gear({
+      //radius: 1.5,
+      //position: {x: -7, y: 4},
+      //rotationCenter: {x: 0, y: 0},
+      //points: 6,
+      //zRotation: 0.03,
+      //pausedDuration: 250,
+      //movingDuration: 250,
+    //})
 
     gears.forEach(gear => scene.add(gear.geometry))
-    camera.position.z = 15
+    this.camera.position.z = 15
 
-    let animate = function () {
-      requestAnimationFrame( animate )
+    this.animate = function () {
+      requestAnimationFrame(this.animate.bind(this))
       gears.forEach(gear => gear.animate())
-      renderer.render(scene, camera)
+      this.renderer.render(scene, this.camera)
     }
-    animate()
+    //this.animate.bind(this)
+
+    this.animate()
+
+    window.addEventListener('resize', this.onWindowResize.bind(this), false)
+  }
+
+  onWindowResize() {
+    this.camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight
+    this.camera.updateProjectionMatrix()
+    this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
   }
 
   render() {
