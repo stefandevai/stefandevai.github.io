@@ -23,7 +23,8 @@ export default (props) => {
       <Layout>
         <section className={postStyles.post}>
           <Link to={pageSlug} className={postStyles.goBack}><span>⟵  Go Back</span></Link>
-          <h1 className={postStyles.postTitle}>{post.frontmatter.title}</h1>
+
+          <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span class={postStyles.square}>◆</span></h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </section>
         
