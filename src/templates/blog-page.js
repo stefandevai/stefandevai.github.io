@@ -29,7 +29,7 @@ const Paginator = props => {
       }
 
       {Array.from({ length: props.numPages }, (_, i) => (
-        <li>
+        <li key={i}>
           <Link to={i === 0 ? "/" : `/blog/${i+1}`} activeClassName={blogPageStyles.pageNumberActive} >
             {i+1}
           </Link>
@@ -84,6 +84,7 @@ export const query = graphql`
             title
             date(formatString: "DD-MMM-YYYY")
             language
+            tags
           }
           fields {
             slug
