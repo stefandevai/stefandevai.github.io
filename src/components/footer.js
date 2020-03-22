@@ -3,7 +3,7 @@ import "./styles/footer.module.sass"
 
 const Footer = props => {
   return(
-    <footer>Stefan Devai © 2020. All rights reserved.</footer>
+    <footer>This website is <a href="https://github.com/stefandevai/stefandevai.github.io/" target="_blank" rel="noopener noreferrer">open source</a>!</footer>
   )
 }
 
