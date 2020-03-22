@@ -64,12 +64,17 @@ async function createBlogPages(graphql, actions) {
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   // Create each post individual page
-  posts.forEach(({ node }) => {
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
+
     createPage({
-      path: node.fields.slug,
+      path: post.node.fields.slug,
       component: path.resolve(`./src/templates/post.js`),
       context: {
-        slug: node.fields.slug,
+        slug: post.node.fields.slug,
+        previous,
+        next,
       },
     })
   })
