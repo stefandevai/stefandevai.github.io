@@ -5,15 +5,15 @@ import paginatorStyles from "./styles/paginator.module.sass"
 const Paginator = props => {
   const isFirst = props.currentPage === 1
   const isLast = props.currentPage === props.numPages
-  const previousPage = props.currentPage - 1 === 1 ? `/` : `blog/${props.currentPage - 1}`
-  const nextPage = `blog/${props.currentPage + 1}`
+  const previousPage = props.currentPage - 1 === 1 ? `/` : `/blog/${props.currentPage - 1}`
+  const nextPage = `/blog/${props.currentPage + 1}`
 
   return (
     <ul className={paginatorStyles.paginator}>
       {
         isFirst
           ? (<li className={paginatorStyles.pageControlButton}>Previous Page</li>)
-          : (<li><Link to={previousPage} rel="prev" className={paginatorStyles.pageControlButtonActive}>Previous Page</Link></li>)
+          : (<li><Link to={previousPage} rel="prev" className={paginatorStyles.pageControlButtonActive}>Previous</Link></li>)
       }
 
       {Array.from({ length: props.numPages }, (_, i) => (
@@ -27,7 +27,7 @@ const Paginator = props => {
       {
         isLast
           ? (<li className={paginatorStyles.pageControlButton}>Next Page</li>)
-          : (<li><Link to={nextPage} rel="next" className={paginatorStyles.pageControlButtonActive}>Next Page</Link></li>)
+          : (<li><Link to={nextPage} rel="next" className={paginatorStyles.pageControlButtonActive}>Next</Link></li>)
       }
     </ul>
   )

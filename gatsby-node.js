@@ -45,6 +45,9 @@ async function createBlogPages(graphql, actions) {
       ) {
         edges {
           node {
+            frontmatter {
+              title
+            }
             fields {
               slug
             }
@@ -65,16 +68,23 @@ async function createBlogPages(graphql, actions) {
 
   // Create each post individual page
   posts.forEach((post, index) => {
+    const first = index === posts.length - 1 ? posts[0].node : null
+    const last = index === 0 ? posts[posts.length - 1].node : null
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
+    const page = parseInt(index/postsPerPage)
+    const pageSlug = page === 0 ? `/` : `/blog/${page + 1}`
 
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(`./src/templates/post.js`),
       context: {
         slug: post.node.fields.slug,
+        pageSlug,
         previous,
         next,
+        first,
+        last,
       },
     })
   })

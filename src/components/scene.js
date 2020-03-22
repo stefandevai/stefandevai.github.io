@@ -18,9 +18,9 @@ class Scene extends React.Component {
     const material = new THREE.LineBasicMaterial({ 
       color: props.color || 0x555555,
       linewidth: props.lineWidth || 1,
-      scale: 1,
-      dashSize: 3,
-      gapSize: 1,
+      //scale: 1,
+      //dashSize: 3,
+      //gapSize: 1,
     })
     let circle = new THREE.Line( geometry, material )
     circle.position.x = props.position.x || 0

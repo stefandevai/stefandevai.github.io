@@ -1,14 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
+import Tag from "./tag"
 import postPreviewStyles from "./styles/post-preview.module.sass"
-
-const Tag = props => {
-  return (
-    <span className={`${postPreviewStyles.tag} ${props.tagClass}`}>
-      {props.name}
-    </span>
-  )
-}
 
 const PostPreview = props => {
   let tags = props.node.frontmatter.tags
