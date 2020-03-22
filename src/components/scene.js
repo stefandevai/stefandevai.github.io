@@ -2,9 +2,20 @@ import React from "react"
 import * as THREE from "three"
 import sceneStyles from "./styles/scene.module.sass"
 
-class Scene extends React.Component {
+class Gear {
+  constructor(props) {
+    this.zRotation = props.zRotation
 
-  createDashedCircle(props) {
+    this.pausedDuration = props.pausedDuration
+    this.pausedDelay = props.pausedDuration
+    this.movingDuration = props.movingDuration
+    this.movingDelay = props.movingDuration
+    this.isPaused = false
+
+    this.create(props)
+  }
+
+  create(props) {
     const curve = new THREE.EllipseCurve(
       props.rotationCenter.x,  props.rotationCenter.y,
       props.radius, props.radius,
@@ -18,18 +29,42 @@ class Scene extends React.Component {
     const material = new THREE.LineBasicMaterial({ 
       color: props.color || 0x555555,
       linewidth: props.lineWidth || 1,
-      //scale: 1,
-      //dashSize: 3,
-      //gapSize: 1,
     })
     let circle = new THREE.Line( geometry, material )
     circle.position.x = props.position.x || 0
     circle.position.y = props.position.y || 0
     circle.position.z = props.position.z || 0
 
-    return circle
+    this.geometry = circle
   }
 
+  animate() {
+    if (this.isPaused && this.pausedDelay > 0) {
+      this.pausedDelay -= 0.1
+      console.log("1")
+    }
+    else if (this.pausedDuration && this.pausedDelay <= 0) {
+      this.pausedDelay = this.pausedDuration
+      this.isPaused = false
+      console.log("2")
+    }
+    else if (this.movingDuration && this.movingDelay <= 0) {
+      this.movingDelay = this.movingDuration
+      this.isPaused = true
+      console.log("3")
+    }
+    else if (this.movingDuration) {
+      this.movingDelay -= 0.1
+      this.geometry.rotation.z += this.zRotation
+      console.log("4")
+    }
+    else {
+      this.geometry.rotation.z += this.zRotation
+    }
+  }
+}
+
+class Scene extends React.Component {
   componentDidMount() {
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera( 75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000 )
@@ -40,41 +75,41 @@ class Scene extends React.Component {
     this.mount.appendChild( renderer.domElement )
 
     scene.background = new THREE.Color(0x111111);
+    let gears = new Array(3)
 
-    let circle = this.createDashedCircle({
+    gears[0] = new Gear({
       radius: 10,
       position: {x: -4, y: 0},
       rotationCenter: {x: 0, y: 0},
       points: 10,
+      zRotation: 0.002,
     })
-    let circle2 = this.createDashedCircle({
+    gears[1] = new Gear({
       radius: 5,
       position: {x: -6, y: 3},
       rotationCenter: {x: 0, y: 0},
       points: 10,
+      zRotation: -0.01,
+      pausedDuration: 2,
+      movingDuration: 2,
     })
-    let circle3 = this.createDashedCircle({
+    gears[2] = new Gear({
       radius: 0.5,
       position: {x: -4, y: 0, z: 0},
       rotationCenter: {x: 10, y: 0},
       points: 4,
       color: 0xe32110,
       lineWidth: 2,
+      zRotation: -0.005,
     })
-    scene.add( circle )
-    scene.add( circle2 )
-    scene.add( circle3 )
+
+    gears.forEach(gear => scene.add(gear.geometry))
     camera.position.z = 15
-    //camera.position.x = -3
-    //camera.position.y = -12
-    //camera.rotation.x = 0.5
 
     let animate = function () {
       requestAnimationFrame( animate )
-      circle.rotation.z += 0.002
-      circle2.rotation.z -= 0.01
-      circle3.rotation.z -= 0.005
-      renderer.render( scene, camera )
+      gears.forEach(gear => gear.animate())
+      renderer.render(scene, camera)
     }
     animate()
   }
