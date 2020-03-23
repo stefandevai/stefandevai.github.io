@@ -1,11 +1,16 @@
 @import "../../styles/definitions.sass"
 
 .grid
-  display: grid
+  @media (min-width: 672px)
+    display: grid
   grid-template-columns: repeat(8, 1fr)
   grid-template-rows: repeat(11, base-height(2.5)) auto repeat(3, base-height(2.5))
+  //grid-column-gap: base-width(1)
+    
 
 .image
+  @media (min-width: 672px)
+    opacity: 0.8
   grid-column: 1 / span 3
   grid-row: 1 / span 8
 
@@ -15,15 +20,20 @@
   grid-column: 3 / span 6
   grid-row: 2 / span 11
 
-  p:last-child
-    margin: 0
+  @media (min-width: 672px)
+    p:last-child
+      margin: 0
 
 .text
-  background-color: rgba(255,255,255,0.8)
-  padding: base-height(1.5) base-width(1)
+  padding-top: base-height(2)
+  @media (min-width: 672px)
+    padding-top: base-height(1.5)
+    //padding: base-height(1.5) base-width(1)
+    color: $color-black
 
 .line-top
-  border-top: 1px solid $color-light-grey
+  @media (min-width: 672px)
+    border-top: 1px solid $color-light-grey
   grid-column: 8 / span 1
   grid-row: 1 / span 1
 
@@ -31,21 +41,35 @@
   border-top: 1px solid $color-light-grey
   grid-column: 1 / span 3
   grid-row: 10 / span 1
+
+  @media (max-width: 672px)
+    display: none
   
 .rectangle
   grid-column: 4 / span 1
   grid-row: 1 / span 1
   background-color: $color-accent-light
+  @media (max-width: 672px)
+    display: none
 
 .social-icons
+  height: 45px
+  @media (max-width: 672px)
+    margin-top: base-height(2)
+    margin-bottom: base-height(1)
+    //height: 45px
+    //a
+      //margin: 0
+
   grid-column: 3 / -3
   grid-row: 14 / span 1
   display: flex
-  justify-content: space-around
+  justify-content: space-between
 
+  //@media (min-width: 672px)
   a
-    margin: 0 auto
-    display: inline-block
+    //margin: 0 auto
+    //display: inline-block
     height: 100%
     width: 45px
 

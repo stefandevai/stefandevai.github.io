@@ -127,9 +127,11 @@ class Scene extends React.Component {
   }
 
   onWindowResize() {
-    this.camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight
-    this.camera.updateProjectionMatrix()
-    this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
+    if (this.mount) {
+      this.camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight
+      this.camera.updateProjectionMatrix()
+      this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
+    }
   }
 
   render() {
