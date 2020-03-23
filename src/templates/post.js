@@ -24,7 +24,7 @@ export default (props) => {
         <section className={postStyles.post}>
           <Link to={pageSlug} className={postStyles.goBack}><span>⟵  Go Back</span></Link>
 
-          <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span class={postStyles.square}> ◆</span></h1>
+          <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span className={postStyles.square}> ◆</span></h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </section>
         
@@ -33,10 +33,12 @@ export default (props) => {
         <nav>
           <ul className={postStyles.bottomNavigation}>{
               next
-                ? <Link to={next.fields.slug}><li>⟵  {next.frontmatter.title}</li></Link>: <Link to={last.fields.slug}><li>⟵  {last.frontmatter.title}</li></Link>}
+                ? <Link to={next.fields.slug}><li className={postStyles.md}>⟵  {next.frontmatter.title}</li><li className={postStyles.sm}>⟵  Previous</li></Link>
+                : <Link to={last.fields.slug}><li className={postStyles.md}>⟵  {last.frontmatter.title}</li><li className={postStyles.sm}>⟵  Previous</li></Link>}
             {
               previous
-                ? <Link to={previous.fields.slug}><li>{previous.frontmatter.title} ⟶</li></Link>: <Link to={first.fields.slug}><li>{first.frontmatter.title} ⟶</li></Link>}
+                ? <Link to={previous.fields.slug} className={postStyles.previousPost}><li className={postStyles.md}>{previous.frontmatter.title} ⟶</li><li className={postStyles.sm}>Next ⟶</li></Link>
+                : <Link to={first.fields.slug} className={postStyles.previousPost}><li className={postStyles.md}>{first.frontmatter.title} ⟶</li><li className={postStyles.sm}>Next ⟶</li></Link>}
           </ul>
         </nav>
       </Layout>

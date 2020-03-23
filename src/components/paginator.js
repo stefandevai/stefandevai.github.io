@@ -12,7 +12,7 @@ const Paginator = props => {
     <ul className={paginatorStyles.paginator}>
       {
         isFirst
-          ? (<li className={paginatorStyles.pageControlButton}>Previous Page</li>)
+          ? (<li className={paginatorStyles.pageControlButton}>Previous</li>)
           : (<li><Link to={previousPage} rel="prev" className={paginatorStyles.pageControlButtonActive}>Previous</Link></li>)
       }
 
@@ -26,7 +26,7 @@ const Paginator = props => {
 
       {
         isLast
-          ? (<li className={paginatorStyles.pageControlButton}>Next Page</li>)
+          ? (<li className={paginatorStyles.pageControlButton}>Next</li>)
           : (<li><Link to={nextPage} rel="next" className={paginatorStyles.pageControlButtonActive}>Next</Link></li>)
       }
     </ul>
