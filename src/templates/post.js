@@ -21,7 +21,7 @@ export default (props) => {
     <div>
       <SEO title={post.frontmatter.title} article={true} image={featuredImagePath} />
       <Layout>
-        <section className={postStyles.post}>
+        <section className={postStyles.post + " blog-post"}>
           <Link to={pageSlug} className={postStyles.goBack}><span>⟵  Go Back</span></Link>
 
           <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span className={postStyles.square}> ◆</span></h1>

@@ -1,1 +1,0 @@
-- For h1 in pages/posts (titles): add a black hexagon with a red square inside as a background

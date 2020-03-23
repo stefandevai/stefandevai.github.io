@@ -1,6 +1,10 @@
 @import "./definitions"
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i&display=swap')
 
+.blog-post p span.gatsby-resp-image-wrapper
+  margin-top: base-height(2)
+  margin-bottom: base-height(2)
+
 html
   color: $color-black
   overflow-y: initial
@@ -16,12 +20,12 @@ a:hover
 
 h1
   font-size: $font-h1
-  margin-bottom: base-height(3)
+  margin-bottom: base-height(2)
   margin-top: base-height(2)
 
   @media (max-width: 672px)
     margin-top: 0
-    margin-bottom: base-height(2)
+    margin-bottom: base-height(1)
 
 h1,h2,h3,h4,h5,h6
   color: $color-black
