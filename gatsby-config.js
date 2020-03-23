@@ -67,6 +67,20 @@ module.exports = {
           include: `${__dirname}/static/assets/` // See below to configure properly
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Stefan Devai's Blog",
+        short_name: `Stefan Devai`,
+        description: `Stefan Devai's blog about History and programming.`,
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#e32110",
+        display: "standalone",
+        icon: "static/favicon.png",
+        crossOrigin: `use-credentials`,
+      },
+    },
   ],
 }
