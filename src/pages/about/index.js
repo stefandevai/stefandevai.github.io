@@ -5,6 +5,10 @@ import SEO from "../../components/SEO"
 import Img from "gatsby-image"
 import aboutStyles from "./about.module.sass"
 
+import GitHubIcon from "../../../static/assets/icons/github.svg"
+import InstagramIcon from "../../../static/assets/icons/instagram.svg"
+import EmailIcon from "../../../static/assets/icons/email.svg"
+
 export default ({ data }) => {
   return (
     <div>
@@ -24,8 +28,13 @@ export default ({ data }) => {
             </div>
           </div>
           <div className={aboutStyles.lineBottom}></div>
+
+          <div className={aboutStyles.socialIcons}>
+            <InstagramIcon />
+            <GitHubIcon />
+            <EmailIcon />
+          </div>
         </div>
-        <div className={aboutStyles.socialIcons}></div>
       </Layout>
     </div>
   )
@@ -33,9 +42,9 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    fileName: file(relativePath: { eq: "about2/me.jpg" }) {
+    fileName: file(relativePath: { eq: "about/me.jpg" }) {
       childImageSharp {
-        fluid(maxHeight: 360) {
+        fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid
         }
       }
