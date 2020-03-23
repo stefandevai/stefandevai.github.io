@@ -1,0 +1,16 @@
+@import "src/styles/definitions"
+
+.svg-logo-stefan:hover
+  .svg-logo-stefan-letters
+    fill: lighten($color-black, 10%)
+
+  .svg-logo-stefan-diamond
+    transform-box: fill-box
+    transform-origin: center
+    animation: rotation 1s infinite ease-in-out
+
+@keyframes rotation
+  from
+    transform: rotate(0deg);
+  to
+    transform: rotate(359deg);

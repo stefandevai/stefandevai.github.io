@@ -75,7 +75,7 @@ module.exports = {
         short_name: `Stefan Devai`,
         description: `Stefan Devai's blog about History and programming.`,
         start_url: "/",
-        background_color: "#ffffff",
+        background_color: "#111111",
         theme_color: "#e32110",
         display: "standalone",
         icon: "static/favicon.png",

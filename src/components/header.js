@@ -1,6 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import headerStyles from "./styles/header.module.sass"
+import "./styles/header-logo-animation.sass"
+import StefanDevaiLogo from "../../static/assets/svg/logo-stefan-devai.svg"
 
 const MenuItem = props => (
   <li className={headerStyles.menuItem}>
@@ -9,26 +11,12 @@ const MenuItem = props => (
 )
 
 const Header = props => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            author
-          }
-        }
-      }
-    `
-  )
-
   return(
     <header className={headerStyles.header}>
       <div className={headerStyles.content}>
         <nav>
           <Link to={`/`} className={headerStyles.logo}>
-            <h3>
-              {data.site.siteMetadata.author}
-            </h3>
+            <StefanDevaiLogo />
           </Link>
 
           <ul>
