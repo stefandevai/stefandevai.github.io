@@ -3,18 +3,22 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
 import Tag from "../components/tag"
+import Img from "gatsby-image"
 
 import postStyles from "./styles/post.module.sass"
 
 export default (props) => {
   const post = props.data.markdownRemark
   let featuredImage = post.frontmatter.featuredImage
+  let featuredImageCaption = post.frontmatter.featuredImageCaption
   let featuredImagePath = null
+  let featuredImageFluid = null
   const { pageSlug, first, last, previous, next } = props.pageContext
   const tags = post.frontmatter.tags
     
   if (featuredImage) {
-    featuredImagePath = featuredImage.childImageSharp.fluid.src
+    featuredImageFluid = featuredImage.childImageSharp.fluid
+    featuredImagePath = featuredImageFluid.src
   }
 
   return (
@@ -24,7 +28,14 @@ export default (props) => {
         <section className={postStyles.post + " blog-post"}>
           <Link to={pageSlug} className={postStyles.goBack}><span>⟵  Go Back</span></Link>
 
+
           <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span className={postStyles.square}> ◆</span></h1>
+          {featuredImageFluid && (
+            <div className={postStyles.featuredImage}>
+              <Img fluid={featuredImageFluid} />
+              {featuredImageCaption && <span className={postStyles.imageCaption}>{featuredImageCaption}</span>}
+            </div>
+          )}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </section>
         
@@ -53,6 +64,7 @@ export const query = graphql`
       frontmatter {
         title
         tags
+        featuredImageCaption
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 800) {

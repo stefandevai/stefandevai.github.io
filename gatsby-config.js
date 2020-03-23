@@ -5,7 +5,7 @@ module.exports = {
     author: `Stefan Devai`,
     description: `Stefan Devai's blog about history and programming.`,
     siteUrl: `https://stefandevai.me`,
-    banner: `/images/banner.jpg`,
+    banner: `/assets/images/banner.jpg`,
   },
 
   plugins: [

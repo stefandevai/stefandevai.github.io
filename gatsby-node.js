@@ -63,7 +63,7 @@ async function createBlogPages(graphql, actions) {
   }
 
   const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 3
+  const postsPerPage = 6
   const numPages = Math.ceil(posts.length / postsPerPage)
 
   // Create each post individual page
@@ -74,6 +74,8 @@ async function createBlogPages(graphql, actions) {
     const next = index === 0 ? null : posts[index - 1].node
     const page = parseInt(index/postsPerPage)
     const pageSlug = page === 0 ? `/` : `/blog/${page + 1}`
+
+    console.log(post.node.fields.slug)
 
     createPage({
       path: post.node.fields.slug,
