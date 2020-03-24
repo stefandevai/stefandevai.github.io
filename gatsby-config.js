@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Historical Bits`,
-    titleTemplate: `%s | Historical Bits`,
+    title: `Temporal Geometry`,
+    titleTemplate: `%s | Temporal Geometry`,
     author: `Stefan Devai`,
     description: `Stefan Devai's blog about history and programming.`,
     siteUrl: `https://stefandevai.me`,
