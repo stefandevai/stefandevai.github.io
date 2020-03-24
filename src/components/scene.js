@@ -78,14 +78,14 @@ class Scene extends React.Component {
 
     gears[0] = new Gear({
       radius: 10,
-      position: {x: -4, y: 0},
+      position: {x: -4, y: -0.5},
       rotationCenter: {x: 0, y: 0},
       points: 10,
       zRotation: 0.002,
     })
     gears[1] = new Gear({
       radius: 5,
-      position: {x: -6, y: 3},
+      position: {x: -6, y: 2.5},
       rotationCenter: {x: 0, y: 0},
       points: 10,
       zRotation: -0.01,
@@ -94,7 +94,7 @@ class Scene extends React.Component {
     })
     gears[2] = new Gear({
       radius: 0.5,
-      position: {x: -4, y: 0, z: 0},
+      position: {x: -4, y: -0.5, z: 0},
       rotationCenter: {x: 10, y: 0},
       points: 4,
       color: 0xe32110,
