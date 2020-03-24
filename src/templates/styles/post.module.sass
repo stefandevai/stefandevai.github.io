@@ -1,0 +1,61 @@
+@import "src/styles/definitions"
+
+.post
+  margin-bottom: base-height(3)
+
+  code[class*="language-"]
+    font-size: $font-inline-code
+
+  pre[class*="language-"] > code[class*="language-"]
+    font-size: $font-code
+    font-family: $font-family-monospace
+
+.go-back
+  font-size: $font-small
+
+.post-title
+  margin-top: 0
+  z-index: 1
+
+.square
+  font-size: $font-normal
+  font-weight: bold
+  color: $color-accent-light
+
+.featured-image
+  margin-bottom: base-height(2)
+.image-caption
+  font-style: italic
+  display: block
+  text-align: center
+  font-size: $font-small
+
+.separator
+  color: $color-light-grey
+  text-align: center
+  margin-bottom: base-height(3)
+
+.tags
+  margin-bottom: base-height(1)
+
+.bottom-navigation
+  margin: 0
+  font-size: $font-small
+  border-top: 1px solid $color-extra-light-grey
+  padding: base-height(2) 0 base-height(1) 0
+  display: flex
+  list-style-type: none
+  justify-content: space-between
+
+  li
+    margin: 0
+
+.previous-post
+  text-align: right
+
+.md
+  @media (max-width: 670px)
+    display: none
+.sm
+  @media (min-width: 671px)
+    display: none

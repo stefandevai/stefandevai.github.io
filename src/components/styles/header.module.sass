@@ -1,0 +1,43 @@
+@import "src/styles/definitions"
+
+.header
+  border-bottom: 1px solid $color-header-border
+  height: $header-height
+  line-height: $header-height
+
+.content
+  margin-left: base-width(1.5)
+  margin-right: base-width(1.5)
+
+  ul
+    float: right
+    list-style-type: none
+  
+.logo svg
+    height: base-height(1.8)
+    vertical-align: middle
+    display: inline
+    font-style: normal
+    padding-bottom: 5px
+    width: auto
+
+.menu-item
+  display: inline-block
+  margin-left: base-width(1)
+
+  a:not(.active)
+    color: $color-dark-grey
+  a
+    display: inline-block
+    text-decoration: none
+    font-size: $font-small
+    height: $header-height - 3px
+
+    &:hover
+      color: $color-accent
+
+.active
+  border-bottom-width: 3px
+  border-bottom-color: $color-accent
+  border-bottom-style: solid
+  color: $color-accent-light

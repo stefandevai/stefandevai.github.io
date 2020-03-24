@@ -1,0 +1,46 @@
+@import "./definitions"
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i&display=swap')
+
+.blog-post p span.gatsby-resp-image-wrapper
+  margin-top: base-height(2)
+  margin-bottom: base-height(2)
+
+html
+  color: $color-black
+  overflow-y: initial
+  font-size: $font-normal
+  line-height: 1.8
+
+a
+  text-decoration: none
+  color: $color-anchor
+
+a:hover
+  color: $color-anchor-hover
+
+h1
+  font-size: $font-h1
+  margin-bottom: base-height(2)
+  margin-top: base-height(2)
+
+  @media (max-width: 672px)
+    margin-top: 0
+    margin-bottom: base-height(1)
+
+h1,h2,h3,h4,h5,h6
+  color: $color-black
+
+.brand-diamond
+  font-size: $font-normal
+  font-weight: bold
+  color: $color-accent-light
+
+.footnotes
+  margin-top: base-height(2)
+  font-size: $font-small
+
+  li
+    margin-top: base-height(1)
+
+  p
+    display: inline
