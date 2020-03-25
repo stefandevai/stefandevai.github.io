@@ -3,7 +3,7 @@ module.exports = {
     title: `Temporal Geometry`,
     titleTemplate: `%s | Temporal Geometry`,
     author: `Stefan Devai`,
-    description: `Stefan Devai's blog about history and programming.`,
+    description: `Stefan Devai's blog about History and programming.`,
     siteUrl: `https://stefandevai.me`,
     banner: `/assets/images/banner.jpg`,
   },
