@@ -68,10 +68,10 @@ class Scene extends React.Component {
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
 
     this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
-    this.renderer.setPixelRatio( window.devicePixelRatio );
+    this.renderer.setPixelRatio(window.devicePixelRatio)
     this.mount.appendChild(this.renderer.domElement)
 
-    scene.background = new THREE.Color(0x111111);
+    scene.background = new THREE.Color(0x111111)
 
     const numberOfGears = 3
     let gears = new Array(numberOfGears)
