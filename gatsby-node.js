@@ -75,8 +75,6 @@ async function createBlogPages(graphql, actions) {
     const page = parseInt(index/postsPerPage)
     const pageSlug = page === 0 ? `/` : `/blog/${page + 1}`
 
-    console.log(post.node.fields.slug)
-
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(`./src/templates/post.js`),

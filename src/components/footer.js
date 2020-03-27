@@ -1,15 +1,17 @@
 import React from "react"
-import footerStyles from "./styles/footer.module.sass"
+import "./styles/footer.module.sass"
 
 const Footer = props => {
   return(
     <footer>
-      <section className={footerStyles.mainSection}>
-      </section>
-
-      <section className={footerStyles.bottom}>
-        <p>This website is <a href="https://github.com/stefandevai/stefandevai.github.io/" target="_blank" rel="noopener noreferrer">open source</a>!</p>
-      </section>
+        <span>This website is <a href="https://github.com/stefandevai/stefandevai.github.io/" target="_blank" rel="noopener noreferrer">open source</a>!</span> 
+        &nbsp;—&nbsp;
+        <span>
+          <a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer">github</a>&nbsp;·&nbsp;
+          <a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer">instagram</a>&nbsp;·&nbsp;
+          <a href="mailto:stedevai@gmail.com" target="_blank" rel="noopener noreferrer">email</a>&nbsp;·&nbsp;
+          <a href="/rss.xml" target="_blank" rel="noopener noreferrer">rss</a>
+        </span>
     </footer>
   )
 }

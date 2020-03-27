@@ -31,7 +31,7 @@ export default ({ data }) => {
 
           <div className={aboutStyles.socialIcons}>
             <a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer"><GitHubIcon /></a>
-            <a href="http://instagram.com/stedevai" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
+            <a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
             <a href="mailto:stedevai@gmail.com"><EmailIcon /></a>
           </div>
         </div>
