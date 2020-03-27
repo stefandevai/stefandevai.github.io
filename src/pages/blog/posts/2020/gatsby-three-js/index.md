@@ -57,7 +57,7 @@ We are going to create a Scene React component that will hold the three js code 
 import React from "react"
 import * as THREE from "three"
 
-class Scene extends React.Component { // highlight-line
+class Scene extends React.Component { 
   render() {
     return (
       <div>Future three js scene</div>
@@ -88,7 +88,8 @@ Let's go back to the scene.js file and take the green cube example code from the
 // ...
 
 class Scene extends React.Component {
-  componentDidMount() {
+  // highlight-start
+  componentDidMount() { 
     let scene = new THREE.Scene()
     let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)
 
@@ -114,6 +115,7 @@ class Scene extends React.Component {
 
     animate()
   }
+  // highlight-end
 
   render() {
     return (
@@ -137,7 +139,7 @@ In order to do that, we add a reference to our div and modify its size style in 
 
   render() {
     return (
-      <div ref={ref => (this.mount = ref)} style={{ width: `100vw`, height: `100vh` }}></div>
+      <div ref={ref => (this.mount = ref)} style={{ width: `100vw`, height: `100vh` }}></div> // highlight-line
     )
   }
 
@@ -151,11 +153,13 @@ In order to do that, we add a reference to our div and modify its size style in 
 
   componentDidMount() {
     let scene = new THREE.Scene()
+    // highlight-start
     let camera = new THREE.PerspectiveCamera(75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000)
 
     let renderer = new THREE.WebGLRenderer();
     renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
     this.mount.appendChild(renderer.domElement)
+    // highlight-end
 
     // ...
   }
