@@ -5,16 +5,17 @@ import kirkhamTheme from "typography-theme-kirkham"
 kirkhamTheme.googleFonts = [
   {
     name: 'Playfair Display',
+    //name: 'Arvo',
     styles: ['700'],
   },
   {
-    name: 'Arvo',
+    name: 'Nunito',
     styles: ['400', '400i', '700', '700i'],
   },
 ]
 
 kirkhamTheme.headerFontFamily = ['Playfair Display']
-kirkhamTheme.bodyFontFamily = ['Arvo']
+kirkhamTheme.bodyFontFamily = ['Nunito']
 
 const typography = new Typography(kirkhamTheme)
 
