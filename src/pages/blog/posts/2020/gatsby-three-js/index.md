@@ -57,7 +57,7 @@ We are going to create a Scene React component that will hold the three js code 
 import React from "react"
 import * as THREE from "three"
 
-class Scene extends React.Component {
+class Scene extends React.Component { // highlight-line
   render() {
     return (
       <div>Future three js scene</div>
