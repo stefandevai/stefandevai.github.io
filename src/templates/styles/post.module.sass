@@ -3,6 +3,9 @@
 .post
   margin-bottom: base-height(3)
 
+  ul,ol
+    margin-bottom: $base-margin
+
   em
     text-decoration: underline
 
@@ -12,10 +15,13 @@
 
   code[class*="language-"]
     font-size: $font-inline-code
+    font-family: $font-family-monospace
+    background: #e9f7ee
 
   pre[class*="language-"] > code[class*="language-"]
     font-size: $font-code
     font-family: $font-family-monospace
+    background: transparent
 
 
 .go-back

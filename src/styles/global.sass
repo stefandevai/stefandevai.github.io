@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i&display=swap')
 
 .blog-post p span.gatsby-resp-image-wrapper
-  margin-top: base-height(2)
-  margin-bottom: base-height(2)
+  margin-top: $base-margin
+  margin-bottom: $base-margin
 
 html
   color: $color-black
@@ -12,7 +12,7 @@ html
   line-height: 1.8
 
 p
-  margin-bottom: base-height(2)
+  margin-bottom: $base-margin
 
 a
   text-decoration: none
@@ -23,8 +23,8 @@ a:hover
 
 h1
   font-size: $font-h1
-  margin-bottom: base-height(2)
-  margin-top: base-height(2)
+  margin-bottom: $base-margin
+  margin-top: $base-margin
 
   @media (max-width: 672px)
     margin-top: 0
@@ -41,6 +41,8 @@ h1,h2,h3,h4,h5,h6
 .footnotes
   margin-top: base-height(2)
   font-size: $font-small
+  hr
+    margin-bottom: base-height(2)
 
   li
     margin-top: base-height(1)
@@ -50,7 +52,7 @@ h1,h2,h3,h4,h5,h6
 
 // PrismJS line highlight
 .gatsby-highlight
-  background-color: #f7fcf9
+  background-color: #ffffff
   padding: base-height(2) 
   margin-bottom: base-height(2) 
   overflow: auto
@@ -65,7 +67,7 @@ h1,h2,h3,h4,h5,h6
   min-width: 100%
 
 .gatsby-highlight-code-line
-  background-color: #e9f7ee
+  background-color: #f7fcf9
   display: block
   margin-right: base-height(-2)
   margin-left: base-height(-2)
