@@ -9,7 +9,7 @@ tags: ["programming", "web development"]
 
 ## 1. Introduction
 
-[Three.js](https://threejs.org/) is a JavaScript library that abstracts WebGL's functionality and it's used for creating complex 3D/2D visuals in websites, which by the way was used in the hero section of this blog's homepage. Integrating it with [GatsbyJS](https://www.gatsbyjs.org/) (a framework for building React apps) is quite simple.
+[Three.js](https://threejs.org/) is a JavaScript library that abstracts WebGL's functionality and it's used for creating complex 3D/2D visuals in websites, which by the way was used in the hero section of this blog's homepage. Integrating it with [GatsbyJS](https://www.gatsbyjs.org/) (a framework for building websites and apps using React) is quite simple.
 
 I would recommend using a package such as [react-three-fiber](https://github.com/react-spring/react-three-fiber) if you want a complex 3D scene with lots of user interactivity, but sometimes you don't need all this power and using pure three.js with Gatsby works just fine. This article will deal with the latter case and show you the simplest way in which you can get three.js running in a Gatsby app.
 
