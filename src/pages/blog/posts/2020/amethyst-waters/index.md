@@ -35,7 +35,7 @@ TIC-80 provides a nice feature for easily recording animated GIFs of the game. S
 
 ### Basic movement:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p1.mp4" type="video/mp4" />
 </video>
 
@@ -43,7 +43,7 @@ The first thing for most games. I just wanted to be able to control the main obj
 
 ### Start screen and shots:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p2.mp4" type="video/mp4" />
 </video>
 
@@ -51,7 +51,7 @@ Next basic element of a shoot 'em up are the actual shots. These are simply stor
 
 ### Enemies, collisions and damage:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p3.mp4" type="video/mp4" />
 </video>
 
@@ -59,7 +59,7 @@ Here I added a basic enemy pool for spawning and removing enemies from the game 
 
 ### Sprite animation:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p4.mp4" type="video/mp4" />
 </video>
 
@@ -67,7 +67,7 @@ This part actually took some time to get right as for some reason I decided to i
 
 ### Camera movement:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p5.mp4" type="video/mp4" />
 </video>
 
@@ -75,7 +75,7 @@ I added some placeholder sprites and a camera movement to the game in order to b
 
 ### Fish movement:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p6.mp4" type="video/mp4" />
 </video>
 
@@ -83,7 +83,7 @@ Now the fish have a more floaty movement just by simply using the sine trigonome
 
 ### Cave generation:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p7.mp4" type="video/mp4" />
 </video>
 
@@ -91,7 +91,7 @@ Now we start getting into the actual complex part of the game: the cave generati
 
 ### Procedural generation:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p8.mp4" type="video/mp4" />
 </video>
 
@@ -99,7 +99,7 @@ Here I just added a Perlin Noise generation function to the same algorithm and t
 
 ### Collision resolution:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p9.mp4" type="video/mp4" />
 </video>
 
@@ -107,7 +107,7 @@ It's like the 6th time I implement 2D collision resolution from scratch and I us
 
 ### Infinite scrolling and parallax effect:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p10.mp4" type="video/mp4" />
 </video>
 
@@ -115,7 +115,7 @@ At this point I start to get relieved as the main components for the game seem t
 
 ### New color palette:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p11.mp4" type="video/mp4" />
 </video>
 
@@ -123,7 +123,7 @@ Confident that I was advancing with the game, I thought it was time to depart fr
 
 ### Collectables and HUD:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p12.mp4" type="video/mp4" />
 </video>
 
@@ -155,7 +155,7 @@ The healthbar is very simple. I draw the UI sprites in the background and then d
 
 ### Icosahedron:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p13.mp4" type="video/mp4" />
 </video>
 
@@ -165,7 +165,7 @@ The basic idea is to get the vertices using the algorithm described in the artic
 
 ### Particles:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p14.mp4" type="video/mp4" />
 </video>
 
@@ -173,7 +173,7 @@ Now we started the polishing phase. A generic particle system was added in order
 
 ### Different weapons and new colors:
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p15.mp4" type="video/mp4" />
 </video>
 
@@ -181,11 +181,11 @@ I created three weapon types, adjusted the palette color, added a background bub
 
 ### Anglerfish boss
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p16.mp4" type="video/mp4" />
 </video>
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p17.mp4" type="video/mp4" />
 </video>
 
@@ -193,7 +193,7 @@ I also added a final boss, an monstrous anglerfish that has three different atta
 
 ### More enemies
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p18.mp4" type="video/mp4" />
 </video>
 
@@ -201,7 +201,7 @@ This was definitely the most boring part of the whole development. I spent an en
 
 ### Final touches
 
-<video autoplay loop>
+<video playsinline muted autoplay loop>
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p19.mp4" type="video/mp4" />
 </video>
 
