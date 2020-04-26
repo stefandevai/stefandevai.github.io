@@ -101,15 +101,6 @@ class Scene extends React.Component {
       lineWidth: 2,
       zRotation: -0.005,
     })
-    //gears[3] = new Gear({
-      //radius: 1.5,
-      //position: {x: -7, y: 4},
-      //rotationCenter: {x: 0, y: 0},
-      //points: 6,
-      //zRotation: 0.03,
-      //pausedDuration: 250,
-      //movingDuration: 250,
-    //})
 
     gears.forEach(gear => scene.add(gear.geometry))
     this.camera.position.z = 15
@@ -119,11 +110,14 @@ class Scene extends React.Component {
       gears.forEach(gear => gear.animate())
       this.renderer.render(scene, this.camera)
     }
-    //this.animate.bind(this)
 
     this.animate()
 
     window.addEventListener('resize', this.onWindowResize.bind(this), false)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize.bind(this), false)
   }
 
   onWindowResize() {
