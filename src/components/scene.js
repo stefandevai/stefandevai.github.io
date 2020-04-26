@@ -1,6 +1,8 @@
 import React from "react"
 import * as THREE from "three"
 import sceneStyles from "./styles/scene.module.sass"
+import BackgroundImage from 'gatsby-background-image'
+import { StaticQuery, graphql } from "gatsby"
 
 class Gear {
   constructor(props) {
@@ -139,15 +141,52 @@ class Scene extends React.Component {
   }
 
   render() {
-    let classes = this.state.hasLoaded === false ? [sceneStyles.webglContainer]
-                                                 : [sceneStyles.webglContainer, sceneStyles.shown]
-    return (
-      <div className={sceneStyles.webglWrapper}>
-        <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
-      </div>
-    )
-  }
+    const classes = this.state.hasLoaded === false ? [sceneStyles.webglContainer]
+                                                   : [sceneStyles.webglContainer, sceneStyles.shown]
+    const isDesktop = window.innerWidth > 600
 
+    // Render without image placeholder
+    if (isDesktop) {
+      return (
+        <div className={sceneStyles.webglWrapper}>
+          <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
+        </div>
+      )
+    } 
+    // Background image placeholder for mobile
+    else {
+      return (
+        <StaticQuery
+          query={graphql`
+            query {
+              desktop: file(relativePath: { eq: "bg-placeholder.png" }) {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 1200, pngCompressionSpeed: 6) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          `}
+          render={
+            data => {
+              const imageData = data.desktop.childImageSharp.fluid
+              return (
+                <BackgroundImage
+                    Tag="div"
+                    className={sceneStyles.webglWrapper}
+                    fluid={imageData}
+                    backgroundColor={`#111111`}
+                  >
+                  <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
+                </BackgroundImage>
+              )
+            } 
+          }
+        />
+      )
+    }
+  }
 }
 
 export default Scene
