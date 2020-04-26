@@ -193,6 +193,10 @@ I also added a final boss, an monstrous anglerfish that has three different atta
 
 ### More enemies
 
+<video autoplay loop>
+  <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p18.mp4" type="video/mp4" />
+</video>
+
 This was definitely the most boring part of the whole development. I spent an entire day adjusting enemy waves, how much damage they dealt and which of those were allowed to appear together. It was an endless loop of testing and testing multiple times the same parts in order to see if we have a good transition between enemy waves while having a overall good difficulty progression.
 
 ### Final touches
