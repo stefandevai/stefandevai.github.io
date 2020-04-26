@@ -71,7 +71,7 @@ class Scene extends React.Component {
     this.renderer.setPixelRatio(window.devicePixelRatio)
     window.onload = setTimeout(function() {
       this.mount.appendChild(this.renderer.domElement)
-    }.bind(this), 10000)
+    }.bind(this), 1000)
 
     scene.background = new THREE.Color(0x111111)
 
