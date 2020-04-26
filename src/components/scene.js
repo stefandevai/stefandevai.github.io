@@ -62,7 +62,7 @@ class Gear {
 }
 
 class Scene extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     let scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera( 75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000 )
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
