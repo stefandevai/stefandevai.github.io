@@ -69,7 +69,9 @@ class Scene extends React.Component {
 
     this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    this.mount.appendChild(this.renderer.domElement)
+    window.onload = setTimeout(function() {
+      this.mount.appendChild(this.renderer.domElement)
+    }.bind(this), 10000)
 
     scene.background = new THREE.Color(0x111111)
 
@@ -107,7 +109,7 @@ class Scene extends React.Component {
 
     this.animate = function () {
       requestAnimationFrame(this.animate.bind(this))
-      //gears.forEach(gear => gear.animate())
+      gears.forEach(gear => gear.animate())
       this.renderer.render(scene, this.camera)
     }
 
