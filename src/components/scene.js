@@ -107,7 +107,7 @@ class Scene extends React.Component {
 
     this.animate = function () {
       requestAnimationFrame(this.animate.bind(this))
-      gears.forEach(gear => gear.animate())
+      //gears.forEach(gear => gear.animate())
       this.renderer.render(scene, this.camera)
     }
 
