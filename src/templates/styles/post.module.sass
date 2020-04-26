@@ -25,6 +25,11 @@
 
   video
     margin: base-height(0.5) 0
+    max-width: $layout-content-width
+    @media (max-width: 672px)
+      max-width: calc(100% - #{base-width(2)})
+    @media (max-width: 500px)
+      max-width: calc(100% - #{base-width(0.8)})
 
   h3
     margin-top: base-height(1)
