@@ -7,7 +7,7 @@ featuredImageCaption: "Amethyst Waters gameplay."
 tags: ["gamedev", "programming", "lisp"]
 ---
 
-*The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to created this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam.*
+*The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam.*
 
 Almost one month of confinement due to the COVID-19 had passed when I decided to take part in the [Spring Lisp Game Jam](https://itch.io/jam/spring-lisp-game-jam-2020). From April 10th to April 20th I created an entire game and then submitted it to be voted. I was happy and surprised to win the first place! You can play **Amethyst Waters** in the browser [here](https://stefandevai.itch.io/amethyst-waters), take a look to the code on [GitHub](https://github.com/stefandevai/amethyst-waters), and play the other games in the jam [here](https://itch.io/jam/spring-lisp-game-jam-2020/entries). This was the first time I committed to finish a game using a game engine instead of creating one of my own. In this post I want to discuss the process of developing Amethyst Waters so that I can improve in my next jam.
 
