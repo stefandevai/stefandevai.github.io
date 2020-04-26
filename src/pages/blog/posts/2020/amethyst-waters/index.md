@@ -2,8 +2,8 @@
 title: "Lisp hacking on confinement nights: Amethyst Waters"
 date: "2020-04-25"
 language: "en"
-featuredImage: "./john-eliot.jpg"
-featuredImageCaption: "Amethys Waters game screen."
+featuredImage: "./gameplay.png"
+featuredImageCaption: "Amethyst Waters gameplay."
 tags: ["gamedev", "programming", "lisp"]
 ---
 
