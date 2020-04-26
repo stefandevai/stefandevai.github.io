@@ -62,16 +62,19 @@ class Gear {
 }
 
 class Scene extends React.Component {
-  async componentDidMount() {
+  constructor(props) {
+    super(props)
+    this.state = { hasLoaded: false }
+  }
+
+  componentDidMount() {
     let scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera( 75, this.mount.offsetWidth/this.mount.offsetHeight, 0.1, 1000 )
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
 
     this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    window.onload = setTimeout(function() {
-      this.mount.appendChild(this.renderer.domElement)
-    }.bind(this), 2000)
+    window.onload = setTimeout(this.fadeScene.bind(this), this.mount.offsetWidth < 600 ? 2000 : 0)
 
     scene.background = new THREE.Color(0x111111)
 
@@ -122,6 +125,11 @@ class Scene extends React.Component {
     window.removeEventListener('resize', this.onWindowResize.bind(this), false)
   }
 
+  fadeScene() {
+    this.mount.appendChild(this.renderer.domElement)
+    this.setState({ hasLoaded: true })
+  }
+
   onWindowResize() {
     if (this.mount) {
       this.camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight
@@ -131,8 +139,12 @@ class Scene extends React.Component {
   }
 
   render() {
+    let classes = this.state.hasLoaded === false ? [sceneStyles.webglContainer]
+                                                 : [sceneStyles.webglContainer, sceneStyles.shown]
     return (
-      <div className={sceneStyles.webglContainer} ref={ref => (this.mount = ref)} />
+      <div className={sceneStyles.webglWrapper}>
+        <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
+      </div>
     )
   }
 
