@@ -143,10 +143,10 @@ class Scene extends React.Component {
   render() {
     const classes = this.state.hasLoaded === false ? [sceneStyles.webglContainer]
                                                    : [sceneStyles.webglContainer, sceneStyles.shown]
-    const isDesktop = window.innerWidth > 600
+    const isMobile = (typeof window !== 'undefined' && window.innerWidth) <= 600
 
     // Render without image placeholder
-    if (isDesktop) {
+    if (!isMobile) {
       return (
         <div className={sceneStyles.webglWrapper}>
           <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
