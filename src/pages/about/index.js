@@ -30,9 +30,9 @@ export default ({ data }) => {
           <div className={aboutStyles.lineBottom}></div>
 
           <div className={aboutStyles.socialIcons}>
-            <a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer"><GitHubIcon /></a>
-            <a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
-            <a href="mailto:stedevai@gmail.com"><EmailIcon /></a>
+            <a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer" aria-label="GitHub link"><GitHubIcon /></a>
+            <a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer" aria-label="Instagram link"><InstagramIcon /></a>
+            <a href="mailto:stedevai@gmail.com" aria-label="Email Link"><EmailIcon /></a>
           </div>
         </div>
       </Layout>

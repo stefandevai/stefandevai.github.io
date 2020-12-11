@@ -5,7 +5,6 @@ import SEO from "../components/SEO"
 import PostPreview from "../components/post-preview"
 import Paginator from "../components/paginator"
 
-
 export default (props) => {
   const { data } = props
   const posts = data.allMarkdownRemark.edges
