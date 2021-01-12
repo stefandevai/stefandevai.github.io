@@ -48,12 +48,15 @@
   color: $color-accent-light
 
 .featured-image
-  margin-bottom: base-height(2)
+  margin-bottom: base-height(1)
+
 .image-caption
   font-style: italic
   display: block
   text-align: center
   font-size: $font-small
+  margin-top: 0.5rem
+  color: $color-grey
 
 .separator
   color: $color-light-grey
@@ -68,9 +71,11 @@
   font-size: $font-small
   border-top: 1px solid $color-extra-light-grey
   padding: base-height(2) 0 base-height(1) 0
-  display: flex
   list-style-type: none
-  justify-content: space-between
+
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 1rem
 
   li
     margin: 0

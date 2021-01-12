@@ -43,15 +43,15 @@ export default (props) => {
         <div className={postStyles.separator}><span>◆ ◆ ◆</span></div>
         <div className={postStyles.tags}>{tags ? ( tags.map((tag, index) => <Tag key={index} name={tag} />) ) : null}</div>
         <nav>
-          <ul className={postStyles.bottomNavigation}>{
+          <div className={postStyles.bottomNavigation}>{
               next
-                ? <Link to={next.fields.slug}><li className={postStyles.md}>⟵  {next.frontmatter.title}</li><li className={postStyles.sm}>⟵  Previous</li></Link>
-                : <Link to={last.fields.slug}><li className={postStyles.md}>⟵  {last.frontmatter.title}</li><li className={postStyles.sm}>⟵  Previous</li></Link>}
+                ? <Link to={next.fields.slug}><span className={postStyles.md}>⟵  <br/>{next.frontmatter.title}</span><span className={postStyles.sm}>⟵  <br/>Previous</span></Link>
+                : <Link to={last.fields.slug}><span className={postStyles.md}>⟵  <br/>{last.frontmatter.title}</span><span className={postStyles.sm}>⟵  <br/>Previous</span></Link>}
             {
               previous
-                ? <Link to={previous.fields.slug} className={postStyles.previousPost}><li className={postStyles.md}>{previous.frontmatter.title} ⟶</li><li className={postStyles.sm}>Next ⟶</li></Link>
-                : <Link to={first.fields.slug} className={postStyles.previousPost}><li className={postStyles.md}>{first.frontmatter.title} ⟶</li><li className={postStyles.sm}>Next ⟶</li></Link>}
-          </ul>
+                ? <Link to={previous.fields.slug} className={postStyles.previousPost}><span className={postStyles.md}>⟶<br/>{previous.frontmatter.title} </span><span className={postStyles.sm}>⟶<br/>Next</span></Link>
+                : <Link to={first.fields.slug} className={postStyles.previousPost}><span className={postStyles.md}>⟶<br/>{first.frontmatter.title}</span><span className={postStyles.sm}>⟶<br/>Next</span></Link>}
+          </div>
         </nav>
       </Layout>
     </div>
