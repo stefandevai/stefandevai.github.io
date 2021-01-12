@@ -42,7 +42,6 @@
     "react-typography": "^0.16.19",
     "three": "^0.114.0",
     "typography": "^0.16.19",
-    "typography-theme-grand-view": "^0.16.19",
     "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
