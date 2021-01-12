@@ -74,7 +74,7 @@ class Scene extends React.Component {
 
     this.renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight)
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    window.onload = setTimeout(this.fadeScene.bind(this), this.mount.offsetWidth < 600 ? 2000 : 0)
+    window.onload = setTimeout(this.fadeScene.bind(this), 250)
 
     scene.background = new THREE.Color(0x111111)
 
@@ -116,6 +116,7 @@ class Scene extends React.Component {
       requestAnimationFrame(this.animate.bind(this))
     }
 
+
     this.animate()
 
     window.addEventListener('resize', this.onWindowResize.bind(this), false)
@@ -123,6 +124,10 @@ class Scene extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.onWindowResize.bind(this), false)
+  }
+
+  shouldComponentUpdate() {
+    this.onWindowResize()
   }
 
   fadeScene() {

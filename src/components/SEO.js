@@ -27,30 +27,22 @@ const SEO = props => (
       }
 
       return (
-        <>
-          <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
-            <html lang={`en`} />
-            <meta charSet="utf-8" />
-            <link rel="canonical" href={seo.url} />
-            <meta name="description" content={seo.description} />
-            <meta name="image" content={seo.image} />
+        <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
+          <link rel="canonical" href={seo.url} />
+          <meta name="description" content={seo.description} />
+          <meta name="image" content={seo.image} />
 
-            {seo.url && <meta property="og:url" content={seo.url} />}
-            {(props.article ? true : null) && (<meta property="og:type" content="article" />)}
-            {seo.title && <meta property="og:title" content={seo.title} />}
-            {seo.description && (<meta property="og:description" content={seo.description} />)}
-            {seo.image && <meta property="og:image" content={seo.image} />}
+          {seo.url && <meta property="og:url" content={seo.url} />}
+          {(props.article ? true : null) && (<meta property="og:type" content="article" />)}
+          {seo.title && <meta property="og:title" content={seo.title} />}
+          {seo.description && (<meta property="og:description" content={seo.description} />)}
+          {seo.image && <meta property="og:image" content={seo.image} />}
 
-            <meta name="twitter:card" content="summary_large_image" />
-            {seo.title && <meta name="twitter:title" content={seo.title} />}
-            {seo.description && (<meta name="twitter:description" content={seo.description} />)}
-            {seo.image && <meta name="twitter:image" content={seo.image} />}
-
-            <link rel="preconnect" href="https://fonts.gstatic.com"/>
-            <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:wght@700&family=Ubuntu+Mono&display=swap"/>
-            <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:wght@700&family=Ubuntu+Mono&display=swap"/>
-          </Helmet>
-        </>
+          <meta name="twitter:card" content="summary_large_image" />
+          {seo.title && <meta name="twitter:title" content={seo.title} />}
+          {seo.description && (<meta name="twitter:description" content={seo.description} />)}
+          {seo.image && <meta name="twitter:image" content={seo.image} />}
+        </Helmet>
       )
     }}
   />

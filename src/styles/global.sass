@@ -1,5 +1,35 @@
 @import "./definitions"
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i&display=swap')
+
+@font-face
+  font-family: 'Nunito'
+  font-style: normal
+  font-weight: 400
+  font-display: swap
+@font-face
+  font-family: 'Nunito'
+  font-style: italic
+  font-weight: 400
+  font-display: swap
+@font-face
+  font-family: 'Nunito'
+  font-style: normal
+  font-weight: 700
+  font-display: swap
+@font-face
+  font-family: 'Nunito'
+  font-style: italic
+  font-weight: 700
+  font-display: swap
+@font-face
+  font-family: 'Bodoni Moda'
+  font-style: normal
+  font-weight: 700
+  font-display: swap
+@font-face
+  font-family: 'Ubuntu Mono'
+  font-style: normal
+  font-weight: 400
+  font-display: swap
 
 .blog-post p span.gatsby-resp-image-wrapper
   margin-top: $base-margin
@@ -11,6 +41,7 @@ html
   font-size: $font-normal
   line-height: 1.8
   font-display: swap
+  font-family: $font-family-base
 
 p
   margin-bottom: $base-margin
@@ -37,6 +68,7 @@ h3
 
 h1,h2,h3,h4,h5,h6
   color: $color-black
+  font-family: $font-family-heading
 
 .brand-diamond
   font-size: $font-normal

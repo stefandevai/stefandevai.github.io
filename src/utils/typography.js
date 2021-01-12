@@ -1,22 +1,6 @@
 import gray from "gray-percentage"
 import Typography from "typography"
 import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants"
-//import kirkhamTheme from "typography-theme-kirkham"
-
-//kirkhamTheme.googleFonts = []
-  //{
-    //name: 'Playfair Display',
-    ////name: 'Arvo',
-    //styles: ['700'],
-  //},
-  //{
-    //name: 'Nunito',
-    //styles: ['400', '400i', '700', '700i'],
-  //},
-//]
-
-//kirkhamTheme.headerFontFamily = ['Bodoni Moda']
-//kirkhamTheme.bodyFontFamily = ['Nunito']
 
 const typography = new Typography({
   headerFontFamily: ['Bodoni Moda', 'serif'],

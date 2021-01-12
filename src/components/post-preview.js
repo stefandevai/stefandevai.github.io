@@ -7,7 +7,7 @@ const PostPreview = props => {
   let tags = props.node.frontmatter.tags
 
   return (
-    <div className={postPreviewStyles.postPreview} key={props.node.id}>
+    <div className={postPreviewStyles.postPreview} key={props.node.id} lang={props.node.frontmatter.language}>
       <span className={postPreviewStyles.date} >
         {props.node.frontmatter.date}
       </span>

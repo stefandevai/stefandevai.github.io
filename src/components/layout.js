@@ -5,7 +5,6 @@ import Header from "./header"
 import Footer from "./footer"
 import Hero from "./hero"
 
-
 export default (props) => {
   return (<>
     <div className={layoutStyles.site}>

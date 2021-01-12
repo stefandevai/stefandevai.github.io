@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/SEO"
 import Tag from "../components/tag"
 import Img from "gatsby-image"
+import "@fontsource/ubuntu-mono/400.css"
 
 import postStyles from "./styles/post.module.sass"
 
@@ -22,7 +23,7 @@ export default (props) => {
   }
 
   return (
-    <div>
+    <div lang={post.frontmatter.language}>
       <SEO title={post.frontmatter.title} article={true} image={featuredImagePath} />
       <Layout>
         <section className={postStyles.post + " blog-post"}>
@@ -53,7 +54,7 @@ export default (props) => {
           </ul>
         </nav>
       </Layout>
-      </div>
+    </div>
   )
 }
 
@@ -64,6 +65,7 @@ export const query = graphql`
       frontmatter {
         title
         tags
+        language
         featuredImageCaption
         featuredImage {
           childImageSharp {

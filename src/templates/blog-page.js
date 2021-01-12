@@ -18,7 +18,6 @@ export default (props) => {
         heroTitle={data.site.siteMetadata.title}
         heroDescription={data.site.siteMetadata.description}
       >
-
         <div>
           {
             posts.map(({ node }, index) => <PostPreview node={node} key={index} /> )
