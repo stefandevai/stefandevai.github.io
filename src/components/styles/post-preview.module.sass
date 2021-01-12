@@ -4,6 +4,9 @@
   padding: base-height(1) base-width(0.4)
   border-bottom: 1px solid $color-extra-light-grey
 
+  @media (prefers-color-scheme: dark)
+    border-bottom: 1px solid $dark-color-detail
+
   a
     color: inherit
 
@@ -22,8 +25,15 @@
 .language-tag
   background-color: $color-black
 
+  @media (prefers-color-scheme: dark)
+    background-color: $dark-color-p
+    color: $color-black
+
 .date
   color: $color-grey
   font-size: $font-small
   font-style: italic
+
+  @media (prefers-color-scheme: dark)
+    color: $dark-color-secondary
 

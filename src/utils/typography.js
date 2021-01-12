@@ -10,7 +10,6 @@ const typography = new Typography({
   scaleRatio: 2.15,
   blockMarginBottom: 0.75,
   headerColor: "hsla(0,0%,0%,1)",
-  bodyColor: "hsla(0,0%,0%,0.8)",
   headerWeight: 700,
   bodyWeight: 400,
   boldWeight: 700,
@@ -31,7 +30,6 @@ const typography = new Typography({
     },
     "blockquote cite": {
       ...adjustFontSizeTo(options.baseFontSize),
-      color: options.bodyColor,
       fontWeight: options.bodyWeight,
     },
     "blockquote cite:before": {

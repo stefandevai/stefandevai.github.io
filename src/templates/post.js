@@ -29,7 +29,6 @@ export default (props) => {
         <section className={postStyles.post + " blog-post"}>
           <Link to={pageSlug} className={postStyles.goBack}><span>⟵  Go Back</span></Link>
 
-
           <h1 className={postStyles.postTitle}>{post.frontmatter.title}<span className={postStyles.square}> ◆</span></h1>
           {featuredImageFluid && (
             <div className={postStyles.featuredImage}>

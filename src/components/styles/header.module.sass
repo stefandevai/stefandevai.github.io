@@ -5,6 +5,9 @@
   height: $header-height
   line-height: $header-height
 
+  @media (prefers-color-scheme: dark)
+    border-bottom: 1px solid $dark-color-detail
+
 .content
   margin-left: base-width(1.5)
   margin-right: base-width(1.5)
@@ -14,12 +17,21 @@
     list-style-type: none
   
 .logo svg
-    height: base-height(1.5)
-    vertical-align: middle
-    display: inline
-    font-style: normal
-    padding-bottom: 5px
-    width: auto
+  height: base-height(1.5)
+  vertical-align: middle
+  display: inline
+  font-style: normal
+  padding-bottom: 5px
+  width: auto
+
+.logo svg path
+  @media (prefers-color-scheme: dark)
+    fill: $dark-color-heading
+
+.logo svg:hover path
+  @media (prefers-color-scheme: dark)
+    fill: $color-white
+
 
 .menu-item
   display: inline-block
@@ -27,6 +39,9 @@
 
   a:not(.active)
     color: $color-dark-grey
+
+    @media (prefers-color-scheme: dark)
+      color: $dark-color-p
   a
     display: inline-block
     text-decoration: none
