@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/login"
-  to = "/"
+  from = "/blog/posts/2018/batalla-en-elcampo-fresas"
+  to = "/blog/posts/2018/batalla-en-el-campo-fresas"
   status = 302
