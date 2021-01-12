@@ -11,11 +11,11 @@ const PostPreview = props => {
       <span className={postPreviewStyles.date} >
         {props.node.frontmatter.date}
       </span>
-      <h3>
+      <h2>
         <Link to={props.node.fields.slug}>
           {props.node.frontmatter.title}{" "}
         </Link>
-      </h3>
+      </h2>
       <div className={postPreviewStyles.tags}>
         {props.node.frontmatter.language && <Tag name={props.node.frontmatter.language} tagClass={postPreviewStyles.languageTag} />}
         {tags ? ( tags.map((tag, index) => <Tag key={index} name={tag} />) ) : null}

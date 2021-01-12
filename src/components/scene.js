@@ -1,8 +1,6 @@
 import React from "react"
 import * as THREE from "three"
 import sceneStyles from "./styles/scene.module.sass"
-import BackgroundImage from 'gatsby-background-image'
-import { StaticQuery, graphql } from "gatsby"
 
 class Gear {
   constructor(props) {
@@ -113,9 +111,9 @@ class Scene extends React.Component {
     this.camera.position.z = 15
 
     this.animate = function () {
-      requestAnimationFrame(this.animate.bind(this))
       gears.forEach(gear => gear.animate())
       this.renderer.render(scene, this.camera)
+      requestAnimationFrame(this.animate.bind(this))
     }
 
     this.animate()
@@ -143,49 +141,11 @@ class Scene extends React.Component {
   render() {
     const classes = this.state.hasLoaded === false ? [sceneStyles.webglContainer]
                                                    : [sceneStyles.webglContainer, sceneStyles.shown]
-    const isMobile = (typeof window !== 'undefined' && window.innerWidth) <= 600
-
-    // Render without image placeholder
-    if (!isMobile) {
-      return (
-        <div className={sceneStyles.webglWrapper}>
-          <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
-        </div>
-      )
-    } 
-    // Background image placeholder for mobile
-    else {
-      return (
-        <StaticQuery
-          query={graphql`
-            query {
-              desktop: file(relativePath: { eq: "bg-placeholder.png" }) {
-                childImageSharp {
-                  fluid(quality: 100, maxWidth: 1200, pngCompressionSpeed: 6) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
-          `}
-          render={
-            data => {
-              const imageData = data.desktop.childImageSharp.fluid
-              return (
-                <BackgroundImage
-                    Tag="div"
-                    className={sceneStyles.webglWrapper}
-                    fluid={imageData}
-                    backgroundColor={`#111111`}
-                  >
-                  <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
-                </BackgroundImage>
-              )
-            } 
-          }
-        />
-      )
-    }
+    return (
+      <div className={sceneStyles.webglWrapper}>
+        <div className={classes.join(' ')} ref={ref => (this.mount = ref)} />
+      </div>
+    )
   }
 }
 

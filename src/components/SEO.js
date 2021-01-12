@@ -45,6 +45,10 @@ const SEO = props => (
             {seo.title && <meta name="twitter:title" content={seo.title} />}
             {seo.description && (<meta name="twitter:description" content={seo.description} />)}
             {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+            <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:wght@700&family=Ubuntu+Mono&display=swap"/>
+            <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:wght@700&family=Ubuntu+Mono&display=swap"/>
           </Helmet>
         </>
       )

@@ -5,16 +5,23 @@
   //height: calc(100vh - 57px)
   height: 70vh
 
+.scene-placeholder
+  background-color: $color-black
+  z-index: -1
+  width: 100%
+  height: 100%
+  position: absolute !important
+
 .content
   height: 100%
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  color: $color-white
 
   p
     text-align: center
+    color: $color-white
 
   h1
     font-size: $font-extra-big
