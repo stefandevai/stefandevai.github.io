@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/login"
+  to = "/"
+  status = 302
