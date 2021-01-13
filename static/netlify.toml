@@ -1,3 +1,6 @@
+[build]
+  functions = "src/lambda_functions"
+
 [[redirects]]
   from = "/blog/posts/2018/batalla-en-elcampo-fresas"
   to = "/blog/posts/2018/batalla-en-el-campo-fresas"
