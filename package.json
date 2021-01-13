@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "@fontsource/arvo": "^4.1.0",
     "@fontsource/bodoni-moda": "^4.1.1",
     "@fontsource/nunito": "^4.1.0",
     "@fontsource/ubuntu-mono": "^4.1.0",

@@ -4,7 +4,7 @@ import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants"
 
 const typography = new Typography({
   headerFontFamily: ['Bodoni Moda', 'serif'],
-  bodyFontFamily: ['Nunito', 'sans-serif'],
+  bodyFontFamily: ['Bodoni Moda', 'serif'],
   baseFontSize: "18px",
   baseLineHeight: 1.44,
   scaleRatio: 2.15,

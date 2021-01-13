@@ -1080,6 +1080,11 @@
     ts-node "^9"
     tslib "^2"
 
+"@fontsource/arvo@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/arvo/-/arvo-4.1.0.tgz#b4e4fb871c187deb0166bdd4ef0e2b0160040178"
+  integrity sha512-n6RWS9LJPIwRg5o1UVNZNZ9uOhXdEdOdf2q27KDYWYtstCb03kIMsAxX8PT+lXQQjdsK2N0L6/+QCbEp1ZfoSg==
+
 "@fontsource/bodoni-moda@^4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@fontsource/bodoni-moda/-/bodoni-moda-4.1.1.tgz#c25514c8e6a63abe9a055f569ba58fad65501b5b"
