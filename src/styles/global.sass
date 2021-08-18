@@ -30,20 +30,23 @@
   margin-top: $base-margin
   margin-bottom: $base-margin
 
+:root
+  color-scheme: light
+
 html
   overflow-y: initial
   font-size: $font-normal
   line-height: 1.8
   font-display: swap
   font-family: $font-family-base
-  @media (prefers-color-scheme: dark)
-    background-color: $dark-color-bg
+  // @media (prefers-color-scheme: dark)
+  //   background-color: $dark-color-bg
 
 html,body
   color: $color-black
 
-  @media (prefers-color-scheme: dark)
-    color: $dark-color-p
+  // @media (prefers-color-scheme: dark)
+  //   color: $dark-color-p
 
 p
   margin-bottom: $base-margin
@@ -72,12 +75,12 @@ h1,h2,h3,h4,h5,h6
   color: $color-black
   font-family: $font-family-heading
 
-  @media (prefers-color-scheme: dark)
-    color: $dark-color-heading
+  // @media (prefers-color-scheme: dark)
+  //   color: $dark-color-heading
 
-hr
-  @media (prefers-color-scheme: dark)
-    background-color: $dark-color-detail-light
+// hr
+//   @media (prefers-color-scheme: dark)
+//     background-color: $dark-color-detail-light
 
 .brand-diamond
   font-size: $font-normal
