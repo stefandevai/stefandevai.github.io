@@ -1,19 +1,19 @@
 ---
-title: "Lisp hacking on confinement nights: Amethyst Waters"
-date: "2020-04-25"
-language: "en"
-featuredImage: "./image.png"
-featuredImageCaption: "Amethyst Waters gameplay."
-tags: ["gamedev", "programming", "lisp"]
+title: 'Lisp hacking on confinement nights: Amethyst Waters'
+date: '2020-04-25'
+language: 'en'
+featuredImage: './image.png'
+featuredImageCaption: 'Amethyst Waters gameplay.'
+tags: ['gamedev', 'programming', 'lisp']
 ---
 
-*The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam.*
+_The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam._
 
 Almost one month of confinement due to the COVID-19 had passed when I decided to take part in the [Spring Lisp Game Jam](https://itch.io/jam/spring-lisp-game-jam-2020). From April 10th to April 20th I created an entire game and then submitted it to be voted. I was happy and surprised to win the first place! You can play **Amethyst Waters** in the browser [here](https://stefandevai.itch.io/amethyst-waters), take a look to the code on [GitHub](https://github.com/stefandevai/amethyst-waters), and play the other games in the jam [here](https://itch.io/jam/spring-lisp-game-jam-2020/entries). This was the first time I committed to finish a game using a game engine instead of creating one of my own. In this post I want to discuss the process of developing Amethyst Waters what went well, and what can be improved for my next game jams.
 
 ## Plan
 
-I have a *pretty good* historic on having game ideas with a giant scope and not being able to finish them. I wasn't concerned about innovative mechanics, my sole objective this time was to be able to finish a game. So the following ideas came to my mind:
+I have a _pretty good_ historic on having game ideas with a giant scope and not being able to finish them. I wasn't concerned about innovative mechanics, my sole objective this time was to be able to finish a game. So the following ideas came to my mind:
 
 - **A shoot 'em up:** it's a genre with somewhat simple mechanics that can easily scale in terms of content; that is, I can implement a basic gun type and then, if I still have time in the end of the jam, add different gun types with various effects.
 - **Ecco Tides of Time:** I love this game so much, and even more its beautiful [soundtrack](https://www.youtube.com/watch?v=32S2oJuANxo). Normally I wouldn't like to make a game about killing sea creatures, but as I didn't have a lot of time to think about design solutions for this issue, I decided to create abstract sea creatures that don't really exist.
@@ -25,7 +25,7 @@ As I wasn't innovating with the mechanics or story, as I was doing the game alon
 
 Didn't lost any time thinking about an idea, that's a good start! Now it was time to decide on which technology I would use to build the game. I searched if there was any way of using Common Lisp to create a browser game. Maybe there's one, but I couldn't find any. I then found out about TIC-80, a fantasy console, and its support of the Fennel programming language, a Lisp dialect. I did some tests before the jam, but I admit it is kind of weird when coming from Common Lisp. I usually go with Emacs when hacking with Common Lisp, but as I couldn't find any comfortable way to integrate Slime and TIC-80 and as I would have to constantly minify the code later on (in order to fit the 64k size limitation), I decided to stick with NeoVim.
 
-So [TIC-80](https://tic.computer/) is a fantasy console — a kind of emulator for a game console that never existed —, and I found it to be a perfect minimalist engine which limitations include 64k file size for the code, 4 audio channels and a 16 color palette. As it happened in the old consoles era, limitations can magically boost your creativity in order to overcome them. As we all know, *less is more*.
+So [TIC-80](https://tic.computer/) is a fantasy console — a kind of emulator for a game console that never existed —, and I found it to be a perfect minimalist engine which limitations include 64k file size for the code, 4 audio channels and a 16 color palette. As it happened in the old consoles era, limitations can magically boost your creativity in order to overcome them. As we all know, _less is more_.
 
 It was strange to be immersed on a text editor during 10 days while it was bright and sunny outside; but in the middle of a pandemic the streets had a creepy empty look. The lack of other things to do really helped in the motivation to code during hours a day.
 
@@ -127,7 +127,7 @@ Confident that I was advancing with the game, I thought it was time to depart fr
   <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p12.mp4" type="video/mp4" />
 </video>
 
-Inspired by the new palette, I came up with the name Amethyst Waters for the game, which actually became its official name. I then added amethysts as collectables and also implemented a basic HUD with a score and a healthbar. 
+Inspired by the new palette, I came up with the name Amethyst Waters for the game, which actually became its official name. I then added amethysts as collectables and also implemented a basic HUD with a score and a healthbar.
 
 The healthbar is very simple. I draw the UI sprites in the background and then draw pixel lines in health color over it. The width of this lines is proportional to the players health.
 

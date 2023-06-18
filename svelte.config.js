@@ -6,7 +6,7 @@ import remarkFootnotes from 'remark-footnotes';
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
-	remarkPlugins: [remarkFootnotes],
+	remarkPlugins: [remarkFootnotes]
 };
 
 /** @type {import('@sveltejs/kit').Config} */

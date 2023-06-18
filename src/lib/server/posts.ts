@@ -7,7 +7,7 @@ export interface Post {
 	featuredImage: string;
 	featuredImageCaption: string;
 	tags: string[];
-};
+}
 
 type GlobEntry = {
 	metadata: Post;
@@ -24,7 +24,7 @@ export const posts = Object.entries(
 			...globEntry.metadata,
 			slug: basename(dir),
 			filepath,
-			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`,
+			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`
 		};
 	})
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
