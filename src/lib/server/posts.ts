@@ -11,11 +11,13 @@ type GlobEntry = {
 	default: unknown;
 };
 
-export const posts = Object.entries(import.meta.glob<GlobEntry>('$src/posts/**/*.md', { eager: true }))
+export const posts = Object.entries(
+	import.meta.glob<GlobEntry>('$src/posts/**/*.md', { eager: true })
+)
 	.map(([filepath, globEntry]) => {
 		return {
 			...globEntry.metadata,
-			slug: parse(filepath).name,
+			slug: parse(filepath).name
 		};
 	})
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

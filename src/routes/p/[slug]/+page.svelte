@@ -7,7 +7,7 @@
 <div>
 	<article>
 		<header>
-		<h1>{data.post.title}</h1>
+			<h1>{data.post.title}</h1>
 		</header>
 		<div>
 			<svelte:component this={data.component} />

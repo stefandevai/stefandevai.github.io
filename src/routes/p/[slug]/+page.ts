@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ data }) => {
 		post: data.post,
 		component: component.default,
 		layout: {
-			fullWidth: true,
-		},
+			fullWidth: true
+		}
 	};
-}
+};
