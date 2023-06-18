@@ -1,10 +1,13 @@
-import { parse } from 'path';
+import { dirname, basename } from 'path';
 
 export interface Post {
 	title: string;
-	description: string;
 	date: string;
-}
+	language: 'fr' | 'pt' | 'en' | 'es';
+	featuredImage: string;
+	featuredImageCaption: string;
+	tags: string[];
+};
 
 type GlobEntry = {
 	metadata: Post;
@@ -15,9 +18,13 @@ export const posts = Object.entries(
 	import.meta.glob<GlobEntry>('$src/posts/**/*.md', { eager: true })
 )
 	.map(([filepath, globEntry]) => {
+		const dir = dirname(filepath);
+
 		return {
 			...globEntry.metadata,
-			slug: parse(filepath).name
+			slug: basename(dir),
+			filepath,
+			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`,
 		};
 	})
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

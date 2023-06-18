@@ -8,6 +8,7 @@
 	<article>
 		<header>
 			<h1>{data.post.title}</h1>
+			<img src={data.post.featuredImage} alt={data.post.featuredImageCaption} />
 		</header>
 		<div>
 			<svelte:component this={data.component} />
