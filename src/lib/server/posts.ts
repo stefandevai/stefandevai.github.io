@@ -22,9 +22,9 @@ export const posts = Object.entries(
 
 		return {
 			...globEntry.metadata,
-			slug: basename(dir),
-			filepath,
-			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`
+			slug: dir.replace('/src/posts/', '').replace('/', '_'),
+			filepath: filepath,
+			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`,
 		};
 	})
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

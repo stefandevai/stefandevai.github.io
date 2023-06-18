@@ -1,8 +1,13 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { title } from '$lib/config';
 
 	export let data: PageData;
 </script>
+
+<svelte:head>
+	<title>{data.post.title} | {title}</title>
+</svelte:head>
 
 <div>
 	<article>

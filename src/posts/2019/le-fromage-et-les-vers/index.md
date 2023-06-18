@@ -2,7 +2,7 @@
 title: 'Lecture : Le fromage et les vers de Carlo Ginzburg'
 date: '2019-10-17'
 language: 'fr'
-featuredImage: './image.jpg'
+featuredImage: 'image.jpg'
 featuredImageCaption: 'Supplice de Anneken Hendriks, brûlée à Amsterdam en 1571 (Jan Luyken, 1685). Source: Wikimedia Commons.'
 tags: ['history', 'reading']
 ---
