@@ -33,3 +33,4 @@ export const posts = Object.entries(
 		next: allPosts[index - 1] || 0,
 		previous: allPosts[index + 1] || 0
 	}));
+
