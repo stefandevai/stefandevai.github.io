@@ -41,26 +41,44 @@
 		gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
 	}
 
+	function resizeCanvasToDisplaySize(canvas) {
+		 const width = canvas.clientWidth;
+		 const height = canvas.clientHeight;
+
+		 if (canvas.width !== width || canvas.height !== height) {
+			 canvas.width = width;
+			 canvas.height = height;
+			 return true;
+		 }
+
+		 return false;
+	}
+
 	const drawScene = (gl: WebGLRenderingContext, programInfo: ProgramInfo, buffers: GLBuffers) => {
 		gl.clearColor(0.0, 0.0, 0.0, 1.0);
-		gl.clearDepth(1.0);
-		gl.enable(gl.DEPTH_TEST);
-		gl.depthFunc(gl.LEQUAL);
-		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		resizeCanvasToDisplaySize(gl.canvas);
+		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-		const fieldOfView = (45 * Math.PI) / 180; // in radians
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
 		const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
 		const zNear = 0.1;
 		const zFar = 100.0;
 		const projectionMatrix = mat4.create();
 
-		mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
+		/* mat4.ortho(projectionMatrix, -10.0, 10.0, -10.0 / aspect, 10.0 / aspect, zNear, zFar); */
+		mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, zNear, zFar);
 
 		const modelViewMatrix = mat4.create();
 		mat4.translate(
-			modelViewMatrix, // destination matrix
-			modelViewMatrix, // matrix to translate
-			[-0.0, 0.0, -6.0]
+			modelViewMatrix,
+			modelViewMatrix,
+			[28.0, 28.0, -10.0]
+		);
+		mat4.scale(
+			modelViewMatrix,
+			modelViewMatrix,
+			[32.0, 32.0, 0.0],
 		);
 
 		setPositionAttribute(gl, buffers, programInfo);
@@ -72,6 +90,7 @@
 			false,
 			projectionMatrix
 		);
+
 		gl.uniformMatrix4fv(
 			programInfo.uniformLocations.modelViewMatrix,
 			false,
