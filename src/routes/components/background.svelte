@@ -21,7 +21,11 @@
     }
   `;
 
-	const setPositionAttribute = (gl: WebGLRenderingContext, buffers: GLBuffers, programInfo: ProgramInfo) => {
+	const setPositionAttribute = (
+		gl: WebGLRenderingContext,
+		buffers: GLBuffers,
+		programInfo: ProgramInfo
+	) => {
 		const numComponents = 2;
 		const type = gl.FLOAT;
 		const normalize = false;
@@ -39,19 +43,19 @@
 		);
 
 		gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
-	}
+	};
 
 	function resizeCanvasToDisplaySize(canvas) {
-		 const width = canvas.clientWidth;
-		 const height = canvas.clientHeight;
+		const width = canvas.clientWidth;
+		const height = canvas.clientHeight;
 
-		 if (canvas.width !== width || canvas.height !== height) {
-			 canvas.width = width;
-			 canvas.height = height;
-			 return true;
-		 }
+		if (canvas.width !== width || canvas.height !== height) {
+			canvas.width = width;
+			canvas.height = height;
+			return true;
+		}
 
-		 return false;
+		return false;
 	}
 
 	const drawScene = (gl: WebGLRenderingContext, programInfo: ProgramInfo, buffers: GLBuffers) => {
@@ -61,48 +65,29 @@
 
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
-		const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
 		const zNear = 0.1;
 		const zFar = 100.0;
 		const projectionMatrix = mat4.create();
 
-		/* mat4.ortho(projectionMatrix, -10.0, 10.0, -10.0 / aspect, 10.0 / aspect, zNear, zFar); */
 		mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, zNear, zFar);
 
 		const modelViewMatrix = mat4.create();
-		mat4.translate(
-			modelViewMatrix,
-			modelViewMatrix,
-			[28.0, 28.0, -10.0]
-		);
-		mat4.scale(
-			modelViewMatrix,
-			modelViewMatrix,
-			[32.0, 32.0, 0.0],
-		);
+		mat4.translate(modelViewMatrix, modelViewMatrix, [400.0, 200.0, -10.0]);
+		mat4.scale(modelViewMatrix, modelViewMatrix, [200.0, 200.0, 0.0]);
 
 		setPositionAttribute(gl, buffers, programInfo);
 
 		gl.useProgram(programInfo.program);
 
-		gl.uniformMatrix4fv(
-			programInfo.uniformLocations.projectionMatrix,
-			false,
-			projectionMatrix
-		);
+		gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
 
-		gl.uniformMatrix4fv(
-			programInfo.uniformLocations.modelViewMatrix,
-			false,
-			modelViewMatrix
-		);
+		gl.uniformMatrix4fv(programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
 
 		{
-			const offset = 0;
-			const vertexCount = 4;
-			gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.element);
+			gl.drawElements(gl.LINE_LOOP, buffers.indicesCount, gl.UNSIGNED_SHORT, 0);
 		}
-	}
+	};
 
 	onMount(() => {
 		const gl = canvas.getContext('webgl');
@@ -117,17 +102,17 @@
 		const programInfo = {
 			program: shaderProgram,
 			attribLocations: {
-				vertexPosition: gl.getAttribLocation(shaderProgram, "aVertexPosition"),
+				vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition')
 			},
 			uniformLocations: {
-				projectionMatrix: gl.getUniformLocation(shaderProgram, "uProjectionMatrix"),
-				modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
-			},
+				projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
+				modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
+			}
 		};
 
 		const buffers = getBuffers(gl);
 
-		drawScene(gl, programInfo, buffers)
+		drawScene(gl, programInfo, buffers);
 	});
 </script>
 

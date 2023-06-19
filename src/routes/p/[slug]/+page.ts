@@ -6,7 +6,7 @@ const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 	eager: true
 });
 
-export const load: PageLoad = async ({ data, params }) => {
+export const load: PageLoad = async ({ data }) => {
 	const component = posts[data.post.filepath];
 	const image = images[data.post.featuredImage];
 

@@ -1,4 +1,4 @@
-import { dirname, basename } from 'path';
+import { dirname } from 'path';
 
 export interface Post {
 	title: string;
