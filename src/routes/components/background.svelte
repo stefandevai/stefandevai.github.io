@@ -1,93 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { mat4 } from 'gl-matrix';
-	import { getShaderProgram, getBuffers } from '$lib/gl';
-	import type { ProgramInfo, GLBuffers } from '$lib/gl';
+	import { animateBackground } from '$lib/background';
 
 	let canvas;
-
-	const vertexShaderSource = `
-    attribute vec4 aVertexPosition;
-    uniform mat4 uModelViewMatrix;
-    uniform mat4 uProjectionMatrix;
-    void main() {
-      gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-    }
-  `;
-
-	const fragmentShaderSource = `
-    void main() {
-      gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-    }
-  `;
-
-	const setPositionAttribute = (
-		gl: WebGLRenderingContext,
-		buffers: GLBuffers,
-		programInfo: ProgramInfo
-	) => {
-		const numComponents = 2;
-		const type = gl.FLOAT;
-		const normalize = false;
-		const stride = 0;
-		const offset = 0;
-
-		gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
-		gl.vertexAttribPointer(
-			programInfo.attribLocations.vertexPosition,
-			numComponents,
-			type,
-			normalize,
-			stride,
-			offset
-		);
-
-		gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
-	};
-
-	function resizeCanvasToDisplaySize(canvas) {
-		const width = canvas.clientWidth;
-		const height = canvas.clientHeight;
-
-		if (canvas.width !== width || canvas.height !== height) {
-			canvas.width = width;
-			canvas.height = height;
-			return true;
-		}
-
-		return false;
-	}
-
-	const drawScene = (gl: WebGLRenderingContext, programInfo: ProgramInfo, buffers: GLBuffers) => {
-		gl.clearColor(0.0, 0.0, 0.0, 1.0);
-		resizeCanvasToDisplaySize(gl.canvas);
-		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-
-		gl.clear(gl.COLOR_BUFFER_BIT);
-
-		const zNear = 0.1;
-		const zFar = 100.0;
-		const projectionMatrix = mat4.create();
-
-		mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, zNear, zFar);
-
-		const modelViewMatrix = mat4.create();
-		mat4.translate(modelViewMatrix, modelViewMatrix, [400.0, 200.0, -10.0]);
-		mat4.scale(modelViewMatrix, modelViewMatrix, [200.0, 200.0, 0.0]);
-
-		setPositionAttribute(gl, buffers, programInfo);
-
-		gl.useProgram(programInfo.program);
-
-		gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
-
-		gl.uniformMatrix4fv(programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
-
-		{
-			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.element);
-			gl.drawElements(gl.LINE_LOOP, buffers.indicesCount, gl.UNSIGNED_SHORT, 0);
-		}
-	};
 
 	onMount(() => {
 		const gl = canvas.getContext('webgl');
@@ -97,22 +12,7 @@
 			return;
 		}
 
-		const shaderProgram = getShaderProgram(gl, vertexShaderSource, fragmentShaderSource);
-
-		const programInfo = {
-			program: shaderProgram,
-			attribLocations: {
-				vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition')
-			},
-			uniformLocations: {
-				projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-				modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
-			}
-		};
-
-		const buffers = getBuffers(gl);
-
-		drawScene(gl, programInfo, buffers);
+		animateBackground(gl);
 	});
 </script>
 
@@ -120,7 +20,7 @@
 
 <style>
 	canvas {
-		background-color: black;
+		background-color: #111;
 		height: 70vh;
 		width: 100vw;
 	}
