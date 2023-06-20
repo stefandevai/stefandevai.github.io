@@ -1,8 +1,9 @@
 import { mat4 } from 'gl-matrix';
-import { getShaderProgram } from './shader';
-import { getPositionBuffer, getElementBuffer } from './buffer';
-import { buildCircle, buildSquare, computeMatrix, resizeCanvasToDisplaySize } from './util';
-import type { ProgramInfo, BufferInfo, ObjectInfo } from './types';
+import { getProgramInfo } from './shader';
+import { getBufferInfo } from './buffer';
+import { getObjectInfo, rotateObject } from './object';
+import { buildCircle, buildSquare, resizeCanvasToDisplaySize } from './util';
+import type { ObjectInfo } from './types';
 
 const vertexShaderSource = `
 	attribute vec4 aVertexPosition;
@@ -26,60 +27,6 @@ const fragmentShaderSource = `
 		gl_FragColor = vColor;
 	}
 `;
-
-const getBufferInfo = (
-	gl: WebGLRenderingContext,
-	vertices: number[],
-	indices: number[]
-): BufferInfo => {
-	const positionBuffer = getPositionBuffer(gl, vertices);
-	const elementBuffer = getElementBuffer(gl, indices);
-
-	return {
-		position: positionBuffer,
-		element: elementBuffer,
-		indicesCount: indices.length
-	};
-};
-
-const getProgramInfo = (
-	gl: WebGLRenderingContext,
-	vSource: string,
-	fSource: string
-): ProgramInfo => {
-	const shaderProgram = getShaderProgram(gl, vSource, fSource);
-
-	return {
-		program: shaderProgram,
-		attribLocations: {
-			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
-			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor')
-		},
-		uniformLocations: {
-			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
-		}
-	};
-};
-
-const getObjectInfo = (
-	projectionMatrix: mat4,
-	bufferInfo: BufferInfo,
-	programInfo: ProgramInfo,
-	translation: number[],
-	scale: number[],
-	rotation: number[]
-): ObjectInfo => {
-	return {
-		bufferInfo: bufferInfo,
-		programInfo: programInfo,
-		uniforms: {
-			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale, true),
-			projectionMatrix
-		},
-		rotation
-	};
-};
 
 const drawScene = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 	gl.clearColor(0.067, 0.067, 0.067, 1.0);
@@ -166,7 +113,7 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		programInfo,
 		[bigCircleCenterX, bigCircleCenterY, 0.0],
 		[radiusUnit * 24, radiusUnit * 24, 1.0],
-		[0.0, 0.0, -0.002]
+		{ rotation: [0.0, 0.0, -0.002] }
 	);
 	const circle2 = getObjectInfo(
 		projectionMatrix,
@@ -174,7 +121,7 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		programInfo,
 		[bigCircleCenterX + radiusUnit * 4, bigCircleCenterY + radiusUnit * 4, 0.0],
 		[radiusUnit * 12, radiusUnit * 12, 1.0],
-		[0.0, 0.0, 0.01]
+		{ rotation: [0.0, 0.0, 0.01], pauseDuration: 500.0, moveDuration: 500.0 }
 	);
 	const square = getObjectInfo(
 		projectionMatrix,
@@ -182,19 +129,14 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		programInfo,
 		[bigCircleCenterX, bigCircleCenterY, 0.0],
 		[radiusUnit, radiusUnit, 1.0],
-		[0.0, 0.0, 0.005]
+		{ rotation: [0.0, 0.0, 0.005] }
 	);
 
 	objects.push(circle1, circle2, square);
 
 	const animate = () => {
 		for (const object of objects) {
-			computeMatrix(
-				object.uniforms.modelViewMatrix,
-				[0.0, 0.0, 0.0],
-				object.rotation,
-				[1.0, 1.0, 1.0]
-			);
+			rotateObject(object, 0.01667);
 		}
 
 		drawScene(gl, objects);

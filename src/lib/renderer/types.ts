@@ -17,9 +17,16 @@ export type BufferInfo = {
 	indicesCount: number;
 };
 
+export type RotationInfo = {
+	rotation: number[];
+	pauseDuration?: number;
+	pausedTime?: number;
+	moveDuration?: number;
+	movingTime?: number;
+};
 export type ObjectInfo = {
 	programInfo: ProgramInfo;
 	bufferInfo: BufferInfo;
 	modelViewMatrix: mat4;
-	rotation: number[];
+	rotationInfo: RotationInfo;
 };

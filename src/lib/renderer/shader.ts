@@ -1,3 +1,5 @@
+import type { ProgramInfo } from './types';
+
 const loadShader = (gl: WebGLRenderingContext, type: number, source: string) => {
 	const shader = gl.createShader(type);
 
@@ -18,7 +20,7 @@ const loadShader = (gl: WebGLRenderingContext, type: number, source: string) => 
 	return shader;
 };
 
-export const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSource: string) => {
+const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSource: string) => {
 	const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vSource);
 	const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fSource);
 
@@ -42,3 +44,25 @@ export const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSo
 
 	return shaderProgram;
 };
+
+const getProgramInfo = (
+	gl: WebGLRenderingContext,
+	vSource: string,
+	fSource: string
+): ProgramInfo => {
+	const shaderProgram = getShaderProgram(gl, vSource, fSource);
+
+	return {
+		program: shaderProgram,
+		attribLocations: {
+			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor')
+		},
+		uniformLocations: {
+			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
+			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
+		}
+	};
+};
+
+export { getProgramInfo };
