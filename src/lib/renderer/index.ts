@@ -1,7 +1,7 @@
 import { mat4 } from 'gl-matrix';
 import { getShaderProgram } from './shader';
 import { getPositionBuffer, getElementBuffer } from './buffer';
-import { buildCircle, buildSquare, resizeCanvasToDisplaySize } from './util';
+import { buildCircle, buildSquare, computeMatrix, resizeCanvasToDisplaySize } from './util';
 import type { ProgramInfo, BufferInfo, ObjectInfo } from './types';
 
 const vertexShaderSource = `
@@ -60,20 +60,6 @@ const getProgramInfo = (
 			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
 		}
 	};
-};
-
-const computeMatrix = (
-	modelViewMatrix: mat4,
-	translation: number[],
-	rotation: number[],
-	scale: number[]
-) => {
-	mat4.translate(modelViewMatrix, modelViewMatrix, translation);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[0], [1, 0, 0]);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[1], [0, 1, 0]);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[2], [0, 0, 1]);
-	mat4.scale(modelViewMatrix, modelViewMatrix, scale);
-	return modelViewMatrix;
 };
 
 const drawScene = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
@@ -147,10 +133,14 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 
 	const programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
 
-	const objects: ObjectInfo[] = [];
-
 	const projectionMatrix = mat4.create();
-	mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, 0.1, 100.0);
+	mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
+	const radiusUnit = 15.0;
+	const bigCircleCenterX = gl.canvas.width / 2.0 - radiusUnit * 12;
+	const bigCircleCenterY = gl.canvas.height / 2.0 - radiusUnit * 12;
+	let frame = 0;
+
+	const objects: ObjectInfo[] = [];
 
 	const circle1ModelViewMatrix = mat4.create();
 	objects.push({
@@ -159,9 +149,10 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		uniforms: {
 			modelViewMatrix: computeMatrix(
 				circle1ModelViewMatrix,
-				[400.0, 200.0, -10.0],
-				[0.0, 0.0, 0.0],
-				[200.0, 200.0, 0.0]
+				[bigCircleCenterX, bigCircleCenterY, 0.0],
+				[0.0, 0.0, -frame * 0.002],
+				[radiusUnit * 24, radiusUnit * 24, 0.0],
+				true,
 			),
 			projectionMatrix
 		}
@@ -174,9 +165,10 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		uniforms: {
 			modelViewMatrix: computeMatrix(
 				circle2ModelViewMatrix,
-				[700.0, 300.0, -10.0],
-				[0.0, 0.0, 0.0],
-				[100.0, 100.0, 0.0]
+				[bigCircleCenterX + radiusUnit * 4, bigCircleCenterY + radiusUnit * 4, 0.0],
+				[0.0, 0.0, frame * 0.01],
+				[radiusUnit * 12, radiusUnit * 12, 0.0],
+				true,
 			),
 			projectionMatrix
 		}
@@ -189,13 +181,40 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		uniforms: {
 			modelViewMatrix: computeMatrix(
 				squareModelViewMatrix,
-				[300.0, 300.0, -10.0],
-				[0.0, 0.0, 0.0],
-				[80.0, 80.0, 0.0]
+				[bigCircleCenterX, bigCircleCenterY, 0.0],
+				[0.0, 0.0, frame * 0.005],
+				[radiusUnit, radiusUnit, 0.0],
+				true,
 			),
 			projectionMatrix
 		}
 	});
 
-	drawScene(gl, objects);
+	const animate = () => {
+		computeMatrix(
+			objects[0].uniforms.modelViewMatrix,
+			[0.0, 0.0, 0.0],
+			[0.0, 0.0, -0.002],
+			[1.0, 1.0, 1.0]
+		);
+		computeMatrix(
+			objects[1].uniforms.modelViewMatrix,
+			[0.0, 0.0, 0.0],
+			[0.0, 0.0, 0.01],
+			[1.0, 1.0, 1.0]
+		);
+		computeMatrix(
+			objects[2].uniforms.modelViewMatrix,
+			[0.0, 0.0, 0.0],
+			[0.0, 0.0, 0.005],
+			[1.0, 1.0, 1.0]
+		);
+
+		drawScene(gl, objects);
+
+		++frame;
+		requestAnimationFrame(animate);
+	}
+
+	animate();
 };
