@@ -1,4 +1,4 @@
-export const buildCircle = (radius: number, segments: number) => {
+export const buildCircle = (radius: number, segments: number, color: number[]) => {
 	const angle = (2 * Math.PI) / segments;
 	const vertices = [];
 	const indices = [];
@@ -10,6 +10,7 @@ export const buildCircle = (radius: number, segments: number) => {
 
 		vertices.push(x);
 		vertices.push(y);
+		vertices.push(...color);
 	}
 
 	for (let i = 0; i < segments - 1; ++i) {
@@ -20,8 +21,8 @@ export const buildCircle = (radius: number, segments: number) => {
 	return [vertices, indices];
 };
 
-export const buildSquare = () => {
-	const vertices = [-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5];
+export const buildSquare = (color: number[]) => {
+	const vertices = [-0.5, -0.5, ...color, 0.5, -0.5, ...color, 0.5, 0.5, ...color, -0.5, 0.5, ...color];
 	const indices = [0, 1, 2, 3];
 
 	return [vertices, indices];

@@ -6,16 +6,24 @@ import type { ProgramInfo, BufferInfo, ObjectInfo } from './types';
 
 const vertexShaderSource = `
 	attribute vec4 aVertexPosition;
+	attribute vec3 aVertexColor;
+
 	uniform mat4 uModelViewMatrix;
 	uniform mat4 uProjectionMatrix;
+
+	varying lowp vec4 vColor;
+
 	void main() {
 		gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+		vColor = vec4(aVertexColor, 1.0);
 	}
 `;
 
 const fragmentShaderSource = `
+	varying lowp vec4 vColor;
+
 	void main() {
-		gl_FragColor = vec4(0.333, 0.333, 0.333, 1.0);
+		gl_FragColor = vColor;
 	}
 `;
 
@@ -44,7 +52,8 @@ const getProgramInfo = (
 	return {
 		program: shaderProgram,
 		attribLocations: {
-			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition')
+			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor')
 		},
 		uniformLocations: {
 			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
@@ -90,10 +99,20 @@ const drawScene = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 				2,
 				gl.FLOAT,
 				false,
-				0,
+				20,
 				0
 			);
 			gl.enableVertexAttribArray(object.programInfo.attribLocations.vertexPosition);
+
+			gl.vertexAttribPointer(
+				object.programInfo.attribLocations.colorPosition,
+				3,
+				gl.FLOAT,
+				false,
+				20,
+				8
+			);
+			gl.enableVertexAttribArray(object.programInfo.attribLocations.colorPosition);
 			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, object.bufferInfo.element);
 			lastBufferInfo = object.bufferInfo;
 		}
@@ -120,10 +139,10 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 	resizeCanvasToDisplaySize(gl.canvas);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-	const [circleVertices, circleIndices] = buildCircle(0.5, 10);
+	const [circleVertices, circleIndices] = buildCircle(0.5, 10, [0.333, 0.333, 0.333]);
 	const circleBufferInfo = getBufferInfo(gl, circleVertices, circleIndices);
 
-	const [squareVertices, squareIndices] = buildSquare();
+	const [squareVertices, squareIndices] = buildSquare([0.89, 0.129, 0.063]);
 	const squareBufferInfo = getBufferInfo(gl, squareVertices, squareIndices);
 
 	const programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
