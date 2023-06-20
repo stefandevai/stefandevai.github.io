@@ -20,6 +20,13 @@ export const buildCircle = (radius: number, segments: number) => {
 	return [vertices, indices];
 };
 
+export const buildSquare = () => {
+	const vertices = [-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5];
+	const indices = [0, 1, 2, 3];
+
+	return [vertices, indices];
+};
+
 export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement) => {
 	const width = canvas.clientWidth;
 	const height = canvas.clientHeight;

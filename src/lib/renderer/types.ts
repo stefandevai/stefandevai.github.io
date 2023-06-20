@@ -1,3 +1,5 @@
+import { mat4 } from 'gl-matrix';
+
 export type ProgramInfo = {
 	program: WebGLProgram;
 	attribLocations: {
@@ -13,4 +15,10 @@ export type BufferInfo = {
 	position: WebGLBuffer;
 	element: WebGLBuffer;
 	indicesCount: number;
+};
+
+export type ObjectInfo = {
+	programInfo: ProgramInfo;
+	bufferInfo: BufferInfo;
+	modelViewMatrix: mat4;
 };

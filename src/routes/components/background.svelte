@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { animateBackground } from '$lib/background';
+	import { animateBackground } from '$lib/renderer';
 
 	let canvas;
 
