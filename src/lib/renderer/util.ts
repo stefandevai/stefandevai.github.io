@@ -24,7 +24,20 @@ export const buildCircle = (radius: number, segments: number, color: number[]) =
 };
 
 export const buildSquare = (color: number[]) => {
-	const vertices = [-0.5, -0.5, ...color, 0.5, -0.5, ...color, 0.5, 0.5, ...color, -0.5, 0.5, ...color];
+	const vertices = [
+		-0.5,
+		-0.5,
+		...color,
+		0.5,
+		-0.5,
+		...color,
+		0.5,
+		0.5,
+		...color,
+		-0.5,
+		0.5,
+		...color
+	];
 	const indices = [0, 1, 2, 3];
 
 	return [vertices, indices];
@@ -35,7 +48,7 @@ export const computeMatrix = (
 	translation: number[],
 	rotation: number[],
 	scale: number[],
-	addHalfSize: boolean = false,
+	addHalfSize = false
 ) => {
 	let translateX = translation[0];
 	let translateY = translation[1];

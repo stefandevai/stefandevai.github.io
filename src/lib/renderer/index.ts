@@ -62,6 +62,25 @@ const getProgramInfo = (
 	};
 };
 
+const getObjectInfo = (
+	projectionMatrix: mat4,
+	bufferInfo: BufferInfo,
+	programInfo: ProgramInfo,
+	translation: number[],
+	scale: number[],
+	rotation: number[]
+): ObjectInfo => {
+	return {
+		bufferInfo: bufferInfo,
+		programInfo: programInfo,
+		uniforms: {
+			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale, true),
+			projectionMatrix
+		},
+		rotation
+	};
+};
+
 const drawScene = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 	gl.clearColor(0.067, 0.067, 0.067, 1.0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
@@ -138,83 +157,49 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 	const radiusUnit = 15.0;
 	const bigCircleCenterX = gl.canvas.width / 2.0 - radiusUnit * 12;
 	const bigCircleCenterY = gl.canvas.height / 2.0 - radiusUnit * 12;
-	let frame = 0;
 
 	const objects: ObjectInfo[] = [];
 
-	const circle1ModelViewMatrix = mat4.create();
-	objects.push({
-		bufferInfo: circleBufferInfo,
-		programInfo: programInfo,
-		uniforms: {
-			modelViewMatrix: computeMatrix(
-				circle1ModelViewMatrix,
-				[bigCircleCenterX, bigCircleCenterY, 0.0],
-				[0.0, 0.0, -frame * 0.002],
-				[radiusUnit * 24, radiusUnit * 24, 0.0],
-				true,
-			),
-			projectionMatrix
-		}
-	});
+	const circle1 = getObjectInfo(
+		projectionMatrix,
+		circleBufferInfo,
+		programInfo,
+		[bigCircleCenterX, bigCircleCenterY, 0.0],
+		[radiusUnit * 24, radiusUnit * 24, 1.0],
+		[0.0, 0.0, -0.002]
+	);
+	const circle2 = getObjectInfo(
+		projectionMatrix,
+		circleBufferInfo,
+		programInfo,
+		[bigCircleCenterX + radiusUnit * 4, bigCircleCenterY + radiusUnit * 4, 0.0],
+		[radiusUnit * 12, radiusUnit * 12, 1.0],
+		[0.0, 0.0, 0.01]
+	);
+	const square = getObjectInfo(
+		projectionMatrix,
+		squareBufferInfo,
+		programInfo,
+		[bigCircleCenterX, bigCircleCenterY, 0.0],
+		[radiusUnit, radiusUnit, 1.0],
+		[0.0, 0.0, 0.005]
+	);
 
-	const circle2ModelViewMatrix = mat4.create();
-	objects.push({
-		bufferInfo: circleBufferInfo,
-		programInfo: programInfo,
-		uniforms: {
-			modelViewMatrix: computeMatrix(
-				circle2ModelViewMatrix,
-				[bigCircleCenterX + radiusUnit * 4, bigCircleCenterY + radiusUnit * 4, 0.0],
-				[0.0, 0.0, frame * 0.01],
-				[radiusUnit * 12, radiusUnit * 12, 0.0],
-				true,
-			),
-			projectionMatrix
-		}
-	});
-
-	const squareModelViewMatrix = mat4.create();
-	objects.push({
-		bufferInfo: squareBufferInfo,
-		programInfo: programInfo,
-		uniforms: {
-			modelViewMatrix: computeMatrix(
-				squareModelViewMatrix,
-				[bigCircleCenterX, bigCircleCenterY, 0.0],
-				[0.0, 0.0, frame * 0.005],
-				[radiusUnit, radiusUnit, 0.0],
-				true,
-			),
-			projectionMatrix
-		}
-	});
+	objects.push(circle1, circle2, square);
 
 	const animate = () => {
-		computeMatrix(
-			objects[0].uniforms.modelViewMatrix,
-			[0.0, 0.0, 0.0],
-			[0.0, 0.0, -0.002],
-			[1.0, 1.0, 1.0]
-		);
-		computeMatrix(
-			objects[1].uniforms.modelViewMatrix,
-			[0.0, 0.0, 0.0],
-			[0.0, 0.0, 0.01],
-			[1.0, 1.0, 1.0]
-		);
-		computeMatrix(
-			objects[2].uniforms.modelViewMatrix,
-			[0.0, 0.0, 0.0],
-			[0.0, 0.0, 0.005],
-			[1.0, 1.0, 1.0]
-		);
+		for (const object of objects) {
+			computeMatrix(
+				object.uniforms.modelViewMatrix,
+				[0.0, 0.0, 0.0],
+				object.rotation,
+				[1.0, 1.0, 1.0]
+			);
+		}
 
 		drawScene(gl, objects);
-
-		++frame;
 		requestAnimationFrame(animate);
-	}
+	};
 
 	animate();
 };

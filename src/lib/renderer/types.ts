@@ -21,4 +21,5 @@ export type ObjectInfo = {
 	programInfo: ProgramInfo;
 	bufferInfo: BufferInfo;
 	modelViewMatrix: mat4;
+	rotation: number[];
 };
