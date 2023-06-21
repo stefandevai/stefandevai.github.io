@@ -62,3 +62,7 @@ export const animate = (gl: WebGLRenderingContext, delta: number) => {
 
 	renderer.render(gl, objects, BACKGROUND_COLOR);
 };
+
+export const clear = () => {
+	objects.length = 0;
+}

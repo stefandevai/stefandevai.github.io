@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { title } from '$lib/config';
-	import Background from './components/background.svelte';
+	import Hero from './components/hero.svelte';
 
 	export let data: PageData;
 </script>
@@ -10,7 +10,7 @@
 	<title>{title}</title>
 </svelte:head>
 
-<Background />
+<Hero />
 
 <main>
 	<ul>

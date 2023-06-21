@@ -35,6 +35,7 @@
 		frame = requestAnimationFrame(animate);
 
 		return () => {
+			background.clear();
 			cancelAnimationFrame(frame);
 			resizeObserver.unobserve(canvas);
 		};
