@@ -67,11 +67,7 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 			lastBufferInfo = object.bufferInfo;
 		}
 		if (lastProjectionMatrix !== projectionMatrix) {
-			gl.uniformMatrix4fv(
-				programInfo.uniformLocations.projectionMatrix,
-				false,
-				projectionMatrix
-			);
+			gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
 			lastProjectionMatrix = projectionMatrix;
 		}
 

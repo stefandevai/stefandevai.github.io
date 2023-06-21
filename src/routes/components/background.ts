@@ -1,4 +1,3 @@
-import { mat4 } from 'gl-matrix';
 import * as renderer from '$lib/renderer';
 import { buildCircle } from '$lib/renderer/util';
 import { getBufferInfo } from '$lib/renderer/buffer';
@@ -65,4 +64,4 @@ export const animate = (gl: WebGLRenderingContext, delta: number) => {
 
 export const clear = () => {
 	objects.length = 0;
-}
+};

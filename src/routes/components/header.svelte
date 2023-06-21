@@ -1,7 +1,3 @@
-<script lang="ts">
-	import * as config from '$lib/config';
-</script>
-
 <nav>
 	<a href="/" class="logo">Stefan Devai</a>
 	<a href="/about">About</a>

@@ -68,7 +68,7 @@ export const getObjectInfo = (
 	return {
 		bufferInfo: bufferInfo,
 		uniforms: {
-			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
+			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale)
 		},
 		rotationInfo: {
 			...rotationInfo,
