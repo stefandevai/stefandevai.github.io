@@ -3,13 +3,14 @@
 	import Footer from './components/footer.svelte';
 
 	import '$src/app.css';
+	/* <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100&display=swap" rel="stylesheet"> */
 </script>
 
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
@@ -26,5 +27,12 @@
 	:global(body) {
 		margin: 0;
 		font-family: 'Bodoni Moda', serif;
+		/* font-family: 'Cormorant Infant', serif; */
 	}
+
+	/* :global(h1) { */
+	/* 	/1* font-family: 'Cormorant Infant', serif; *1/ */
+	/* 	font-family: 'Bitter', serif; */
+	/* 	font-weight: 100; */
+	/* } */
 </style>

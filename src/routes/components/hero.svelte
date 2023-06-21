@@ -26,10 +26,13 @@
 
 	.text > p {
 		margin: 0;
+		font-size: 1.2rem;
+		font-family: 'Bitter', serif;
 	}
 
 	.text > h1 {
-		font-size: 3rem;
+		font-size: 4rem;
 		margin: 0 0 1.2rem 0;
+		font-family: 'Bitter', serif;
 	}
 </style>
