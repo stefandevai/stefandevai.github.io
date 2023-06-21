@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { animateBackground } from '$lib/renderer';
+	import * as background from './background';
 
 	let canvas;
 
@@ -12,7 +12,26 @@
 			return;
 		}
 
-		animateBackground(gl);
+		background.init(gl);
+
+		let frame;
+		let previousTimeStamp = 0;
+
+		const animate = (timeStamp: number) => {
+			if (previousTimeStamp !== timeStamp) {
+				const delta = timeStamp - previousTimeStamp;
+				background.animate(gl, delta);
+			}
+
+			previousTimeStamp = timeStamp;
+			frame = requestAnimationFrame(animate);
+		};
+
+		frame = requestAnimationFrame(animate);
+
+		return () => {
+			cancelAnimationFrame(frame);
+		};
 	});
 </script>
 

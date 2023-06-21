@@ -1,5 +1,5 @@
 import { mat4 } from 'gl-matrix';
-import type { ProgramInfo, BufferInfo, ObjectInfo, RotationInfo } from './types';
+import type { BufferInfo, ObjectInfo, RotationInfo } from './types';
 
 export const computeMatrix = (
 	modelViewMatrix: mat4,
@@ -45,13 +45,13 @@ export const rotateObject = (object: ObjectInfo, delta: number) => {
 	// Pause and rotation behavior
 	if (object.rotationInfo.movingTime > 0.0) {
 		computeRotation(modelViewMatrix, rotation, rotationCenter);
-		object.rotationInfo.movingTime -= delta * 1000.0;
+		object.rotationInfo.movingTime -= delta;
 
 		if (object.rotationInfo.pausedTime <= 0.0) {
 			object.rotationInfo.pausedTime = pauseDuration;
 		}
 	} else if (object.rotationInfo.pausedTime > 0.0) {
-		object.rotationInfo.pausedTime -= delta * 1000.0;
+		object.rotationInfo.pausedTime -= delta;
 	}
 
 	if (object.rotationInfo.pausedTime <= 0.0 && object.rotationInfo.movingTime <= 0.0) {
@@ -62,14 +62,12 @@ export const rotateObject = (object: ObjectInfo, delta: number) => {
 export const getObjectInfo = (
 	projectionMatrix: mat4,
 	bufferInfo: BufferInfo,
-	programInfo: ProgramInfo,
 	translation: number[],
 	scale: number[],
 	rotationInfo: RotationInfo
 ): ObjectInfo => {
 	return {
 		bufferInfo: bufferInfo,
-		programInfo: programInfo,
 		uniforms: {
 			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
 			projectionMatrix

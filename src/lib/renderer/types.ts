@@ -27,7 +27,6 @@ export type RotationInfo = {
 };
 
 export type ObjectInfo = {
-	programInfo: ProgramInfo;
 	bufferInfo: BufferInfo;
 	modelViewMatrix: mat4;
 	rotationInfo: RotationInfo;
