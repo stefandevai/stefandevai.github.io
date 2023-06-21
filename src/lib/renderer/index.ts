@@ -1,3 +1,4 @@
+import { mat4 } from 'gl-matrix';
 import { getProgramInfo } from './shader';
 import { resizeCanvasToDisplaySize } from './util';
 import type { ObjectInfo } from './types';
@@ -26,15 +27,21 @@ const fragmentShaderSource = `
 `;
 
 let programInfo: ProgramInfo = null;
+const projectionMatrix = mat4.create();
 
-export const initRenderer = (gl: WebGLRenderingContext) => {
+export const resize = (gl: WebGLRenderingContext) => {
 	resizeCanvasToDisplaySize(gl.canvas);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+	mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
+};
+
+export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0]) => {
+	resize(gl);
 	programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
+	gl.clearColor(...backgroundColor, 1.0);
 };
 
 export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
-	gl.clearColor(0.067, 0.067, 0.067, 1.0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
 	let lastProgram = null;
@@ -59,13 +66,13 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, object.bufferInfo.element);
 			lastBufferInfo = object.bufferInfo;
 		}
-		if (lastProjectionMatrix !== object.uniforms.projectionMatrix) {
+		if (lastProjectionMatrix !== projectionMatrix) {
 			gl.uniformMatrix4fv(
 				programInfo.uniformLocations.projectionMatrix,
 				false,
-				object.uniforms.projectionMatrix
+				projectionMatrix
 			);
-			lastProjectionMatrix = object.uniforms.projectionMatrix;
+			lastProjectionMatrix = projectionMatrix;
 		}
 
 		gl.uniformMatrix4fv(

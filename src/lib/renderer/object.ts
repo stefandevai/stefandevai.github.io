@@ -60,7 +60,6 @@ export const rotateObject = (object: ObjectInfo, delta: number) => {
 };
 
 export const getObjectInfo = (
-	projectionMatrix: mat4,
 	bufferInfo: BufferInfo,
 	translation: number[],
 	scale: number[],
@@ -70,7 +69,6 @@ export const getObjectInfo = (
 		bufferInfo: bufferInfo,
 		uniforms: {
 			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
-			projectionMatrix
 		},
 		rotationInfo: {
 			...rotationInfo,

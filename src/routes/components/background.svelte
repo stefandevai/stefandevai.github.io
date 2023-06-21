@@ -14,6 +14,11 @@
 
 		background.init(gl);
 
+		const resizeObserver = new ResizeObserver(() => {
+			background.resize(gl);
+		});
+		resizeObserver.observe(canvas);
+
 		let frame;
 		let previousTimeStamp = 0;
 
@@ -31,6 +36,7 @@
 
 		return () => {
 			cancelAnimationFrame(frame);
+			resizeObserver.unobserve(canvas);
 		};
 	});
 </script>

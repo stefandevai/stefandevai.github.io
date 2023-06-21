@@ -6,7 +6,6 @@ export type ProgramInfo = {
 		vertexPosition: number;
 	};
 	uniformLocations: {
-		projectionMatrix: WebGLUniformLocation | null;
 		modelViewMatrix: WebGLUniformLocation | null;
 	};
 };
