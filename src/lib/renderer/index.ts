@@ -2,7 +2,7 @@ import { mat4 } from 'gl-matrix';
 import { getProgramInfo } from './shader';
 import { getBufferInfo } from './buffer';
 import { getObjectInfo, rotateObject } from './object';
-import { buildCircle, buildSquare, resizeCanvasToDisplaySize } from './util';
+import { buildCircle, resizeCanvasToDisplaySize } from './util';
 import type { ObjectInfo } from './types';
 
 const vertexShaderSource = `
@@ -94,7 +94,7 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 	const [circleVertices, circleIndices] = buildCircle(0.5, 10, [0.333, 0.333, 0.333]);
 	const circleBufferInfo = getBufferInfo(gl, circleVertices, circleIndices);
 
-	const [squareVertices, squareIndices] = buildSquare([0.89, 0.129, 0.063]);
+	const [squareVertices, squareIndices] = buildCircle(0.5, 4, [0.89, 0.129, 0.063]);
 	const squareBufferInfo = getBufferInfo(gl, squareVertices, squareIndices);
 
 	const programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
@@ -102,8 +102,8 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 	const projectionMatrix = mat4.create();
 	mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
 	const radiusUnit = 15.0;
-	const bigCircleCenterX = gl.canvas.width / 2.0 - radiusUnit * 12;
-	const bigCircleCenterY = gl.canvas.height / 2.0 - radiusUnit * 12;
+	const canvasCenterX = gl.canvas.width / 2.0;
+	const canvasCenterY = gl.canvas.height / 2.0;
 
 	const objects: ObjectInfo[] = [];
 
@@ -111,7 +111,7 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		projectionMatrix,
 		circleBufferInfo,
 		programInfo,
-		[bigCircleCenterX, bigCircleCenterY, 0.0],
+		[canvasCenterX, canvasCenterY, 0.0],
 		[radiusUnit * 24, radiusUnit * 24, 1.0],
 		{ rotation: [0.0, 0.0, -0.002] }
 	);
@@ -119,7 +119,7 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		projectionMatrix,
 		circleBufferInfo,
 		programInfo,
-		[bigCircleCenterX + radiusUnit * 4, bigCircleCenterY + radiusUnit * 4, 0.0],
+		[canvasCenterX - radiusUnit * 2, canvasCenterY - radiusUnit * 2, 0.0],
 		[radiusUnit * 12, radiusUnit * 12, 1.0],
 		{ rotation: [0.0, 0.0, 0.01], pauseDuration: 500.0, moveDuration: 500.0 }
 	);
@@ -127,9 +127,9 @@ export const animateBackground = (gl: WebGLRenderingContext) => {
 		projectionMatrix,
 		squareBufferInfo,
 		programInfo,
-		[bigCircleCenterX, bigCircleCenterY, 0.0],
-		[radiusUnit, radiusUnit, 1.0],
-		{ rotation: [0.0, 0.0, 0.005] }
+		[canvasCenterX - radiusUnit * 12, canvasCenterY, 0.0],
+		[radiusUnit * 1.3, radiusUnit * 1.3, 1.0],
+		{ rotation: [0.0, 0.0, 0.005], rotationCenter: [9.25, 0.0, 0.0] }
 	);
 
 	objects.push(circle1, circle2, square);

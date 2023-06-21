@@ -1,5 +1,3 @@
-import { mat4 } from 'gl-matrix';
-
 export const buildCircle = (radius: number, segments: number, color: number[]) => {
 	const angle = (2 * Math.PI) / segments;
 	const vertices = [];
@@ -23,48 +21,25 @@ export const buildCircle = (radius: number, segments: number, color: number[]) =
 	return [vertices, indices];
 };
 
-export const buildSquare = (color: number[]) => {
-	const vertices = [
-		-0.5,
-		-0.5,
-		...color,
-		0.5,
-		-0.5,
-		...color,
-		0.5,
-		0.5,
-		...color,
-		-0.5,
-		0.5,
-		...color
-	];
-	const indices = [0, 1, 2, 3];
+// export const buildSquare = (color: number[]) => {
+// 	const vertices = [
+// 		-0.5,
+// 		-0.5,
+// 		...color,
+// 		0.5,
+// 		-0.5,
+// 		...color,
+// 		0.5,
+// 		0.5,
+// 		...color,
+// 		-0.5,
+// 		0.5,
+// 		...color
+// 	];
+// 	const indices = [0, 1, 2, 3];
 
-	return [vertices, indices];
-};
-
-export const computeMatrix = (
-	modelViewMatrix: mat4,
-	translation: number[],
-	rotation: number[],
-	scale: number[],
-	addHalfSize = false
-) => {
-	let translateX = translation[0];
-	let translateY = translation[1];
-
-	if (addHalfSize) {
-		translateX = translation[0] + 1.0 + scale[0] / 2.0;
-		translateY = translation[1] + 1.0 + scale[1] / 2.0;
-	}
-
-	mat4.translate(modelViewMatrix, modelViewMatrix, [translateX, translateY, translation[2]]);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[0], [1, 0, 0]);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[1], [0, 1, 0]);
-	mat4.rotate(modelViewMatrix, modelViewMatrix, rotation[2], [0, 0, 1]);
-	mat4.scale(modelViewMatrix, modelViewMatrix, scale);
-	return modelViewMatrix;
-};
+// 	return [vertices, indices];
+// };
 
 export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement) => {
 	const width = canvas.clientWidth;

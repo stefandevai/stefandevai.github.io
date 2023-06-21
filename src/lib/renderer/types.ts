@@ -23,7 +23,9 @@ export type RotationInfo = {
 	pausedTime?: number;
 	moveDuration?: number;
 	movingTime?: number;
+	rotationCenter?: number[];
 };
+
 export type ObjectInfo = {
 	programInfo: ProgramInfo;
 	bufferInfo: BufferInfo;
