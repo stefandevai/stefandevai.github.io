@@ -11,10 +11,12 @@ const vertexShaderSource = `
 	uniform mat4 uProjectionMatrix;
 
 	varying lowp vec4 vColor;
+	varying lowp vec4 vPosition;
 
 	void main() {
 		gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-		vColor = vec4(aVertexColor, 1.0);
+		float fogIntensity = 1.0 - (gl_Position.z / 1.8);
+		vColor = vec4(aVertexColor, fogIntensity);
 	}
 `;
 
@@ -32,12 +34,16 @@ const projectionMatrix = mat4.create();
 export const resize = (gl: WebGLRenderingContext) => {
 	resizeCanvasToDisplaySize(gl.canvas);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-	mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
+	// mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
+	mat4.perspective(projectionMatrix, (45 * Math.PI) / 180, gl.canvas.width / gl.canvas.height, 0.1, 100.0);
 };
 
 export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0]) => {
 	resize(gl);
 	programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
+	gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+	gl.enable(gl.BLEND);
+	gl.disable(gl.DEPTH_TEST);
 	gl.clearColor(...backgroundColor, 1.0);
 };
 
@@ -58,10 +64,10 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 		}
 		if (bindBuffers || lastBufferInfo !== object.bufferInfo) {
 			gl.bindBuffer(gl.ARRAY_BUFFER, object.bufferInfo.position);
-			gl.vertexAttribPointer(programInfo.attribLocations.vertexPosition, 2, gl.FLOAT, false, 20, 0);
+			gl.vertexAttribPointer(programInfo.attribLocations.vertexPosition, 3, gl.FLOAT, false, 24, 0);
 			gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
 
-			gl.vertexAttribPointer(programInfo.attribLocations.colorPosition, 3, gl.FLOAT, false, 20, 8);
+			gl.vertexAttribPointer(programInfo.attribLocations.colorPosition, 3, gl.FLOAT, false, 24, 12);
 			gl.enableVertexAttribArray(programInfo.attribLocations.colorPosition);
 			gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, object.bufferInfo.element);
 			lastBufferInfo = object.bufferInfo;
