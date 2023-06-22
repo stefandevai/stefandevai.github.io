@@ -63,12 +63,14 @@ export const getObjectInfo = (
 	bufferInfo: BufferInfo,
 	translation: number[],
 	scale: number[],
-	rotationInfo: RotationInfo
+	rotationInfo: RotationInfo,
+	ignoreFog = false
 ): ObjectInfo => {
 	return {
 		bufferInfo: bufferInfo,
 		uniforms: {
-			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale)
+			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
+			ignoreFog: ignoreFog ? 1.0 : 0.0
 		},
 		rotationInfo: {
 			...rotationInfo,

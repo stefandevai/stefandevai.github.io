@@ -7,6 +7,7 @@ export type ProgramInfo = {
 	};
 	uniformLocations: {
 		modelViewMatrix: WebGLUniformLocation | null;
+		ignoreFog: WebGLUniformLocation | null;
 	};
 };
 
@@ -27,6 +28,9 @@ export type RotationInfo = {
 
 export type ObjectInfo = {
 	bufferInfo: BufferInfo;
-	modelViewMatrix: mat4;
+	uniforms: {
+		modelViewMatrix: mat4;
+		ignoreFog: float;
+	};
 	rotationInfo: RotationInfo;
 };

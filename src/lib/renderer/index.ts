@@ -15,16 +15,27 @@ const vertexShaderSource = `
 
 	void main() {
 		gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-		float fogIntensity = 1.0 - (gl_Position.z / 1.8);
-		vColor = vec4(aVertexColor, fogIntensity);
+		vColor = vec4(aVertexColor, 1.0);
+		vPosition = gl_Position;
 	}
 `;
 
 const fragmentShaderSource = `
+	precision mediump float;
+
 	varying lowp vec4 vColor;
+	varying lowp vec4 vPosition;
+
+	uniform float uIgnoreFog;
 
 	void main() {
-		gl_FragColor = vColor;
+		float fogIntensity = 1.0;
+
+		if (uIgnoreFog < 0.5) {
+			fogIntensity = 1.0 - (vPosition.z / 1.8);
+		}
+
+		gl_FragColor = vec4(vColor.xyz, fogIntensity);
 	}
 `;
 
@@ -35,7 +46,13 @@ export const resize = (gl: WebGLRenderingContext) => {
 	resizeCanvasToDisplaySize(gl.canvas);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 	// mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
-	mat4.perspective(projectionMatrix, (45 * Math.PI) / 180, gl.canvas.width / gl.canvas.height, 0.1, 100.0);
+	mat4.perspective(
+		projectionMatrix,
+		(45 * Math.PI) / 180,
+		gl.canvas.width / gl.canvas.height,
+		0.1,
+		100.0
+	);
 };
 
 export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0]) => {
@@ -82,6 +99,7 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 			false,
 			object.uniforms.modelViewMatrix
 		);
+		gl.uniform1f(programInfo.uniformLocations.ignoreFog, object.uniforms.ignoreFog);
 
 		gl.drawElements(gl.LINE_LOOP, object.bufferInfo.indicesCount, gl.UNSIGNED_SHORT, 0);
 	}

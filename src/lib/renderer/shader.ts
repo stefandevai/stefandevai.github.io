@@ -60,7 +60,8 @@ const getProgramInfo = (
 		},
 		uniformLocations: {
 			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix')
+			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+			ignoreFog: gl.getUniformLocation(shaderProgram, 'uIgnoreFog')
 		}
 	};
 };
