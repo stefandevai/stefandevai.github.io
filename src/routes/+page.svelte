@@ -5,6 +5,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	let totalPages = 1;
 </script>
 
 <svelte:head>
@@ -21,4 +22,44 @@
 			</li>
 		{/each}
 	</ul>
+
+	{#if totalPages > 1}
+		<div class="pagination">
+			<span>Previous</span>
+			<span>1</span>
+			<span>Next</span>
+		</div>
+	{/if}
 </main>
+
+
+<style>
+	main {
+		max-width: var(--layout-max-width);
+		margin: 0 auto;
+		padding: 1rem;
+	}
+
+	.pagination {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2rem 0 1rem 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pagination > span {
+		display: inline-block;
+		width: 60px;
+	}
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li:not(:last-child) {
+		border-bottom: 1px solid var(--color-border);
+	}
+</style>

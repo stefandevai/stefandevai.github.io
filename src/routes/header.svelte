@@ -19,6 +19,6 @@
 	a {
 		color: #111;
 		text-decoration: none;
-		font-size: 0.7rem;
+		font-size: var(--font-size-small);
 	}
 </style>

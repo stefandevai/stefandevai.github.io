@@ -22,17 +22,3 @@
 
 	<Footer />
 </div>
-
-<style>
-	:global(body) {
-		margin: 0;
-		font-family: 'Bodoni Moda', serif;
-		/* font-family: 'Cormorant Infant', serif; */
-	}
-
-	/* :global(h1) { */
-	/* 	/1* font-family: 'Cormorant Infant', serif; *1/ */
-	/* 	font-family: 'Bitter', serif; */
-	/* 	font-weight: 100; */
-	/* } */
-</style>

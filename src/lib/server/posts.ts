@@ -49,8 +49,14 @@ export const posts = Object.entries(
 		rawPosts[index].splice(0, 1);
 		const excerpt = getExcerpt(rawPosts[index].join(''), 160);
 
+		const date = new Date(globEntry.metadata.date);
+		const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+		const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+		const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+
 		return {
 			...globEntry.metadata,
+			date: `${day}-${month}-${year}`,
 			slug: dir.replace('/src/posts/', '').replace('/', '_'),
 			filepath: filepath,
 			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`,

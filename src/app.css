@@ -1,0 +1,35 @@
+:root {
+  --color-black: #111;
+  --color-white: #fefefe;
+  --color-gray1: #555;
+  --color-gray2: #595959;
+  --color-gray3: #ddd;
+  --color-red: #e32110;
+
+  --color-anchor: var(--color-red);
+  --color-border: var(--color-gray3);
+
+  --font-size-small: 0.8rem;
+  --font-size-very-small: 12px;
+  --font-size-normal: 1rem;
+  --font-size-medium: 1.5rem;
+
+  --layout-max-width: 800px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bodoni Moda', serif;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+a {
+  color: var(--color-anchor);
+  text-decoration: none;
+}
