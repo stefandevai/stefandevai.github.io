@@ -32,14 +32,7 @@
 	{/if}
 </main>
 
-
 <style>
-	main {
-		max-width: var(--layout-max-width);
-		margin: 0 auto;
-		padding: 1rem;
-	}
-
 	.pagination {
 		display: flex;
 		justify-content: space-between;

@@ -9,7 +9,7 @@
 	<title>{data.post.title} | {title}</title>
 </svelte:head>
 
-<div>
+<main>
 	<article>
 		<header>
 			<h1>{data.post.title}</h1>
@@ -19,4 +19,20 @@
 			<svelte:component this={data.component} />
 		</div>
 	</article>
-</div>
+</main>
+
+<style>
+	header {
+		margin-bottom: 2rem;
+		font-size: 18px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	h1 {
+		font-size: var(--font-size-large);
+	}
+</style>

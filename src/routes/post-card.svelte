@@ -78,9 +78,9 @@
 	}
 
 	p {
+		font-size: var(--font-size-small2);
 		color: var(--color-black);
 		padding: 0 1rem 1rem 1rem;
 		margin: 0;
 	}
-
 </style>

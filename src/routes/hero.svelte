@@ -22,17 +22,16 @@
 		align-items: center;
 		flex-direction: column;
 		margin-top: 20vh;
+		text-align: center;
 	}
 
 	.text > p {
 		margin: 0;
 		font-size: 1.2rem;
-		font-family: 'Bitter', serif;
 	}
 
 	.text > h1 {
 		font-size: 4rem;
 		margin: 0 0 1.2rem 0;
-		font-family: 'Bitter', serif;
 	}
 </style>
