@@ -2,12 +2,11 @@
 	--color-black: #111;
 	--color-white: #fefefe;
 	--color-gray1: #555;
-	--color-gray2: #595959;
-	--color-gray3: #ddd;
+	--color-gray2: #ddd;
 	--color-red: #e32110;
 
 	--color-anchor: var(--color-red);
-	--color-border: var(--color-gray3);
+	--color-border: var(--color-gray2);
 
 	--font-size-small: 0.8rem;
 	--font-size-small2: 14px;

@@ -17,7 +17,7 @@ const initObjects = (gl: WebGLRenderingContext) => {
 	const [squareVertices, squareIndices] = buildCircle(0.5, 4, SQUARE_COLOR);
 	const squareBufferInfo = getBufferInfo(gl, squareVertices, squareIndices);
 
-	const sphere = getObjectInfo(sphereBufferInfo, [-0.05, 0.0, -1.5], [1.0, 1.0, 1.0], {
+	const sphere = getObjectInfo(sphereBufferInfo, [0.0, 0.0, -1.5], [1.0, 1.0, 1.0], {
 		rotation: [0.001, 0.0, 0.0]
 	});
 
@@ -29,7 +29,8 @@ const initObjects = (gl: WebGLRenderingContext) => {
 		true
 	);
 
-	objects.push(sphere, square);
+	// objects.push(sphere, square);
+	objects.push(sphere);
 };
 
 export const init = (gl: WebGLRenderingContext) => {

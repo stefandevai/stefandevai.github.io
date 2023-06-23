@@ -10,7 +10,6 @@
 			<h2>{post.title}</h2>
 		</a>
 		<div>
-			<span class="language">{post.language}</span>
 			{#if post.tags}
 				{#each post.tags as tag}
 					<span class="tag">{tag}</span>
@@ -38,7 +37,7 @@
 
 	header > span {
 		font-size: var(--font-size-very-small);
-		color: var(--color-gray2);
+		color: var(--color-gray1);
 		font-style: italic;
 	}
 
@@ -61,7 +60,6 @@
 
 	header > div > span {
 		font-size: var(--font-size-very-small);
-		color: var(--color-white);
 		padding: 0 0.5rem;
 	}
 
@@ -69,12 +67,11 @@
 		margin-left: 0.5rem;
 	}
 
-	.language {
-		background-color: var(--color-black);
-	}
-
 	.tag {
-		background-color: var(--color-red);
+		background-color: var(--color-gray2);
+		color: var(--color-gray1);
+		cursor: pointer;
+		user-select: none;
 	}
 
 	p {
