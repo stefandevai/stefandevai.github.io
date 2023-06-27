@@ -82,6 +82,12 @@
 		font-size: var(--font-size-medium);
 	}
 
+	.brand-diamond {
+		font-size: var(--font-size-normal);
+		font-weight: 600;
+		color: var(--color-red2);
+	}
+
 	img {
 		width: 100%;
 		grid-column: 1 / span 4;

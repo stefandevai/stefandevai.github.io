@@ -6,7 +6,6 @@ import type { ObjectInfo } from '$lib/renderer/types';
 
 const BACKGROUND_COLOR = [0.067, 0.067, 0.067]; // #111111
 const GEAR_COLOR = [0.333, 0.333, 0.333]; // #555555
-// const SQUARE_COLOR = [0.89, 0.129, 0.063]; // #e32110
 
 const objects: ObjectInfo[] = [];
 
@@ -14,22 +13,10 @@ const initObjects = (gl: WebGLRenderingContext) => {
 	const [sphereVertices, sphereIndices] = buildSphere(0.5, 10, GEAR_COLOR);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
 
-	// const [squareVertices, squareIndices] = buildCircle(0.5, 4, SQUARE_COLOR);
-	// const squareBufferInfo = getBufferInfo(gl, squareVertices, squareIndices);
-
 	const sphere = getObjectInfo(sphereBufferInfo, [0.0, 0.0, -1.5], [2.0, 2.0, 1.0], {
 		rotation: [0.001, 0.0, 0.0]
 	});
 
-	// const square = getObjectInfo(
-	// 	squareBufferInfo,
-	// 	[-1.0, -0.2, -1.5],
-	// 	[1.06, 1.06, 1.0],
-	// 	{ rotation: [0.0, 0.0, 0.02], pauseDuration: 500.0, moveDuration: 500.0 },
-	// 	true
-	// );
-
-	// objects.push(sphere, square);
 	objects.push(sphere);
 };
 

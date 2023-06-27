@@ -1,27 +1,3 @@
-export const buildCircle = (radius: number, segments: number, color: number[]) => {
-	const angle = (2 * Math.PI) / segments;
-	const vertices = [];
-	const indices = [];
-
-	for (let i = 0; i < segments; ++i) {
-		const currentAngle = angle * i;
-		const x = radius * Math.cos(currentAngle);
-		const y = radius * Math.sin(currentAngle);
-
-		vertices.push(x);
-		vertices.push(y);
-		vertices.push(0.0);
-		vertices.push(...color);
-	}
-
-	for (let i = 0; i < segments - 1; ++i) {
-		indices.push(i);
-		indices.push(i + 1);
-	}
-
-	return [vertices, indices];
-};
-
 export const buildSphere = (radius: number, segments: number, color: number[]) => {
 	const vertices: number[] = [];
 	const indices: number[] = [];

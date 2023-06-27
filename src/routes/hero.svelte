@@ -4,7 +4,9 @@
 
 <header>
 	<div class="text">
-		<h1>Temporal Geometry</h1>
+		<h1>
+			<span class="brand-diamond">◆</span>Temporal Geometry<span class="brand-diamond">◆</span>
+		</h1>
 		<p>Stefan Devai's blog about History and programming.</p>
 	</div>
 	<Background />
@@ -13,6 +15,12 @@
 <style>
 	header {
 		position: relative;
+	}
+
+	.brand-diamond {
+		font-size: var(--font-size-medium);
+		font-weight: 600;
+		color: var(--color-red);
 	}
 
 	.text {
