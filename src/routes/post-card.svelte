@@ -5,7 +5,7 @@
 
 <div class="wrapper">
 	<a href={`p/${post.slug}`} class="image-wrapper">
-		<img src={post.featuredImage} alt={post.title} />
+		<img src={post.featuredImage} alt={post.title} loading="lazy" />
 	</a>
 	<div class="text-content">
 		<header>

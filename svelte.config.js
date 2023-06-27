@@ -2,6 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
 import remarkFootnotes from 'remark-footnotes';
+import { importAssets } from 'svelte-preprocess-import-assets';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -12,10 +13,9 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
-
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions), importAssets()],
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({ precompress: true }),
 		alias: {
 			'$src/*': 'src/*'
 		}

@@ -1,7 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import { importAssets } from 'svelte-preprocess-import-assets';
+import { imagetools } from 'vite-imagetools'
 
 export default defineConfig({
-	plugins: [sveltekit({ preprocess: [importAssets()] })]
+	plugins: [imagetools(), sveltekit()]
 });

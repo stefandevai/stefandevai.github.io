@@ -1,5 +1,7 @@
 import { posts } from '$lib/server/posts';
 
+export const prerender = true;
+
 export const GET = () => {
 	const headers = {
 		'Cache-Control': `max-age=0, s-max-age=3600`,

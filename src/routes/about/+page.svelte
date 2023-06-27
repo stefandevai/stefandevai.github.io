@@ -8,7 +8,7 @@
 <main>
 	<h1>About <span class="brand-diamond">◆</span></h1>
 	<div class="grid">
-		<img src={StefanDevaiPicture} alt="Stefan Devai" />
+		<img src={StefanDevaiPicture} alt="Stefan Devai" loading="lazy" />
 		<div class="rectangle" />
 		<div class="line-top" />
 		<div class="text-wrapper">
