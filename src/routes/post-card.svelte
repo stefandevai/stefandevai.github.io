@@ -4,27 +4,63 @@
 </script>
 
 <div class="wrapper">
-	<header>
-		<span>{post.date}</span>
+	<a href={`p/${post.slug}`} class="image-wrapper">
+		<img src={post.featuredImage} alt={post.title} />
+	</a>
+	<div class="text-content">
+		<header>
+			<span>{post.date}</span>
+			<a href={`p/${post.slug}`}>
+				<h2>{post.title}</h2>
+			</a>
+			<div>
+				<span class="tag">{post.language}</span>
+				{#if post.tags}
+					{#each post.tags as tag}
+						<span class="tag">{tag}</span>
+					{/each}
+				{/if}
+			</div>
+		</header>
 		<a href={`p/${post.slug}`}>
-			<h2>{post.title}</h2>
+			<p>
+				{post.excerpt}…
+			</p>
 		</a>
-		<div>
-			{#if post.tags}
-				{#each post.tags as tag}
-					<span class="tag">{tag}</span>
-				{/each}
-			{/if}
-		</div>
-	</header>
-	<p>
-		{post.excerpt}…
-	</p>
+	</div>
 </div>
 
 <style>
 	.wrapper {
-		padding: 1rem 0;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	img {
+		width: 250px;
+		height: 250px;
+		object-fit: cover;
+		filter: grayscale(100%);
+	}
+
+	.image-wrapper {
+		position: relative;
+	}
+
+	.image-wrapper:after {
+		content: '';
+		position: absolute;
+		display: block;
+		top: 0;
+		right: 0;
+		width: 25px;
+		height: 50px;
+		background-color: var(--color-red);
+	}
+
+	.text-content {
+		padding: 0 1rem 1rem 2rem;
 	}
 
 	header {
@@ -32,7 +68,7 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
-		padding: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	header > span {
@@ -50,6 +86,7 @@
 		font-size: var(--font-size-medium);
 		color: var(--color-black);
 		margin-bottom: 0.5rem;
+		margin-top: 0;
 	}
 
 	header > div {
@@ -77,7 +114,6 @@
 	p {
 		font-size: var(--font-size-small2);
 		color: var(--color-black);
-		padding: 0 1rem 1rem 1rem;
 		margin: 0;
 	}
 </style>

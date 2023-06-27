@@ -14,23 +14,25 @@
 	header {
 		position: relative;
 	}
+
 	.text {
 		position: absolute;
 		color: #fff;
 		width: 100%;
+		height: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		flex-direction: column;
-		margin-top: 20vh;
 		text-align: center;
 	}
 
-	.text > p {
+	p {
 		margin: 0;
 		font-size: 1.2rem;
 	}
 
-	.text > h1 {
+	h1 {
 		font-size: 4rem;
 		margin: 0 0 1.2rem 0;
 	}

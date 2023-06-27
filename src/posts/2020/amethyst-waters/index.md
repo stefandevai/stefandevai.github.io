@@ -2,7 +2,7 @@
 title: 'Lisp hacking on confinement nights: Amethyst Waters'
 date: '2020-04-25'
 language: 'en'
-featuredImage: 'image.png'
+featuredImage: 'fish.png'
 featuredImageCaption: 'Amethyst Waters gameplay.'
 tags: ['gamedev', 'programming', 'lisp']
 ---
