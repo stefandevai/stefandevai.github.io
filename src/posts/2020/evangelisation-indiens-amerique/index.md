@@ -3,7 +3,8 @@ title: 'L’évangélisation des Indiens d’Amérique (XVIe - XVIIe siècles)'
 date: '2020-02-27'
 language: 'fr'
 featuredImage: 'cross.png'
-featuredImageCaption: 'John Eliot Preaching to the Indians. Source: The Metropolitan Museum of Art.'
+featuredImageCaption: 'Imagen generada con Midjourney 5.2'
+featuredImageVerticalPosition: 'top'
 tags: ['history', 'essay']
 ---
 

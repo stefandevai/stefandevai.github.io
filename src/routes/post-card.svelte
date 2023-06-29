@@ -40,8 +40,6 @@
 	img {
 		width: 250px;
 		height: 250px;
-		object-fit: cover;
-		filter: grayscale(100%);
 	}
 
 	.image-wrapper {
@@ -93,22 +91,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-	}
-
-	header > div > span {
-		font-size: var(--font-size-very-small);
-		padding: 0 0.5rem;
-	}
-
-	header > div > span:not(:first-child) {
-		margin-left: 0.5rem;
-	}
-
-	.tag {
-		background-color: var(--color-gray2);
-		color: var(--color-gray1);
-		cursor: pointer;
-		user-select: none;
 	}
 
 	p {

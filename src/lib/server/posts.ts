@@ -6,6 +6,7 @@ export interface Post {
 	language: 'fr' | 'pt' | 'en' | 'es';
 	featuredImage: string;
 	featuredImageCaption: string;
+	featuredImageVerticalPosition?: string;
 	tags: string[];
 	excerpt: string;
 }
@@ -66,6 +67,6 @@ export const posts = Object.entries(
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 	.map((post, index, allPosts) => ({
 		...post,
-		next: allPosts[index - 1] || 0,
-		previous: allPosts[index + 1] || 0
+		next: allPosts[index + 1] ?? allPosts[0],
+		previous: allPosts[index - 1] ?? allPosts[allPosts.length - 1]
 	}));

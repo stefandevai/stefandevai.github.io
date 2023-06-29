@@ -14,10 +14,8 @@
 	/>
 </svelte:head>
 
-<div class="layout">
+<div>
 	<Header />
-
 	<slot />
-
 	<Footer />
 </div>

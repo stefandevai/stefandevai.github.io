@@ -3,7 +3,7 @@ title: 'Batalla en el campo de fresas: producción y conflicto en San Quintín, 
 date: '2018-01-08'
 language: 'es'
 featuredImage: 'strawberries.png'
-featuredImageCaption: 'Hijos de los jornaleros de San Quintín en huelga, 2015. Fuente: San Quintín: La disputa por un mejor futuro, canal Másde131 en youtube, minuto 6:06.'
+featuredImageCaption: 'Imagen generada con Midjourney 5.1'
 tags: ['history', 'essay']
 ---
 

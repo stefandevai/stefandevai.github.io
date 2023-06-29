@@ -45,7 +45,6 @@ const projectionMatrix = mat4.create();
 export const resize = (gl: WebGLRenderingContext) => {
 	resizeCanvasToDisplaySize(gl.canvas);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-	// mat4.ortho(projectionMatrix, 0.0, gl.canvas.width, gl.canvas.height, 0.0, -0.1, 100.0);
 	mat4.perspective(
 		projectionMatrix,
 		(45 * Math.PI) / 180,

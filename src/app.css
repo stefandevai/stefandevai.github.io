@@ -66,3 +66,14 @@ p {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
+
+.tag {
+	background-color: var(--color-gray2);
+	color: var(--color-gray1);
+	font-size: var(--font-size-very-small);
+	padding: 0 0.5rem;
+}
+
+.tag:not(:first-child) {
+	margin-left: 0.5rem;
+}
