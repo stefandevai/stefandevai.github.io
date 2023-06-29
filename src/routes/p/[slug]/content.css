@@ -1,0 +1,52 @@
+ul,
+h1,
+h2,
+h3 {
+	margin: 1.5rem 0 1.5rem 0;
+}
+
+h2 {
+	font-size: var(--font-size-medium);
+}
+
+h3 {
+	font-size: var(--font-size-normal);
+}
+
+pre[class*='language-'],
+code[class*='language-'] {
+	margin: 1.5rem 0 1.5rem 0;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: var(--font-size-small);
+}
+
+.footnotes {
+	font-size: var(--font-size-small);
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--color-border);
+}
+
+.footnotes > hr {
+	display: none;
+}
+
+.footnotes > ol {
+	margin: 0 2rem 0 2rem;
+}
+
+.footnotes li {
+	margin-bottom: 1rem;
+}
+
+ul {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	margin-left: 1.5rem;
+}
+
+p {
+	font-size: var(--font-size-normal);
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}

@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { title } from '$lib/config';
 	import 'prism-themes/themes/prism-lucario.css';
+	import Content from './content.svelte';
 
 	export let data: PageData;
 </script>
@@ -26,7 +27,7 @@
 			/>
 			<span>{data.post.featuredImageCaption}</span>
 		</header>
-		<svelte:component this={data.component} />
+		<Content postContent={data.component} />
 		<span class="dot-separator">◆ ◆ ◆</span>
 		<div class="tags">
 			{#each data.post.tags as tag}
@@ -73,25 +74,6 @@
 		font-weight: 600;
 	}
 
-	:global(.footnotes) {
-		font-size: var(--font-size-small);
-		margin-top: 2rem;
-		padding-top: 2rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	:global(.footnotes) > :global(hr) {
-		display: none;
-	}
-
-	:global(.footnotes) > :global(ol) {
-		margin: 0 2rem 0 2rem;
-	}
-
-	:global(.footnotes) :global(li) {
-		margin-bottom: 1rem;
-	}
-
 	.dot-separator {
 		display: block;
 		font-size: var(--font-size-normal);
@@ -123,12 +105,5 @@
 
 	.other-posts > a:last-child {
 		text-align: right;
-	}
-
-	article :global(pre[class*='language-']),
-	:global(code[class*='language-']) {
-		margin: 0 0 1.5rem 0;
-		font-family: 'Ubuntu Mono', monospace;
-		font-size: var(--font-size-small);
 	}
 </style>

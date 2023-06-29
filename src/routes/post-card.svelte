@@ -37,13 +37,10 @@
 		justify-content: center;
 	}
 
-	img {
-		width: 250px;
-		height: 250px;
-	}
-
 	.image-wrapper {
 		position: relative;
+		width: 250px;
+		height: 250px;
 	}
 
 	.image-wrapper:after {

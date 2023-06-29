@@ -8,7 +8,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.4rem 2rem;
+		padding: 0 2rem;
+		height: 64px;
+		border-bottom: 1px solid var(--color-border);
 	}
 
 	.logo {
