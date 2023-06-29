@@ -56,13 +56,13 @@ const getProgramInfo = (
 		program: shaderProgram,
 		attribLocations: {
 			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
-			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor')
+			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
 		},
 		uniformLocations: {
 			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
 			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
-			ignoreFog: gl.getUniformLocation(shaderProgram, 'uIgnoreFog')
-		}
+			ignoreFog: gl.getUniformLocation(shaderProgram, 'uIgnoreFog'),
+		},
 	};
 };
 

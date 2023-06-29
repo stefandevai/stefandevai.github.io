@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 const posts = import.meta.glob('$src/posts/**/*.md', { eager: true });
 
 const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
-	eager: true
+	eager: true,
 });
 
 export const load: PageLoad = async ({ data }) => {
@@ -13,8 +13,8 @@ export const load: PageLoad = async ({ data }) => {
 	return {
 		post: {
 			...data.post,
-			featuredImage: image.default
+			featuredImage: image.default,
 		},
-		component: component.default
+		component: component.default,
 	};
 };

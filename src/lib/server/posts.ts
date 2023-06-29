@@ -1,5 +1,5 @@
 import { dirname } from 'path';
-import { customRandom, urlAlphabet } from 'nanoid';
+import { customRandom } from 'nanoid';
 import seedrandom from 'seedrandom';
 
 export interface Post {
@@ -18,11 +18,10 @@ type GlobEntry = {
 	default: unknown;
 };
 
-// const nanoid = customAlphabet('1234567890abcdefghijklmnopqrstuvwxyz', 8);
 const rng = seedrandom(47);
-const nanoid = customRandom('ABCDEFGHIJLMNOPQRSTUVYZabcdefghijlmnopqrstuvyz', 5, size => {
-  return (new Uint8Array(size)).map(() => 256 * rng())
-})
+const nanoid = customRandom('ABCDEFGHIJLMNOPQRSTUVYZabcdefghijlmnopqrstuvyz', 5, (size) => {
+	return new Uint8Array(size).map(() => 256 * rng());
+});
 
 const getExcerpt = (content: string, maxCharacters: number) => {
 	let excerpt = content
@@ -72,12 +71,12 @@ export const posts = Object.entries(
 			slug,
 			filepath: filepath,
 			featuredImage: `${dir}/${globEntry.metadata.featuredImage}`,
-			excerpt
+			excerpt,
 		};
 	})
 	.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 	.map((post, index, allPosts) => ({
 		...post,
 		next: allPosts[index + 1] ?? allPosts[0],
-		previous: allPosts[index - 1] ?? allPosts[allPosts.length - 1]
+		previous: allPosts[index - 1] ?? allPosts[allPosts.length - 1],
 	}));

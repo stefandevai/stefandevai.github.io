@@ -70,12 +70,12 @@ export const getObjectInfo = (
 		bufferInfo: bufferInfo,
 		uniforms: {
 			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
-			ignoreFog: ignoreFog ? 1.0 : 0.0
+			ignoreFog: ignoreFog ? 1.0 : 0.0,
 		},
 		rotationInfo: {
 			...rotationInfo,
 			movingTime: 0.0,
-			pausedTime: 0.0
-		}
+			pausedTime: 0.0,
+		},
 	};
 };

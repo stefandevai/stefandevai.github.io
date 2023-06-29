@@ -5,6 +5,6 @@ export const prerender = true;
 
 export const load: PageServerLoad = async () => {
 	return {
-		posts
+		posts,
 	};
 };

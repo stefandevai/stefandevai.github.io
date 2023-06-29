@@ -5,7 +5,7 @@ export const prerender = true;
 export const GET = () => {
 	const headers = {
 		'Cache-Control': `max-age=0, s-max-age=3600`,
-		'Content-Type': 'application/xml'
+		'Content-Type': 'application/xml',
 	};
 
 	const body = render();

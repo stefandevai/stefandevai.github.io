@@ -27,6 +27,6 @@ export const getBufferInfo = (
 	return {
 		position: positionBuffer,
 		element: elementBuffer,
-		indicesCount: indices.length
+		indicesCount: indices.length,
 	};
 };

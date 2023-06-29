@@ -10,7 +10,7 @@ import rehypeSlug from 'rehype-slug';
 const mdsvexOptions = {
 	extensions: ['.md'],
 	remarkPlugins: [remarkFootnotes, remarkUnwrapImages],
-	rehypePlugins: [rehypeSlug]
+	rehypePlugins: [rehypeSlug],
 };
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -20,9 +20,9 @@ const config = {
 	kit: {
 		adapter: adapter({ precompress: true }),
 		alias: {
-			'$src/*': 'src/*'
-		}
-	}
+			'$src/*': 'src/*',
+		},
+	},
 };
 
 export default config;
