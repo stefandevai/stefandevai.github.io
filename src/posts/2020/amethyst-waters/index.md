@@ -37,7 +37,8 @@ TIC-80 provides a nice feature for easily recording animated GIFs of the game. S
 ### Basic movement:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p1.mp4" type="video/mp4" /> -->
+  <source src="./p1.webm" type="video/webm" />
+  <source src="./p1.mp4" type="video/mp4" />
 </video>
 
 The first thing for most games. I just wanted to be able to control the main object in the game. As the camera movement will be automatic, I also added a basic screen boundaries collision, that is so the player can't go out of the screen.
@@ -45,7 +46,8 @@ The first thing for most games. I just wanted to be able to control the main obj
 ### Start screen and shots:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p2.mp4" type="video/mp4" /> -->
+  <source src="./p2.webm" type="video/webm" />
+  <source src="./p2.mp4" type="video/mp4" />
 </video>
 
 Next basic element of a shoot 'em up are the actual shots. These are simply stored in an array in the player object. I didn't felt the need of implementing any kind of complex Entity-Component-System for this simple game.
@@ -53,7 +55,8 @@ Next basic element of a shoot 'em up are the actual shots. These are simply stor
 ### Enemies, collisions and damage:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p3.mp4" type="video/mp4" /> -->
+  <source src="./p3.webm" type="video/webm" />
+  <source src="./p3.mp4" type="video/mp4" />
 </video>
 
 Here I added a basic enemy pool for spawning and removing enemies from the game when hit by a gun shot or get out of the screen to the left.
@@ -61,7 +64,8 @@ Here I added a basic enemy pool for spawning and removing enemies from the game 
 ### Sprite animation:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p4.mp4" type="video/mp4" /> -->
+  <source src="./p4.webm" type="video/webm" />
+  <source src="./p4.mp4" type="video/mp4" />
 </video>
 
 This part actually took some time to get right as for some reason I decided to implement a time based animation instead of using game frames as its base.
@@ -69,7 +73,8 @@ This part actually took some time to get right as for some reason I decided to i
 ### Camera movement:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p5.mp4" type="video/mp4" /> -->
+  <source src="./p5.webm" type="video/webm" />
+  <source src="./p5.mp4" type="video/mp4" />
 </video>
 
 I added some placeholder sprites and a camera movement to the game in order to begin having the feeling of a sidescroller.
@@ -77,7 +82,8 @@ I added some placeholder sprites and a camera movement to the game in order to b
 ### Fish movement:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p6.mp4" type="video/mp4" /> -->
+  <source src="./p6.webm" type="video/webm" />
+  <source src="./p6.mp4" type="video/mp4" />
 </video>
 
 Now the fish have a more floaty movement just by simply using the sine trigonometric function to determine its y-axis position.
@@ -85,7 +91,8 @@ Now the fish have a more floaty movement just by simply using the sine trigonome
 ### Cave generation:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p7.mp4" type="video/mp4" /> -->
+  <source src="./p7.webm" type="video/webm" />
+  <source src="./p7.mp4" type="video/mp4" />
 </video>
 
 Now we start getting into the actual complex part of the game: the cave generation system. First we generate the bottom wall height and then the upper wall will be just a mask of the bottom part. I naively thought that this would easily prevent situations where the forward path is blocked. I was wrong and even worse than that, this algorithm created pretty boring caves. I would change it later on.
@@ -93,7 +100,8 @@ Now we start getting into the actual complex part of the game: the cave generati
 ### Procedural generation:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p8.mp4" type="video/mp4" /> -->
+  <source src="./p8.webm" type="video/webm" />
+  <source src="./p8.mp4" type="video/mp4" />
 </video>
 
 Here I just added a Perlin Noise generation function to the same algorithm and tested it with sidescrolling.
@@ -101,7 +109,8 @@ Here I just added a Perlin Noise generation function to the same algorithm and t
 ### Collision resolution:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p9.mp4" type="video/mp4" /> -->
+  <source src="./p9.webm" type="video/webm" />
+  <source src="./p9.mp4" type="video/mp4" />
 </video>
 
 It's like the 6th time I implement 2D collision resolution from scratch and I usually get stuck in the corner cases. This time it wasn't different. I used a whole day to implement this and about one hour of the next day to fix bugs.
@@ -109,7 +118,8 @@ It's like the 6th time I implement 2D collision resolution from scratch and I us
 ### Infinite scrolling and parallax effect:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p10.mp4" type="video/mp4" /> -->
+  <source src="./p10.webm" type="video/webm" />
+  <source src="./p10.mp4" type="video/mp4" />
 </video>
 
 At this point I start to get relieved as the main components for the game seem to be getting done. Infinite scrolling and generation works flawlessly and I also added a parallax effect to the background.
@@ -117,7 +127,8 @@ At this point I start to get relieved as the main components for the game seem t
 ### New color palette:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p11.mp4" type="video/mp4" /> -->
+  <source src="./p11.webm" type="video/webm" />
+  <source src="./p11.mp4" type="video/mp4" />
 </video>
 
 Confident that I was advancing with the game, I thought it was time to depart from the default TIC-80's color palette. I experimented a lot on Aseprite and came up with this palette. I wanted something that was not realist, but dark, mysterious and vibrant at the same time.
@@ -125,7 +136,8 @@ Confident that I was advancing with the game, I thought it was time to depart fr
 ### Collectables and HUD:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p12.mp4" type="video/mp4" /> -->
+  <source src="./p12.webm" type="video/webm" />
+  <source src="./p12.mp4" type="video/mp4" />
 </video>
 
 Inspired by the new palette, I came up with the name Amethyst Waters for the game, which actually became its official name. I then added amethysts as collectables and also implemented a basic HUD with a score and a healthbar.
@@ -157,7 +169,8 @@ The healthbar is very simple. I draw the UI sprites in the background and then d
 ### Icosahedron:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p13.mp4" type="video/mp4" /> -->
+  <source src="./p13.webm" type="video/webm" />
+  <source src="./p13.mp4" type="video/mp4" />
 </video>
 
 This is probably the most useless but cool feature I added to the game. I used a whole day to implement it with only triangles. It was adapted from [this article](http://www.songho.ca/opengl/gl_sphere.html) of drawing a sphere with C++ and OpenGL.
@@ -167,7 +180,8 @@ The basic idea is to get the vertices using the algorithm described in the artic
 ### Particles:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p14.mp4" type="video/mp4" /> -->
+  <source src="./p14.webm" type="video/webm" />
+  <source src="./p14.mp4" type="video/mp4" />
 </video>
 
 Now we started the polishing phase. A generic particle system was added in order to easily implement different particles. The bubble particle in the back of the submarine just emits single pixels. This small touch helps a lot in improving the underwater theme.
@@ -175,7 +189,8 @@ Now we started the polishing phase. A generic particle system was added in order
 ### Different weapons and new colors:
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p15.mp4" type="video/mp4" /> -->
+  <source src="./p15.webm" type="video/webm" />
+  <source src="./p15.mp4" type="video/mp4" />
 </video>
 
 I created three weapon types, adjusted the palette color, added a background bubble particle emitter and added some new sprites.
@@ -183,11 +198,13 @@ I created three weapon types, adjusted the palette color, added a background bub
 ### Anglerfish boss
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p16.mp4" type="video/mp4" /> -->
+  <source src="./p16.webm" type="video/webm" />
+  <source src="./p16.mp4" type="video/mp4" />
 </video>
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p17.mp4" type="video/mp4" /> -->
+  <source src="./p17.webm" type="video/webm" />
+  <source src="./p17.mp4" type="video/mp4" />
 </video>
 
 I also added a final boss, an monstrous anglerfish that has three different attacks, a lot of health and constantly tries to follow the player.
@@ -195,7 +212,8 @@ I also added a final boss, an monstrous anglerfish that has three different atta
 ### More enemies
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p18.mp4" type="video/mp4" /> -->
+  <source src="./p18.webm" type="video/webm" />
+  <source src="./p18.mp4" type="video/mp4" />
 </video>
 
 This was definitely the most boring part of the whole development. I spent an entire day adjusting enemy waves, how much damage they dealt and which of those were allowed to appear together. It was an endless loop of testing and testing multiple times the same parts in order to see if we have a good transition between enemy waves while having a overall good difficulty progression.
@@ -203,7 +221,8 @@ This was definitely the most boring part of the whole development. I spent an en
 ### Final touches
 
 <video playsinline muted autoplay loop>
-  <!-- <source src="../../../../../../blog-assets/2020/amethyst-waters/videos/p19.mp4" type="video/mp4" /> -->
+  <source src="./p19.webm" type="video/webm" />
+  <source src="./p19.mp4" type="video/mp4" />
 </video>
 
 In the last hours before submission I added a endscreen after the boss, added new particles, tested with friends, improved upon their feedback and added some algae background that my girlfriend made while learning pixel art. It still shipped with some bugs related to triangle rendering, collision and enemy spawning. However, the reception by the other people in the jam was good, so I was very satisfied with the final results.
