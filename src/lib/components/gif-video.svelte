@@ -3,9 +3,9 @@
 </script>
 
 <Lazy>
-  <video playsinline muted autoplay loop>
-    <slot />
-  </video>
+	<video playsinline muted autoplay loop>
+		<slot />
+	</video>
 </Lazy>
 
 <style>
