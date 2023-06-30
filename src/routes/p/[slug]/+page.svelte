@@ -56,13 +56,6 @@
 		font-style: italic;
 	}
 
-	img {
-		width: 100%;
-		max-height: 80vh;
-		object-fit: cover;
-		filter: grayscale();
-	}
-
 	h1 {
 		font-size: var(--font-size-large);
 		margin-bottom: 2rem;

@@ -32,7 +32,8 @@ html {
 	background-color: var(--color-white);
 }
 
-p, ul {
+p,
+ul {
 	line-height: 1.8;
 }
 

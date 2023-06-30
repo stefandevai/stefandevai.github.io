@@ -36,7 +36,7 @@ const getExcerpt = (content: string, maxCharacters: number) => {
 		.replaceAll(/<script.*?<\/script>/g, '')
 		.replace(/---.*?---/, '')
 		.trim()
-		.slice(0, maxCharacters)
+		.slice(0, maxCharacters);
 
 	excerpt = excerpt.substring(0, excerpt.lastIndexOf(' '));
 
