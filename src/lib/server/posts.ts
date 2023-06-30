@@ -32,10 +32,12 @@ const getExcerpt = (content: string, maxCharacters: number) => {
 		.replace(/\^\d+/g, '')
 		.replaceAll(' .', '.')
 		.replaceAll('_', '')
-		.replaceAll(/(?:\(https?):\/\/[\n\S]+/g, '');
-	excerpt = excerpt.replace(/---.*?---/, '');
-	excerpt = excerpt.trim();
-	excerpt = excerpt.slice(0, maxCharacters);
+		.replaceAll(/(?:\(https?):\/\/[\n\S]+/g, '')
+		.replaceAll(/<script.*?<\/script>/g, '')
+		.replace(/---.*?---/, '')
+		.trim()
+		.slice(0, maxCharacters)
+
 	excerpt = excerpt.substring(0, excerpt.lastIndexOf(' '));
 
 	if (excerpt.slice(-1) === '.') {

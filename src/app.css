@@ -30,6 +30,9 @@ html {
 	font-family: 'Bitter', serif;
 	color: var(--color-black);
 	background-color: var(--color-white);
+}
+
+p, ul {
 	line-height: 1.8;
 }
 
@@ -63,3 +66,7 @@ main {
 .tag:not(:first-child) {
 	margin-left: 0.5rem;
 }
+
+/* .svelte-lazy { */
+/* 	line-height: 0; */
+/* } */
