@@ -8,6 +8,10 @@ featuredImageVerticalPosition: '20%'
 tags: ['gamedev', 'programming', 'lisp']
 ---
 
+<script lang="ts">
+  import Lazy from 'svelte-lazy';
+</script>
+
 _The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam._
 
 Almost one month of confinement due to the COVID-19 had passed when I decided to take part in the [Spring Lisp Game Jam](https://itch.io/jam/spring-lisp-game-jam-2020). From April 10th to April 20th I created an entire game and then submitted it to be voted. I was happy and surprised to win the first place! You can play **Amethyst Waters** in the browser [here](https://stefandevai.itch.io/amethyst-waters), take a look to the code on [GitHub](https://github.com/stefandevai/amethyst-waters), and play the other games in the jam [here](https://itch.io/jam/spring-lisp-game-jam-2020/entries). This was the first time I committed to finish a game using a game engine instead of creating one of my own. In this post I want to discuss the process of developing Amethyst Waters what went well, and what can be improved for my next game jams.
@@ -36,109 +40,133 @@ TIC-80 provides a nice feature for easily recording animated GIFs of the game. S
 
 ### Basic movement:
 
-<video playsinline muted autoplay loop>
-  <source src="./p1.webm" type="video/webm" />
-  <source src="./p1.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p1.webm" type="video/webm" />
+    <source src="./p1.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 The first thing for most games. I just wanted to be able to control the main object in the game. As the camera movement will be automatic, I also added a basic screen boundaries collision, that is so the player can't go out of the screen.
 
 ### Start screen and shots:
 
-<video playsinline muted autoplay loop>
-  <source src="./p2.webm" type="video/webm" />
-  <source src="./p2.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p2.webm" type="video/webm" />
+    <source src="./p2.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Next basic element of a shoot 'em up are the actual shots. These are simply stored in an array in the player object. I didn't felt the need of implementing any kind of complex Entity-Component-System for this simple game.
 
 ### Enemies, collisions and damage:
 
-<video playsinline muted autoplay loop>
-  <source src="./p3.webm" type="video/webm" />
-  <source src="./p3.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p3.webm" type="video/webm" />
+    <source src="./p3.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Here I added a basic enemy pool for spawning and removing enemies from the game when hit by a gun shot or get out of the screen to the left.
 
 ### Sprite animation:
 
-<video playsinline muted autoplay loop>
-  <source src="./p4.webm" type="video/webm" />
-  <source src="./p4.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p4.webm" type="video/webm" />
+    <source src="./p4.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 This part actually took some time to get right as for some reason I decided to implement a time based animation instead of using game frames as its base.
 
 ### Camera movement:
 
-<video playsinline muted autoplay loop>
-  <source src="./p5.webm" type="video/webm" />
-  <source src="./p5.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p5.webm" type="video/webm" />
+    <source src="./p5.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 I added some placeholder sprites and a camera movement to the game in order to begin having the feeling of a sidescroller.
 
 ### Fish movement:
 
-<video playsinline muted autoplay loop>
-  <source src="./p6.webm" type="video/webm" />
-  <source src="./p6.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p6.webm" type="video/webm" />
+    <source src="./p6.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Now the fish have a more floaty movement just by simply using the sine trigonometric function to determine its y-axis position.
 
 ### Cave generation:
 
-<video playsinline muted autoplay loop>
-  <source src="./p7.webm" type="video/webm" />
-  <source src="./p7.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p7.webm" type="video/webm" />
+    <source src="./p7.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Now we start getting into the actual complex part of the game: the cave generation system. First we generate the bottom wall height and then the upper wall will be just a mask of the bottom part. I naively thought that this would easily prevent situations where the forward path is blocked. I was wrong and even worse than that, this algorithm created pretty boring caves. I would change it later on.
 
 ### Procedural generation:
 
-<video playsinline muted autoplay loop>
-  <source src="./p8.webm" type="video/webm" />
-  <source src="./p8.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p8.webm" type="video/webm" />
+    <source src="./p8.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Here I just added a Perlin Noise generation function to the same algorithm and tested it with sidescrolling.
 
 ### Collision resolution:
 
-<video playsinline muted autoplay loop>
-  <source src="./p9.webm" type="video/webm" />
-  <source src="./p9.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p9.webm" type="video/webm" />
+    <source src="./p9.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 It's like the 6th time I implement 2D collision resolution from scratch and I usually get stuck in the corner cases. This time it wasn't different. I used a whole day to implement this and about one hour of the next day to fix bugs.
 
 ### Infinite scrolling and parallax effect:
 
-<video playsinline muted autoplay loop>
-  <source src="./p10.webm" type="video/webm" />
-  <source src="./p10.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p10.webm" type="video/webm" />
+    <source src="./p10.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 At this point I start to get relieved as the main components for the game seem to be getting done. Infinite scrolling and generation works flawlessly and I also added a parallax effect to the background.
 
 ### New color palette:
 
-<video playsinline muted autoplay loop>
-  <source src="./p11.webm" type="video/webm" />
-  <source src="./p11.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p11.webm" type="video/webm" />
+    <source src="./p11.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Confident that I was advancing with the game, I thought it was time to depart from the default TIC-80's color palette. I experimented a lot on Aseprite and came up with this palette. I wanted something that was not realist, but dark, mysterious and vibrant at the same time.
 
 ### Collectables and HUD:
 
-<video playsinline muted autoplay loop>
-  <source src="./p12.webm" type="video/webm" />
-  <source src="./p12.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p12.webm" type="video/webm" />
+    <source src="./p12.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Inspired by the new palette, I came up with the name Amethyst Waters for the game, which actually became its official name. I then added amethysts as collectables and also implemented a basic HUD with a score and a healthbar.
 
@@ -168,10 +196,12 @@ The healthbar is very simple. I draw the UI sprites in the background and then d
 
 ### Icosahedron:
 
-<video playsinline muted autoplay loop>
-  <source src="./p13.webm" type="video/webm" />
-  <source src="./p13.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p13.webm" type="video/webm" />
+    <source src="./p13.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 This is probably the most useless but cool feature I added to the game. I used a whole day to implement it with only triangles. It was adapted from [this article](http://www.songho.ca/opengl/gl_sphere.html) of drawing a sphere with C++ and OpenGL.
 
@@ -179,51 +209,63 @@ The basic idea is to get the vertices using the algorithm described in the artic
 
 ### Particles:
 
-<video playsinline muted autoplay loop>
-  <source src="./p14.webm" type="video/webm" />
-  <source src="./p14.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p14.webm" type="video/webm" />
+    <source src="./p14.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 Now we started the polishing phase. A generic particle system was added in order to easily implement different particles. The bubble particle in the back of the submarine just emits single pixels. This small touch helps a lot in improving the underwater theme.
 
 ### Different weapons and new colors:
 
-<video playsinline muted autoplay loop>
-  <source src="./p15.webm" type="video/webm" />
-  <source src="./p15.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p15.webm" type="video/webm" />
+    <source src="./p15.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 I created three weapon types, adjusted the palette color, added a background bubble particle emitter and added some new sprites.
 
 ### Anglerfish boss
 
-<video playsinline muted autoplay loop>
-  <source src="./p16.webm" type="video/webm" />
-  <source src="./p16.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p16.webm" type="video/webm" />
+    <source src="./p16.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
-<video playsinline muted autoplay loop>
-  <source src="./p17.webm" type="video/webm" />
-  <source src="./p17.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p17.webm" type="video/webm" />
+    <source src="./p17.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 I also added a final boss, an monstrous anglerfish that has three different attacks, a lot of health and constantly tries to follow the player.
 
 ### More enemies
 
-<video playsinline muted autoplay loop>
-  <source src="./p18.webm" type="video/webm" />
-  <source src="./p18.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p18.webm" type="video/webm" />
+    <source src="./p18.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 This was definitely the most boring part of the whole development. I spent an entire day adjusting enemy waves, how much damage they dealt and which of those were allowed to appear together. It was an endless loop of testing and testing multiple times the same parts in order to see if we have a good transition between enemy waves while having a overall good difficulty progression.
 
 ### Final touches
 
-<video playsinline muted autoplay loop>
-  <source src="./p19.webm" type="video/webm" />
-  <source src="./p19.mp4" type="video/mp4" />
-</video>
+<Lazy>
+  <video playsinline muted autoplay loop>
+    <source src="./p19.webm" type="video/webm" />
+    <source src="./p19.mp4" type="video/mp4" />
+  </video>
+</Lazy>
 
 In the last hours before submission I added a endscreen after the boss, added new particles, tested with friends, improved upon their feedback and added some algae background that my girlfriend made while learning pixel art. It still shipped with some bugs related to triangle rendering, collision and enemy spawning. However, the reception by the other people in the jam was good, so I was very satisfied with the final results.
 
