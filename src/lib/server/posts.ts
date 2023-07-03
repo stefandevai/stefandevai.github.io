@@ -8,7 +8,6 @@ export interface Post {
 	language: 'fr' | 'pt' | 'en' | 'es';
 	featuredImage: string;
 	featuredImageCaption: string;
-	featuredImageVerticalPosition?: string;
 	tags: string[];
 	excerpt: string;
 }

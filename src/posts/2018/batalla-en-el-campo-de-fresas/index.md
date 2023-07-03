@@ -3,7 +3,7 @@ title: 'Batalla en el campo de fresas: producción y conflicto en San Quintín, 
 date: '2018-01-08'
 language: 'es'
 featuredImage: 'strawberries.png'
-featuredImageCaption: 'Imagen generada con Midjourney 5.1'
+featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: a0aad862-de08-41b6-a1a0-54812c0f112d.'
 tags: ['history', 'essay']
 ---
 

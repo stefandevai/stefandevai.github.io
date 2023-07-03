@@ -3,8 +3,7 @@ title: 'L’évangélisation des Indiens d’Amérique (XVIe - XVIIe siècles)'
 date: '2020-02-27'
 language: 'fr'
 featuredImage: 'cross.png'
-featuredImageCaption: 'Imagen generada con Midjourney 5.2'
-featuredImageVerticalPosition: 'top'
+featuredImageCaption: 'Image généré avec Midjourney 5.2. Job ID: 5ba7ada4-bb56-46a3-8a36-44c02d15d517.'
 tags: ['history', 'essay']
 ---
 

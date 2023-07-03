@@ -3,8 +3,7 @@ title: 'Lecture : Le fromage et les vers de Carlo Ginzburg'
 date: '2019-10-17'
 language: 'fr'
 featuredImage: 'cheese.png'
-featuredImageCaption: 'Imagen generada con Midjourney 5.1'
-featuredImageVerticalPosition: 'bottom'
+featuredImageCaption: 'Image généré avec Midjourney 5.1. Job ID : 6b3ddb41-6f40-402f-9e53-9f827bcc33fc.'
 tags: ['history', 'reading']
 ---
 
