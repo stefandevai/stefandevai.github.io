@@ -15,7 +15,10 @@
 		on:mouseenter={activate}
 		on:mouseleave={deactivate}
 	>
-		<img src={post.featuredImage} alt={post.title} loading="lazy" />
+		<picture>
+			<source srcset={post.featuredImage} type="image/webp" />
+			<img src={post.featuredImageFallback} alt="" />
+		</picture>
 	</a>
 	<div class="text-content">
 		<header>
@@ -50,16 +53,18 @@
 		justify-content: center;
 	}
 
-	@media (max-width: 700px) {
-		.wrapper {
-			flex-direction: column;
-		}
-	}
-
 	.image-wrapper {
 		position: relative;
-		width: 250px;
+		flex-basis: 250px;
+		flex-grow: 0;
+		flex-shrink: 0;
 		height: 250px;
+		line-height: normal;
+	}
+
+	.image-wrapper img {
+		width: 100%;
+		height: 100%;
 	}
 
 	.image-wrapper:after {
@@ -77,6 +82,31 @@
 		padding: 0 1rem 0 2rem;
 		display: flex;
 		flex-direction: column;
+	}
+
+	@media (max-width: 700px) {
+		.wrapper {
+			flex-direction: column;
+		}
+
+		.text-content {
+			padding: 0 1rem;
+		}
+
+		.image-wrapper {
+			width: 100%;
+			height: auto;
+			margin-bottom: 1rem;
+		}
+
+		.image-wrapper > picture {
+			width: 100%;
+			height: auto;
+		}
+
+		.read-more {
+			display: none;
+		}
 	}
 
 	header {

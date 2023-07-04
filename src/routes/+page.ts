@@ -2,13 +2,26 @@ import type { PageLoad } from './$types';
 
 const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
-	query: { w: 250, h: 250, format: 'webp', grayscale: true, flatten: true, quality: 70 },
+	query: {
+		w: '636;250',
+		format: 'webp',
+		grayscale: true,
+		flatten: true,
+		quality: 70,
+		as: 'srcset',
+	},
+});
+
+const fallbacks = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
+	eager: true,
+	query: { w: 10, h: 10, format: 'webp', grayscale: true, flatten: true, quality: 20 },
 });
 
 export const load: PageLoad = async ({ data }) => {
 	const newPosts = data.posts.map((post) => ({
 		...post,
-		featuredImage: `${images[post.featuredImage].default}`,
+		featuredImage: images[post.featuredImage].default,
+		featuredImageFallback: fallbacks[post.featuredImage].default,
 	}));
 
 	return {

@@ -13,6 +13,12 @@
 		border-bottom: 1px solid var(--color-border);
 	}
 
+	@media (max-width: 768px) {
+		nav {
+			padding: 0 1rem;
+		}
+	}
+
 	.logo {
 		width: 140px;
 		height: auto;
