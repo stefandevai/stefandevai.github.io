@@ -1,5 +1,5 @@
 <nav>
-	<a href="/" class="logo">Stefan Devai</a>
+	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
 	<a href="/about">About</a>
 </nav>
 
@@ -14,8 +14,8 @@
 	}
 
 	.logo {
-		font-size: 1.4rem;
-		font-weight: 700;
+		width: 140px;
+		height: auto;
 	}
 
 	a {

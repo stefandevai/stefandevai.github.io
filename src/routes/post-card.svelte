@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Post } from '$lib/server/posts';
+	import ChevronButton from '$lib/components/chevron-button.svelte';
 	export let post: Post;
 </script>
 
@@ -27,6 +28,9 @@
 				{post.excerpt}…
 			</p>
 		</a>
+		<div class="read-more">
+			<ChevronButton direction="right" href={`p/${post.slug}`} />
+		</div>
 	</div>
 </div>
 
@@ -35,6 +39,12 @@
 		padding: 1rem;
 		display: flex;
 		justify-content: center;
+	}
+
+	@media (max-width: 700px) {
+		.wrapper {
+			flex-direction: column;
+		}
 	}
 
 	.image-wrapper {
@@ -55,7 +65,9 @@
 	}
 
 	.text-content {
-		padding: 0 1rem 1rem 2rem;
+		padding: 0 1rem 0 2rem;
+		display: flex;
+		flex-direction: column;
 	}
 
 	header {
@@ -94,5 +106,10 @@
 		font-size: var(--font-size-small2);
 		color: var(--color-black);
 		margin: 0;
+	}
+
+	.read-more {
+		margin-top: auto;
+		align-self: flex-end;
 	}
 </style>

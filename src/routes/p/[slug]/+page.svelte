@@ -19,12 +19,7 @@
 	<article>
 		<header>
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
-			<img
-				src={data.post.featuredImage}
-				alt={data.post.featuredImageCaption}
-				loading="lazy"
-				style="object-position: center {data.post.featuredImageVerticalPosition ?? 'center'};"
-			/>
+			<img src={data.post.featuredImage} alt={data.post.featuredImageCaption} loading="lazy" />
 			<span>{data.post.featuredImageCaption}</span>
 		</header>
 		<Content postContent={data.component} />
@@ -59,6 +54,10 @@
 	h1 {
 		font-size: var(--font-size-large);
 		margin-bottom: 2rem;
+	}
+
+	img {
+		width: 100%;
 	}
 
 	.brand-diamond {
