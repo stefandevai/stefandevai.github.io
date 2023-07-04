@@ -5,7 +5,8 @@
 
 <a {href}>
 	<div class="background" />
-	<div class="arrow-right" />
+	<div class="arrow-right" style="display: {direction === 'left' ? 'none' : ''}" />
+	<div class="arrow-left" style="display: {direction === 'right' ? 'none' : ''}" />
 </a>
 
 <style>
