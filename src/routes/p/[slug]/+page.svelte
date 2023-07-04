@@ -5,6 +5,10 @@
 	import Content from './content.svelte';
 
 	export let data: PageData;
+
+	const handleGoBack = () => {
+		history.back();
+	};
 </script>
 
 <svelte:head>
@@ -18,6 +22,7 @@
 <main>
 	<article>
 		<header>
+			<a href="javascript:history.back()">⟵ Go Back</a>
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
 			<img src={data.post.featuredImage} alt={data.post.featuredImageCaption} loading="lazy" />
 			<span>{data.post.featuredImageCaption}</span>
@@ -51,9 +56,14 @@
 		font-style: italic;
 	}
 
+	header > a {
+		font-size: var(--font-size-very-small);
+	}
+
 	h1 {
 		font-size: var(--font-size-large);
 		margin-bottom: 2rem;
+		margin-top: 0.5rem;
 	}
 
 	img {

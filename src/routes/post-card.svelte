@@ -1,17 +1,26 @@
 <script lang="ts">
 	import type { Post } from '$lib/server/posts';
-	import ChevronButton from '$lib/components/chevron-button.svelte';
+	import ContinueReadingButton from '$lib/components/continue-reading-button.svelte';
 	export let post: Post;
+
+	let active = false;
+	const activate = () => (active = true);
+	const deactivate = () => (active = false);
 </script>
 
 <div class="wrapper">
-	<a href={`p/${post.slug}`} class="image-wrapper">
+	<a
+		href={`p/${post.slug}`}
+		class="image-wrapper"
+		on:mouseenter={activate}
+		on:mouseleave={deactivate}
+	>
 		<img src={post.featuredImage} alt={post.title} loading="lazy" />
 	</a>
 	<div class="text-content">
 		<header>
 			<span>{post.date}</span>
-			<a href={`p/${post.slug}`}>
+			<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
 				<h2>{post.title}</h2>
 			</a>
 			<div>
@@ -23,13 +32,13 @@
 				{/if}
 			</div>
 		</header>
-		<a href={`p/${post.slug}`}>
+		<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
 			<p>
 				{post.excerpt}…
 			</p>
 		</a>
 		<div class="read-more">
-			<ChevronButton direction="right" href={`p/${post.slug}`} />
+			<ContinueReadingButton href={`p/${post.slug}`} {active} />
 		</div>
 	</div>
 </div>

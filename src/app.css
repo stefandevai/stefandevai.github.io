@@ -33,6 +33,10 @@ html {
 	background-color: var(--color-white);
 }
 
+body {
+	overflow-x: hidden;
+}
+
 p,
 ul {
 	line-height: 1.8;
