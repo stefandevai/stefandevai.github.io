@@ -22,7 +22,7 @@
 <main>
 	<article>
 		<header>
-			<div on:click={handleGoBack}>⟵ Go Back</div>
+			<button on:click={handleGoBack}>⟵ Go Back</button>
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
 			<img src={data.post.featuredImage} alt={data.post.featuredImageCaption} loading="lazy" />
 			<span>{data.post.featuredImageCaption}</span>
@@ -56,7 +56,7 @@
 		font-style: italic;
 	}
 
-	header > div {
+	header > button {
 		font-size: var(--font-size-very-small);
 		color: var(--color-anchor);
 		cursor: pointer;
