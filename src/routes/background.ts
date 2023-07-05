@@ -9,11 +9,11 @@ const GEAR_COLOR = [0.333, 0.333, 0.333]; // #555555
 
 const objects: ObjectInfo[] = [];
 
-const initObjects = (gl: WebGLRenderingContext) => {
+const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 	const [sphereVertices, sphereIndices] = buildSphere(0.5, 10, GEAR_COLOR);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
 
-	const sphere = getObjectInfo(sphereBufferInfo, [0.0, 0.0, -1.5], [2.0, 2.0, 1.0], {
+	const sphere = getObjectInfo(sphereBufferInfo, [0.0, 0.0, -1.5], [sphereSize, sphereSize, 1.0], {
 		rotation: [0.001, 0.0, 0.0],
 	});
 
@@ -22,7 +22,12 @@ const initObjects = (gl: WebGLRenderingContext) => {
 
 export const init = (gl: WebGLRenderingContext) => {
 	renderer.init(gl, BACKGROUND_COLOR);
-	initObjects(gl);
+
+	if (gl.canvas.width <= 768) {
+		initObjects(gl, 1.0);
+	} else {
+		initObjects(gl, 2.0);
+	}
 };
 
 export const resize = (gl: WebGLRenderingContext) => {
