@@ -1,0 +1,7 @@
+[build]
+  functions = "src/lambda_functions"
+
+[[redirects]]
+  from = "/blog/posts/2018/batalla-en-elcampo-fresas"
+  to = "/p/batalla-en-el-campo-de-fresas-ntZjz"
+  status = 302
