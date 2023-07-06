@@ -13,7 +13,7 @@
 		<div class="line-top" />
 		<div class="text-wrapper">
 			<div class="text">
-				<h2>Hi, I'm Stefan Devai :)</h2>
+				<h2>Hi, I'm Stefan Devai</h2>
 				<p>
 					I'm a History student at the Sorbonne University in Paris and a Computer Science
 					enthusiast. In this blog I can share some of my programming experiments and historical
@@ -22,21 +22,6 @@
 				<p>
 					I actively use four languages for different aspects of my life, so you will find here
 					posts in Spanish, Portuguese, English and French.
-				</p>
-				<p>
-					I use <a
-						href="https://wiki.archlinux.org/index.php/Arch_Linux"
-						target="_blank"
-						rel="noopener noreferrer">Arch Linux</a
-					>
-					as my main operating system,
-					<a href="https://i3wm.org/" target="_blank" rel="noopener noreferrer">i3wm</a>
-					as my window manager and both
-					<a href="https://neovim.io/" target="_blank" rel="noopener noreferrer">NeoVim</a>
-					/
-					<a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener noreferrer"
-						>GNU Emacs</a
-					> as my text editors depending on the programming language.
 				</p>
 			</div>
 		</div>
@@ -80,6 +65,7 @@
 	h1 {
 		font-size: var(--font-size-large);
 		margin-bottom: 2rem;
+		margin-top: 0;
 	}
 
 	h2 {

@@ -1,5 +1,5 @@
 ---
-title: 'Lisp hacking on confinement nights: Amethyst Waters'
+title: 'Lisp hacking on lockdown nights: Amethyst Waters'
 date: '2020-04-25'
 language: 'en'
 featuredImage: 'fish.png'
@@ -11,17 +11,17 @@ tags: ['gamedev', 'programming', 'lisp']
   import GIFVideo from '$lib/components/gif-video.svelte';
 </script>
 
-_The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam._
+_The user [ergodicbreak](https://ergodicbreak.itch.io/) on itch.io created a post-mortem post about the jam and about his game, which inspired me to create this one. He mentioned my game as his favorite in the jam and I'm very honored for that! :) Make sure to read [his post](https://ergodicbreak.itch.io/xenoamob/devlog/140174/post-jammin) about the jam._
 
-Almost one month of confinement due to the COVID-19 had passed when I decided to take part in the [Spring Lisp Game Jam](https://itch.io/jam/spring-lisp-game-jam-2020). From April 10th to April 20th I created an entire game and then submitted it to be voted. I was happy and surprised to win the first place! You can play **Amethyst Waters** in the browser [here](https://stefandevai.itch.io/amethyst-waters), take a look to the code on [GitHub](https://github.com/stefandevai/amethyst-waters), and play the other games in the jam [here](https://itch.io/jam/spring-lisp-game-jam-2020/entries). This was the first time I committed to finish a game using a game engine instead of creating one of my own. In this post I want to discuss the process of developing Amethyst Waters what went well, and what can be improved for my next game jams.
+Almost one month of lockdown due to the COVID-19 had passed when I decided to take part in the [Spring Lisp Game Jam](https://itch.io/jam/spring-lisp-game-jam-2020). From April 10th to April 20th I created an entire game and then submitted it to be voted. I was happy and surprised to win the first place! You can play **Amethyst Waters** in the browser [here](https://stefandevai.itch.io/amethyst-waters), take a look to the code on [GitHub](https://github.com/stefandevai/amethyst-waters), and play the other games in the jam [here](https://itch.io/jam/spring-lisp-game-jam-2020/entries). This was the first time I committed to finish a game using a game engine instead of creating one of my own. In this post I want to discuss the process of developing Amethyst Waters what went well, and what can be improved for my next game jams.
 
 ## Plan
 
 I have a _pretty good_ historic on having game ideas with a giant scope and not being able to finish them. I wasn't concerned about innovative mechanics, my sole objective this time was to be able to finish a game. So the following ideas came to my mind:
 
-- **A shoot 'em up:** it's a genre with somewhat simple mechanics that can easily scale in terms of content; that is, I can implement a basic gun type and then, if I still have time in the end of the jam, add different gun types with various effects.
-- **Ecco Tides of Time:** I love this game so much, and even more its beautiful [soundtrack](https://www.youtube.com/watch?v=32S2oJuANxo). Normally I wouldn't like to make a game about killing sea creatures, but as I didn't have a lot of time to think about design solutions for this issue, I decided to create abstract sea creatures that don't really exist.
-- **Old demos:** the demoscene was the graffiti scene on early computers. Its rebellious nature always associated with an underground hacking scene created an art expression that is unique and inspiring for these days. TIC-80 limitations made me think about the demoscene and as I listened to the [Future Crew](https://www.youtube.com/watch?v=KTjnt_WSJu8) or [Triton](https://www.youtube.com/watch?v=LNXERInw69g), I thought it would be a good addition to the game mood.
+- **A shoot 'em up:** it's a genre with somewhat simple mechanics that can easily scale in terms of content; I thought that I can implement a basic gun type and then, if I still have time in the end of the jam, add different gun types with various effects.
+- **Ecco Tides of Time:** I love this game so much, and even more its beautiful [soundtrack](https://www.youtube.com/watch?v=32S2oJuANxo). I got inspired to create abstract sea creatures that don't really exist.
+- **Old demos:** the demoscene was the graffiti scene on early computers. Its rebellious nature always associated with an underground hacking scene created an art expression that is unique. TIC-80 limitations made me think about the demoscene and as I listened to the [Future Crew](https://www.youtube.com/watch?v=KTjnt_WSJu8) or [Triton](https://www.youtube.com/watch?v=LNXERInw69g), I thought it would be a good addition to the game mood.
 
 As I wasn't innovating with the mechanics or story, as I was doing the game alone and as I already had the whole idea in my head I passed to the development phase without to much formal planning. Otherwise I'm sure it would be a better idea to plan things out.
 
@@ -244,6 +244,6 @@ In the last hours before submission I added a endscreen after the boss, added ne
 
 ## Conclusion
 
-Developing a game with TIC-80 for a game jam gave me a small glimpse of what once was the demoscene. The healthy competition and the "hardware" limitations were an awesome experience to pass the time during this endless confinement.
+Developing a game with TIC-80 for a game jam gave me a small glimpse of what once was the demoscene. The healthy competition and the "hardware" limitations were an awesome experience to pass the time during this endless lockdown.
 
 The jam as a whole was super fun and I was able to meet a lot of talented lisp game developers in the way. Make sure to play [all the other games](https://itch.io/jam/spring-lisp-game-jam-2020/entries) submitted to the jam.
