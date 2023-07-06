@@ -1,7 +1,7 @@
 import * as renderer from '$lib/renderer';
 // import { buildSphere } from '$lib/renderer/util';
 import { getBufferInfo } from '$lib/renderer/buffer';
-import { getObjectInfo } from '$lib/renderer/object';
+import { getObjectInfo, rotateObject } from '$lib/renderer/object';
 import type { ObjectInfo } from '$lib/renderer/types';
 import {
 	vertices as sphereVertices,
@@ -43,11 +43,12 @@ export const resize = (gl: WebGLRenderingContext) => {
 	renderer.resize(gl);
 };
 
-export const animate = (_gl: WebGLRenderingContext, _delta: number) => {
-	// for (const object of objects) {
-	// 	rotateObject(object, delta);
-	// }
-	// renderer.render(gl, objects, BACKGROUND_COLOR);
+export const animate = (gl: WebGLRenderingContext, delta: number) => {
+	for (const object of objects) {
+		rotateObject(object, delta);
+	}
+
+	renderer.render(gl, objects, BACKGROUND_COLOR);
 };
 
 export const clear = () => {
