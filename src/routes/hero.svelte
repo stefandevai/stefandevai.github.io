@@ -1,10 +1,11 @@
 <script lang="ts">
-	/* import Background from './background.svelte'; */
-	/* 	<Background /> */
+	import Background from './background.svelte';
 </script>
 
 <header>
-	<div class="background" />
+	<div class="background">
+		<Background />
+	</div>
 	<div class="background-space" />
 	<div class="text">
 		<h1>
@@ -36,6 +37,7 @@
 		justify-content: center;
 		flex-direction: column;
 		text-align: center;
+		z-index: 2;
 	}
 
 	.background {
@@ -44,7 +46,7 @@
 	}
 
 	.background-space {
-		background-color: var(--color-black);
+		z-index: -2;
 		height: calc(70vh + var(--nav-height));
 		width: 100vw;
 	}
