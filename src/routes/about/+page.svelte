@@ -3,7 +3,12 @@
 	import InstagramIcon from './instagram.svelte';
 	import EmailIcon from './email.svelte';
 	import StefanDevaiPicture from './stefandevai.jpg';
+	import { title } from '$lib/config';
 </script>
+
+<svelte:head>
+	<title>About | {title}</title>
+</svelte:head>
 
 <main>
 	<h1>About <span class="brand-diamond">◆</span></h1>
