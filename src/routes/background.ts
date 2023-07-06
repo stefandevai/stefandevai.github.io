@@ -6,7 +6,7 @@ import type { ObjectInfo } from '$lib/renderer/types';
 import {
 	vertices as sphereVertices,
 	indices as sphereIndices,
-} from '$lib/renderer/cached-circle-data';
+} from '$lib/renderer/cached-sphere-data';
 
 const BACKGROUND_COLOR = [0.067, 0.067, 0.067]; // #111111
 // const GEAR_COLOR = [0.333, 0.333, 0.333]; // #555555
@@ -44,11 +44,10 @@ export const resize = (gl: WebGLRenderingContext) => {
 };
 
 export const animate = (gl: WebGLRenderingContext, delta: number) => {
-	for (const object of objects) {
-		rotateObject(object, delta);
-	}
-
-	renderer.render(gl, objects, BACKGROUND_COLOR);
+	// for (const object of objects) {
+	// 	rotateObject(object, delta);
+	// }
+	// renderer.render(gl, objects, BACKGROUND_COLOR);
 };
 
 export const clear = () => {
