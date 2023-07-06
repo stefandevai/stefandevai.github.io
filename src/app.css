@@ -19,6 +19,7 @@
 	--font-size-large: 2.5rem;
 
 	--layout-max-width: 900px;
+	--nav-height: 64px;
 }
 
 * {

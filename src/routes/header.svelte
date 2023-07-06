@@ -9,8 +9,13 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 2rem;
-		height: 64px;
+		height: var(--nav-height);
 		border-bottom: 1px solid var(--color-border);
+		background-color: var(--color-white);
+		position: absolute;
+		width: 100vw;
+		z-index: 2;
+		top: 0;
 	}
 
 	@media (max-width: 768px) {

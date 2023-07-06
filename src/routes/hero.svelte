@@ -3,13 +3,16 @@
 </script>
 
 <header>
+	<div class="background">
+		<Background />
+	</div>
+	<div class="background-space" />
 	<div class="text">
 		<h1>
 			<span class="brand-diamond">◆</span>Temporal Geometry<span class="brand-diamond">◆</span>
 		</h1>
 		<p>Stefan Devai's blog about History and programming.</p>
 	</div>
-	<Background />
 </header>
 
 <style>
@@ -25,6 +28,7 @@
 
 	.text {
 		position: absolute;
+		top: 0;
 		color: #fff;
 		width: 100%;
 		height: 100%;
@@ -33,6 +37,16 @@
 		justify-content: center;
 		flex-direction: column;
 		text-align: center;
+	}
+
+	.background {
+		position: fixed;
+		z-index: -1;
+	}
+
+	.background-space {
+		height: calc(70vh + var(--nav-height));
+		width: 100vw;
 	}
 
 	p {

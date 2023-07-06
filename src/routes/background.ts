@@ -13,9 +13,14 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 	const [sphereVertices, sphereIndices] = buildSphere(0.5, 10, GEAR_COLOR);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
 
-	const sphere = getObjectInfo(sphereBufferInfo, [0.0, 0.0, -1.5], [sphereSize, sphereSize, 1.0], {
-		rotation: [0.001, 0.0, 0.0],
-	});
+	const sphere = getObjectInfo(
+		sphereBufferInfo,
+		[0.0, -0.07, -1.5],
+		[sphereSize, sphereSize, 1.0],
+		{
+			rotation: [0.001, 0.0, 0.0],
+		}
+	);
 
 	objects.push(sphere);
 };
