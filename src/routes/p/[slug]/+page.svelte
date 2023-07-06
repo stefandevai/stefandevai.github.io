@@ -42,6 +42,10 @@
 </main>
 
 <style>
+	main {
+		margin-top: var(--nav-height);
+	}
+
 	header {
 		margin-bottom: 2rem;
 		font-size: 18px;
