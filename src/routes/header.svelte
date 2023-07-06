@@ -24,6 +24,11 @@
 		}
 	}
 
+	img {
+		width: 140px;
+		height: 21px;
+	}
+
 	.logo {
 		width: 140px;
 		height: auto;

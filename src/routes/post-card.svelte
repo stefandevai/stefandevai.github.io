@@ -12,6 +12,7 @@
 	<a
 		href={`p/${post.slug}`}
 		class="image-wrapper"
+		aria-label={post.title}
 		on:mouseenter={activate}
 		on:mouseleave={deactivate}
 	>
