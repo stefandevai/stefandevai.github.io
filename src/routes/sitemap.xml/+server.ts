@@ -1,9 +1,7 @@
 import { posts } from '$lib/server/posts';
+import { baseUrl, pageSlugs } from '$lib/config';
 
 export const prerender = true;
-
-const pages = ['about'];
-const homepage = 'https://stefandevai.com';
 
 export const GET = () => {
 	const headers = {
@@ -18,16 +16,16 @@ export const GET = () => {
 const render = () => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>${homepage}</loc>
+    <loc>${baseUrl}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  ${pages
+  ${pageSlugs
 		.map(
 			(page) => `
 		<url>
-			<loc>${homepage}/${page}</loc>
+			<loc>${baseUrl}/${page}</loc>
 			<changefreq>yearly</changefreq>
 			<priority>0.3</priority>
 		</url>
@@ -39,7 +37,7 @@ const render = () => `<?xml version="1.0" encoding="UTF-8" ?>
 		.map(
 			(post) => `
 		<url>
-			<loc>${homepage}/p/${post.slug}</loc>
+			<loc>${baseUrl}/p/${post.slug}</loc>
 			<changefreq>yearly</changefreq>
 			<lastmod>${post.date}</lastmod>
 			<priority>0.6</priority>
