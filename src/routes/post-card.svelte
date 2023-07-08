@@ -17,8 +17,18 @@
 		on:mouseleave={deactivate}
 	>
 		<picture>
-			<source srcset={post.featuredImage} type="image/webp" />
-			<img src={post.featuredImageFallback} alt="" />
+			{#each Object.entries(post.featuredImage.sources) as [format, images]}
+				<source
+					srcset={`${images[0].src} 636w, ${images[1].src} 350w, ${images[2].src} 250w`}
+					sizes={`(max-width: 314px) 250px, (max-width: 415px) 350px, (max-width: 700px) 636px, 250px`}
+					type={`image/${format}`}
+				/>
+			{/each}
+			<img
+				style={`background:url(${post.featuredImageFallback}) no-repeat;`}
+				src={post.featuredImageFallback}
+				alt="post"
+			/>
 		</picture>
 	</a>
 	<div class="text-content">
@@ -66,6 +76,8 @@
 	.image-wrapper img {
 		width: 100%;
 		height: 100%;
+		background-size: cover;
+		display: block;
 	}
 
 	.image-wrapper:after {
