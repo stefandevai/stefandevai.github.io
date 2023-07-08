@@ -3,3 +3,4 @@ User-agent: *
 
 Disallow: /*.js$
 Disallow: /*.json
+Sitemap: https://stefandevai.com/sitemap.xml
