@@ -17,7 +17,7 @@
 		&nbsp;·&nbsp;
 		<a href="mailto:stefandevai@posteo.me" target="_blank" rel="noopener noreferrer">email</a>
 		&nbsp;·&nbsp;
-		<a href="/rss" target="_blank" rel="noopener noreferrer">rss</a>
+		<a href="/rss.xml" target="_blank" rel="noopener noreferrer">rss</a>
 	</div>
 </footer>
 
