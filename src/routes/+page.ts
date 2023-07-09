@@ -7,7 +7,7 @@ const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 		format: 'webp;jpg',
 		grayscale: true,
 		flatten: true,
-		quality: 70,
+		quality: 40,
 		as: 'picture',
 	},
 });
