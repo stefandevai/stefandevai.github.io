@@ -14,7 +14,7 @@
 		background-color: var(--color-white);
 		position: absolute;
 		width: 100vw;
-		z-index: 2;
+		z-index: 3;
 		top: 0;
 	}
 
