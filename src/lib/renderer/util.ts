@@ -32,9 +32,6 @@ export const buildSphere = (radius: number, segments: number, color: number[]) =
 		}
 	}
 
-	console.log(vertices);
-	console.log(indices);
-
 	return [vertices, indices];
 };
 

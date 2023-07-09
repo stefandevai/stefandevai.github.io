@@ -1,5 +1,7 @@
 import type { PageLoad } from './$types';
 
+export const csr = false;
+
 const posts = import.meta.glob('$src/posts/**/*.md', { eager: true });
 
 const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
