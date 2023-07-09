@@ -19,8 +19,8 @@
 		<picture>
 			{#each Object.entries(post.featuredImage.sources) as [format, images]}
 				<source
-					srcset={`${images[0].src} 636w, ${images[1].src} 350w, ${images[2].src} 250w`}
-					sizes={`(max-width: 314px) 250px, (max-width: 415px) 350px, (max-width: 700px) 636px, 250px`}
+					srcset={`${images[0].src} 250w, ${images[1].src} 100w`}
+					sizes={`(max-width: 576px) 100px, 250px`}
 					type={`image/${format}`}
 				/>
 			{/each}
@@ -61,7 +61,7 @@
 	.wrapper {
 		padding: 1rem;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 
 	.image-wrapper {
@@ -140,39 +140,100 @@
 		align-self: flex-end;
 	}
 
-	@media (max-width: 700px) {
+	@media (min-width: 577px) and (max-width: 700px) {
 		.wrapper {
-			flex-direction: column;
+			padding: 1rem 0;
 		}
 
 		.text-content {
-			padding: 0;
+			padding: 0 0 0 1rem;
+		}
+
+		.read-more {
+			display: none;
+		}
+
+		.text-content h2 {
+			font-size: var(--font-size-medium2);
+		}
+	}
+
+	@media (max-width: 576px) {
+		.wrapper {
+			padding: 1rem 0;
 		}
 
 		.image-wrapper {
-			width: 100%;
-			height: auto;
+			flex-basis: 100px;
+			height: 100px;
 			margin-bottom: 1rem;
 		}
 
-		.image-wrapper > picture {
-			width: 100%;
-			height: auto;
+		.text-content {
+			padding: 0 1rem;
+		}
+
+		.text-content h2 {
+			font-size: var(--font-size-normal);
+		}
+
+		.text-content > a {
+			display: none;
+		}
+
+		.read-more {
+			display: none;
 		}
 
 		.image-wrapper:after {
 			content: '';
 			position: absolute;
 			display: block;
-			left: 0;
-			top: calc(100% - 35px);
-			width: 70px;
-			height: 35px;
+			top: 0;
+			right: 0;
+			width: 20px;
+			height: 40px;
 			background-color: var(--color-red);
 		}
 
-		.read-more {
-			display: none;
-		}
+		/* .wrapper { */
+		/* 	flex-direction: column-reverse; */
+		/* } */
+
+		/* .text-content { */
+		/* 	padding: 0; */
+		/* } */
+
+		/* .text-content > a { */
+		/* 	display: none; */
+		/* } */
+
+		/* .image-wrapper { */
+		/* 	flex-basis: 250px; */
+		/* 	height: 250px; */
+		/* 	/1* width: 100%; *1/ */
+		/* 	/1* height: auto; *1/ */
+		/* 	margin-bottom: 1rem; */
+		/* } */
+
+		/* /1* .image-wrapper > picture { *1/ */
+		/* /1* 	width: 100%; *1/ */
+		/* /1* 	height: auto; *1/ */
+		/* /1* } *1/ */
+
+		/* .image-wrapper:after { */
+		/* 	content: ''; */
+		/* 	position: absolute; */
+		/* 	display: block; */
+		/* 	right: 0; */
+		/* 	top: calc(100% - 35px); */
+		/* 	width: 70px; */
+		/* 	height: 35px; */
+		/* 	background-color: var(--color-red); */
+		/* } */
+
+		/* .read-more { */
+		/* 	display: none; */
+		/* } */
 	}
 </style>

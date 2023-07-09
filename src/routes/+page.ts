@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 const images = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
 	query: {
-		w: '636;350;250',
+		w: '250;100',
 		format: 'webp;jpg',
 		grayscale: true,
 		flatten: true,
