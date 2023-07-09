@@ -22,6 +22,25 @@
 	--nav-height: 64px;
 }
 
+@font-face {
+	font-family: BitterInitial;
+	font-display: 'swap';
+	src: url('/fonts/bitter-regular-subset.woff2') format('woff2');
+	unicode-range: U+0041-005A, U+0061-007A;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: BitterInitial;
+	font-display: 'swap';
+	unicode-range: U+0041-005A, U+0061-007A;
+	font-weight: 700;
+}
+
+.fonts-loaded body {
+	font-family: 'Bitter', serif;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -29,12 +48,12 @@
 }
 
 html {
-	font-family: 'Bitter', serif;
 	color: var(--color-black);
 	background-color: var(--color-white);
 }
 
 body {
+	font-family: BitterInitial, serif;
 	overflow-x: hidden;
 }
 
