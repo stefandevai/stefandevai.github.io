@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Background from './background.svelte';
+	import BorderPattern from '$lib/components/border-pattern.svelte';
 </script>
 
 <header>
@@ -11,10 +12,12 @@
 		<p>Stefan Devai's blog about History and programming.</p>
 	</div>
 </header>
+<BorderPattern />
 
 <style>
 	header {
 		position: relative;
+		line-height: 0;
 	}
 
 	.brand-diamond {
@@ -35,12 +38,6 @@
 		flex-direction: column;
 		text-align: center;
 		z-index: 2;
-	}
-
-	.background-space {
-		z-index: -2;
-		height: calc(70vh + var(--nav-height));
-		width: 100vw;
 	}
 
 	p {

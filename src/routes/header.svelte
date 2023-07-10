@@ -1,7 +1,12 @@
+<script>
+	import BorderPattern from '$lib/components/border-pattern.svelte';
+</script>
+
 <nav>
 	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
 	<a href="/about">About</a>
 </nav>
+<BorderPattern />
 
 <style>
 	nav {
@@ -10,12 +15,7 @@
 		align-items: center;
 		padding: 0 2rem;
 		height: var(--nav-height);
-		border-bottom: 1px solid var(--color-border);
 		background-color: var(--color-white);
-		/* position: absolute; */
-		/* width: 100vw; */
-		z-index: 3;
-		/* top: 0; */
 	}
 
 	@media (max-width: 768px) {

@@ -6,6 +6,7 @@
 	--color-gray3: #aaa;
 	--color-red: #e32110;
 	--color-red2: #ef2f1f;
+	--color-red3: #f26f63;
 
 	--color-anchor: var(--color-red);
 	--color-border: var(--color-gray2);
@@ -146,7 +147,7 @@ p {
 main {
 	max-width: var(--layout-max-width);
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 3rem 1rem;
 }
 
 .tag {

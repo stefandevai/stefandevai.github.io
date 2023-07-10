@@ -1,41 +1,49 @@
+<script>
+	import BorderPattern from '$lib/components/border-pattern.svelte';
+</script>
+
 <footer>
-	<span>
-		View website
-		<a
-			href="https://github.com/stefandevai/stefandevai.github.io/"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			source code
-		</a>
-	</span>
-	&nbsp;—&nbsp;
+	<BorderPattern />
 	<div>
-		<a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer">github</a>
-		&nbsp;·&nbsp;
-		<a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer">instagram</a>
-		&nbsp;·&nbsp;
-		<a href="mailto:stefandevai@posteo.me" target="_blank" rel="noopener noreferrer">email</a>
-		&nbsp;·&nbsp;
-		<a href="/rss.xml" target="_blank" rel="noopener noreferrer">rss</a>
+		<span>
+			View website
+			<a
+				href="https://github.com/stefandevai/stefandevai.github.io/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				source code
+			</a>
+		</span>
+		&nbsp;—&nbsp;
+		<div>
+			<a href="https://github.com/stefandevai" target="_blank" rel="noopener noreferrer">github</a>
+			&nbsp;·&nbsp;
+			<a href="https://instagram.com/stedevai" target="_blank" rel="noopener noreferrer"
+				>instagram</a
+			>
+			&nbsp;·&nbsp;
+			<a href="mailto:stefandevai@posteo.me" target="_blank" rel="noopener noreferrer">email</a>
+			&nbsp;·&nbsp;
+			<a href="/rss.xml" target="_blank" rel="noopener noreferrer">rss</a>
+		</div>
 	</div>
 </footer>
 
 <style>
-	footer {
+	footer > div {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 1rem;
+		padding: 3rem 1rem;
 		font-size: var(--font-size-small);
 		color: var(--color-gray1);
 		font-style: italic;
-		border-top: 1px solid var(--color-border);
 	}
 
 	@media (max-width: 378px) {
-		footer {
-			padding: 2rem 1rem;
+		footer > div {
+			padding: 3rem 1rem;
 			flex-direction: column;
 		}
 	}
