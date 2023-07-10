@@ -12,6 +12,8 @@
 	<title>{title}</title>
 </svelte:head>
 
+<Hero />
+
 <div class="wrapper">
 	<main>
 		<ul>
