@@ -22,21 +22,21 @@
 		let frame;
 		let previousTimeStamp = 0;
 
-		/* const animate = (timeStamp: number) => { */
-		/* if (previousTimeStamp !== timeStamp) { */
-		/* const delta = timeStamp - previousTimeStamp; */
-		background.animate(gl, 0.016);
-		/* } */
+		const animate = (timeStamp: number) => {
+			if (previousTimeStamp !== timeStamp) {
+				const delta = timeStamp - previousTimeStamp;
+				background.animate(gl, delta);
+			}
 
-		/* previousTimeStamp = timeStamp; */
-		/* frame = requestAnimationFrame(animate); */
-		/* }; */
+			previousTimeStamp = timeStamp;
+			frame = requestAnimationFrame(animate);
+		};
 
-		/* frame = requestAnimationFrame(animate); */
+		frame = requestAnimationFrame(animate);
 
 		return () => {
 			background.clear();
-			/* cancelAnimationFrame(frame); */
+			cancelAnimationFrame(frame);
 			/* resizeObserver.unobserve(canvas); */
 		};
 	});
