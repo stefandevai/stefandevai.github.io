@@ -189,11 +189,11 @@
 		width: auto;
 	}
 
-	:global(.social-icons svg rect) {
+	:global(.social-icons svg > path:first-of-type) {
 		transition: fill 0.1s ease;
 	}
 
-	:global(.social-icons svg:hover rect) {
+	:global(.social-icons svg > path:first-of-type:hover) {
 		fill: var(--color-red);
 	}
 </style>
