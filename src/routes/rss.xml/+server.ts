@@ -1,3 +1,4 @@
+import { postUrlSection } from '$lib/config';
 import { posts } from '$lib/server/posts';
 
 export const prerender = true;
@@ -18,7 +19,7 @@ const render = () => {
 			({ slug, title, date, excerpt }) => `
 			<item>
 				<title>${title}</title>
-				<link>https://stefandevai.com/p/${slug}</link>
+				<link>https://stefandevai.com/${postUrlSection}/${slug}</link>
 				<pubDate>${new Date(date).toUTCString()}</pubDate>
 				<description>${excerpt}…</description>
 			</item>

@@ -1,5 +1,5 @@
 import { posts } from '$lib/server/posts';
-import { baseUrl, pageSlugs } from '$lib/config';
+import { baseUrl, pageSlugs, postUrlSection } from '$lib/config';
 
 export const prerender = true;
 
@@ -37,7 +37,7 @@ const render = () => `<?xml version="1.0" encoding="UTF-8" ?>
 		.map(
 			(post) => `
 		<url>
-			<loc>${baseUrl}/p/${post.slug}</loc>
+			<loc>${baseUrl}/${postUrlSection}/${post.slug}</loc>
 			<changefreq>yearly</changefreq>
 			<lastmod>${post.date}</lastmod>
 			<priority>0.6</priority>

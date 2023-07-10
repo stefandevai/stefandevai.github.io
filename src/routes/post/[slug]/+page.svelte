@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { title } from '$lib/config';
+	import { title, postUrlSection } from '$lib/config';
 	import Content from './content.svelte';
+	import BackToPostsButton from '$lib/components/back-to-posts-button.svelte';
 	import TwoLinePattern from '$lib/components/two-line-pattern.svelte';
 	import TagContainer from '$lib/components/tag-container.svelte';
 
@@ -16,7 +17,7 @@
 <main>
 	<article>
 		<header>
-			<a href="/">⟵ Go Back</a>
+			<BackToPostsButton />
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
 			<picture>
 				{#each Object.entries(data.post.featuredImage.sources) as [format, images]}
@@ -42,8 +43,8 @@
 			style="padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);"
 		/>
 		<div class="other-posts">
-			<a href="/p/{data.post.previous.slug}">⟵<br />{data.post.previous.title}</a>
-			<a href="/p/{data.post.next.slug}">⟶<br />{data.post.next.title}</a>
+			<a href="/{postUrlSection}/{data.post.previous.slug}">⟵<br />{data.post.previous.title}</a>
+			<a href="/{postUrlSection}/{data.post.next.slug}">⟶<br />{data.post.next.title}</a>
 		</div>
 	</article>
 </main>
@@ -61,12 +62,6 @@
 		color: var(--color-gray1);
 		text-align: center;
 		font-style: italic;
-	}
-
-	header > a {
-		font-size: var(--font-size-very-small);
-		color: var(--color-anchor);
-		cursor: pointer;
 	}
 
 	h1 {

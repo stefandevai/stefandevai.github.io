@@ -1,17 +1,20 @@
 <script lang="ts">
 	import type { Post } from '$lib/server/posts';
+	import { postUrlSection } from '$lib/config';
 	import ContinueReadingButton from '$lib/components/continue-reading-button.svelte';
 	import TagContainer from '$lib/components/tag-container.svelte';
+
 	export let post: Post;
 
 	let active = false;
 	const activate = () => (active = true);
 	const deactivate = () => (active = false);
+	const postUrl = `/${postUrlSection}/${post.slug}`;
 </script>
 
 <div class="wrapper">
 	<a
-		href={`p/${post.slug}`}
+		href={postUrl}
 		class="image-wrapper"
 		aria-label={post.title}
 		on:mouseenter={activate}
@@ -36,18 +39,18 @@
 	<div class="text-content">
 		<header>
 			<span>{post.date}</span>
-			<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
+			<a href={postUrl} on:mouseenter={activate} on:mouseleave={deactivate}>
 				<h2>{post.title}</h2>
 			</a>
-			<TagContainer tags={[post.language, ...post.tags]} />
+			<TagContainer tags={[post.language, ...post.tags]} style="margin-top: 0.5rem;" />
 		</header>
-		<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
+		<a href={postUrl} on:mouseenter={activate} on:mouseleave={deactivate}>
 			<p>
 				{post.excerpt}…
 			</p>
 		</a>
 		<div class="read-more">
-			<ContinueReadingButton href={`p/${post.slug}`} {active} />
+			<ContinueReadingButton href={postUrl} {active} />
 		</div>
 	</div>
 </div>
@@ -114,7 +117,7 @@
 	h2 {
 		font-size: var(--font-size-medium);
 		color: var(--color-black);
-		margin-bottom: 0.5rem;
+		margin-bottom: 0;
 		margin-top: 0;
 	}
 

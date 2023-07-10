@@ -1,18 +1,22 @@
 <script lang="ts">
+	import { tagUrlSection } from '$lib/config';
+
 	export let tags: string[];
 	export let style = '';
 </script>
 
-<div {style}>
+<ul {style}>
 	{#if tags}
 		{#each tags as tag}
-			<span>{tag}</span>
+			<li><a href="/{tagUrlSection}/{tag}">{tag}</a></li>
 		{/each}
 	{/if}
-</div>
+</ul>
 
 <style>
-	div {
+	ul {
+		list-style-type: none;
+		margin: 0;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -20,7 +24,9 @@
 		gap: 0.5rem;
 	}
 
-	span {
+	a {
+		color: inherit;
+		display: block;
 		background-color: var(--color-gray2);
 		color: var(--color-gray1);
 		font-size: var(--font-size-very-small);
