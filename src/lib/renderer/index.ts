@@ -28,14 +28,46 @@ const fragmentShaderSource = `
 
 	uniform float uIgnoreFog;
 
+	#define PI 3.14159265358979323846
+
+	vec2 rotate2D(vec2 _st, float _angle){
+			_st -= 0.5;
+			_st =  mat2(cos(_angle),-sin(_angle),
+									sin(_angle),cos(_angle)) * _st;
+			_st += 0.5;
+			return _st;
+	}
+
+	vec2 tile(vec2 _st, float _zoom){
+			_st *= _zoom;
+			return fract(_st);
+	}
+
+	float box(vec2 _st, vec2 _size, float _smoothEdges){
+			_size = vec2(0.5)-_size*0.5;
+			vec2 aa = vec2(_smoothEdges*0.5);
+			vec2 uv = smoothstep(_size,_size+aa,_st);
+			uv *= smoothstep(_size,_size+aa,vec2(1.0)-_st);
+			return uv.x*uv.y;
+	}
+
 	void main() {
 		float fogIntensity = 1.0;
+		vec4 color = vColor;
 
 		if (uIgnoreFog < 0.5) {
 			fogIntensity = 1.0 - (vPosition.z / 1.8);
+			color = vec4(color.xyz, fogIntensity);
+		}
+		else {
+			vec2 st = gl_FragCoord.xy / vec2(50.0, 50.0);
+			st = tile(st, 4.0);
+			st = rotate2D(st, PI * 0.25);
+			float box_color = box(st, vec2(0.7), 0.01);
+			color = vec4(vec3(1.0, 0.0, 0.0) * box_color, 0.1);
 		}
 
-		gl_FragColor = vec4(vColor.xyz, fogIntensity);
+		gl_FragColor = color;
 	}
 `;
 
@@ -100,6 +132,6 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 		);
 		gl.uniform1f(programInfo.uniformLocations.ignoreFog, object.uniforms.ignoreFog);
 
-		gl.drawElements(gl.LINE_LOOP, object.bufferInfo.indicesCount, gl.UNSIGNED_SHORT, 0);
+		gl.drawElements(object.drawingMode, object.bufferInfo.indicesCount, gl.UNSIGNED_SHORT, 0);
 	}
 };

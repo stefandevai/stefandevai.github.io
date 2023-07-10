@@ -12,10 +12,10 @@
 		height: var(--nav-height);
 		border-bottom: 1px solid var(--color-border);
 		background-color: var(--color-white);
-		position: absolute;
-		width: 100vw;
+		/* position: absolute; */
+		/* width: 100vw; */
 		z-index: 3;
-		top: 0;
+		/* top: 0; */
 	}
 
 	@media (max-width: 768px) {

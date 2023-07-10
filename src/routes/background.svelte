@@ -47,7 +47,8 @@
 <style>
 	canvas {
 		background-color: #111;
-		height: calc(70vh + var(--nav-height));
+		/* height: calc(70vh + var(--nav-height)); */
+		height: 70vh;
 		width: 100vw;
 	}
 </style>

@@ -1,5 +1,5 @@
 import * as renderer from '$lib/renderer';
-// import { buildSphere } from '$lib/renderer/util';
+import { buildQuad } from '$lib/renderer/util';
 import { getBufferInfo } from '$lib/renderer/buffer';
 import { getObjectInfo, rotateObject } from '$lib/renderer/object';
 import type { ObjectInfo } from '$lib/renderer/types';
@@ -9,13 +9,24 @@ import {
 } from '$lib/renderer/cached-sphere-data';
 
 const BACKGROUND_COLOR = [0.067, 0.067, 0.067]; // #111111
-// const GEAR_COLOR = [0.333, 0.333, 0.333]; // #555555
 
 const objects: ObjectInfo[] = [];
 
 const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
-	// const [sphereVertices, sphereIndices] = buildSphere(0.5, 10, GEAR_COLOR);
+	const [quadVertices, quadIndices] = buildQuad(0.5, 0.5, [0.001, 0.001, 0.001]);
+	const quadBufferInfo = getBufferInfo(gl, quadVertices, quadIndices);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
+
+	const quad = getObjectInfo(
+		quadBufferInfo,
+		[0.0, 0.0, -0.1],
+		[1.0, 1.0, 1.0],
+		{
+			rotation: [0.0, 0.0, 0.0],
+		},
+		gl.TRIANGLE_STRIP,
+		true
+	);
 
 	const sphere = getObjectInfo(
 		sphereBufferInfo,
@@ -23,9 +34,11 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 		[sphereSize, sphereSize, 1.0],
 		{
 			rotation: [0.001, 0.0, 0.0],
-		}
+		},
+		gl.LINE_LOOP
 	);
 
+	objects.push(quad);
 	objects.push(sphere);
 };
 

@@ -3,10 +3,7 @@
 </script>
 
 <header>
-	<div class="background">
-		<Background />
-	</div>
-	<div class="background-space" />
+	<Background />
 	<div class="text">
 		<h1>
 			<span class="brand-diamond">◆</span>Temporal Geometry<span class="brand-diamond">◆</span>
@@ -38,11 +35,6 @@
 		flex-direction: column;
 		text-align: center;
 		z-index: 2;
-	}
-
-	.background {
-		position: fixed;
-		z-index: -1;
 	}
 
 	.background-space {

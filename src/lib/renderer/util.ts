@@ -35,6 +35,33 @@ export const buildSphere = (radius: number, segments: number, color: number[]) =
 	return [vertices, indices];
 };
 
+export const buildQuad = (width: number, height: number, color: number[]): [number[], number[]] => {
+	const vertices: number[] = [
+		-width / 2,
+		-height / 2,
+		0,
+		width / 2,
+		-height / 2,
+		0,
+		-width / 2,
+		height / 2,
+		0,
+		width / 2,
+		height / 2,
+		0,
+	];
+
+	const indices: number[] = [0, 1, 2, 3];
+
+	const resultVertices: number[] = [];
+	for (let i = 0; i < vertices.length; i += 3) {
+		resultVertices.push(vertices[i], vertices[i + 1], vertices[i + 2]);
+		resultVertices.push(color[0], color[1], color[2]);
+	}
+
+	return [resultVertices, indices];
+};
+
 export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement) => {
 	const width = canvas.clientWidth;
 	const height = canvas.clientHeight;

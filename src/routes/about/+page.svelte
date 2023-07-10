@@ -52,10 +52,6 @@
 </main>
 
 <style>
-	main {
-		margin-top: var(--nav-height);
-	}
-
 	.grid {
 		grid-template-columns: repeat(10, 1fr);
 		grid-template-rows: repeat(11, 2.5rem) auto repeat(3, 2.5rem);

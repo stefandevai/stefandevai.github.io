@@ -64,6 +64,7 @@ export const getObjectInfo = (
 	translation: number[],
 	scale: number[],
 	rotationInfo: RotationInfo,
+	drawingMode: number,
 	ignoreFog = false
 ): ObjectInfo => {
 	return {
@@ -77,5 +78,6 @@ export const getObjectInfo = (
 			movingTime: 0.0,
 			pausedTime: 0.0,
 		},
+		drawingMode,
 	};
 };
