@@ -25,7 +25,6 @@
 	}
 
 	a {
-		color: inherit;
 		display: block;
 		background-color: var(--color-gray2);
 		color: var(--color-gray1);
