@@ -5,7 +5,6 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	let totalPages = 1;
 </script>
 
 <svelte:head>
