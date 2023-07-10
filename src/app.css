@@ -149,14 +149,3 @@ main {
 	margin: 0 auto;
 	padding: 2rem 1rem 3rem 1rem;
 }
-
-.tag {
-	background-color: var(--color-gray2);
-	color: var(--color-gray1);
-	font-size: var(--font-size-very-small);
-	padding: 0 0.5rem;
-}
-
-.tag:not(:first-child) {
-	margin-left: 0.5rem;
-}

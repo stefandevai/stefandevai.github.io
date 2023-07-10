@@ -3,6 +3,7 @@
 	import { title } from '$lib/config';
 	import Content from './content.svelte';
 	import TwoLinePattern from '$lib/components/two-line-pattern.svelte';
+	import TagContainer from '$lib/components/tag-container.svelte';
 	import 'prism-themes/themes/prism-lucario.css';
 
 	export let data: PageData;
@@ -31,11 +32,10 @@
 		</header>
 		<Content postContent={data.component} />
 		<span class="dot-separator">◆ ◆ ◆</span>
-		<div class="tags">
-			{#each data.post.tags as tag}
-				<span class="tag">{tag}</span>
-			{/each}
-		</div>
+		<TagContainer
+			tags={[data.post.language, ...data.post.tags]}
+			style="padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);"
+		/>
 		<div class="other-posts">
 			<a href="/p/{data.post.previous.slug}">⟵<br />{data.post.previous.title}</a>
 			<a href="/p/{data.post.next.slug}">⟶<br />{data.post.next.title}</a>
@@ -86,14 +86,6 @@
 		text-align: center;
 		color: var(--color-gray3);
 		margin-bottom: 2rem;
-	}
-
-	.tags {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid var(--color-border);
 	}
 
 	.other-posts {

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Post } from '$lib/server/posts';
 	import ContinueReadingButton from '$lib/components/continue-reading-button.svelte';
+	import TagContainer from '$lib/components/tag-container.svelte';
 	export let post: Post;
 
 	let active = false;
@@ -37,14 +38,7 @@
 			<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
 				<h2>{post.title}</h2>
 			</a>
-			<div>
-				<span class="tag">{post.language}</span>
-				{#if post.tags}
-					{#each post.tags as tag}
-						<span class="tag">{tag}</span>
-					{/each}
-				{/if}
-			</div>
+			<TagContainer tags={[post.language, ...post.tags]} />
 		</header>
 		<a href={`p/${post.slug}`} on:mouseenter={activate} on:mouseleave={deactivate}>
 			<p>
@@ -123,11 +117,12 @@
 		margin-top: 0;
 	}
 
-	header > div {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-	}
+	/* header > div { */
+	/* 	display: flex; */
+	/* 	align-items: center; */
+	/* 	justify-content: flex-start; */
+	/* 	flex-wrap: wrap; */
+	/* } */
 
 	p {
 		font-size: var(--font-size-small2);
