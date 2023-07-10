@@ -1,6 +1,7 @@
 import { dirname } from 'path';
 import { customRandom } from 'nanoid';
 import seedrandom from 'seedrandom';
+import { postsComponents } from '$lib/helpers/posts';
 
 export interface Post {
 	title: string;
@@ -49,9 +50,7 @@ const rawPosts = Object.entries(
 	import.meta.glob<GlobEntry>('$src/posts/**/*.md', { as: 'raw', eager: true })
 );
 
-export const posts = Object.entries(
-	import.meta.glob<GlobEntry>('$src/posts/**/*.md', { eager: true })
-)
+export const posts = Object.entries(postsComponents)
 	.map(([filepath, globEntry], index) => {
 		const dir = dirname(filepath);
 

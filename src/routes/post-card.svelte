@@ -29,6 +29,7 @@
 				style={`background:url(${post.featuredImageFallback}) no-repeat;`}
 				src={post.featuredImageFallback}
 				alt="post"
+				loading="lazy"
 			/>
 		</picture>
 	</a>

@@ -2,9 +2,9 @@
 	import { title } from '$lib/config';
 	import Hero from './hero.svelte';
 	import PostCard from './post-card.svelte';
-	import type { PageData } from './$types';
+	import type { PageServerData } from './$types';
 
-	export let data: PageData;
+	export let data: PageServerData;
 	let totalPages = 1;
 </script>
 

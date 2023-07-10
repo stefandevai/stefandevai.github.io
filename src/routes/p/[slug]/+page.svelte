@@ -27,7 +27,21 @@
 		<header>
 			<button on:click={handleGoBack}>⟵ Go Back</button>
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
-			<img src={data.post.featuredImage} alt={data.post.featuredImageCaption} loading="lazy" />
+			<picture>
+				{#each Object.entries(data.post.featuredImage.sources) as [format, images]}
+					<source
+						srcset={`${images[0].src} 868w, ${images[1].src} 736w, ${images[2].src} 382w`}
+						sizes={`(max-width: 414px) 382px, (max-width: 768px) 736px, 868w`}
+						type={`image/${format}`}
+					/>
+				{/each}
+				<img
+					style={`background:url(${data.post.featuredImageFallback}) no-repeat;`}
+					src={data.post.featuredImageFallback}
+					alt={data.post.featuredImageCaption}
+					loading="lazy"
+				/>
+			</picture>
 			<span>{data.post.featuredImageCaption}</span>
 		</header>
 		<Content postContent={data.component} />
