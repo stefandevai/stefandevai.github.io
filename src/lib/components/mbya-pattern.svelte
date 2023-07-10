@@ -10,10 +10,8 @@
 
 	div:after {
 		content: '';
-		display: block;
 		position: absolute;
 		top: 5px;
-		left: 0;
 		width: 100%;
 		height: 30px;
 		background-image: repeating-linear-gradient(
@@ -32,7 +30,7 @@
 				var(--color-red3) 75%,
 				var(--color-red3)
 			);
-		background-position: 0 0, 0 0;
 		background-size: 20px;
+		/* background-size: 60px; */
 	}
 </style>
