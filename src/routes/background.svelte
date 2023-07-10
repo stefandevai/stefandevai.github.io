@@ -19,26 +19,26 @@
 		/* }); */
 		/* resizeObserver.observe(canvas); */
 
-		/* let frame; */
-		/* let previousTimeStamp = 0; */
+		let frame;
+		let previousTimeStamp = 0;
 
 		/* const animate = (timeStamp: number) => { */
-		/* 	if (previousTimeStamp !== timeStamp) { */
-		/* 		const delta = timeStamp - previousTimeStamp; */
-		/* 		background.animate(gl, delta); */
-		/* 	} */
+		/* if (previousTimeStamp !== timeStamp) { */
+		/* const delta = timeStamp - previousTimeStamp; */
+		background.animate(gl, 0.016);
+		/* } */
 
-		/* 	previousTimeStamp = timeStamp; */
-		/* 	frame = requestAnimationFrame(animate); */
+		/* previousTimeStamp = timeStamp; */
+		/* frame = requestAnimationFrame(animate); */
 		/* }; */
 
 		/* frame = requestAnimationFrame(animate); */
 
-		/* return () => { */
-		/* 	background.clear(); */
-		/* 	cancelAnimationFrame(frame); */
-		/* 	/1* resizeObserver.unobserve(canvas); *1/ */
-		/* }; */
+		return () => {
+			background.clear();
+			/* cancelAnimationFrame(frame); */
+			/* resizeObserver.unobserve(canvas); */
+		};
 	});
 </script>
 
