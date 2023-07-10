@@ -5,31 +5,31 @@
 
 	import '$src/app.css';
 
-	onMount(() => {
-		if (localStorage.getItem('fontsLoaded')) {
-			document.documentElement.classList.add('fonts-loaded');
-			return;
-		}
+	/* onMount(() => { */
+	/* 	/1* if (localStorage.getItem('fontsLoaded')) { *1/ */
+	/* 	/1* 	document.documentElement.classList.add('fonts-loaded'); *1/ */
+	/* 	/1* 	return; *1/ */
+	/* 	/1* } *1/ */
 
-		const bitterRegular = new FontFace('Bitter', "url('/fonts/bitter-regular.woff2')", {
-			weight: 400,
-			display: 'swap',
-		});
+	/* 	const bitterRegular = new FontFace('Bitter', "url('/fonts/bitter-regular.woff2')", { */
+	/* 		weight: 400, */
+	/* 		display: 'swap', */
+	/* 	}); */
 
-		const bitterItalic = new FontFace('Bitter', "url('/fonts/bitter-italic.woff2')", {
-			style: 'italic',
-			weight: 400,
-			display: 'swap',
-		});
+	/* 	const bitterItalic = new FontFace('Bitter', "url('/fonts/bitter-italic.woff2')", { */
+	/* 		style: 'italic', */
+	/* 		weight: 400, */
+	/* 		display: 'swap', */
+	/* 	}); */
 
-		bitterRegular.load();
-		bitterItalic.load();
+	/* 	bitterRegular.load(); */
+	/* 	bitterItalic.load(); */
 
-		document.fonts.ready.then(() => {
-			document.documentElement.classList.add('fonts-loaded');
-			localStorage.setItem('fontsLoaded', 1);
-		});
-	});
+	/* 	document.fonts.ready.then(() => { */
+	/* 		document.documentElement.classList.add('fonts-loaded'); */
+	/* 		/1* localStorage.setItem('fontsLoaded', 1); *1/ */
+	/* 	}); */
+	/* }); */
 </script>
 
 <svelte:head>
