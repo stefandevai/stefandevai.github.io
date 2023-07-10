@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { title } from '$lib/config';
-	import 'prism-themes/themes/prism-lucario.css';
 	import Content from './content.svelte';
+	import TwoLinePattern from '$lib/components/two-line-pattern.svelte';
+	import 'prism-themes/themes/prism-lucario.css';
 
 	export let data: PageData;
 
@@ -19,6 +20,7 @@
 	/>
 </svelte:head>
 
+<TwoLinePattern />
 <main>
 	<article>
 		<header>

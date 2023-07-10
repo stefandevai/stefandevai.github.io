@@ -1,8 +1,9 @@
 <script lang="ts">
+	import OneLinePattern from '$lib/components/one-line-pattern.svelte';
 	import Background from './background.svelte';
-	import BorderPattern from '$lib/components/border-pattern.svelte';
 </script>
 
+<OneLinePattern />
 <header>
 	<Background />
 	<div class="text">
@@ -12,7 +13,6 @@
 		<p>Stefan Devai's blog about History and programming.</p>
 	</div>
 </header>
-<BorderPattern />
 
 <style>
 	header {

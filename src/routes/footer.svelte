@@ -1,9 +1,9 @@
 <script>
-	import BorderPattern from '$lib/components/border-pattern.svelte';
+	import MbyaPattern from '$lib/components/mbya-pattern.svelte';
 </script>
 
 <footer>
-	<BorderPattern />
+	<MbyaPattern />
 	<div>
 		<span>
 			View website

@@ -4,8 +4,8 @@
 	div {
 		position: relative;
 		height: 50px;
-		border-top: 5px solid var(--color-red2);
-		border-bottom: 5px solid var(--color-red2);
+		border-top: 5px solid var(--color-red3);
+		border-bottom: 5px solid var(--color-red3);
 	}
 
 	div:after {
@@ -18,19 +18,19 @@
 		height: 30px;
 		background-image: repeating-linear-gradient(
 				45deg,
-				var(--color-red2) 25%,
+				var(--color-red3) 25%,
 				transparent 25%,
 				transparent 75%,
-				var(--color-red2) 75%,
-				var(--color-red2)
+				var(--color-red3) 75%,
+				var(--color-red3)
 			),
 			repeating-linear-gradient(
 				135deg,
-				var(--color-red2) 25%,
+				var(--color-red3) 25%,
 				var(--color-white) 25%,
 				var(--color-white) 75%,
-				var(--color-red2) 75%,
-				var(--color-red2)
+				var(--color-red3) 75%,
+				var(--color-red3)
 			);
 		background-position: 0 0, 0 0;
 		background-size: 20px;

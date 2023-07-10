@@ -1,12 +1,10 @@
 <script>
-	import BorderPattern from '$lib/components/border-pattern.svelte';
 </script>
 
 <nav>
 	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
 	<a href="/about">About</a>
 </nav>
-<BorderPattern />
 
 <style>
 	nav {
