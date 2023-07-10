@@ -57,7 +57,7 @@
 
 <style>
 	.wrapper {
-		padding: 1rem;
+		padding: 2rem 1rem;
 		display: flex;
 		justify-content: flex-start;
 	}
