@@ -4,7 +4,6 @@
 	import Content from './content.svelte';
 	import TwoLinePattern from '$lib/components/two-line-pattern.svelte';
 	import TagContainer from '$lib/components/tag-container.svelte';
-	import 'prism-themes/themes/prism-lucario.css';
 
 	export let data: PageData;
 
@@ -15,17 +14,13 @@
 
 <svelte:head>
 	<title>{data.post.title} | {title}</title>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <TwoLinePattern />
 <main>
 	<article>
 		<header>
-			<button on:click={handleGoBack}>⟵ Go Back</button>
+			<a href="/">⟵ Go Back</a>
 			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
 			<picture>
 				{#each Object.entries(data.post.featuredImage.sources) as [format, images]}
@@ -72,7 +67,7 @@
 		font-style: italic;
 	}
 
-	header > button {
+	header > a {
 		font-size: var(--font-size-very-small);
 		color: var(--color-anchor);
 		cursor: pointer;

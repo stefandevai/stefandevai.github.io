@@ -2,7 +2,7 @@
 	import Lazy from 'svelte-lazy';
 </script>
 
-<Lazy>
+<Lazy fadeOption={{ delay: 0, duration: 0 }}>
 	<video playsinline muted autoplay loop>
 		<slot />
 	</video>
