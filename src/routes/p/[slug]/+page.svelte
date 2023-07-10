@@ -6,10 +6,6 @@
 	import TagContainer from '$lib/components/tag-container.svelte';
 
 	export let data: PageData;
-
-	const handleGoBack = () => {
-		history.back();
-	};
 </script>
 
 <svelte:head>
