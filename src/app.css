@@ -7,8 +7,11 @@
 	--color-red: #e32110;
 	--color-red2: #ef2f1f;
 	--color-red3: #f26f63;
+	--color-red4: #b51909;
 
 	--color-anchor: var(--color-red);
+	--color-anchor-hover: var(--color-red3);
+	--color-anchor-active: var(--color-red4);
 	--color-border: var(--color-gray2);
 	--color-read-more: var(--color-black);
 
@@ -92,6 +95,14 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	color: var(--color-anchor-hover);
+}
+
+a:active {
+	color: var(--color-anchor-active);
+}
+
 button,
 input[type='submit'],
 input[type='reset'] {
@@ -117,32 +128,6 @@ h2 {
 
 h3 {
 	font-size: var(--font-size-normal);
-}
-
-pre[class*='language-'],
-code[class*='language-'] {
-	margin: 1.5rem 0 1.5rem 0;
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: var(--font-size-small);
-}
-
-.footnotes {
-	font-size: var(--font-size-small);
-	margin-top: 2rem;
-	padding-top: 2rem;
-	border-top: 1px solid var(--color-border);
-}
-
-.footnotes > hr {
-	display: none;
-}
-
-.footnotes > ol {
-	margin: 0 2rem 0 2rem;
-}
-
-.footnotes li {
-	margin-bottom: 1rem;
 }
 
 ul {
