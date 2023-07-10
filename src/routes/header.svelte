@@ -1,15 +1,15 @@
-<script>
-</script>
-
 <nav>
 	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
-	<a href="/about">About</a>
+	<ul>
+		<li>
+			<a href="/about">About</a>
+		</li>
+	</ul>
 </nav>
 
 <style>
 	nav {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		padding: 0 2rem;
 		height: var(--nav-height);
@@ -22,7 +22,7 @@
 		}
 	}
 
-	img {
+	nav > a {
 		width: 140px;
 		height: 21px;
 	}
@@ -36,5 +36,19 @@
 		color: #111;
 		text-decoration: none;
 		font-size: var(--font-size-small);
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		flex: 1;
+		text-align: right;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	li:not(:first-child) {
+		margin-left: 1rem;
 	}
 </style>
