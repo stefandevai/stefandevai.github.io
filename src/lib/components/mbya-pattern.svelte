@@ -30,7 +30,7 @@
 				var(--color-red3) 75%,
 				var(--color-red3)
 			);
-		background-size: 20px;
+		background-size: 20px 30px;
 		/* background-size: 60px; */
 	}
 </style>
