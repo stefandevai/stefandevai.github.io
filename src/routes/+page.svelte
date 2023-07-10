@@ -26,9 +26,9 @@
 
 		{#if totalPages > 1}
 			<div class="pagination">
-				<span>Previous</span>
+				<span>Newer</span>
 				<span>1</span>
-				<span>Next</span>
+				<span>Older</span>
 			</div>
 		{/if}
 	</main>
