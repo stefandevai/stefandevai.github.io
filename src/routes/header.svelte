@@ -22,7 +22,7 @@
 		}
 	}
 
-	nav > a {
+	nav > a > img {
 		width: 140px;
 		height: 21px;
 	}
