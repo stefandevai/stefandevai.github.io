@@ -67,3 +67,5 @@ export const animate = (gl: WebGLRenderingContext, delta: number) => {
 export const clear = () => {
 	objects.length = 0;
 };
+
+

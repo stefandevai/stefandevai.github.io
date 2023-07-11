@@ -9,8 +9,8 @@
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "./scripts/lint",
-		"format": "./scripts/format"
+		"lint": "./scripts/lint.sh",
+		"format": "./scripts/format.sh"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.35.1",
