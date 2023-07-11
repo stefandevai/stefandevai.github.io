@@ -30,7 +30,7 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 
 	const sphere = getObjectInfo(
 		sphereBufferInfo,
-		[0.0, -0.07, -1.5],
+		[0.0, 0.0, -1.5],
 		[sphereSize, sphereSize, 1.0],
 		{
 			rotation: [0.001, 0.0, 0.0],
@@ -61,11 +61,9 @@ export const animate = (gl: WebGLRenderingContext, delta: number) => {
 		rotateObject(object, delta);
 	}
 
-	renderer.render(gl, objects, BACKGROUND_COLOR);
+	renderer.render(gl, objects);
 };
 
 export const clear = () => {
 	objects.length = 0;
 };
-
-
