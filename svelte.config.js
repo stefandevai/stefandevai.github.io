@@ -16,7 +16,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions), importAssets()],
+	preprocess: [mdsvex(mdsvexOptions), vitePreprocess(), importAssets()],
 	kit: {
 		adapter: adapter({ precompress: true }),
 		inlineStyleThreshold: 4096,
