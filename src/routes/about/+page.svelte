@@ -16,8 +16,6 @@
 	<h1>About <span class="brand-diamond">◆</span></h1>
 	<div class="grid">
 		<img src={StefanDevaiPicture} alt="Stefan Devai" loading="lazy" />
-		<div class="rectangle" />
-		<div class="line-top" />
 		<div class="text-wrapper">
 			<div class="text">
 				<h2>Hi, I'm Stefan Devai</h2>
@@ -32,8 +30,6 @@
 				</p>
 			</div>
 		</div>
-
-		<div class="line-bottom" />
 
 		<div class="social-icons">
 			<a
@@ -126,41 +122,6 @@
 	@media (min-width: 672px) {
 		.text {
 			padding-top: 1.5rem;
-		}
-	}
-
-	.line-top {
-		grid-column: 8 / span 1;
-		grid-row: 1 / span 1;
-	}
-
-	@media (min-width: 672px) {
-		.line-top {
-			border-top: 1px solid var(--color-gray3);
-		}
-	}
-
-	.line-bottom {
-		border-top: 1px solid var(--color-gray3);
-		grid-column: 1 / span 3;
-		grid-row: 10 / span 1;
-	}
-
-	@media (max-width: 672px) {
-		.line-bottom {
-			display: none;
-		}
-	}
-
-	.rectangle {
-		grid-column: 5 / span 1;
-		grid-row: 1 / span 1;
-		background-color: var(--color-red2);
-	}
-
-	@media (max-width: 672px) {
-		.rectangle {
-			display: none;
 		}
 	}
 
