@@ -41,7 +41,7 @@
 		font-style: italic;
 	}
 
-	@media (max-width: 378px) {
+	@media (max-width: 450px) {
 		footer > div {
 			padding: 3rem 1rem;
 			flex-direction: column;
