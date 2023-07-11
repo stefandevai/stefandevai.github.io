@@ -12,12 +12,12 @@
 			return;
 		}
 
-		background.init(gl);
-
-		const resizeObserver = new ResizeObserver(() => {
-			background.resize(gl);
+		const resizeObserver = new ResizeObserver((entries) => {
+			background.resize(gl, entries[0]);
 		});
 		resizeObserver.observe(canvas);
+
+		background.init(gl);
 
 		let frame;
 		let previousTimeStamp = 0;

@@ -59,8 +59,8 @@ const timer = createTimer();
 let programInfo: ProgramInfo = null;
 const projectionMatrix = mat4.create();
 
-export const resize = (gl: WebGLRenderingContext) => {
-	resizeCanvasToDisplaySize(gl.canvas);
+export const resize = (gl: WebGLRenderingContext, entry) => {
+	resizeCanvasToDisplaySize(gl.canvas, entry);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 	mat4.perspective(
 		projectionMatrix,
@@ -72,7 +72,6 @@ export const resize = (gl: WebGLRenderingContext) => {
 };
 
 export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0]) => {
-	resize(gl);
 	programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
 	gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 	gl.enable(gl.BLEND);

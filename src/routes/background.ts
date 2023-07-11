@@ -45,15 +45,15 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 export const init = (gl: WebGLRenderingContext) => {
 	renderer.init(gl, BACKGROUND_COLOR);
 
-	if (gl.canvas.width <= 768) {
+	if (window.innerWidth <= 768) {
 		initObjects(gl, 1.0);
 	} else {
 		initObjects(gl, 2.0);
 	}
 };
 
-export const resize = (gl: WebGLRenderingContext) => {
-	renderer.resize(gl);
+export const resize = (gl: WebGLRenderingContext, entry: any) => {
+	renderer.resize(gl, entry);
 };
 
 export const animate = (gl: WebGLRenderingContext, delta: number) => {

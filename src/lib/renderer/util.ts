@@ -62,15 +62,21 @@ export const buildQuad = (width: number, height: number, color: number[]): [numb
 	return [resultVertices, indices];
 };
 
-export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement) => {
-	const width = canvas.clientWidth;
-	const height = canvas.clientHeight;
+export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement, entry) => {
+	let width = canvas.clientWidth;
+	let height = canvas.clientHeight;
+
+	if (entry.devicePixelContentBoxSize) {
+		width = entry.devicePixelContentBoxSize[0].inlineSize;
+		height = entry.devicePixelContentBoxSize[0].blockSize;
+	} else if (entry.contentBoxSize) {
+		// fallback for Safari that will not always be correct
+		width = Math.round(entry.contentBoxSize[0].inlineSize * devicePixelRatio);
+		height = Math.round(entry.contentBoxSize[0].blockSize * devicePixelRatio);
+	}
 
 	if (canvas.width !== width || canvas.height !== height) {
 		canvas.width = width;
 		canvas.height = height;
-		return true;
 	}
-
-	return false;
 };
