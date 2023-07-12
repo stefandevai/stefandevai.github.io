@@ -1,6 +1,4 @@
 import { dirname } from 'path';
-import { customRandom } from 'nanoid';
-import seedrandom from 'seedrandom';
 import { postsComponents } from '$lib/helpers/posts';
 
 export interface Post {
@@ -17,11 +15,6 @@ export type GlobEntry = {
 	metadata: Post;
 	default: unknown;
 };
-
-const rng = seedrandom('47');
-const nanoid = customRandom('ABCDEFGHIJLMNOPQRSTUVYZabcdefghijlmnopqrstuvyz', 5, (size) => {
-	return new Uint8Array(size).map(() => 256 * rng());
-});
 
 const getExcerpt = (content: string, maxCharacters: number) => {
 	let excerpt = content
@@ -62,8 +55,7 @@ export const posts = Object.entries(postsComponents)
 		const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
 		const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 		const readableSlugPart = dir.replace('/src/posts/', '').replace(/\d+\//, '');
-		const uuid = nanoid();
-		const slug = `${readableSlugPart}-${uuid}`;
+		const slug = `${readableSlugPart}-${date.getTime() / 100000}`;
 
 		return {
 			...globEntry.metadata,
