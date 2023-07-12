@@ -99,17 +99,21 @@
 	}
 
 	.social-icons {
-		height: 24px;
+		height: 48px;
 		grid-column: 1 / span 4;
 		grid-row: 9 / span 1;
 		display: flex;
-		justify-content: flex-start;
-		margin-top: 1rem;
+		justify-content: space-between;
+		margin-top: 3rem;
+		margin: 3rem 1rem 0 1rem;
 	}
 
 	:global(.social-icons a) {
 		height: 100%;
-		width: 24px;
+		width: 48px;
+	}
+
+	:global(.social-icons a:not(:last-child)) {
 		margin-right: 2rem;
 	}
 
@@ -130,18 +134,24 @@
 		.grid {
 			display: grid;
 		}
+
 		.text-wrapper {
 			padding: 0 0 0 2rem;
 		}
+
 		p:last-child {
 			margin: 0;
 		}
-	}
 
-	@media (max-width: 672px) {
 		.social-icons {
-			margin-top: 2rem;
-			margin-bottom: 1rem;
+			justify-content: flex-start;
+			height: 24px;
+			margin: 1rem 0 0 0;
+		}
+
+		:global(.social-icons a) {
+			width: 24px;
+			height: 100%;
 		}
 	}
 </style>
