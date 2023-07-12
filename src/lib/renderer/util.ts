@@ -62,7 +62,10 @@ export const buildQuad = (width: number, height: number, color: number[]): [numb
 	return [resultVertices, indices];
 };
 
-export const resizeCanvasToDisplaySize = (canvas: HTMLCanvasElement, entry) => {
+export const resizeCanvasToDisplaySize = (
+	canvas: HTMLCanvasElement,
+	entry: ResizeObserverEntry
+) => {
 	let width = canvas.clientWidth;
 	let height = canvas.clientHeight;
 

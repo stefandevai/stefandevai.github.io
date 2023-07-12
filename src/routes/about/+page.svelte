@@ -19,22 +19,22 @@
 		<div class="text-wrapper">
 			<h2>Hi, I'm Stefan Devai</h2>
 			<p>
-				I'm a History student at the Sorbonne University in Paris and a Computer Science enthusiast.
-				In this blog I can share some of my programming experiments and historical essays I've
-				written.
+				I'm a Mexican-Brazilian Software Engineer working at Clue Insights and a History student at
+				the Sorbonne University in Paris. This blog is mostly about History, politics, random coding
+				experiments, and other subjects that I find interesting.
 			</p>
 			<p>
-				I actively use four languages for different aspects of my life, so you will find here posts
-				in Spanish, Portuguese, English and French.
+				I have an obsession with understanding the patterns and dynamics that shape society from a
+				Marxist perspective. Authors like Domenico Losurdo, E. P. Thompson, Antonio Gramsci, Ruy
+				Mauro Marini, and Fernand Braudel have shaped my current perception of the world.
 			</p>
 			<p>
-				I'm a History student at the Sorbonne University in Paris and a Computer Science enthusiast.
-				In this blog I can share some of my programming experiments and historical essays I've
-				written.
+				Regarding programming, I'm a big fan of the Unix philosophy, C, LISP, Neovim, and Svelte.
+				Overall, I have an inclination towards minimalist and performant software.
 			</p>
 			<p>
-				I actively use four languages for different aspects of my life, so you will find here posts
-				in Spanish, Portuguese, English and French.
+				If you want to contact me, don't hesitate to reach out via email or any other social network
+				listed on the left.
 			</p>
 		</div>
 
@@ -59,12 +59,12 @@
 <style>
 	.grid {
 		grid-template-columns: repeat(10, 1fr);
-		grid-template-rows: repeat(11, 2.5rem);
+		grid-template-rows: repeat(11, 2.5rem) 1fr;
 	}
 
 	h1 {
 		font-size: var(--font-size-large);
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		margin-top: 0;
 	}
 
@@ -94,7 +94,7 @@
 		height: 100%;
 		z-index: 1;
 		grid-column: 5 / span 7;
-		grid-row: 1 / span 11;
+		grid-row: 1 / span 12;
 		padding-top: 2rem;
 	}
 
