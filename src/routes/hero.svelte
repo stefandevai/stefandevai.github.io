@@ -9,9 +9,6 @@
 		const rect = header.getBoundingClientRect();
 		const x = event.clientX - rect.left;
 		const y = rect.bottom - event.clientY;
-		/* const clipX = x / rect.width  *  2 - 1; */
-		/* const clipY = y / rect.height * -2 + 1; */
-
 		setMousePosition(x, y);
 	};
 </script>

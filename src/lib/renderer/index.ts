@@ -32,21 +32,18 @@ const fragmentShaderSource = `
 
 	float quadratic_in_out(float t)
 	{
-		float p = 2.0 * t * t;
-		return t < 0.5 ? p : -p + (4.0 * t) - 1.0;
+		float p = 2.0 * t * t; return t < 0.5 ? p : -p + (4.0 * t) - 1.0;
 	}
 
-	float get_fade_factor(float time)
+	float fade(float time)
 	{
-		if (time > 1000.0) {
-			return 1.0;
-		}
+		if (time > 1000.0) { return 1.0; }
 		return quadratic_in_out(smoothstep(0.0, 500.0, time));
 	}
 
-	float rand(vec2 st)
+	float rand(vec2 v)
 	{
-    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+		return fract(sin(dot(v, vec2(12.9898, 78.233))) * 43758.5453);
 	}
 
 	void main()
@@ -57,7 +54,7 @@ const fragmentShaderSource = `
 		if (u_ignore_fog < 0.5)
 		{
 			fog_intensity = 1.0 - (v_position.z / 1.8);
-			color = vec4(color.xyz, fog_intensity * get_fade_factor(u_time));
+			color = vec4(color.xyz, fog_intensity * fade(u_time));
 		}
 		else
 		{

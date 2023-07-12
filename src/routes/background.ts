@@ -1,5 +1,5 @@
 import * as renderer from '$lib/renderer';
-import { buildQuad } from '$lib/renderer/util';
+// import { buildQuad } from '$lib/renderer/util';
 import { getBufferInfo } from '$lib/renderer/buffer';
 import { getObjectInfo, rotateObject } from '$lib/renderer/object';
 import type { ObjectInfo } from '$lib/renderer/types';
@@ -46,11 +46,11 @@ const applyMouseRotation = (
 };
 
 const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
-	const [quadVertices, quadIndices] = buildQuad(0.5, 0.5, [0.001, 0.001, 0.001]);
-	const quadBufferInfo = getBufferInfo(gl, quadVertices, quadIndices);
+	// const [quadVertices, quadIndices] = buildQuad(0.5, 0.5, [0.001, 0.001, 0.001]);
+	// const quadBufferInfo = getBufferInfo(gl, quadVertices, quadIndices);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
 
-	const quad = getObjectInfo(quadBufferInfo, gl.TRIANGLE_STRIP, [0.0, 0.0, -2.0], [10.0, 5.0, 1.0]);
+	// const quad = getObjectInfo(quadBufferInfo, gl.TRIANGLE_STRIP, [0.0, 0.0, -2.0], [10.0, 5.0, 1.0]);
 
 	const sphere = getObjectInfo(
 		sphereBufferInfo,
@@ -63,7 +63,7 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 		false
 	);
 
-	objects.push(quad);
+	// objects.push(quad);
 	objects.push(sphere);
 };
 
