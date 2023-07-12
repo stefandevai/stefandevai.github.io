@@ -32,5 +32,5 @@ export type ObjectInfo = {
 		modelViewMatrix: mat4;
 		ignoreFog: float;
 	};
-	rotationInfo: RotationInfo;
+	rotationInfo?: RotationInfo;
 };

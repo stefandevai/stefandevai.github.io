@@ -5,74 +5,69 @@ import { resizeCanvasToDisplaySize } from './util';
 import type { ObjectInfo } from './types';
 
 const vertexShaderSource = `
-	attribute vec4 aVertexPosition;
-	attribute vec3 aVertexColor;
+	attribute vec4 a_vertex_position;
+	attribute vec3 a_vertex_color;
 
-	uniform mat4 uModelViewMatrix;
-	uniform mat4 uProjectionMatrix;
+	uniform mat4 u_model_view_matrix;
+	uniform mat4 u_projection_matrix;
 
-	varying lowp vec4 vColor;
-	varying lowp vec4 vPosition;
+	varying lowp vec4 v_color;
+	varying lowp vec4 v_position;
 
 	void main() {
-		gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
-		vColor = vec4(aVertexColor, 1.0);
-		vPosition = gl_Position;
+		gl_Position = u_projection_matrix * u_model_view_matrix * a_vertex_position;
+		v_color = vec4(a_vertex_color, 1.0);
+		v_position = gl_Position;
 	}
 `;
 
 const fragmentShaderSource = `
 	precision mediump float;
 
-	varying lowp vec4 vColor;
-	varying lowp vec4 vPosition;
+	varying lowp vec4 v_color;
+	varying lowp vec4 v_position;
 
-	uniform float uIgnoreFog;
-	uniform float uTime;
-	uniform vec2 uMousePosition;
+	uniform float u_ignore_fog;
+	uniform float u_time;
 
-	float quadraticInOut(float t) {
+	float quadratic_in_out(float t)
+	{
 		float p = 2.0 * t * t;
 		return t < 0.5 ? p : -p + (4.0 * t) - 1.0;
 	}
 
-	float getFadeFactor(float time) {
+	float get_fade_factor(float time)
+	{
 		if (time > 1000.0) {
 			return 1.0;
 		}
-		return quadraticInOut(smoothstep(0.0, 500.0, time));
+		return quadratic_in_out(smoothstep(0.0, 500.0, time));
 	}
 
-	float modI(float a,float b) {
-		float m=a-floor((a+0.5)/b)*b;
-		return floor(m+0.5);
-	}
-
-	float rand(vec2 st) {
+	float rand(vec2 st)
+	{
     return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
 	}
 
 	void main()
 	{
-		float fogIntensity = 1.0;
-		vec4 color = vColor;
+		float fog_intensity = 1.0;
+		vec4 color = v_color;
 
-		if (uIgnoreFog < 0.5)
+		if (u_ignore_fog < 0.5)
 		{
-			fogIntensity = 1.0 - (vPosition.z / 1.8);
-			color = vec4(color.xyz, fogIntensity * getFadeFactor(uTime));
+			fog_intensity = 1.0 - (v_position.z / 1.8);
+			color = vec4(color.xyz, fog_intensity * get_fade_factor(u_time));
 		}
 		else
 		{
 			float star_intensity = 0.0;
-			if (rand(gl_FragCoord.xy / 20.0) > 0.996)
+			if (rand(gl_FragCoord.xy / 47.0) > 0.996)
 			{
-				float r = rand(gl_FragCoord.xy);
-				star_intensity = r * (0.85 * sin((uTime / 2000.0) * (r * 5.0) + 720.0 * r) + 0.95);
-				star_intensity *= max(3.0 - (length(uMousePosition - gl_FragCoord.xy) / 100.0), 0.5);
+				float rn = rand(gl_FragCoord.xy);
+				star_intensity = rn * (0.75 * sin((u_time / 2000.0) * (rn * 3.0) + 814.0 * rn) + 0.05);
 			}
-
-			color = vec4(star_intensity, star_intensity, star_intensity, 0.2);
+			color = vec4(star_intensity, star_intensity, star_intensity, 0.4);
 		}
 
 		gl_FragColor = color;
@@ -82,10 +77,6 @@ const fragmentShaderSource = `
 const timer = createTimer();
 let programInfo: ProgramInfo = null;
 const projectionMatrix = mat4.create();
-const mousePosition = {
-	x: 0.0,
-	y: 0.0,
-};
 
 export const resize = (gl: WebGLRenderingContext, entry) => {
 	resizeCanvasToDisplaySize(gl.canvas, entry);
@@ -152,10 +143,4 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 
 	// Move inside loop if we're using more than one shader program
 	gl.uniform1f(programInfo.uniformLocations.time, timer.elapsed);
-	gl.uniform2f(programInfo.uniformLocations.mousePosition, mousePosition.x, mousePosition.y);
-};
-
-export const setMousePosition = (x: number, y: number) => {
-	mousePosition.x = x;
-	mousePosition.y = y;
 };

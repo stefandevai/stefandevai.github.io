@@ -61,11 +61,11 @@ export const rotateObject = (object: ObjectInfo, delta: number) => {
 
 export const getObjectInfo = (
 	bufferInfo: BufferInfo,
+	drawingMode: number,
 	translation: number[],
 	scale: number[],
-	rotationInfo: RotationInfo,
-	drawingMode: number,
-	ignoreFog = false
+	rotationInfo?: RotationInfo,
+	ignoreFog = true
 ): ObjectInfo => {
 	return {
 		bufferInfo: bufferInfo,
@@ -73,11 +73,7 @@ export const getObjectInfo = (
 			modelViewMatrix: computeMatrix(mat4.create(), translation, [0.0, 0.0, 0.0], scale),
 			ignoreFog: ignoreFog ? 1.0 : 0.0,
 		},
-		rotationInfo: {
-			...rotationInfo,
-			movingTime: 0.0,
-			pausedTime: 0.0,
-		},
+		rotationInfo,
 		drawingMode,
 	};
 };

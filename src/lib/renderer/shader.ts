@@ -11,6 +11,7 @@ const loadShader = (gl: WebGLRenderingContext, type: number, source: string) => 
 	gl.shaderSource(shader, source);
 	gl.compileShader(shader);
 
+	// Commenting out error handling to increase load performance
 	// if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
 	// 	console.error(`An error occurred compiling the shaders: ${gl.getShaderInfoLog(shader)}`);
 	// 	gl.deleteShader(shader);
@@ -35,6 +36,7 @@ const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSource: s
 	gl.attachShader(shaderProgram, fragmentShader);
 	gl.linkProgram(shaderProgram);
 
+	// Commenting out error handling to increase load performance
 	// if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
 	// 	console.error(
 	// 		`Unable to initialize the shader program: ${gl.getProgramInfoLog(shaderProgram)}`
@@ -55,15 +57,14 @@ const getProgramInfo = (
 	return {
 		program: shaderProgram,
 		attribLocations: {
-			vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
-			colorPosition: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
+			vertexPosition: gl.getAttribLocation(shaderProgram, 'a_vertex_position'),
+			colorPosition: gl.getAttribLocation(shaderProgram, 'a_vertex_color'),
 		},
 		uniformLocations: {
-			projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
-			ignoreFog: gl.getUniformLocation(shaderProgram, 'uIgnoreFog'),
-			time: gl.getUniformLocation(shaderProgram, 'uTime'),
-			mousePosition: gl.getUniformLocation(shaderProgram, 'uMousePosition'),
+			projectionMatrix: gl.getUniformLocation(shaderProgram, 'u_projection_matrix'),
+			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'u_model_view_matrix'),
+			ignoreFog: gl.getUniformLocation(shaderProgram, 'u_ignore_fog'),
+			time: gl.getUniformLocation(shaderProgram, 'u_time'),
 		},
 	};
 };

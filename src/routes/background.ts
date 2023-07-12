@@ -50,28 +50,20 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 	const quadBufferInfo = getBufferInfo(gl, quadVertices, quadIndices);
 	const sphereBufferInfo = getBufferInfo(gl, sphereVertices, sphereIndices);
 
-	const quad = getObjectInfo(
-		quadBufferInfo,
-		[0.0, 0.0, -2.0],
-		[10.0, 5.0, 1.0],
-		{
-			rotation: [0.0, 0.0, 0.0],
-		},
-		gl.TRIANGLE_STRIP,
-		true
-	);
+	const quad = getObjectInfo(quadBufferInfo, gl.TRIANGLE_STRIP, [0.0, 0.0, -2.0], [10.0, 5.0, 1.0]);
 
 	const sphere = getObjectInfo(
 		sphereBufferInfo,
+		gl.LINE_LOOP,
 		[0.0, 0.0, -1.5],
 		[sphereSize, sphereSize, 1.0],
 		{
 			rotation: [0.001, 0.0, 0.0],
 		},
-		gl.LINE_LOOP
+		false
 	);
 
-	// objects.push(quad);
+	objects.push(quad);
 	objects.push(sphere);
 };
 
@@ -91,8 +83,10 @@ export const resize = (gl: WebGLRenderingContext, entry: any) => {
 
 export const animate = (gl: WebGLRenderingContext, delta: number) => {
 	for (const object of objects) {
-		applyMouseRotation(object, mousePosition, gl.canvas);
-		rotateObject(object, delta);
+		if (object.rotationInfo) {
+			applyMouseRotation(object, mousePosition, gl.canvas);
+			rotateObject(object, delta);
+		}
 	}
 
 	renderer.render(gl, objects);
@@ -105,6 +99,4 @@ export const clear = () => {
 export const setMousePosition = (x: number, y: number) => {
 	mousePosition.x = x;
 	mousePosition.y = y;
-
-	renderer.setMousePosition(x, y);
 };
