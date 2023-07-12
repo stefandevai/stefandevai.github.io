@@ -20,15 +20,9 @@
 		background.init(gl);
 
 		let frame;
-		let previousTimeStamp = 0;
 
-		const animate = (timeStamp: number) => {
-			if (previousTimeStamp !== timeStamp) {
-				const delta = timeStamp - previousTimeStamp;
-				background.animate(gl, delta);
-			}
-
-			previousTimeStamp = timeStamp;
+		const animate = () => {
+			background.animate(gl);
 			frame = requestAnimationFrame(animate);
 		};
 

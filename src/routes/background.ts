@@ -82,11 +82,11 @@ export const resize = (gl: WebGLRenderingContext, entry: ResizeObserverEntry) =>
 	renderer.resize(gl, entry);
 };
 
-export const animate = (gl: WebGLRenderingContext, delta: number) => {
+export const animate = (gl: WebGLRenderingContext) => {
 	for (const object of objects) {
 		if (object.rotationInfo) {
 			applyMouseRotation(object, mousePosition, gl.canvas as HTMLCanvasElement);
-			rotateObject(object, delta);
+			rotateObject(object);
 		}
 	}
 

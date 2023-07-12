@@ -29,7 +29,7 @@ const computeRotation = (matrix: mat4, rotation: number[], rotationCenter?: Floa
 	}
 };
 
-export const rotateObject = (object: ObjectInfo, delta: number) => {
+export const rotateObject = (object: ObjectInfo) => {
 	if (!object.rotationInfo) {
 		return;
 	}
