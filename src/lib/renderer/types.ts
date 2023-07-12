@@ -29,7 +29,7 @@ export type RotationInfo = {
 export type ObjectInfo = {
 	bufferInfo: BufferInfo;
 	uniforms: {
-		modelViewMatrix: mat4;
+		modelViewMatrix: typeof mat4;
 		ignoreFog: float;
 	};
 	rotationInfo?: RotationInfo;

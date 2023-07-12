@@ -12,7 +12,7 @@
 			return;
 		}
 
-		const resizeObserver = new ResizeObserver((entries) => {
+		const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
 			background.resize(gl, entries[0]);
 		});
 		resizeObserver.observe(canvas);

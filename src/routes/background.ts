@@ -77,7 +77,7 @@ export const init = (gl: WebGLRenderingContext) => {
 	}
 };
 
-export const resize = (gl: WebGLRenderingContext, entry: any) => {
+export const resize = (gl: WebGLRenderingContext, entry: ResizeObserverEntry) => {
 	renderer.resize(gl, entry);
 };
 
