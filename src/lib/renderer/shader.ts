@@ -63,6 +63,7 @@ const getProgramInfo = (
 			modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
 			ignoreFog: gl.getUniformLocation(shaderProgram, 'uIgnoreFog'),
 			time: gl.getUniformLocation(shaderProgram, 'uTime'),
+			mousePosition: gl.getUniformLocation(shaderProgram, 'uMousePosition'),
 		},
 	};
 };

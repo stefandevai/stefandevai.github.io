@@ -19,7 +19,7 @@ const config = {
 	preprocess: [mdsvex(mdsvexOptions), vitePreprocess(), importAssets()],
 	kit: {
 		adapter: adapter({ precompress: true }),
-		inlineStyleThreshold: 4096,
+		inlineStyleThreshold: 2096,
 		alias: {
 			'$src/*': 'src/*',
 		},

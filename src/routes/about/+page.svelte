@@ -13,22 +13,29 @@
 
 <TwoLinePattern />
 <main>
-	<h1>About <span class="brand-diamond">◆</span></h1>
+	<h1>About me <span class="brand-diamond">◆</span></h1>
 	<div class="grid">
 		<img src={StefanDevaiPicture} alt="Stefan Devai" loading="lazy" />
 		<div class="text-wrapper">
-			<div class="text">
-				<h2>Hi, I'm Stefan Devai</h2>
-				<p>
-					I'm a History student at the Sorbonne University in Paris and a Computer Science
-					enthusiast. In this blog I can share some of my programming experiments and historical
-					essays I've written.
-				</p>
-				<p>
-					I actively use four languages for different aspects of my life, so you will find here
-					posts in Spanish, Portuguese, English and French.
-				</p>
-			</div>
+			<h2>Hi, I'm Stefan Devai</h2>
+			<p>
+				I'm a History student at the Sorbonne University in Paris and a Computer Science enthusiast.
+				In this blog I can share some of my programming experiments and historical essays I've
+				written.
+			</p>
+			<p>
+				I actively use four languages for different aspects of my life, so you will find here posts
+				in Spanish, Portuguese, English and French.
+			</p>
+			<p>
+				I'm a History student at the Sorbonne University in Paris and a Computer Science enthusiast.
+				In this blog I can share some of my programming experiments and historical essays I've
+				written.
+			</p>
+			<p>
+				I actively use four languages for different aspects of my life, so you will find here posts
+				in Spanish, Portuguese, English and French.
+			</p>
 		</div>
 
 		<div class="social-icons">
@@ -52,13 +59,7 @@
 <style>
 	.grid {
 		grid-template-columns: repeat(10, 1fr);
-		grid-template-rows: repeat(11, 2.5rem) auto repeat(3, 2.5rem);
-	}
-
-	@media (min-width: 672px) {
-		.grid {
-			display: grid;
-		}
+		grid-template-rows: repeat(11, 2.5rem);
 	}
 
 	h1 {
@@ -69,6 +70,7 @@
 
 	h2 {
 		font-size: var(--font-size-medium);
+		margin-top: 0;
 	}
 
 	.brand-diamond {
@@ -88,61 +90,27 @@
 		object-position: center center;
 	}
 
-	@media (min-width: 672px) {
-		img {
-			opacity: 0.8;
-		}
-	}
-
 	.text-wrapper {
 		height: 100%;
 		z-index: 1;
-		grid-column: 4 / span 7;
-		grid-row: 2 / span 11;
-		padding: 0;
-		background-color: rgba(255, 255, 255, 0.7);
-	}
-
-	@media (min-width: 672px) {
-		.text-wrapper {
-			padding: 1rem 2rem;
-		}
-	}
-
-	@media (min-width: 672px) {
-		p:last-child {
-			margin: 0;
-		}
-	}
-
-	.text {
+		grid-column: 5 / span 7;
+		grid-row: 1 / span 11;
 		padding-top: 2rem;
 	}
 
-	@media (min-width: 672px) {
-		.text {
-			padding-top: 1.5rem;
-		}
-	}
-
 	.social-icons {
-		height: 45px;
-		grid-column: 3 / -3;
-		grid-row: 14 / span 1;
+		height: 24px;
+		grid-column: 1 / span 4;
+		grid-row: 9 / span 1;
 		display: flex;
-		justify-content: space-between;
-	}
-
-	@media (max-width: 672px) {
-		.social-icons {
-			margin-top: 2rem;
-			margin-bottom: 1rem;
-		}
+		justify-content: flex-start;
+		margin-top: 1rem;
 	}
 
 	:global(.social-icons a) {
 		height: 100%;
-		width: 45px;
+		width: 24px;
+		margin-right: 2rem;
 	}
 
 	:global(.social-icons svg) {
@@ -150,11 +118,30 @@
 		width: auto;
 	}
 
-	:global(.social-icons svg > path:first-of-type) {
-		transition: fill 0.1s ease;
+	:global(.social-icons svg:hover > path:first-of-type) {
+		fill: var(--color-red);
 	}
 
-	:global(.social-icons svg > path:first-of-type:hover) {
-		fill: var(--color-red);
+	:global(.social-icons svg:active > path:first-of-type) {
+		fill: var(--color-red4);
+	}
+
+	@media (min-width: 672px) {
+		.grid {
+			display: grid;
+		}
+		.text-wrapper {
+			padding: 0 0 0 2rem;
+		}
+		p:last-child {
+			margin: 0;
+		}
+	}
+
+	@media (max-width: 672px) {
+		.social-icons {
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
 	}
 </style>

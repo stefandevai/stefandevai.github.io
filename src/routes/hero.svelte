@@ -1,10 +1,23 @@
 <script lang="ts">
 	import OneLinePattern from '$lib/components/one-line-pattern.svelte';
 	import Background from './background.svelte';
+	import { setMousePosition } from './background';
+
+	let header;
+
+	const handleMouseMove = (event: MouseEvent) => {
+		const rect = header.getBoundingClientRect();
+		const x = event.clientX - rect.left;
+		const y = rect.bottom - event.clientY;
+		/* const clipX = x / rect.width  *  2 - 1; */
+		/* const clipY = y / rect.height * -2 + 1; */
+
+		setMousePosition(x, y);
+	};
 </script>
 
 <OneLinePattern />
-<header>
+<header bind:this={header} on:mousemove={handleMouseMove} role="none">
 	<Background />
 	<div class="text">
 		<h1>

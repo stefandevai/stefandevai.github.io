@@ -29,6 +29,7 @@ const fragmentShaderSource = `
 
 	uniform float uIgnoreFog;
 	uniform float uTime;
+	uniform vec2 uMousePosition;
 
 	float quadraticInOut(float t) {
 		float p = 2.0 * t * t;
@@ -42,22 +43,49 @@ const fragmentShaderSource = `
 		return quadraticInOut(smoothstep(0.0, 500.0, time));
 	}
 
-	void main() {
+	float modI(float a,float b) {
+		float m=a-floor((a+0.5)/b)*b;
+		return floor(m+0.5);
+	}
+
+	float rand(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+	}
+
+	void main()
+	{
 		float fogIntensity = 1.0;
 		vec4 color = vColor;
 
-		if (uIgnoreFog < 0.5) {
+		if (uIgnoreFog < 0.5)
+		{
 			fogIntensity = 1.0 - (vPosition.z / 1.8);
-			color = vec4(color.xyz, fogIntensity);
+			color = vec4(color.xyz, fogIntensity * getFadeFactor(uTime));
+		}
+		else
+		{
+			float star_intensity = 0.0;
+			if (rand(gl_FragCoord.xy / 20.0) > 0.996)
+			{
+				float r = rand(gl_FragCoord.xy);
+				star_intensity = r * (0.85 * sin((uTime / 2000.0) * (r * 5.0) + 720.0 * r) + 0.95);
+				star_intensity *= max(3.0 - (length(uMousePosition - gl_FragCoord.xy) / 100.0), 0.5);
+			}
+
+			color = vec4(star_intensity, star_intensity, star_intensity, 0.2);
 		}
 
-		gl_FragColor = vec4(color.xyz, color.w * getFadeFactor(uTime));
+		gl_FragColor = color;
 	}
 `;
 
 const timer = createTimer();
 let programInfo: ProgramInfo = null;
 const projectionMatrix = mat4.create();
+const mousePosition = {
+	x: 0.0,
+	y: 0.0,
+};
 
 export const resize = (gl: WebGLRenderingContext, entry) => {
 	resizeCanvasToDisplaySize(gl.canvas, entry);
@@ -118,8 +146,16 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 			object.uniforms.modelViewMatrix
 		);
 		gl.uniform1f(programInfo.uniformLocations.ignoreFog, object.uniforms.ignoreFog);
-		gl.uniform1f(programInfo.uniformLocations.time, timer.elapsed);
 
 		gl.drawElements(object.drawingMode, object.bufferInfo.indicesCount, gl.UNSIGNED_SHORT, 0);
 	}
+
+	// Move inside loop if we're using more than one shader program
+	gl.uniform1f(programInfo.uniformLocations.time, timer.elapsed);
+	gl.uniform2f(programInfo.uniformLocations.mousePosition, mousePosition.x, mousePosition.y);
+};
+
+export const setMousePosition = (x: number, y: number) => {
+	mousePosition.x = x;
+	mousePosition.y = y;
 };
