@@ -1,5 +1,6 @@
 type Timer = {
 	lastTime: number;
+	elapsed: number;
 };
 
 export const createTimer = (): Timer => {

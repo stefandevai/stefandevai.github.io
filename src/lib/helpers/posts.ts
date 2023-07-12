@@ -1,1 +1,3 @@
-export const postsComponents = import.meta.glob('$src/posts/**/*.md', { eager: true });
+import type { GlobEntry } from '$lib/server/posts';
+
+export const postsComponents = import.meta.glob<GlobEntry>('$src/posts/**/*.md', { eager: true });

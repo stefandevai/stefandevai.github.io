@@ -1,4 +1,6 @@
-export const postListImages = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
+import type { GlobEntry } from '$lib/server/posts';
+
+export const postListImages = import.meta.glob<GlobEntry>('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
 	query: {
 		w: '250;100',
@@ -10,7 +12,7 @@ export const postListImages = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,we
 	},
 });
 
-export const postPageImages = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
+export const postPageImages = import.meta.glob<GlobEntry>('$src/posts/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
 	query: {
 		w: '868;736;382',
@@ -23,7 +25,10 @@ export const postPageImages = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,we
 	},
 });
 
-export const postImagesFallbacks = import.meta.glob('$src/posts/**/*.{png,jpg,jpeg,webp}', {
-	eager: true,
-	query: { w: 10, h: 10, format: 'jpg', grayscale: true, flatten: true, quality: 20 },
-});
+export const postImagesFallbacks = import.meta.glob<GlobEntry>(
+	'$src/posts/**/*.{png,jpg,jpeg,webp}',
+	{
+		eager: true,
+		query: { w: 10, h: 10, format: 'jpg', grayscale: true, flatten: true, quality: 20 },
+	}
+);

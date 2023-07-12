@@ -1,3 +1,4 @@
+import type { Handle } from '@sveltejs/kit';
 import { minify } from 'html-minifier';
 import { building } from '$app/environment';
 
@@ -20,7 +21,7 @@ const minification_options = {
 	sortClassName: true,
 };
 
-export const handle = async ({ event, resolve }) => {
+export const handle: Handle = async ({ event, resolve }) => {
 	let page = '';
 
 	return resolve(event, {

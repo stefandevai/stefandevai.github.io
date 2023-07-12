@@ -1,36 +1,36 @@
-import { mat4 } from 'gl-matrix';
+import type { mat4 } from 'gl-matrix';
 
 export type ProgramInfo = {
 	program: WebGLProgram;
 	attribLocations: {
 		vertexPosition: number;
+		colorPosition: number;
 	};
 	uniformLocations: {
+		projectionMatrix: WebGLUniformLocation | null;
 		modelViewMatrix: WebGLUniformLocation | null;
 		ignoreFog: WebGLUniformLocation | null;
+		time: WebGLUniformLocation | null;
 	};
 };
 
 export type BufferInfo = {
-	position: WebGLBuffer;
-	element: WebGLBuffer;
+	position: null | WebGLBuffer;
+	element: null | WebGLBuffer;
 	indicesCount: number;
 };
 
 export type RotationInfo = {
 	rotation: number[];
-	pauseDuration?: number;
-	pausedTime?: number;
-	moveDuration?: number;
-	movingTime?: number;
-	rotationCenter?: number[];
+	rotationCenter?: Float32Array;
 };
 
 export type ObjectInfo = {
 	bufferInfo: BufferInfo;
 	uniforms: {
-		modelViewMatrix: typeof mat4;
-		ignoreFog: float;
+		modelViewMatrix: mat4;
+		ignoreFog: number;
 	};
 	rotationInfo?: RotationInfo;
+	drawingMode: number;
 };

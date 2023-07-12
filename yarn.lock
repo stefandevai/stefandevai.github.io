@@ -386,6 +386,11 @@
   resolved "https://registry.yarnpkg.com/@types/relateurl/-/relateurl-0.2.29.tgz#68ccecec3d4ffdafb9c577fe764f912afc050fe6"
   integrity sha512-QSvevZ+IRww2ldtfv1QskYsqVVVwCKQf1XbwtcyyoRvLIQzfyPhj/C+3+PKzSDRdiyejaiLgnq//XTkleorpLg==
 
+"@types/seedrandom@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-3.0.5.tgz#31fb257427742a9cc33fcf0c25dacca92e8f45a1"
+  integrity sha512-kopEpYpFQvQdYsZkZVwht/0THHmTFFYXDaqV/lM45eweJ8kcGVDgZHs0RVTolSq55UPZNmjhKc9r7UvLu/mQQg==
+
 "@types/semver@^7.3.12":
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.0.tgz#591c1ce3a702c45ee15f47a42ade72c2fd78978a"

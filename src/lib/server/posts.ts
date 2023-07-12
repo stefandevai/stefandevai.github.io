@@ -13,12 +13,12 @@ export interface Post {
 	excerpt: string;
 }
 
-type GlobEntry = {
+export type GlobEntry = {
 	metadata: Post;
 	default: unknown;
 };
 
-const rng = seedrandom(47);
+const rng = seedrandom('47');
 const nanoid = customRandom('ABCDEFGHIJLMNOPQRSTUVYZabcdefghijlmnopqrstuvyz', 5, (size) => {
 	return new Uint8Array(size).map(() => 256 * rng());
 });

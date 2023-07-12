@@ -13,7 +13,7 @@ type Position2D = {
 	y: number;
 };
 
-const BACKGROUND_COLOR = [0.067, 0.067, 0.067]; // #111111
+const BACKGROUND_COLOR: [number, number, number] = [0.067, 0.067, 0.067]; // #111111
 
 const objects: ObjectInfo[] = [];
 
@@ -32,7 +32,8 @@ const applyMouseRotation = (
 		mousePosition.x < 0.0 ||
 		mousePosition.x > canvas.width ||
 		mousePosition.y < 0.0 ||
-		mousePosition.y > canvas.height
+		mousePosition.y > canvas.height ||
+		object.rotationInfo == null
 	) {
 		return;
 	}
@@ -55,8 +56,8 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 	const sphere = getObjectInfo(
 		sphereBufferInfo,
 		gl.LINE_LOOP,
-		[0.0, 0.0, -1.5],
-		[sphereSize, sphereSize, 1.0],
+		new Float32Array([0.0, 0.0, -1.5]),
+		new Float32Array([sphereSize, sphereSize, 1.0]),
 		{
 			rotation: [0.001, 0.0, 0.0],
 		},
@@ -84,7 +85,7 @@ export const resize = (gl: WebGLRenderingContext, entry: ResizeObserverEntry) =>
 export const animate = (gl: WebGLRenderingContext, delta: number) => {
 	for (const object of objects) {
 		if (object.rotationInfo) {
-			applyMouseRotation(object, mousePosition, gl.canvas);
+			applyMouseRotation(object, mousePosition, gl.canvas as HTMLCanvasElement);
 			rotateObject(object, delta);
 		}
 	}

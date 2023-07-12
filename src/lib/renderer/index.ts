@@ -2,7 +2,7 @@ import { mat4 } from 'gl-matrix';
 import { createTimer, updateTimer } from '$lib/helpers/timer';
 import { getProgramInfo } from './shader';
 import { resizeCanvasToDisplaySize } from './util';
-import type { ObjectInfo } from './types';
+import type { ObjectInfo, ProgramInfo } from './types';
 
 const vertexShaderSource = `
 	attribute vec4 a_vertex_position;
@@ -72,11 +72,11 @@ const fragmentShaderSource = `
 `;
 
 const timer = createTimer();
-let programInfo: ProgramInfo = null;
+let programInfo: null | ProgramInfo = null;
 const projectionMatrix = mat4.create();
 
-export const resize = (gl: WebGLRenderingContext, entry) => {
-	resizeCanvasToDisplaySize(gl.canvas, entry);
+export const resize = (gl: WebGLRenderingContext, entry: ResizeObserverEntry) => {
+	resizeCanvasToDisplaySize(gl.canvas as HTMLCanvasElement, entry);
 	gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 	mat4.perspective(
 		projectionMatrix,
@@ -87,7 +87,10 @@ export const resize = (gl: WebGLRenderingContext, entry) => {
 	);
 };
 
-export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0]) => {
+export const init = (
+	gl: WebGLRenderingContext,
+	backgroundColor: [number, number, number] = [0.0, 0.0, 0.0]
+) => {
 	programInfo = getProgramInfo(gl, vertexShaderSource, fragmentShaderSource);
 	gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 	gl.enable(gl.BLEND);
@@ -96,6 +99,10 @@ export const init = (gl: WebGLRenderingContext, backgroundColor = [0.0, 0.0, 0.0
 };
 
 export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
+	if (programInfo == null) {
+		return;
+	}
+
 	updateTimer(timer);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 

@@ -27,9 +27,9 @@ const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSource: s
 
 	const shaderProgram = gl.createProgram();
 
-	if (!shaderProgram) {
+	if (!shaderProgram || !vertexShader || !fragmentShader) {
 		console.error('Unable to create shader program');
-		return null;
+		return;
 	}
 
 	gl.attachShader(shaderProgram, vertexShader);
@@ -41,7 +41,7 @@ const getShaderProgram = (gl: WebGLRenderingContext, vSource: string, fSource: s
 	// 	console.error(
 	// 		`Unable to initialize the shader program: ${gl.getProgramInfoLog(shaderProgram)}`
 	// 	);
-	// 	return null;
+	// 	return;
 	// }
 
 	return shaderProgram;
@@ -51,8 +51,12 @@ const getProgramInfo = (
 	gl: WebGLRenderingContext,
 	vSource: string,
 	fSource: string
-): ProgramInfo => {
+): null | ProgramInfo => {
 	const shaderProgram = getShaderProgram(gl, vSource, fSource);
+
+	if (shaderProgram == null) {
+		return null;
+	}
 
 	return {
 		program: shaderProgram,

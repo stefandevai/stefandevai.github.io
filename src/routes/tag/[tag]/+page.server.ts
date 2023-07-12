@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ params }) => {
 			featuredImageFallback: fallbacks[post.featuredImage].default,
 		}));
 
-	if (!filteredPosts.length === 0) {
+	if (filteredPosts.length === 0) {
 		throw error(404, 'Tag not found');
 	}
 
