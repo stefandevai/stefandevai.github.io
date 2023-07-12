@@ -1,7 +1,13 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+
+	$: current = $page.url.pathname.split('/').pop();
+</script>
+
 <nav>
 	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
 	<ul>
-		<li>
+		<li class:selected={current === 'about'}>
 			<a href="/about">About</a>
 		</li>
 	</ul>
@@ -36,6 +42,11 @@
 		color: #111;
 		text-decoration: none;
 		font-size: var(--font-size-small);
+		letter-spacing: 1px;
+	}
+
+	a:hover {
+		color: var(--color-gray3);
 	}
 
 	ul {
@@ -50,5 +61,16 @@
 
 	li:not(:first-child) {
 		margin-left: 1rem;
+	}
+
+	li.selected > a {
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-decoration-color: var(--color-gray3);
+		text-underline-offset: 4px;
+	}
+
+	li.selected > a:hover {
+		color: #111;
 	}
 </style>

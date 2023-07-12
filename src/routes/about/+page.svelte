@@ -34,7 +34,7 @@
 			</p>
 			<p>
 				If you want to contact me, don't hesitate to reach out via email or any other social network
-				listed on the left.
+				listed here.
 			</p>
 		</div>
 
