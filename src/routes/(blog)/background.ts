@@ -8,6 +8,7 @@ import {
 	vertices as sphereVertices,
 	indices as sphereIndices,
 } from '$lib/renderer/cached-sphere-data';
+import { vertexShaderSource, fragmentShaderSource } from './shaders';
 
 type Position2D = {
 	x: number;
@@ -22,6 +23,7 @@ const mousePosition: Position2D = {
 	x: -1.0,
 	y: -1.0,
 };
+
 const maxRotationSpeed = 0.002;
 
 const applyMouseRotation = (
@@ -71,7 +73,14 @@ const initObjects = (gl: WebGLRenderingContext, sphereSize: number) => {
 };
 
 export const init = (gl: WebGLRenderingContext) => {
-	renderer.init(gl, BACKGROUND_COLOR);
+	renderer.init(
+		gl,
+		vertexShaderSource,
+		fragmentShaderSource,
+		BACKGROUND_COLOR,
+		gl.SRC_ALPHA,
+		gl.ONE
+	);
 
 	if (window.innerWidth <= 768) {
 		initObjects(gl, 1.0);
