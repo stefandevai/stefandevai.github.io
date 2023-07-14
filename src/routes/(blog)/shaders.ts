@@ -21,7 +21,6 @@ export const fragmentShaderSource = `
 	varying lowp vec4 v_color;
 	varying lowp vec4 v_position;
 
-	uniform float u_ignore_fog;
 	uniform float u_time;
 
 	float quadratic_in_out(float t)
@@ -45,21 +44,8 @@ export const fragmentShaderSource = `
 		float fog_intensity = 1.0;
 		vec4 color = v_color;
 
-		if (u_ignore_fog < 0.5)
-		{
-			fog_intensity = 1.0 - (v_position.z / 1.8);
-			color = vec4(color.xyz, fog_intensity * fade(u_time));
-		}
-		else
-		{
-			float star_intensity = 0.0;
-			if (rand(gl_FragCoord.xy / 47.0) > 0.996)
-			{
-				float rn = rand(gl_FragCoord.xy);
-				star_intensity = rn * (0.75 * sin((u_time / 2000.0) * (rn * 3.0) + 814.0 * rn) + 0.05);
-			}
-			color = vec4(star_intensity, star_intensity, star_intensity, 0.4);
-		}
+		fog_intensity = 1.0 - (v_position.z / 1.8);
+		color = vec4(color.xyz, fog_intensity * fade(u_time));
 
 		gl_FragColor = color;
 	}

@@ -46,8 +46,7 @@ export const getObjectInfo = (
 	drawingMode: number,
 	translation: Float32Array,
 	scale: Float32Array,
-	rotationInfo?: RotationInfo,
-	ignoreFog = true
+	rotationInfo?: RotationInfo
 ): ObjectInfo => {
 	return {
 		bufferInfo: bufferInfo,
@@ -58,7 +57,6 @@ export const getObjectInfo = (
 				new Float32Array([0.0, 0.0, 0.0]),
 				scale
 			),
-			ignoreFog: ignoreFog ? 1.0 : 0.0,
 		},
 		rotationInfo,
 		drawingMode,

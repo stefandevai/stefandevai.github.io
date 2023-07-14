@@ -77,7 +77,6 @@ export const render = (gl: WebGLRenderingContext, objects: ObjectInfo[]) => {
 			false,
 			object.uniforms.modelViewMatrix
 		);
-		gl.uniform1f(programInfo.uniformLocations.ignoreFog, object.uniforms.ignoreFog);
 
 		gl.drawElements(object.drawingMode, object.bufferInfo.indicesCount, gl.UNSIGNED_SHORT, 0);
 	}

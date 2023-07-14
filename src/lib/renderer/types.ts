@@ -9,8 +9,8 @@ export type ProgramInfo = {
 	uniformLocations: {
 		projectionMatrix: WebGLUniformLocation | null;
 		modelViewMatrix: WebGLUniformLocation | null;
-		ignoreFog: WebGLUniformLocation | null;
 		time: WebGLUniformLocation | null;
+		resolution: WebGLUniformLocation | null;
 	};
 };
 
@@ -29,7 +29,6 @@ export type ObjectInfo = {
 	bufferInfo: BufferInfo;
 	uniforms: {
 		modelViewMatrix: mat4;
-		ignoreFog: number;
 	};
 	rotationInfo?: RotationInfo;
 	drawingMode: number;

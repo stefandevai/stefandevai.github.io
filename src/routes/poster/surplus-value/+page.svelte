@@ -41,6 +41,7 @@
 		<h1>Surplus<br />Value</h1>
 		<span class="mcm">M—C—M</span>
 		<p>
+			<span class="kapital">DAS KAPITAL · MDCCCLXVII</span>
 			<em>
 				The value of labour-power, and the value which that labour-power creates in the
 				labour-process, are two entirely different magnitudes; and this difference of the two values
@@ -52,7 +53,6 @@
 				itself.
 			</em>
 		</p>
-		<span class="kapital">DAS KAPITAL · MDCCCLXVII</span>
 	</div>
 	<canvas bind:this={canvas} />
 </main>
@@ -113,15 +113,14 @@
 		font-size: 1rem;
 		margin: 0;
 		grid-column: 6 / span 5;
-		grid-row: 1 / span 7;
+		grid-row: 1 / span 9;
 		line-height: 1.5;
 	}
 
 	span.kapital {
-		margin-top: 10px;
 		font-size: 0.8rem;
-		grid-column: 11 / span 1;
-		grid-row: 1 / span 8;
-		writing-mode: vertical-rl;
+		display: block;
+		margin-bottom: 0.5rem;
+		text-align: right;
 	}
 </style>

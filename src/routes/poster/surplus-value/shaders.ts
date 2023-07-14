@@ -26,6 +26,9 @@ export const fragmentShaderSource = `
 
 	void main()
 	{
+
+
+
 		gl_FragColor = v_color;
 	}
 `;
