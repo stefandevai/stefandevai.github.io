@@ -66,17 +66,18 @@
 	@supports (initial-letter: normal) {
 		article :global(p:first-of-type::first-letter) {
 			color: var(--color-drop-cap);
-			margin-right: 6px;
-			initial-letter: 2;
+			margin-right: 8px;
+			initial-letter: 3;
 		}
 	}
 	@supports not (initial-letter: normal) {
 		article :global(p:first-of-type::first-letter) {
 			color: var(--color-drop-cap);
 			margin-right: 3px;
-			font-size: 3.89rem;
-			margin-top: 10px;
+			font-size: 6.82rem;
+			margin-top: 11px;
 			float: left;
+			line-height: 0.7;
 		}
 	}
 
