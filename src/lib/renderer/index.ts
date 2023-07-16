@@ -18,6 +18,11 @@ export const resize = (gl: WebGLRenderingContext, entry: ResizeObserverEntry) =>
 		0.1,
 		100.0
 	);
+
+	if (programInfo?.uniformLocations.resolution != null) {
+		gl.useProgram(programInfo.program);
+		gl.uniform2f(programInfo.uniformLocations.resolution, gl.canvas.width, gl.canvas.height);
+	}
 };
 
 export const init = (

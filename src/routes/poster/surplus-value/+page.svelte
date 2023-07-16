@@ -41,7 +41,6 @@
 		<h1>Surplus<br />Value</h1>
 		<span class="mcm">M—C—M</span>
 		<p>
-			<span class="kapital">DAS KAPITAL · MDCCCLXVII</span>
 			<em>
 				The value of labour-power, and the value which that labour-power creates in the
 				labour-process, are two entirely different magnitudes; and this difference of the two values
@@ -53,6 +52,7 @@
 				itself.
 			</em>
 		</p>
+		<span class="kapital">01 · DAS KAPITAL · MDCCCLXVII</span>
 	</div>
 	<canvas bind:this={canvas} />
 </main>
@@ -85,42 +85,45 @@
 		width: calc(100vw - 2.8rem);
 		height: calc(100vh - 2.8rem);
 		margin: 1.4rem;
-		margin: 1.4rem;
+	}
+
+	span.mcm {
+		font-size: 0.8rem;
+		grid-column: 1 / span 1;
+		grid-row: 1 / span 1;
+		font-weight: 700;
+		display: flex;
+		align-items: flex-end;
 	}
 
 	h1 {
 		font-size: 6.8rem;
-		grid-column: 2 / span 5;
-		grid-row: 11 / span 5;
+		grid-column: 1 / span 5;
+		grid-row: 2 / span 5;
 		margin: 0;
 		font-weight: 400;
 		line-height: 0.9;
 		font-family: 'Coolvetica';
 		letter-spacing: 4px;
-	}
-
-	span.mcm {
-		font-size: 0.8rem;
-		grid-column: 2 / span 1;
-		grid-row: 10 / span 1;
-		font-weight: 700;
-		display: flex;
-		align-items: flex-end;
-		margin-left: 3px;
+		margin-left: -3px;
 	}
 
 	p {
 		font-size: 1rem;
 		margin: 0;
-		grid-column: 6 / span 5;
-		grid-row: 1 / span 9;
+		grid-column: 1 / span 4;
+		grid-row: 8 / span 9;
 		line-height: 1.5;
 	}
 
 	span.kapital {
 		font-size: 0.8rem;
 		display: block;
-		margin-bottom: 0.5rem;
 		text-align: right;
+		font-family: 'Coolvetica';
+		letter-spacing: 3px;
+		writing-mode: vertical-rl;
+		grid-column: 12 / span 1;
+		grid-row: 10 / span 7;
 	}
 </style>
