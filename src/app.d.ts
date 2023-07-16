@@ -1,12 +1,9 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-declare global {
-	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
-	}
+declare module '*.vs' {
+	const value: string;
+	export = value;
 }
 
-export {};
+declare module '*.fs' {
+	const value: string;
+	export = value;
+}
