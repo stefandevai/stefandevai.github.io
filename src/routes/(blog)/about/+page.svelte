@@ -57,6 +57,10 @@
 </main>
 
 <style>
+	main {
+		max-width: 900px;
+	}
+
 	.grid {
 		grid-template-columns: repeat(10, 1fr);
 		grid-template-rows: repeat(11, 2.5rem) 1fr;

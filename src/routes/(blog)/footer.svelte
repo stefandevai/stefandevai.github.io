@@ -38,7 +38,6 @@
 		padding: 3rem 1rem;
 		font-size: var(--font-size-small);
 		color: var(--color-gray1);
-		font-style: italic;
 	}
 
 	@media (max-width: 450px) {
