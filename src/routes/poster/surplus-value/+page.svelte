@@ -59,7 +59,7 @@
 
 <style>
 	main {
-		color: #111;
+		color: #222e4a;
 		position: relative;
 		overflow: scroll;
 		width: 100vw;
@@ -89,7 +89,7 @@
 
 	span.mcm {
 		font-size: 0.8rem;
-		grid-column: 1 / span 1;
+		grid-column: 2 / span 1;
 		grid-row: 1 / span 1;
 		font-weight: 700;
 		display: flex;
@@ -98,7 +98,7 @@
 
 	h1 {
 		font-size: 6.8rem;
-		grid-column: 1 / span 5;
+		grid-column: 2 / span 5;
 		grid-row: 2 / span 5;
 		margin: 0;
 		font-weight: 400;
@@ -111,7 +111,7 @@
 	p {
 		font-size: 1rem;
 		margin: 0;
-		grid-column: 1 / span 4;
+		grid-column: 2 / span 4;
 		grid-row: 8 / span 9;
 		line-height: 1.5;
 	}
