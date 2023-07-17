@@ -6,21 +6,25 @@ varying lowp vec4 v_position;
 uniform float u_time;
 uniform vec2 u_resolution;
 
-struct Ball {
+struct Ball
+{
   vec2 pos;
   float r;
 };
 
-float meta(vec2 p, float radius) {
-  return radius/(dot(p,p) + 0.022);
+float meta(vec2 p, float r)
+{
+  return r/(dot(p,p) + 0.022);
 }
 
-float render_ball(Ball ball, vec2 p) {
+float render_ball(Ball ball, vec2 p)
+{
   float field = meta(p - ball.pos, ball.r);
   return field * 0.1;
 }
 
-float render_balls() {
+float render_balls()
+{
   vec2 p = (gl_FragCoord.xy-vec2(u_resolution.x*.7, u_resolution.y*.48))/u_resolution.y;
   float time = u_time*0.0005;
 
@@ -44,7 +48,7 @@ float render_balls() {
 
   field += render_ball(ball3, p);
 
-  return min(1.8, field);
+  return min(1.6, field);
 }
 
 void main()
@@ -56,6 +60,7 @@ void main()
   float color = render_balls();
   vec3 shape_color = mix(gradient1, gradient2, color*0.3 + v_position.y*sin(u_time*0.0005)*0.6);
 
+  vec3 final_color = pow(vec3(shape_color * color), vec3(0.83334));
 
-  gl_FragColor = vec4(shape_color * color, color);
+  gl_FragColor = vec4(final_color, color);
 }
