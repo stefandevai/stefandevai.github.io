@@ -5,7 +5,7 @@
 	export let style = '';
 </script>
 
-<ul {style}>
+<ul class="list" {style}>
 	{#if tags}
 		{#each tags as tag}
 			<li><a href="/{tagUrlSection}/{tag}">{tag}</a></li>
@@ -14,7 +14,7 @@
 </ul>
 
 <style>
-	ul {
+	ul.list {
 		list-style-type: none;
 		margin: 0;
 		display: flex;

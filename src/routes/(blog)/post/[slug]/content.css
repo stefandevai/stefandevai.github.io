@@ -30,7 +30,7 @@ code[class*='language-'] {
 }
 
 .footnotes > ol {
-	margin: 0 2rem 0 2rem;
+	margin: 0 var(--text-horizontal-margin);
 }
 
 .footnotes li {

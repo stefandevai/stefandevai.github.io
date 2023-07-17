@@ -81,8 +81,19 @@
 		}
 	}
 
+	article :global(:where(h1, h2, h3, h4, p, .svelte-lazy)) {
+		margin-left: var(--text-horizontal-margin);
+		margin-right: var(--text-horizontal-margin);
+	}
+
+	article > :global(ul) {
+		margin-left: calc(var(--text-horizontal-margin) + var(--text-vertical-margin));
+		margin-right: var(--text-horizontal-margin);
+	}
+
 	h1 {
 		font-size: var(--font-size-large);
+		margin: 0.5rem 0 2rem 0;
 		margin-bottom: 2rem;
 		margin-top: 0.5rem;
 	}

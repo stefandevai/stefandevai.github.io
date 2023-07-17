@@ -25,7 +25,6 @@ const initObjects = (gl: WebGLRenderingContext) => {
 };
 
 export const init = (gl: WebGLRenderingContext) => {
-	gl.getExtension('OES_standard_derivatives');
 	renderer.init(gl, vertexShaderSource, fragmentShaderSource, BACKGROUND_COLOR);
 	initObjects(gl);
 };
