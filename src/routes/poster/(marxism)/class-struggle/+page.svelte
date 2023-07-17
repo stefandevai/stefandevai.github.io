@@ -12,10 +12,10 @@
 <MarxismLayout
 	{vertexShaderSource}
 	{fragmentShaderSource}
-	borderStyle="background: linear-gradient(to right, #44aecf, #3478d1);"
+	borderStyle="background: linear-gradient(to right, #cf3047, #b0305a);"
 >
 	<span class="mcm">M—C—M</span>
-	<h1>Surplus<br />Value</h1>
+	<h1>Class<br />Struggle</h1>
 	<p>
 		The value of labour-power, and the value which that labour-power creates in the labour-process,
 		are two entirely different magnitudes; and this difference of the two values was what the

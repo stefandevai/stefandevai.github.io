@@ -4,6 +4,7 @@
 
 	export let vertexShaderSource: string;
 	export let fragmentShaderSource: string;
+	export let borderStyle: string;
 
 	let canvas;
 
@@ -40,7 +41,7 @@
 </script>
 
 <main>
-	<div class="full-border">
+	<div class="full-border" style={borderStyle}>
 		<div class="grid-wrap">
 			<div class="grid">
 				<slot />
@@ -128,7 +129,6 @@
 		box-sizing: border-box;
 		padding: var(--border-width);
 		z-index: -2;
-		background: linear-gradient(to right, #44aecf, #3478d1);
 	}
 
 	.grid-wrap {
