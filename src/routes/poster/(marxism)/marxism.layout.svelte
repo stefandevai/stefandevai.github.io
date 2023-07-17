@@ -93,9 +93,10 @@
 
 	main {
 		--border-width: 8px;
+		--color-text: #243040;
 		--font-family-heading: 'Old London', sans-serif;
 
-		color: #243040;
+		color: var(--color-text);
 		overflow: hidden;
 		width: 100vw;
 		height: 100dvh;
