@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { title } from '$lib/config';
 	import * as surplusValue from './surplus-value';
 
 	let canvas;
@@ -36,6 +37,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Surplus Value | {title}</title>
+</svelte:head>
+
 <main>
 	<div class="full-border">
 		<div class="grid-wrap">
@@ -49,10 +54,10 @@
 					useful qualities that labour-power possesses, and by virtue of which it makes yarn or
 					boots, were to him nothing more than a conditio sine qua non; for in order to create
 					value, labour must be expended in a useful manner. What really influenced him was the
-					specific use-value which this commodity possesses of being <em
-						>a source not only of value, but of more value than it has itself</em
-					>.
-					<br /><br />• • •
+					specific use-value which this commodity possesses of being
+					<em> a source not only of value, but of more value than it has itself </em>
+					.
+					<span class="bottom-decoration">• • •</span>
 				</p>
 				<div class="kapital-wrap">
 					<div class="kapital">
@@ -61,18 +66,58 @@
 					</div>
 				</div>
 			</div>
-			<canvas bind:this={canvas} />
 		</div>
+		<canvas bind:this={canvas} />
 	</div>
 </main>
 
 <style>
+	@font-face {
+		font-family: 'EB Garamond';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: local('EB Garamond Regular'), local('EB-Garamond-Regular'),
+			url('/fonts/eb-garamond-regular.woff2') format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+	@font-face {
+		font-family: 'EB Garamond';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: local('EB Garamond Bold'), local('EB-Garamond-Bold'),
+			url('/fonts/eb-garamond-bold.woff2') format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+	@font-face {
+		font-family: 'EB Garamond';
+		font-style: italic;
+		font-weight: 400;
+		font-display: swap;
+		src: local('EB Garamond Italic'), local('EB-Garamond-Italic'),
+			url('/fonts/eb-garamond-italic.woff2') format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+	@font-face {
+		font-family: 'Old London';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: local('Old London'), local('Old-London'), url('/fonts/old-london.woff2') format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
 	main {
 		--border-width: 8px;
 		--grid-outer-padding: 1.4rem;
-		/* --color-canvas-border: #337fe5; */
-		--color-canvas-border: #3e8bf0;
-		--color-canvas-background: #d9d2ca;
 		--color-text: #243040;
 		--font-family-heading: 'Old London', sans-serif;
 
@@ -81,11 +126,11 @@
 		width: 100vw;
 		height: 100vh;
 		font-family: 'EB Garamond';
-		font-weight: 300;
+		font-weight: 400;
 	}
 
 	canvas {
-		background-color: var(--color-canvas-background);
+		background-color: #d9d2ca;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -104,7 +149,6 @@
 		box-sizing: border-box;
 		padding: var(--border-width);
 		z-index: -2;
-		/* background-color: var(--color-canvas-border); */
 		background: linear-gradient(to right, #44aecf, #3478d1);
 	}
 
@@ -184,5 +228,10 @@
 		height: 100%;
 		flex: 1;
 		margin-bottom: 20px;
+	}
+
+	p > .bottom-decoration {
+		display: block;
+		margin-top: 1rem;
 	}
 </style>
