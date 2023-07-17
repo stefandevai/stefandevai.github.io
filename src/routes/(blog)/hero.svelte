@@ -39,7 +39,7 @@
 	.text {
 		position: absolute;
 		top: 0;
-		color: #fff;
+		color: var(--color-white);
 		width: 100%;
 		height: 100%;
 		display: flex;

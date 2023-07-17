@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { title } from '$lib/config';
+	import { title, description } from '$lib/config';
 	import PostList from '$lib/components/post-list.svelte';
 	import Hero from './hero.svelte';
 	import type { PageServerData } from './$types';
@@ -9,6 +9,7 @@
 
 <svelte:head>
 	<title>{title}</title>
+	<meta name="description" content={description} />
 </svelte:head>
 
 <Hero />

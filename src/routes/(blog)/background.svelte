@@ -40,7 +40,6 @@
 
 <style>
 	canvas {
-		background-color: #111;
 		height: 70vh;
 		width: 100vw;
 	}

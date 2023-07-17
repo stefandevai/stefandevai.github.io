@@ -4,10 +4,6 @@
 	import '$src/app.css';
 </script>
 
-<svelte:head>
-	<meta name="description" content="Stefan Devai's blog about History and programming." />
-</svelte:head>
-
 <div>
 	<Header />
 	<slot />

@@ -1,3 +1,4 @@
+import { title as siteTitle, description as siteDescription, baseUrl } from '$lib/config';
 import { postUrlSection } from '$lib/config';
 import { posts } from '$lib/server/posts';
 
@@ -19,7 +20,7 @@ const render = () => {
 			({ slug, title, date, excerpt }) => `
 			<item>
 				<title>${title}</title>
-				<link>https://stefandevai.com/${postUrlSection}/${slug}</link>
+				<link>${baseUrl}/${postUrlSection}/${slug}</link>
 				<pubDate>${new Date(date).toUTCString()}</pubDate>
 				<description>${excerpt}…</description>
 			</item>
@@ -30,9 +31,9 @@ const render = () => {
 	return `
 		<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
 			<channel>
-				<title>Temporal Geometry</title>
-				<link>https://stefandevai.com</link>
-				<description>Stefan Devai's blog about History and programming</description>
+				<title>${siteTitle}</title>
+				<link>${baseUrl}</link>
+				<description>${siteDescription}</description>
 				<language>en</language>
 				<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 				${postsXML}

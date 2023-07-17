@@ -11,6 +11,7 @@
 
 <svelte:head>
 	<title>{data.post.title} | {title}</title>
+	<meta name="description" content={data.post.excerpt} />
 </svelte:head>
 
 <TwoLinePattern />

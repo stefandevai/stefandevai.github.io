@@ -67,6 +67,7 @@
 		grid-column: 2 / span 4;
 		grid-row: 8 / span 9;
 		line-height: 1.5;
+		text-wrap: balance;
 	}
 
 	@media (max-width: 450px) {

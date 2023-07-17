@@ -39,7 +39,7 @@
 	}
 
 	a {
-		color: #111;
+		color: var(--color-black);
 		text-decoration: none;
 		font-size: var(--font-size-small);
 		letter-spacing: 1px;
@@ -65,12 +65,11 @@
 
 	li.selected > a {
 		text-decoration: underline;
-		text-decoration-thickness: 1px;
 		text-decoration-color: var(--color-gray3);
 		text-underline-offset: 4px;
 	}
 
 	li.selected > a:hover {
-		color: #111;
+		color: var(--color-black);
 	}
 </style>
