@@ -40,15 +40,11 @@
 	});
 </script>
 
-<main>
-	<div class="full-border" style={borderStyle}>
-		<div class="grid-wrap">
-			<div class="grid">
-				<slot />
-			</div>
-		</div>
-		<canvas bind:this={canvas} />
+<main style={borderStyle}>
+	<div class="grid">
+		<slot />
 	</div>
+	<canvas bind:this={canvas} />
 </main>
 
 <style>
@@ -97,52 +93,36 @@
 
 	main {
 		--border-width: 8px;
-		--grid-outer-padding: 1.4rem;
-		--color-text: #243040;
 		--font-family-heading: 'Old London', sans-serif;
 
-		color: var(--color-text);
+		color: #243040;
 		overflow: hidden;
 		width: 100vw;
 		height: 100dvh;
 		font-family: 'EB Garamond', serif;
 		font-weight: 400;
+
+		display: grid;
+		grid-template-columns: var(--border-width) 1fr var(--border-width);
+		grid-template-rows: var(--border-width) 1fr var(--border-width);
 	}
 
 	canvas {
 		background-color: #d9d2ca;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: calc(100vw - var(--border-width) * 2);
-		height: calc(100dvh - var(--border-width) * 2);
-		z-index: -1;
-		box-sizing: border-box;
-		margin-left: var(--border-width);
-		margin-top: var(--border-width);
-	}
-
-	.full-border {
-		position: relative;
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
 		width: 100%;
 		height: 100%;
-		box-sizing: border-box;
-		padding: var(--border-width);
-		z-index: -2;
-	}
-
-	.grid-wrap {
-		width: 100%;
-		height: 100%;
-		box-sizing: border-box;
-		padding: var(--grid-outer-padding);
 	}
 
 	.grid {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		grid-template-rows: repeat(16, 1fr);
-		width: 100%;
-		height: 100%;
+		z-index: 1;
+		margin: 1.4rem;
 	}
 </style>
