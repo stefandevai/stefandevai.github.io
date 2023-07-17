@@ -2,8 +2,6 @@ import * as renderer from '$lib/renderer';
 import { buildQuad } from '$lib/renderer/util';
 import { getBufferInfo } from '$lib/renderer/buffer';
 import { getObjectInfo } from '$lib/renderer/object';
-import fragmentShaderSource from './main.fs';
-import vertexShaderSource from './main.vs';
 import type { ObjectInfo } from '$lib/renderer/types';
 
 const BACKGROUND_COLOR: [number, number, number] = [0.851, 0.824, 0.792]; // #d9d2ca
@@ -24,7 +22,11 @@ const initObjects = (gl: WebGLRenderingContext) => {
 	objects.push(quad);
 };
 
-export const init = (gl: WebGLRenderingContext) => {
+export const init = (
+	gl: WebGLRenderingContext,
+	vertexShaderSource: string,
+	fragmentShaderSource: string
+) => {
 	renderer.init(gl, vertexShaderSource, fragmentShaderSource, BACKGROUND_COLOR);
 	initObjects(gl);
 };
