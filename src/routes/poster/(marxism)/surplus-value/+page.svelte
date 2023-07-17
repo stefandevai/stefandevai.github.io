@@ -69,6 +69,23 @@
 		line-height: 1.5;
 	}
 
+	@media (max-width: 450px) {
+		span.mcm {
+			font-size: 0.8rem;
+			grid-column: 2 / span 4;
+			grid-row: 1 / span 1;
+		}
+		h1 {
+			font-size: 4.8rem;
+			grid-column: 2 / span 5;
+			grid-row: 2 / span 3;
+		}
+		p {
+			grid-column: 2 / span 9;
+			grid-row: 6 / span 9;
+		}
+	}
+
 	.kapital-wrap {
 		grid-column: 12 / span 1;
 		grid-row: 1 / -1;

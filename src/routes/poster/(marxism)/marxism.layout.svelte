@@ -104,7 +104,7 @@
 		color: var(--color-text);
 		overflow: hidden;
 		width: 100vw;
-		height: 100vh;
+		height: 100dvh;
 		font-family: 'EB Garamond', serif;
 		font-weight: 400;
 	}
@@ -115,7 +115,7 @@
 		top: 0;
 		left: 0;
 		width: calc(100vw - var(--border-width) * 2);
-		height: calc(100vh - var(--border-width) * 2);
+		height: calc(100dvh - var(--border-width) * 2);
 		z-index: -1;
 		box-sizing: border-box;
 		margin-left: var(--border-width);

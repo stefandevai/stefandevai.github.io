@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Surplus Value | {title}</title>
+	<title>Class Struggle | {title}</title>
 </svelte:head>
 
 <MarxismLayout
@@ -17,15 +17,11 @@
 	<span class="mcm">M—C—M</span>
 	<h1>Class<br />Struggle</h1>
 	<p>
-		The value of labour-power, and the value which that labour-power creates in the labour-process,
-		are two entirely different magnitudes; and this difference of the two values was what the
-		capitalist had in view, when he was purchasing the labour-power. The useful qualities that
-		labour-power possesses, and by virtue of which it makes yarn or boots, were to him nothing more
-		than a conditio sine qua non; for in order to create value, labour must be expended in a useful
-		manner. What really influenced him was the specific use-value which this commodity possesses of
-		being
-		<em> a source not only of value, but of more value than it has itself </em>
-		.
+		The history of all hitherto existing society is the history of class struggles. Freeman and
+		slave, patrician and plebeian, lord and serf, guild-master and journeyman, in a word, oppressor
+		and oppressed, stood in constant opposition to one another, carried on an uninterrupted, now
+		hidden, now open fight, a fight that each time ended, either in a revolutionary reconstitution
+		of society at large, or in the common ruin of the contending classes.
 		<span class="bottom-decoration">• • •</span>
 	</p>
 	<div class="kapital-wrap">
