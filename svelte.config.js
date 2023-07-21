@@ -18,10 +18,13 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [mdsvex(mdsvexOptions), vitePreprocess(), importAssets()],
 	kit: {
-		adapter: adapter({ precompress: true }),
+		adapter: adapter({ precompress: false }),
 		inlineStyleThreshold: 2096,
 		alias: {
 			'$src/*': 'src/*',
+		},
+		output: {
+			preloadStrategy: 'modulepreload',
 		},
 	},
 };

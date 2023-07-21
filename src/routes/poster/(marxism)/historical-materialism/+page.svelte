@@ -6,49 +6,35 @@
 </script>
 
 <svelte:head>
-	<title>Surplus Value | {title}</title>
+	<title>Historical Materialism | {title}</title>
 </svelte:head>
 
 <MarxismLayout
 	{vertexShaderSource}
 	{fragmentShaderSource}
-	borderStyle="background: linear-gradient(to right, #44aecf, #3478d1);"
+	borderStyle="background: linear-gradient(to right, #21c26f, #0c7861);"
 >
-	<span class="mcm">M—C—M</span>
-	<h1>Surplus<br />Value</h1>
+	<h1>Historical<br />Materialism</h1>
 	<p>
-		The value of labour-power, and the value which that labour-power creates in the labour-process,
-		are two entirely different magnitudes; and this difference of the two values was what the
-		capitalist had in view, when he was purchasing the labour-power. The useful qualities that
-		labour-power possesses, and by virtue of which it makes yarn or boots, were to him nothing more
-		than a conditio sine qua non; for in order to create value, labour must be expended in a useful
-		manner. What really influenced him was the specific use-value which this commodity possesses of
-		being
-		<em> a source not only of value, but of more value than it has itself </em>
-		.
+		The materialist conception of history starts from the proposition that the production of the
+		means to support human life and, next to production, the exchange of things produced, is the
+		basis of all social structure; that in every society that has appeared in history, the manner in
+		which wealth is distributed and society divided into classes or orders is dependent upon what is
+		produced, how it is produced, and how the products are exchanged. From this point of view, the
+		final causes of all social changes and political revolutions are to be sought, not in men's
+		brains, not in men's better insights into eternal truth and justice, but in changes in the modes
+		of production and exchange.
 		<span class="bottom-decoration">• • •</span>
 	</p>
 	<div class="kapital-wrap">
 		<div class="kapital">
 			<div class="line" />
-			<div class="text">3/3 · K. MARX · DAS KAPITAL</div>
+			<div class="text">2/3 · F. ENGELS · SOCIALISM: UTOPIAN AND SCIENTIFIC</div>
 		</div>
 	</div>
 </MarxismLayout>
 
 <style>
-	span.mcm {
-		font-size: 0.8rem;
-		grid-column: 2 / span 1;
-		grid-row: 2 / span 1;
-		font-weight: 400;
-		display: flex;
-		align-items: flex-end;
-		letter-spacing: 2px;
-		margin-left: 3px;
-		margin-bottom: 8px;
-	}
-
 	h1 {
 		font-size: 6.8rem;
 		grid-column: 2 / span 5;
@@ -71,11 +57,6 @@
 	}
 
 	@media (max-width: 450px) {
-		span.mcm {
-			font-size: 0.8rem;
-			grid-column: 2 / span 4;
-			grid-row: 1 / span 1;
-		}
 		h1 {
 			font-size: 4.8rem;
 			grid-column: 2 / span 5;

@@ -14,7 +14,6 @@
 	{fragmentShaderSource}
 	borderStyle="background: linear-gradient(to right, #cf3047, #b0305a);"
 >
-	<span class="mcm">M—C—M</span>
 	<h1>Class<br />Struggle</h1>
 	<p>
 		The history of all hitherto existing society is the history of class struggles. Freeman and
@@ -27,24 +26,12 @@
 	<div class="kapital-wrap">
 		<div class="kapital">
 			<div class="line" />
-			<div class="text">01 · KARL MARX · DAS KAPITAL · MDCCCLXVII</div>
+			<div class="text">1/3 · K. MARX, F. ENGELS · THE COMMUNIST MANIFESTO</div>
 		</div>
 	</div>
 </MarxismLayout>
 
 <style>
-	span.mcm {
-		font-size: 0.8rem;
-		grid-column: 2 / span 1;
-		grid-row: 2 / span 1;
-		font-weight: 400;
-		display: flex;
-		align-items: flex-end;
-		letter-spacing: 2px;
-		margin-left: 3px;
-		margin-bottom: 8px;
-	}
-
 	h1 {
 		font-size: 6.8rem;
 		grid-column: 2 / span 5;
@@ -63,6 +50,19 @@
 		grid-column: 2 / span 4;
 		grid-row: 8 / span 9;
 		line-height: 1.5;
+		text-wrap: balance;
+	}
+
+	@media (max-width: 450px) {
+		h1 {
+			font-size: 4.8rem;
+			grid-column: 2 / span 5;
+			grid-row: 2 / span 3;
+		}
+		p {
+			grid-column: 2 / span 9;
+			grid-row: 6 / span 9;
+		}
 	}
 
 	.kapital-wrap {
