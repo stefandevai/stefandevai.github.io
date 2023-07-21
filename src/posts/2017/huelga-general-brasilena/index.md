@@ -2,8 +2,8 @@
 title: 'Huelga general brasileña'
 date: '2017-04-28'
 language: 'es'
-featuredImage: 'strawberries.png'
-featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: a0aad862-de08-41b6-a1a0-54812c0f112d.'
+featuredImage: 'plant.png'
+featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: ffd09586-4822-4d9d-a190-55f131d8879b'
 tags: ['politics']
 ---
 
