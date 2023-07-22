@@ -1,22 +1,40 @@
 <script lang="ts">
-	import { createParticleGenerator } from './particle-generator';
+	import { createParticleGenerator, updateParticleGenerator } from './particle-generator';
 	import { onMount } from 'svelte';
 	import { title } from '$lib/config';
 
 	let canvas: HTMLCanvasElement;
+	let chimney1: HTMLSpanElement;
+	let chimney2: HTMLSpanElement;
 
 	onMount(() => {
-		const generator = createParticleGenerator(100, 100, 'REVOLUCIÓN');
+		const rect1 = chimney1.getBoundingClientRect();
+		const generator1 = createParticleGenerator(rect1.left, rect1.top, 'NÓICULOVER');
+
+		const rect2 = chimney2.getBoundingClientRect();
+		const generator2 = createParticleGenerator(rect2.left, rect2.top, 'NÓICULOVER');
 
 		canvas.width = canvas.offsetWidth;
 		canvas.height = canvas.offsetHeight;
-		const ctx = canvas.getContext('2d');
-		ctx.font = '30px EB Garamond';
-		ctx.save();
+		const context = canvas.getContext('2d');
+		context.font = '30px EB Garamond';
+		context.fillStyle = '#111111';
+		context.save();
 
-		const animate = () => {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			ctx.fillText('R', 100, 100);
+		/* context.translate(100, 100); */
+		/* context.rotate(Math.PI / 2); */
+		/* context.fillText('R', 0, 0); */
+
+		let lastTime = 0;
+
+		const animate = (currentTime: number) => {
+			const delta = currentTime - lastTime;
+			lastTime = currentTime;
+
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			updateParticleGenerator(generator1, context, delta);
+			updateParticleGenerator(generator2, context, delta);
+
 			window.requestAnimationFrame(animate);
 		};
 
@@ -35,17 +53,17 @@
 <main>
 	<div>
 		<p>
-			<span>si la</span>
-			<span>clase</span>
-			<span>obrera</span>
-			<span>todo lo produce,</span>
+			<span>si la</span><br />
+			<span>clase</span><br />
+			<span>obrera</span><br />
+			<span bind:this={chimney1}>todo lo produce,</span><br />
 		</p>
 
 		<p>
-			<span>a la</span>
-			<span>clase</span>
-			<span>obrera</span>
-			<span>todo le pertenece.</span>
+			<span>a la</span><br />
+			<span>clase</span><br />
+			<span>obrera</span><br />
+			<span bind:this={chimney2}>todo le pertenece.</span><br />
 		</p>
 	</div>
 	<canvas bind:this={canvas} width="100vw" height="512px" />
@@ -86,9 +104,5 @@
 	p {
 		font-size: 1.5rem;
 		margin-left: 4rem;
-	}
-
-	span {
-		display: block;
 	}
 </style>
