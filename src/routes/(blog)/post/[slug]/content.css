@@ -37,6 +37,7 @@ code[class*='language-'] {
 	margin-top: 2rem;
 	padding-top: 2rem;
 	border-top: 1px solid var(--color-border);
+	color: var(--color-gray1);
 }
 
 .footnotes > hr {

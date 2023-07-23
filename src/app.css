@@ -34,6 +34,18 @@
 	--border-radius-main: 4px;
 }
 
+@media (max-width: 850px) {
+	:root {
+		--text-horizontal-margin: 2rem;
+	}
+}
+
+@media (max-width: 750px) {
+	:root {
+		--text-horizontal-margin: 0rem;
+	}
+}
+
 /* Hack to fix optional display on firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=1486158 */
 @supports (-moz-transform: translate(0, 0)) {
 	@font-face {

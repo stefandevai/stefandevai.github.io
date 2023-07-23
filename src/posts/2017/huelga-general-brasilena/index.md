@@ -32,9 +32,9 @@ Hoy, 28 de abril, obreros en los piquetes de fábrica, estudiantes cerrando aven
 
 ¡VIVA LA HUELGA GENERAL BRASILEÑA!
 
-[^1]: El País Brasil. “Por que o empresariado apoia a gestão Temer?” Brasil.elpais.com. http://brasil.elpais.com/…/…/politica/1465424610_191054.html (visitada Abril 27, 2017)
-[^2]: Central Única dos Trabalhadores. “Terceirização e desenvolvimento: uma conta que não fecha.” Cut.org.br. http://www.cut.org.br/…/Dossie-Terceirizacao-e-Desenvolvime… (visitada Abril 27, 2017)
-[^3]: Carta Capital. “Reforma trabalhista: entenda o que muda para o trabalhador.” Cartacapital.com.br. https://cartacapital.com.br/…/reforma-trabalhista-entenda-o… (visitada Abril 27, 2017)
-[^4]: UOL Economia. “Reforma da Previdência: entenda o que pode mudar na sua aposentadoria.” Economia.uol.com.br. https://economia.uol.com.br/…/reforma-da-previdencia-entend… (visitada Abril 27, 2017)
-[^5]: UOL Noticias. “PEC do Teto é aprovada em votação final e congela gastos por 20 anos.” Noticias.uol.com.br. https://noticias.uol.com.br/…/pec-que-congela-gastos-do-gov… (visitada Abril 27, 2017)
+[^1]: El País Brasil. “Por que o empresariado apoia a gestão Temer?” Brasil.elpais.com. https://brasil.elpais.com/brasil/2016/06/09/politica/1465424610_191054.html (visitada Abril 27, 2017)
+[^2]: Central Única dos Trabalhadores. “Terceirização e desenvolvimento: uma conta que não fecha.” Cut.org.br. https://www.cut.org.br/acao/dossie-terceirizacao-e-desenvolvimento-uma-conta-que-nao-fecha-7974 (visitada Abril 27, 2017)
+[^3]: Carta Capital. “Reforma trabalhista: entenda o que muda para o trabalhador.” Cartacapital.com.br. https://cartacapital.com.br/politica/reforma-trabalhista-entenda-o-que-muda-para-o-trabalhador (visitada Abril 27, 2017)
+[^4]: UOL Economia. “Reforma da Previdência: entenda o que pode mudar na sua aposentadoria.” Economia.uol.com.br. https://economia.uol.com.br/noticias/redacao/2016/12/06/reforma-da-previdencia-entenda-o-que-pode-mudar-na-sua-aposentadoria.htm (visitada Abril 27, 2017)
+[^5]: UOL Noticias. “PEC do Teto é aprovada em votação final e congela gastos por 20 anos.” Noticias.uol.com.br. https://noticias.uol.com.br/politica/ultimas-noticias/2016/12/13/pec-que-congela-gastos-do-governo-por-20-anos-e-aprovada-em-votacao-final.htm (visitada Abril 27, 2017)
 [^6]: Lenin, V. I., 2009, Sobre las Huelgas, Biblioteca Libre Omegalfa, p. 11.
