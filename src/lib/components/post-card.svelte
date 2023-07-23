@@ -148,7 +148,7 @@
 		}
 
 		.text-content h2 {
-			font-size: var(--font-size-medium2);
+			font-size: var(--font-size-medium);
 		}
 	}
 

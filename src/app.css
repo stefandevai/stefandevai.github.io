@@ -18,13 +18,13 @@
 	--color-border: var(--color-gray2);
 	--color-read-more: var(--color-black);
 	--color-drop-cap: var(--color-red2);
+	--color-blockquote: var(--color-gray1);
 
 	--font-size-small: 0.8rem;
 	--font-size-small2: 14px;
 	--font-size-very-small: 12px;
 	--font-size-normal: 1.1rem;
 	--font-size-medium: 1.5rem;
-	--font-size-medium2: 1.2rem;
 	--font-size-large: 2.2rem;
 
 	--layout-max-width: 900px;

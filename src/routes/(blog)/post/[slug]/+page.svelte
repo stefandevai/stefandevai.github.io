@@ -65,14 +65,14 @@
 	}
 
 	@supports (initial-letter: normal) {
-		article :global(p:first-of-type::first-letter) {
+		article > :global(p:first-of-type::first-letter) {
 			color: var(--color-drop-cap);
 			margin-right: 8px;
 			initial-letter: 3;
 		}
 	}
 	@supports not (initial-letter: normal) {
-		article :global(p:first-of-type::first-letter) {
+		article > :global(p:first-of-type::first-letter) {
 			color: var(--color-drop-cap);
 			margin-right: 3px;
 			font-size: 6.82rem;
@@ -82,7 +82,7 @@
 		}
 	}
 
-	article :global(:where(h1, h2, h3, h4, p, .svelte-lazy)) {
+	article > :global(:where(h1, h2, h3, h4, p, .svelte-lazy)) {
 		margin-left: var(--text-horizontal-margin);
 		margin-right: var(--text-horizontal-margin);
 	}
@@ -90,6 +90,13 @@
 	article > :global(ul) {
 		margin-left: calc(var(--text-horizontal-margin) + var(--text-vertical-margin));
 		margin-right: var(--text-horizontal-margin);
+		list-style-position: inside;
+		list-style-type: square;
+	}
+
+	article > :global(ul > li) {
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
 	}
 
 	h1 {
