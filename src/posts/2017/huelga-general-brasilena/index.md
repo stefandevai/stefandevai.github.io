@@ -1,5 +1,5 @@
 ---
-title: 'Huelga general brasileña'
+title: 'Huelga general brasileña del 28 de abril'
 date: '2017-04-28'
 language: 'es'
 featuredImage: 'plant.png'
@@ -30,7 +30,7 @@ La huelga, por lo tanto, resulta en un aprendizaje práctico para los trabajador
 
 Hoy, 28 de abril, obreros en los piquetes de fábrica, estudiantes cerrando avenidas, megáfonos a todo volumen y una masa de trabajadores afirmando sus intereses como una clase unida.
 
-¡VIVA LA HUELGA GENERAL BRASILEÑA!
+¡Viva la huelga general brasileña!
 
 [^1]: El País Brasil. “Por que o empresariado apoia a gestão Temer?” Brasil.elpais.com. https://brasil.elpais.com/brasil/2016/06/09/politica/1465424610_191054.html (visitada Abril 27, 2017)
 [^2]: Central Única dos Trabalhadores. “Terceirização e desenvolvimento: uma conta que não fecha.” Cut.org.br. https://www.cut.org.br/acao/dossie-terceirizacao-e-desenvolvimento-uma-conta-que-nao-fecha-7974 (visitada Abril 27, 2017)

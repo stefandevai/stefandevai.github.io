@@ -2,14 +2,14 @@
 	import { page } from '$app/stores';
 
 	$: current = $page.url.pathname.split('/').pop();
+	/* <li class:selected={current === 'posters'}> */
+	/* 	<a href="/posters">Posters</a> */
+	/* </li> */
 </script>
 
 <nav>
 	<a href="/" class="logo"><img src="$lib/assets/stefan-devai-logo.svg" alt="go to home" /></a>
 	<ul>
-		<li class:selected={current === 'posters'}>
-			<a href="/posters">Posters</a>
-		</li>
 		<li class:selected={current === 'about'}>
 			<a href="/about">About</a>
 		</li>
