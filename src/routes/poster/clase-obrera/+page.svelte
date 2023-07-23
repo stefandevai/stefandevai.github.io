@@ -9,25 +9,24 @@
 
 	onMount(() => {
 		const rect1 = chimney1.getBoundingClientRect();
-		const generator1 = createParticleGenerator(rect1.left, rect1.top, 'NÓICULOVER');
+		const generator1 = createParticleGenerator(rect1.left - 5, rect1.top - 5, 'NÓICULOVER');
 
 		const rect2 = chimney2.getBoundingClientRect();
-		const generator2 = createParticleGenerator(rect2.left, rect2.top, 'NÓICULOVER');
+		const generator2 = createParticleGenerator(rect2.left - 5, rect2.top - 5, 'NÓICULOVER');
 
 		canvas.width = canvas.offsetWidth;
 		canvas.height = canvas.offsetHeight;
 		const context = canvas.getContext('2d');
-		context.font = '30px EB Garamond';
-		context.fillStyle = '#111111';
+		context.font = '26px EB Garamond';
+		context.fillStyle = '#3b2123';
 		context.save();
-
-		/* context.translate(100, 100); */
-		/* context.rotate(Math.PI / 2); */
-		/* context.fillText('R', 0, 0); */
 
 		let lastTime = 0;
 
 		const animate = (currentTime: number) => {
+			if (lastTime === 0) {
+				lastTime = currentTime;
+			}
 			const delta = currentTime - lastTime;
 			lastTime = currentTime;
 
@@ -51,22 +50,25 @@
 </svelte:head>
 
 <main>
-	<div>
-		<p>
-			<span>si la</span><br />
-			<span>clase</span><br />
-			<span>obrera</span><br />
-			<span bind:this={chimney1}>todo lo produce,</span><br />
-		</p>
+	<div class="wrap">
+		<div class="text-wrap">
+			<p>
+				<span>si la</span><br />
+				<span>clase</span><br />
+				<span>obrera</span><br />
+				<span bind:this={chimney1}>todo lo produce,</span><br />
+			</p>
 
-		<p>
-			<span>a la</span><br />
-			<span>clase</span><br />
-			<span>obrera</span><br />
-			<span bind:this={chimney2}>todo le pertenece.</span><br />
-		</p>
+			<p>
+				<span>a la</span><br />
+				<span>clase</span><br />
+				<span>obrera</span><br />
+				<span bind:this={chimney2}>todo le pertenece.</span><br />
+			</p>
+		</div>
+		<div class="factory-floor" />
+		<canvas bind:this={canvas} />
 	</div>
-	<canvas bind:this={canvas} width="100vw" height="512px" />
 </main>
 
 <style>
@@ -76,33 +78,60 @@
 		--color-black: #3b2123;
 		--color-gray1: #423431;
 		--color-gray2: #7b6a66;
+		--border-width: 12px;
 
 		width: 100vw;
 		height: 100vh;
-		background-color: var(--color-red);
-		display: grid;
-		grid-template-columns: 4rem 1fr 4rem;
-		grid-template-rows: 2rem 1fr 1fr 2rem;
+		background-color: var(--color-white);
 		font-family: 'Helvetica', sans-serif;
 		color: var(--color-white);
+
+		display: grid;
+		grid-template-columns: var(--border-width) 1fr var(--border-width);
+		grid-template-rows: var(--border-width) 1fr var(--border-width);
+	}
+
+	.wrap {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+		background-color: var(--color-red);
+		display: grid;
+		grid-template-columns: 4rem 1fr 1fr 1fr 4rem;
+		grid-template-rows: 0rem 1fr 1fr 1fr 0rem;
+		height: 100%;
 	}
 
 	canvas {
-		width: 100vw;
-		height: 100vh;
 		grid-column: 1 / -1;
 		grid-row: 1 / -1;
+		width: 100%;
+		height: 100%;
 	}
 
-	div {
+	.text-wrap {
+		margin-bottom: -1px;
 		writing-mode: vertical-rl;
 		transform: rotate(-180deg);
 		grid-column: 2 / span 1;
-		grid-row: 3 / span 1;
+		grid-row: 3 / span 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
 	}
 
 	p {
+		margin: 0;
 		font-size: 1.5rem;
+	}
+
+	p:first-child {
 		margin-left: 4rem;
+	}
+
+	.factory-floor {
+		/* background-color: var(--color-white); */
+		grid-column: 1 / -1;
+		grid-row: 5 / span 1;
 	}
 </style>
