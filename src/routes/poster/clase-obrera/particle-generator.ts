@@ -7,19 +7,22 @@ type Particle = {
 	character: string;
 	totalLife: number;
 	life: number;
+	active: boolean;
 	position: Position;
 	color: string;
 	opacity: number;
 	rotation: number;
 	speedX: number;
 	speedY: number;
-	scale: number;
 };
 
 type ParticleGenerator = {
 	position: Position;
 	characters: string;
 	nextCharacterIndex: number;
+	color: string;
+	totalLife: number;
+	initialRotation: number;
 	particles: Particle[];
 	maxParticles: number;
 	accumulatedTime: number;
@@ -32,7 +35,8 @@ type ParticleGenerator = {
 export const createParticleGenerator = (
 	x: number,
 	y: number,
-	characters: string
+	characters: string,
+	maxParticles = 200
 ): ParticleGenerator => {
 	return {
 		position: {
@@ -40,15 +44,24 @@ export const createParticleGenerator = (
 			y,
 		},
 		characters,
+		totalLife: 3000,
 		nextCharacterIndex: 0,
+		color: '#3b2123',
+		initialRotation: -90,
 		particles: [],
-		maxParticles: 200,
+		maxParticles,
 		accumulatedTime: 0,
 		interval: 100,
 		minMaxSpeedX: [8, 11],
 		minMaxSpeedY: [-7, -5],
 		minMaxRotation: [-45, 0],
 	};
+};
+
+export const initParticleGenerator = (generator: ParticleGenerator) => {
+	for (let i = 0; i < generator.maxParticles; i++) {
+		generator.particles.push(generateParticle(generator));
+	}
 };
 
 export const updateParticleGenerator = (
@@ -59,46 +72,61 @@ export const updateParticleGenerator = (
 	generator.accumulatedTime += delta;
 
 	if (generator.accumulatedTime > generator.interval) {
-		generator.accumulatedTime -= generator.interval;
-
-		if (generator.particles.length < generator.maxParticles) {
-			generator.particles.push(generateParticle(generator));
+		for (let particle of generator.particles) {
+			if (!particle.active) {
+				activateParticle(particle, generator);
+				break;
+			}
 		}
+		generator.accumulatedTime = 0;
 	}
 
 	for (const particle of generator.particles) {
 		updateParticle(particle, delta);
 		drawParticle(particle, context);
 	}
-
-	generator.particles = generator.particles.filter((particle) => particle.life > 0);
 };
 
 const generateParticle = (generator: ParticleGenerator): Particle => {
-	const character = generator.characters[generator.nextCharacterIndex];
-	generator.nextCharacterIndex = ++generator.nextCharacterIndex % generator.characters.length;
-
-	const totalLife = 3000;
-
 	return {
-		character,
-		totalLife,
-		life: totalLife,
+		character: '',
+		totalLife: generator.totalLife,
+		life: generator.totalLife,
+		active: false,
 		position: { x: generator.position.x, y: generator.position.y },
-		color: '#3b2123',
+		color: generator.color,
 		opacity: 0,
-		rotation: -90,
+		rotation: generator.initialRotation,
 		speedX: randomIntFromRange(generator.minMaxSpeedX[0], generator.minMaxSpeedX[1]),
 		speedY: randomIntFromRange(generator.minMaxSpeedY[0], generator.minMaxSpeedY[1]),
-		scale: 1,
 	};
 };
 
+const activateParticle = (particle: Particle, generator: ParticleGenerator) => {
+	const character = generator.characters[generator.nextCharacterIndex];
+	generator.nextCharacterIndex = ++generator.nextCharacterIndex % generator.characters.length;
+
+	particle.active = true;
+	particle.character = character;
+	particle.totalLife = generator.totalLife;
+	particle.life = generator.totalLife;
+	particle.position.x = generator.position.x;
+	particle.position.y = generator.position.y;
+	particle.color = generator.color;
+	particle.opacity = 0;
+	particle.rotation = generator.initialRotation;
+	particle.speedX = randomIntFromRange(generator.minMaxSpeedX[0], generator.minMaxSpeedX[1]);
+	particle.speedY = randomIntFromRange(generator.minMaxSpeedY[0], generator.minMaxSpeedY[1]);
+};
+
 const updateParticle = (particle: Particle, delta: number) => {
+	if (!particle.active) {
+		return;
+	}
+
 	particle.position.x += particle.speedX * delta * 0.01;
 	particle.position.y += particle.speedY * delta * 0.01;
 	particle.rotation += 5 * delta * 0.01;
-	particle.scale += 1 * delta * 0.001;
 
 	const fadeInThreshold = 150;
 	if (particle.life > particle.totalLife - fadeInThreshold) {
@@ -108,13 +136,20 @@ const updateParticle = (particle: Particle, delta: number) => {
 	}
 
 	particle.life -= delta;
+
+	if (particle.life <= 0) {
+		particle.active = false;
+	}
 };
 
 const drawParticle = (particle: Particle, context: CanvasRenderingContext2D) => {
+	if (!particle.active) {
+		return;
+	}
+
 	context.globalAlpha = particle.opacity;
 	context.fillStyle = particle.color;
 	context.save();
-	// context.font = `${20 * particle.scale}px EB Garamond`;
 	context.translate(particle.position.x, particle.position.y);
 
 	const rotation = particle.rotation;

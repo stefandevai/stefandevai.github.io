@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { createParticleGenerator, updateParticleGenerator } from './particle-generator';
+	import {
+		createParticleGenerator,
+		initParticleGenerator,
+		updateParticleGenerator,
+	} from './particle-generator';
 	import { onMount } from 'svelte';
 	import { title } from '$lib/config';
 
@@ -10,14 +14,16 @@
 	onMount(() => {
 		const rect1 = chimney1.getBoundingClientRect();
 		const generator1 = createParticleGenerator(rect1.left - 5, rect1.top - 5, 'NÓICULOVER');
+		initParticleGenerator(generator1);
 
 		const rect2 = chimney2.getBoundingClientRect();
 		const generator2 = createParticleGenerator(rect2.left - 5, rect2.top - 5, 'NÓICULOVER');
+		initParticleGenerator(generator2);
 
 		canvas.width = canvas.offsetWidth;
 		canvas.height = canvas.offsetHeight;
 		const context = canvas.getContext('2d');
-		context.font = '26px EB Garamond';
+		context.font = '1.8rem Mulish';
 		context.fillStyle = '#3b2123';
 		context.save();
 
@@ -34,10 +40,10 @@
 			updateParticleGenerator(generator1, context, delta);
 			updateParticleGenerator(generator2, context, delta);
 
-			/* window.requestAnimationFrame(animate); */
+			window.requestAnimationFrame(animate);
 		};
 
-		/* const frame = window.requestAnimationFrame(animate); */
+		const frame = window.requestAnimationFrame(animate);
 
 		return () => {
 			window.cancelAnimationFrame(frame);
@@ -53,17 +59,17 @@
 	<div class="wrap">
 		<div class="text-wrap">
 			<p>
-				<span>si la</span><br />
-				<span>clase</span><br />
-				<span>obrera</span><br />
-				<span bind:this={chimney1}>todo lo produce,</span><br />
+				si la<br />
+				clase<br />
+				obrera<br />
+				<span bind:this={chimney1}>todo lo produce,</span>
 			</p>
 
 			<p>
-				<span>a la</span><br />
-				<span>clase</span><br />
-				<span>obrera</span><br />
-				<span bind:this={chimney2}>todo le pertenece.</span><br />
+				a la<br />
+				clase<br />
+				obrera<br />
+				<span bind:this={chimney2}>todo le pertenece.</span>
 			</p>
 		</div>
 		<div class="sun-wrap">
@@ -77,27 +83,31 @@
 	main {
 		--color-white: #eee1cd;
 		--color-red: #af3228;
-		--color-red2: #ce685b;
+		--color-red2: #db5c46;
 		--color-black: #3b2123;
-		--color-gray1: #423431;
-		--color-gray2: #7b6a66;
-		--border-width: 12px;
+		--border-width: 3rem;
+		--sun-size: 3rem;
+
+		--color-border: var(--color-white);
+		--color-sun: var(--color-red2);
+		--color-text: var(--color-white);
+		--color-background: var(--color-red);
 
 		width: 100vw;
 		height: 100vh;
-		background-color: var(--color-white);
-		font-family: 'Lato', sans-serif;
-		color: var(--color-white);
+		background-color: var(--color-border);
+		font-family: 'Mulish', sans-serif;
+		color: var(--color-text);
 
 		display: grid;
-		grid-template-columns: var(--border-width) 1fr var(--border-width);
-		grid-template-rows: var(--border-width) 1fr var(--border-width);
+		grid-template-columns: 0 1fr 0;
+		grid-template-rows: 0 1fr var(--border-width);
 	}
 
 	.wrap {
 		grid-column: 2 / 3;
 		grid-row: 2 / 3;
-		background-color: var(--color-red);
+		background-color: var(--color-background);
 		display: grid;
 		grid-template-columns: 4rem 1fr 1fr 1fr 4rem;
 		grid-template-rows: 0rem 1fr 1fr 1fr 0rem;
@@ -112,7 +122,7 @@
 	}
 
 	.text-wrap {
-		margin-bottom: -1px;
+		margin-bottom: -3px;
 		writing-mode: vertical-rl;
 		transform: rotate(-180deg);
 		grid-column: 2 / span 1;
@@ -125,7 +135,8 @@
 
 	p {
 		margin: 0;
-		font-size: 1.5rem;
+		font-size: 1.8rem;
+		line-height: 2rem;
 	}
 
 	p:first-child {
@@ -141,9 +152,9 @@
 	}
 
 	.sun {
-		width: 16rem;
-		height: 16rem;
-		background-color: var(--color-red2);
+		width: var(--sun-size);
+		height: var(--sun-size);
+		background-color: var(--color-sun);
 		border-radius: 50%;
 	}
 </style>
