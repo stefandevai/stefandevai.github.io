@@ -34,10 +34,10 @@
 			updateParticleGenerator(generator1, context, delta);
 			updateParticleGenerator(generator2, context, delta);
 
-			window.requestAnimationFrame(animate);
+			/* window.requestAnimationFrame(animate); */
 		};
 
-		const frame = window.requestAnimationFrame(animate);
+		/* const frame = window.requestAnimationFrame(animate); */
 
 		return () => {
 			window.cancelAnimationFrame(frame);
@@ -66,7 +66,9 @@
 				<span bind:this={chimney2}>todo le pertenece.</span><br />
 			</p>
 		</div>
-		<div class="factory-floor" />
+		<div class="sun-wrap">
+			<div class="sun" />
+		</div>
 		<canvas bind:this={canvas} />
 	</div>
 </main>
@@ -75,6 +77,7 @@
 	main {
 		--color-white: #eee1cd;
 		--color-red: #af3228;
+		--color-red2: #ce685b;
 		--color-black: #3b2123;
 		--color-gray1: #423431;
 		--color-gray2: #7b6a66;
@@ -83,7 +86,7 @@
 		width: 100vw;
 		height: 100vh;
 		background-color: var(--color-white);
-		font-family: 'Helvetica', sans-serif;
+		font-family: 'Lato', sans-serif;
 		color: var(--color-white);
 
 		display: grid;
@@ -129,9 +132,18 @@
 		margin-left: 4rem;
 	}
 
-	.factory-floor {
-		/* background-color: var(--color-white); */
-		grid-column: 1 / -1;
-		grid-row: 5 / span 1;
+	.sun-wrap {
+		grid-column: 3 / span 2;
+		grid-row: 2 / span 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.sun {
+		width: 16rem;
+		height: 16rem;
+		background-color: var(--color-red2);
+		border-radius: 50%;
 	}
 </style>

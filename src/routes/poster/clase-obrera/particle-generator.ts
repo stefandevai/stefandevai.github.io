@@ -5,6 +5,7 @@ type Position = {
 
 type Particle = {
 	character: string;
+	totalLife: number;
 	life: number;
 	position: Position;
 	color: string;
