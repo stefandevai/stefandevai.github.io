@@ -63,7 +63,7 @@
 	}
 
 	li:not(:first-child) {
-		margin-left: 1rem;
+		margin-left: 2rem;
 	}
 
 	li.selected > a {

@@ -81,6 +81,17 @@
 </main>
 
 <style>
+	@font-face {
+		font-family: 'Mulish', 'Helvetica', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: local('Mulish Regular'), local('Mulish-Regular'),
+			url('/fonts/mulish-regular.woff2') format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
 	main {
 		/* --color-white: #eee1cd; */
 		/* --color-red: #af3228; */
@@ -98,7 +109,7 @@
 		--color-black: #1b1412;
 
 		--color-floor: var(--color-white);
-		--color-sun: var(--color-green);
+		--color-sun: var(--color-black);
 		--color-text: var(--color-white);
 		--color-background: var(--color-red);
 

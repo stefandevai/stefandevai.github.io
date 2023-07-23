@@ -189,3 +189,9 @@ main {
 	margin: 0 auto;
 	padding: 2rem 1rem 3rem 1rem;
 }
+
+.brand-diamond {
+	color: var(--color-red2);
+	font-size: var(--font-size-normal);
+	font-weight: 600;
+}

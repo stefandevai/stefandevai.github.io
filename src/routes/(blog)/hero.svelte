@@ -31,9 +31,9 @@
 	}
 
 	.brand-diamond {
+		color: var(--color-red);
 		font-size: var(--font-size-medium);
 		font-weight: 600;
-		color: var(--color-red);
 	}
 
 	.text {
