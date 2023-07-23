@@ -72,7 +72,7 @@ export const updateParticleGenerator = (
 	generator.accumulatedTime += delta;
 
 	if (generator.accumulatedTime > generator.interval) {
-		for (let particle of generator.particles) {
+		for (const particle of generator.particles) {
 			if (!particle.active) {
 				activateParticle(particle, generator);
 				break;

@@ -56,62 +56,64 @@
 </svelte:head>
 
 <main>
-	<div class="wrap">
-		<div class="text-wrap">
-			<p>
-				si la<br />
-				clase<br />
-				obrera<br />
-				<span bind:this={chimney1}>todo lo produce,</span>
-			</p>
+	<div class="text-wrap">
+		<p>
+			si la<br />
+			clase<br />
+			obrera<br />
+			<span bind:this={chimney1}>todo lo produce,</span>
+		</p>
 
-			<p>
-				a la<br />
-				clase<br />
-				obrera<br />
-				<span bind:this={chimney2}>todo le pertenece.</span>
-			</p>
-		</div>
-		<div class="sun-wrap">
-			<div class="sun" />
-		</div>
-		<canvas bind:this={canvas} />
+		<p>
+			a la<br />
+			clase<br />
+			obrera<br />
+			<span bind:this={chimney2}>todo le pertenece.</span>
+		</p>
 	</div>
+	<div class="sun-wrap">
+		<div class="sun" />
+	</div>
+	<div class="factory-floor-wrap">
+		<div class="factory-floor" />
+	</div>
+	<canvas bind:this={canvas} />
 </main>
 
 <style>
 	main {
+		/* --color-white: #eee1cd; */
+		/* --color-red: #af3228; */
+		/* --color-red2: #db5c46; */
+		/* --color-black: #1b1412; */
+
+		/* --color-floor: var(--color-white); */
+		/* --color-sun: var(--color-red2); */
+		/* --color-text: var(--color-white); */
+		/* --color-background: var(--color-red); */
+
 		--color-white: #eee1cd;
 		--color-red: #af3228;
-		--color-red2: #db5c46;
-		--color-black: #3b2123;
-		--border-width: 3rem;
-		--sun-size: 3rem;
+		/* --color-red2: #608653; */
+		--color-black: #1b1412;
 
-		--color-border: var(--color-white);
-		--color-sun: var(--color-red2);
+		--color-floor: var(--color-white);
+		--color-sun: var(--color-black);
 		--color-text: var(--color-white);
 		--color-background: var(--color-red);
 
+		--border-width: 3rem;
+		--sun-size: 3rem;
+
 		width: 100vw;
 		height: 100vh;
-		background-color: var(--color-border);
+		background-color: var(--color-background);
 		font-family: 'Mulish', sans-serif;
 		color: var(--color-text);
 
 		display: grid;
-		grid-template-columns: 0 1fr 0;
-		grid-template-rows: 0 1fr var(--border-width);
-	}
-
-	.wrap {
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
-		background-color: var(--color-background);
-		display: grid;
-		grid-template-columns: 4rem 1fr 1fr 1fr 4rem;
-		grid-template-rows: 0rem 1fr 1fr 1fr 0rem;
-		height: 100%;
+		grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
+		grid-template-rows: 1fr 1fr 1fr;
 	}
 
 	canvas {
@@ -122,11 +124,12 @@
 	}
 
 	.text-wrap {
-		margin-bottom: -3px;
+		margin-bottom: calc(var(--sun-size) / 2 - 3px);
+		/* margin-bottom: 1rem; */
 		writing-mode: vertical-rl;
 		transform: rotate(-180deg);
 		grid-column: 2 / span 1;
-		grid-row: 3 / span 2;
+		grid-row: 2 / span 2;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -145,7 +148,7 @@
 
 	.sun-wrap {
 		grid-column: 3 / span 2;
-		grid-row: 2 / span 2;
+		grid-row: 1 / span 2;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -156,5 +159,19 @@
 		height: var(--sun-size);
 		background-color: var(--color-sun);
 		border-radius: 50%;
+	}
+
+	.factory-floor-wrap {
+		grid-column: 1 / -1;
+		grid-row: 3 / span 1;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.factory-floor {
+		background-color: var(--color-floor);
+		height: calc(var(--sun-size) / 2);
+		width: 100%;
+		border-top: calc(var(--sun-size) / 2) solid var(--color-sun);
 	}
 </style>
