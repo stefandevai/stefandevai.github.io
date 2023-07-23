@@ -31,6 +31,7 @@
 	--nav-height: 64px;
 	--text-horizontal-margin: 100px;
 	--text-vertical-margin: 1.5rem;
+	--border-radius-main: 4px;
 }
 
 /* Hack to fix optional display on firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=1486158 */

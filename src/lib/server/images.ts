@@ -32,3 +32,17 @@ export const postImagesFallbacks = import.meta.glob<GlobEntry>(
 		query: { w: 10, h: 10, format: 'jpg', grayscale: true, flatten: true, quality: 20 },
 	}
 );
+
+export const posterImagesThumbnails = import.meta.glob<GlobEntry>(
+	'$src/routes/poster/**/*.{png,jpg,jpeg,webp}',
+	{
+		eager: true,
+		query: {
+			w: '868;736;382',
+			format: 'avif;webp;jpg',
+			flatten: true,
+			quality: 50,
+			as: 'picture',
+		},
+	}
+);

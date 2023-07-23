@@ -76,6 +76,7 @@
 		height: 100%;
 		background-size: cover;
 		display: block;
+		border-radius: var(--border-radius-main);
 	}
 
 	.image-wrapper:after {
@@ -87,6 +88,7 @@
 		width: 25px;
 		height: 50px;
 		background-color: var(--color-red);
+		border-top-right-radius: var(--border-radius-main);
 	}
 
 	.text-content {

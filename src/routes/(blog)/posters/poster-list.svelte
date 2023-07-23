@@ -1,5 +1,5 @@
 <script lang="ts">
-	import posters from './poster-list';
+	import posters from './posters';
 </script>
 
 <ul>
@@ -10,7 +10,8 @@
 				<div class="red-stripe" />
 				<div class="gray-stripe-1" />
 				<div class="gray-stripe-2" />
-				<img src={poster.thumbnail} alt={poster.title} />
+				<div class="full-cover" />
+				<img src={poster.thumbnail} alt={poster.title} loading="lazy" />
 			</a>
 		</li>
 	{/each}
@@ -47,8 +48,7 @@
 		color: var(--color-white);
 		font-size: var(--font-size-medium);
 		font-weight: 300;
-		transition: opacity 0.15s ease-in-out;
-		z-index: 2;
+		z-index: 3;
 	}
 
 	a:hover > h2 {
@@ -62,13 +62,14 @@
 		height: 100%;
 		object-fit: cover;
 		filter: grayscale(1);
-		transition: transform 0.15s ease-out;
 		transform-origin: center;
+		transition: transform 0.25s ease-in;
 	}
 
 	a:hover > img {
 		filter: grayscale(0);
 		transform: scale(1.2);
+		transition: transform 5s ease-out;
 	}
 
 	.red-stripe {
@@ -76,8 +77,7 @@
 		grid-row: 1 / -1;
 		background-color: var(--color-red);
 		mix-blend-mode: darken;
-		transition: opacity 0.25s ease-in-out;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	a:hover > .red-stripe {
@@ -89,8 +89,7 @@
 		grid-row: 1 / -1;
 		background-color: var(--color-black);
 		opacity: 0.8;
-		transition: opacity 0.25s ease-in-out;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	a:hover > .gray-stripe-1 {
@@ -102,11 +101,22 @@
 		grid-row: 1 / -1;
 		background-color: var(--color-black);
 		opacity: 0.8;
-		transition: opacity 0.25s ease-in-out;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	a:hover > .gray-stripe-2 {
 		opacity: 0;
+	}
+
+	.full-cover {
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+		backdrop-filter: blur(2px);
+		transition: transform 0.15s ease-in;
+		z-index: 1;
+	}
+
+	a:hover > .full-cover {
+		backdrop-filter: none;
 	}
 </style>
