@@ -13,6 +13,7 @@
 	{vertexShaderSource}
 	{fragmentShaderSource}
 	borderStyle="background: linear-gradient(to right, #21c26f, #0c7861);"
+	enableDerivatives={true}
 >
 	<h1>Historical<br />Materialism</h1>
 	<p>

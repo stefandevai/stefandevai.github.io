@@ -5,6 +5,7 @@
 	export let vertexShaderSource: string;
 	export let fragmentShaderSource: string;
 	export let borderStyle: string;
+	export let enableDerivatives = false;
 
 	let canvas;
 
@@ -14,6 +15,10 @@
 		if (gl === null) {
 			console.error('Unable to initialize WebGL. Your browser or machine may not support it.');
 			return;
+		}
+
+		if (enableDerivatives) {
+			gl.getExtension('OES_standard_derivatives');
 		}
 
 		const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
