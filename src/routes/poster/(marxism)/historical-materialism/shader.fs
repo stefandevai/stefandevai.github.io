@@ -160,13 +160,14 @@ mat4 inverse(mat4 m) {
 float scene_sdf(vec3 p)
 {
   p = vec3(p.x - 3., p.y + quadratic_easing(sin(u_time*.0019)*.3 + .4)*0.3 - 0.7, p.z);
-  p = (inverse(rotate_y(u_time*.0008)) * vec4(p, 1.)).xyz;
+  p = (inverse(rotate_y(u_time*.0004)) * vec4(p, 1.)).xyz;
 
   /* float sphere = sphere_sdf(p, 1.3); */
   /* float cube = cube_sdf(p + vec3(0.,0. + sin(u_time * 0.001),0.), 1.); */
 
   /* return union_sdf(cube, sphere); */
   /* return icosahedron_sdf(p, 1.3); */
+  /* return sphere_sdf(p, 1.3) + displacement(p); */
 
   float num_shapes = 4.;
   float single_scene_time = 2000.;
@@ -418,12 +419,13 @@ void main()
     gl_FragColor = vec4(.0,.0,.0,.0);
     return;
   }
+  float grain = random(gl_FragCoord.xy*.001)*.05;
 
   vec3 p = eye + dist * world_dir;
   vec3 ambient = vec3(0.851,0.824,0.792) * .8;
   vec3 diffuse = vec3(0.129,0.757,0.435);
 
-  vec3 color = illumination(ambient, diffuse, p);
+  vec3 color = illumination(ambient, diffuse, p) + grain;
 
   /* float ng = snoise(vec3(p + u_time*.0005 + 843.)); */
   /* float nb = snoise(vec3(p + u_time*.0001 + 1734.)); */
