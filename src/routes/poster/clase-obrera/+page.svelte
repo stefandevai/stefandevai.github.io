@@ -108,7 +108,8 @@
 		--color-green: #608653;
 		--color-black: #1b1412;
 
-		--color-floor: var(--color-white);
+		/* --color-floor: var(--color-white); */
+		--color-floor: var(--color-red);
 		--color-sun: var(--color-black);
 		--color-text: var(--color-white);
 		--color-background: var(--color-red);
@@ -183,6 +184,6 @@
 		background-color: var(--color-floor);
 		height: calc(var(--sun-size) / 2);
 		width: 100%;
-		border-top: calc(var(--sun-size) / 2) solid var(--color-sun);
+		/* border-top: calc(var(--sun-size) / 2) solid var(--color-sun); */
 	}
 </style>

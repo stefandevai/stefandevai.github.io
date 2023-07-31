@@ -35,7 +35,8 @@ void main()
 
   pattern = max(pattern, 0.8);
 
-  color = smoothstep(0., 0.01, color * pattern);
+  /* color = smoothstep(0., 0.01, color * pattern); */
 
-  gl_FragColor = vec4(min(color, pattern) * brand_color, 1.);
+  /* gl_FragColor = vec4(min(color, pattern) * brand_color, 1.); */
+  gl_FragColor = vec4(pattern * brand_color, 1.);
 }
