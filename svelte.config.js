@@ -5,6 +5,7 @@ import { mdsvex } from 'mdsvex';
 import remarkFootnotes from 'remark-footnotes';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeSlug from 'rehype-slug';
+import preprocessPicture from 'svelte-picture/preprocess';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -16,7 +17,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [mdsvex(mdsvexOptions), vitePreprocess(), importAssets()],
+	preprocess: [mdsvex(mdsvexOptions), preprocessPicture(), vitePreprocess(), importAssets()],
 	kit: {
 		adapter: adapter({ precompress: false }),
 		inlineStyleThreshold: 2096,

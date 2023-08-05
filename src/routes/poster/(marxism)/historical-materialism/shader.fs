@@ -399,8 +399,14 @@ float random (vec2 st)
 
 void main()
 {
+  // Return early to avoid extra calculations
+  if (v_position.x > 1.6 || v_position.x < .3 || v_position.y > 1.2 || v_position.y < -1.3)
+  {
+    gl_FragColor = vec4(.0);
+    return;
+  }
+
   vec3 eye = vec3(8.,5.,12.);
-  /* vec3 eye = vec3(1.,1.,15.); */
   vec3 dir = ray_direction(45., u_resolution.xy, gl_FragCoord.xy);
 
   mat4 view_to_world = view_matrix(eye, vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
@@ -408,15 +414,9 @@ void main()
 
   float dist = shortest_distance(eye, world_dir, MIN_DIST, MAX_DIST);
 
-  /* // Shiny edges */
-  /* float aaf = fwidth(dist); */
-  /* float f = smoothstep(MAX_DIST - EPSILON - aaf, MAX_DIST - EPSILON, dist); */
-  /* gl_FragColor = vec4(1.,1.,1.,aaf); */
-  /* return; */
-
   if (dist > MAX_DIST - EPSILON)
   {
-    gl_FragColor = vec4(.0,.0,.0,.0);
+    gl_FragColor = vec4(.0);
     return;
   }
   float grain = random(gl_FragCoord.xy*.001)*.05;
@@ -426,11 +426,6 @@ void main()
   vec3 diffuse = vec3(0.129,0.757,0.435);
 
   vec3 color = illumination(ambient, diffuse, p) + grain;
-
-  /* float ng = snoise(vec3(p + u_time*.0005 + 843.)); */
-  /* float nb = snoise(vec3(p + u_time*.0001 + 1734.)); */
-  /* float g = clamp(ng*.1, 0., 1.); */
-  /* float b = clamp(nb*.2, 0., 1.); */
 
 
   float ng = snoise(vec3(eye + dist - u_time*.0005 + 843.));
