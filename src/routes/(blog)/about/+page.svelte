@@ -14,7 +14,6 @@
 
 <TwoLinePattern />
 <main>
-	<Picture src="./stefandevai.jpg" alt="Stefan Devai" />
 	<h1>About me <span class="brand-diamond">◆</span></h1>
 	<div class="grid">
 		<img src={StefanDevaiPicture} alt="Stefan Devai" loading="lazy" />

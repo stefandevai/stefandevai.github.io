@@ -32,6 +32,10 @@ code[class*='language-'] {
 	font-size: var(--font-size-normal);
 }
 
+article img {
+	width: 100%;
+}
+
 .footnotes {
 	font-size: var(--font-size-small);
 	margin-top: 2rem;
