@@ -12,10 +12,10 @@ export const getDepth = (personData?: Person, treeDepth = 1): number => {
 };
 
 const getTreeXOffsets = (
-	personData?: Person,
 	dimensions: DiagramDimensions,
+	personData?: Person,
 	cursor = 0
-): number => {
+): [number, number] => {
 	let xMin = cursor;
 	let xMax = cursor;
 
@@ -29,8 +29,8 @@ const getTreeXOffsets = (
 
 	if (personData.father) {
 		const [newXMin, newXMax] = getTreeXOffsets(
-			personData.father,
 			dimensions,
+			personData.father,
 			cursor - dimensions.containerWidth / 2 - dimensions.horizontalSpacing / 2
 		);
 		xMin = Math.min(xMin, newXMin);
@@ -39,8 +39,8 @@ const getTreeXOffsets = (
 
 	if (personData.mother) {
 		const [newXMin, newXMax] = getTreeXOffsets(
-			personData.mother,
 			dimensions,
+			personData.mother,
 			cursor + dimensions.containerWidth / 2 + dimensions.horizontalSpacing / 2
 		);
 		xMin = Math.min(xMin, newXMin);
@@ -58,14 +58,14 @@ export const getXData = (
 	const spouseOffset = dimensions.containerWidth * 2 + dimensions.horizontalSpacing;
 
 	if (treeDepth === 1 && personData.spouse) {
-		return spouseOffset;
+		return [0, spouseOffset];
 	}
 
 	if (treeDepth === 1) {
-		return dimensions.containerWidth;
+		return [0, dimensions.containerWidth];
 	}
 
-	const [xMin, xMax] = getTreeXOffsets(personData, dimensions);
+	const [xMin, xMax] = getTreeXOffsets(dimensions, personData);
 	const absXMin = Math.abs(xMin);
 
 	// return [absXMin, absXMin + xMax - 12.5];

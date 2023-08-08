@@ -5,7 +5,6 @@
 	import InstagramIcon from './instagram.svelte';
 	import EmailIcon from './email.svelte';
 	import StefanDevaiPicture from './stefandevai.jpg';
-	import { Picture } from 'svelte-picture';
 </script>
 
 <svelte:head>
