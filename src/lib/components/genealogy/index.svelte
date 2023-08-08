@@ -19,13 +19,6 @@
 	const depth = getDepth(data);
 	const [x, width] = getXData(depth, dimensions, data);
 	const [y, height] = getYData(depth, dimensions);
-
-	console.log('HAAAAAAAAAAAAAA');
-	console.log(depth);
-	console.log(x);
-	console.log(width);
-	/* console.log(height); */
-	/* <Tree {data} x={width / 2} y={height} {colors} {dimensions} /> */
 </script>
 
 <svg viewBox={`0 0 ${width} ${height}`} xmlns="http://www.w3.org/2000/svg">

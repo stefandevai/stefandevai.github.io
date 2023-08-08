@@ -68,7 +68,6 @@ export const getXData = (
 	const [xMin, xMax] = getTreeXOffsets(dimensions, personData);
 	const absXMin = Math.abs(xMin);
 
-	// return [absXMin, absXMin + xMax - 12.5];
 	return [absXMin, absXMin + xMax];
 };
 
@@ -80,15 +79,3 @@ export const getYData = (treeDepth: number, dimensions: DiagramDimensions): [num
 
 	return [y, height];
 };
-
-// export const getX = (width: number, dimensions: DiagramDimensions, personData: Person): number => {
-//   if (personData.spouse) {
-
-//   }
-
-// 	return width / 2 - dimensions.containerWidth / 2;
-// }
-
-// export const getY = (height: number, dimensions: DiagramDimensions): number => {
-// 	return height - dimensions.containerHeight;
-// }
