@@ -3,7 +3,7 @@ title: 'How did my great-great-great-grandmother die? A genealogical investigati
 date: '2023-08-07'
 language: 'en'
 featuredImage: 'woods.png'
-featuredImageCaption: 'Image generated with Midjourney 5.1. Job ID: .'
+featuredImageCaption: 'Image generated with Midjourney 5.1. Job ID: 934d284c-7bb8-445a-b96a-87ad265f03b9.'
 tags: ['history', 'genealogy']
 ---
 

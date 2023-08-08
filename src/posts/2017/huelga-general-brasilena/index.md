@@ -3,7 +3,7 @@ title: 'Huelga general brasileña del 28 de abril'
 date: '2017-04-28'
 language: 'es'
 featuredImage: 'plant.png'
-featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: ffd09586-4822-4d9d-a190-55f131d8879b'
+featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: ffd09586-4822-4d9d-a190-55f131d8879b.'
 tags: ['politics']
 ---
 
