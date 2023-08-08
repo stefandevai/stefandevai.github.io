@@ -11,6 +11,7 @@
 <TwoLinePattern />
 <main>
 	<h1>Posters <span class="brand-diamond">◆</span></h1>
+	<PosterList />
 	<p>
 		These web posters are visual experiments with generative art elements. More often than not,
 		generative art is criticized for its lack of emotional depth and impersonal results, filling a
@@ -23,6 +24,4 @@
 		with WebGL or Canvas2D, depending on the complexity of the piece, incorporating new ideas that
 		come up during the process.
 	</p>
-
-	<PosterList />
 </main>

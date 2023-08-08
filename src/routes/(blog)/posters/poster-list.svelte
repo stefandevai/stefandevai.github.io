@@ -19,7 +19,7 @@
 		grid-gap: 1rem;
 		list-style: none;
 		padding: 0;
-		margin: 3rem 0 0 0;
+		margin: 0 0 0 0;
 	}
 
 	li {

@@ -27,9 +27,9 @@
 	--font-size-medium: 1.5rem;
 	--font-size-large: 2.2rem;
 
-	--layout-max-width: 900px;
+	--layout-max-width: 800px;
 	--nav-height: 64px;
-	--text-horizontal-margin: 100px;
+	--text-horizontal-margin: 80px;
 	--text-vertical-margin: 1.5rem;
 	--border-radius-main: 4px;
 }

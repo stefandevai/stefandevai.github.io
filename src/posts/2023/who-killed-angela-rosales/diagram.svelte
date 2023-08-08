@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Picture } from 'svelte-picture';
 	import Lazy from 'svelte-lazy';
 	import Genealogy from '$lib/components/genealogy/index.svelte';
 	import type { DiagramData } from '$lib/components/genealogy/types';
@@ -8,12 +7,21 @@
 	const colors = {
 		female: '#ef2f1f',
 		male: '#111',
-		line: '#ddd',
+		line: '#ccc',
 		unknown: '#aaa',
-		text: '#fefefe',
+		text: '#555',
 	};
 </script>
 
-<Lazy fadeOption={{ delay: 0, duration: 0 }} height={400}>
-	<Genealogy {data} {colors} />
-</Lazy>
+<div>
+	<Lazy fadeOption={{ delay: 0, duration: 0 }} height={400}>
+		<Genealogy {data} {colors} />
+	</Lazy>
+</div>
+
+<style>
+	div {
+		width: 320px;
+		margin: 2rem auto;
+	}
+</style>

@@ -71,11 +71,23 @@ export const getXData = (
 	return [absXMin + dimensions.safeZone, absXMin + xMax + dimensions.safeZone * 2];
 };
 
-export const getYData = (treeDepth: number, dimensions: DiagramDimensions): [number, number] => {
-	const height =
+export const getYData = (
+	treeDepth: number,
+	dimensions: DiagramDimensions,
+	personData: Person
+): [number, number] => {
+	let height =
 		(treeDepth - 1) * (dimensions.containerHeight + dimensions.verticalSpacing) +
 		dimensions.containerHeight;
 	const y = height - dimensions.containerHeight;
+
+	if (personData.name) {
+		height += 20 + dimensions.fontSize / 2;
+	}
+
+	if (personData.birthDate || personData.deathDate) {
+		height += 15 + (dimensions.fontSize - 4) / 2;
+	}
 
 	return [y + dimensions.safeZone, height + dimensions.safeZone * 2];
 };

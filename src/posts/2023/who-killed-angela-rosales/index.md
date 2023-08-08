@@ -8,8 +8,12 @@ tags: ['history', 'genealogy']
 ---
 
 <script lang="ts">
-  import { Picture } from 'svelte-picture';
+  import PostPicture from '$lib/components/post-picture.svelte';
   import Diagram from './diagram.svelte';
+
+  import porfiritaSrc from './teodoro-yslas-y-maria-porfiria-perez-boda2.jpg?w=868;768;414&format=avif;webp;jpg&as=picture';
+  import praxedisSrc from './praxedis-perez-muerte2.jpg?w=868;768;414&format=avif;webp;jpg&as=picture';
+  import angelaSrc from './angela-rosales-muerte2.jpg?w=868;768;414&format=avif;webp;jpg&as=picture';
 </script>
 
 During my childhood, I used to visit a part of my family that lived in a tiny adobe house in the middle of the Huastecan woodlands of Agua Blanca de Iturbide in Hidalgo, México. Throughout the roadtrip, there was a gradual change in the landscape: starting off with shiny metal of Tlalnepantla de Baz's factories, giving way to misty paths in the middle of mountains filled with pine trees, streams and water sources. A bucolic landscape that doesn't line up with the usual arid image that foreigners have when thinking about Mexico.
@@ -26,22 +30,24 @@ Lucky me, a vast quantity of Mexican archives of genealogical interest are freel
 
 I logically begun this investigation from what was known by my family:
 
-- Porfiria Pérez was married to Teodoro Islas;
-- The marriage took place during the Mexican Revolution (1910 - 1920);
-- She married Teodoro at a young age compared to his;
-- She died during the 80s.
-
 <Diagram data={{
   name: 'Porifiria Pérez',
   gender: 'f',
+  birthDate: 'c. 1900',
+  deathDate: 'c. 1980',
   spouse: { name: 'Teodoro Islas', gender: 'm' },
   father: { name: '', gender: 'm' },
   mother: { name: '', gender: 'f' },
 }} />
 
+- Porfiria Pérez was married to Teodoro Islas;
+- The marriage took place during the Mexican Revolution (1910 - 1920);
+- She married Teodoro at a young age compared to his;
+- She died during the 80s.
+
 Using this date to search through the archives I quickly found a promising document:
 
-<Picture src="./teodoro-yslas-y-maria-porfiria-perez-boda.jpg" width="868;768;414" alt="Porfiria Pérez and Teodoro Islas marriage certificate" original={true} />
+<PostPicture src={porfiritaSrc} width="868;768;414" alt="Porfiria Pérez and Teodoro Islas marriage certificate" original={true} />
 
 > "En la parroquia de Metepec de la Vicaría Foranea de Tulancingo á los veinticinco días de junio de mil novecientos catorce [...] asistí al matrimonio [...] de [...] Teodoro Islas [...] de cuarenta y dos ãnos de edad [...] con María Porfíria Pérez célibe de dieciocho años de edad originaria de Agua Blanca y vecina de la Pesuña del Buey y ultimamente de Temascalillos, hija legítima de Nestor Pérez y de Angela Rosales difuntos" [^2]
 
@@ -55,14 +61,16 @@ It's Porfirita! Even better, the document confirms and expands on what was told 
 <Diagram data={{
   name: 'Porifiria Pérez',
   gender: 'f',
-  spouse: { name: 'Teodoro Islas', gender: 'm' },
-  father: { name: 'Nestor Pérez', gender: 'm' },
-  mother: { name: 'Ángela Rosales', gender: 'f', father: { name: '', gender: 'm' }, mother: { name: '', gender: 'f' } },
+  birthDate: '1896',
+  deathDate: 'c. 1980',
+  spouse: { name: 'Teodoro Islas', birthDate: '1872', deathDate: '?', gender: 'm' },
+  father: { name: 'Nestor Pérez', gender: 'm', deathDate: 'before Jun 1914' },
+  mother: { name: 'Ángela Rosales', gender: 'f', deathDate: 'before Jun 1914' },
 }} />
 
 I continued my investigations through the online archives with this new information in mind, but without much luck this time. I was not able to locate more documents related to the life of Porfirita and I was only able to find one document regarding her parents:
 
-<Picture src="./praxedis-perez-muerte.jpg" width="868;768;414" alt="Praxedis Pérez death certificate" original={true} />
+<PostPicture src={praxedisSrc} width="868;768;414" alt="Praxedis Pérez death certificate" original={true} />
 
 It's a death certificate of Praxedes Pérez, Porfirita's little sister. According to the document, she died of pneumonia on October 4, 1902 at only 10 months old. Child mortality rates were considerably high among poor Mexican peasants in the beginning of the 20th century [^3].
 
@@ -76,7 +84,7 @@ It states that when the little girl died, at 10 months old, her parents were alr
 
 I began reading page by page of the archives [write real name of the archives] starting on January 1902. After some time, on May 21, 1902 I finally found what I was looking for:
 
-<Picture src="./angela-rosales-muerte.jpg" width="868;768;414" alt="Ángela Rosales death certificate" original={true} />
+<PostPicture src={angelaSrc} width="868;768;414" alt="Ángela Rosales death certificate" original={true} />
 
 > "Al márgen: Número 18. Defunción de Angela Rosales accidentalmente desbarrancada. Gratis. En el pueblo de Agua Blanca, Cabecera del Municipio de Yturbide á las 3 tres de la tarde del día 21 veintiuno de Mayo de 1902 mil novecientos dos [...] compareció la Señora María Luisa Rosales [...] de 27 veintisiete años de edad, manifestando: que por las investigaciones que hizo ayudada de otras personas, hoy como á las 11 once de la mañana, encontró que su hermana Angela Rosales falleció accidentalmente desbarrancada por la vereda que conduce á San Pedrito en el lugar nombrado "La Golondrina", quien había salido desde el lunes 19 diez y nueve del presente; que es viuda de 37 treinta y siete años de edad" [^5]
 

@@ -4,6 +4,8 @@ export type Person = {
 	spouse: Person;
 	father?: Person;
 	mother?: Person;
+	birthDate?: string;
+	deathDate?: string;
 };
 
 export type DiagramColors = {

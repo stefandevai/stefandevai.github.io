@@ -12,20 +12,25 @@
 		text: 'gray',
 	};
 	export let dimensions: DiagramDimensions = {
-		containerHeight: 40,
-		containerWidth: 180,
+		containerHeight: 50,
+		containerWidth: 50,
 		verticalSpacing: 65,
-		horizontalSpacing: 25,
-		fontSize: 10,
-		safeZone: 10,
+		horizontalSpacing: 55,
+		fontSize: 12,
+		safeZone: 20,
 		lineWidth: 3,
 	};
 
 	const depth = getDepth(data);
 	const [x, width] = getXData(depth, dimensions, data);
-	const [y, height] = getYData(depth, dimensions);
+	const [y, height] = getYData(depth, dimensions, data);
 </script>
 
 <svg viewBox={`0 0 ${width} ${height}`} style="width:100%;height:100%;">
+	<style>
+		.birth-death > tspan {
+			font-weight: 500;
+		}
+	</style>
 	<Tree {data} {x} {y} {colors} {dimensions} />
 </svg>

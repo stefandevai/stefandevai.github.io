@@ -55,23 +55,60 @@
 	/>
 {/if}
 
-<rect
-	{x}
-	{y}
-	width={dimensions.containerWidth}
-	height={dimensions.containerHeight}
-	fill={getColor()}
-	rx="2"
-/>
+{#if data.gender === 'm'}
+	<circle
+		cx={x + dimensions.containerWidth / 2}
+		cy={y + dimensions.containerHeight / 2}
+		r={dimensions.containerHeight / 2}
+		fill={'white'}
+		stroke={getColor()}
+		stroke-width="4"
+	/>
+{:else}
+	<polygon
+		points={`${x + dimensions.containerWidth / 2},${
+			y + dimensions.containerHeight * triangleSideFactor
+		} ${x},${y + dimensions.containerHeight - dimensions.containerHeight * triangleSideFactor} ${
+			x + dimensions.containerWidth
+		},${y + dimensions.containerHeight - dimensions.containerHeight * triangleSideFactor}`}
+		fill={'white'}
+		stroke={getColor()}
+		stroke-width="4"
+	/>
+{/if}
+
 <text
 	x={x + dimensions.containerWidth / 2}
-	y={y + dimensions.containerHeight / 2}
+	y={y + dimensions.containerHeight + 20}
 	text-anchor="middle"
 	dominant-baseline="middle"
-	style={`font-size: ${dimensions.fontSize}px; fill: ${colors.text}; font-weight: bold;`}
+	style={`font-size: ${dimensions.fontSize}px; fill: ${getColor()}; font-weight: bold;`}
 >
-	{data.name === '' ? '?' : data.name}
+	{data.name === '' ? '???' : data.name}
 </text>
+
+{#if data.birthDate || data.deathDate}
+	<text
+		x={x + dimensions.containerWidth / 2}
+		y={y + dimensions.containerHeight + 20 + 15}
+		text-anchor="middle"
+		dominant-baseline="middle"
+		style={`font-size:${dimensions.fontSize - 4}px;fill:${getColor()};`}
+		class="birth-death"
+	>
+		{#if data.birthDate}
+			<tspan>★</tspan> {data.birthDate}
+		{/if}
+
+		{#if data.birthDate && data.deathDate}
+			{'    '}
+		{/if}
+
+		{#if data.deathDate}
+			<tspan>✝</tspan>{'  '}{data.deathDate}
+		{/if}
+	</text>
+{/if}
 
 {#if data.spouse}
 	<svelte:self
