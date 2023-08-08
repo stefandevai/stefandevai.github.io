@@ -10,6 +10,8 @@ export type DiagramColors = {
 	female: string;
 	male: string;
 	line: string;
+	unknown: string;
+	text: string;
 };
 
 export type DiagramDimensions = {
@@ -17,4 +19,7 @@ export type DiagramDimensions = {
 	containerWidth: number;
 	verticalSpacing: number;
 	horizontalSpacing: number;
+	fontSize: number;
+	safeZone: number;
+	lineWidth: number;
 };

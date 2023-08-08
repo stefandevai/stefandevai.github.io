@@ -8,12 +8,17 @@
 		female: 'red',
 		male: 'black',
 		line: 'gray',
+		unknown: 'gray',
+		text: 'gray',
 	};
 	export let dimensions: DiagramDimensions = {
 		containerHeight: 40,
-		containerWidth: 40,
-		verticalSpacing: 35,
-		horizontalSpacing: 15,
+		containerWidth: 180,
+		verticalSpacing: 65,
+		horizontalSpacing: 25,
+		fontSize: 10,
+		safeZone: 10,
+		lineWidth: 3,
 	};
 
 	const depth = getDepth(data);
@@ -21,6 +26,6 @@
 	const [y, height] = getYData(depth, dimensions);
 </script>
 
-<svg viewBox={`0 0 ${width} ${height}`} xmlns="http://www.w3.org/2000/svg">
+<svg viewBox={`0 0 ${width} ${height}`} style="width:100%;height:100%;">
 	<Tree {data} {x} {y} {colors} {dimensions} />
 </svg>

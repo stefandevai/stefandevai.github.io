@@ -9,7 +9,7 @@ tags: ['history', 'genealogy']
 
 <script lang="ts">
   import { Picture } from 'svelte-picture';
-  import Genealogy from '$lib/components/genealogy/index.svelte';
+  import Diagram from './diagram.svelte';
 </script>
 
 During my childhood, I used to visit a part of my family that lived in a tiny adobe house in the middle of the Huastecan woodlands of Agua Blanca de Iturbide in Hidalgo, México. Throughout the roadtrip, there was a gradual change in the landscape: starting off with shiny metal of Tlalnepantla de Baz's factories, giving way to misty paths in the middle of mountains filled with pine trees, streams and water sources. A bucolic landscape that doesn't line up with the usual arid image that foreigners have when thinking about Mexico.
@@ -26,18 +26,17 @@ Lucky me, a vast quantity of Mexican archives of genealogical interest are freel
 
 I logically begun this investigation from what was known by my family:
 
-Porfiria Pérez was married to Teodoro Islas;
-The marriage took place during the Mexican Revolution (1910 - 1920);
-She married Teodoro at a young age compared to his;
-She died during the 80s.
+- Porfiria Pérez was married to Teodoro Islas;
+- The marriage took place during the Mexican Revolution (1910 - 1920);
+- She married Teodoro at a young age compared to his;
+- She died during the 80s.
 
-[Graphical representation of the genealogical tree]
-<Genealogy data={{
+<Diagram data={{
   name: 'Porifiria Pérez',
   gender: 'f',
   spouse: { name: 'Teodoro Islas', gender: 'm' },
-  father: { name: 'Nestor Pérez', gender: 'm' },
-  mother: { name: 'Ángela Rosales', gender: 'f' },
+  father: { name: '', gender: 'm' },
+  mother: { name: '', gender: 'f' },
 }} />
 
 Using this date to search through the archives I quickly found a promising document:
@@ -48,12 +47,18 @@ Using this date to search through the archives I quickly found a promising docum
 
 It's Porfirita! Even better, the document confirms and expands on what was told by my family. Now I also know that:
 
-The marriage took place on June 25, 1914, in the middle of the Mexican Revolution;
-María Porfiria Pérez was 18 years old and Teodoro Islas was 42 years old;
-Her parents names are Nestor Pérez and Ángela Rosales;
-They were dead by the time of the marriage.
+- The marriage took place on June 25, 1914, in the middle of the Mexican Revolution;
+- María Porfiria Pérez was 18 years old and Teodoro Islas was 42 years old;
+- Her parents names are Nestor Pérez and Ángela Rosales;
+- They were dead by the time of the marriage.
 
-[Graphical representation of the genealogical tree with the new couple]
+<Diagram data={{
+  name: 'Porifiria Pérez',
+  gender: 'f',
+  spouse: { name: 'Teodoro Islas', gender: 'm' },
+  father: { name: 'Nestor Pérez', gender: 'm' },
+  mother: { name: 'Ángela Rosales', gender: 'f', father: { name: '', gender: 'm' }, mother: { name: '', gender: 'f' } },
+}} />
 
 I continued my investigations through the online archives with this new information in mind, but without much luck this time. I was not able to locate more documents related to the life of Porfirita and I was only able to find one document regarding her parents:
 
@@ -85,9 +90,9 @@ I will never know what Porfirita felt after losing her dad, Nestor Pérez, her m
 
 While some questions were answered, others are still open for further investigation:
 
-What happened to Porfirita's dad?
-Why didn't she go to live with her aunt, Luisa Rosales?
-Did Ángela Rosales really fell from that cliff or was it a suicide?
+- What happened to Porfirita's dad?
+- Why didn't she go to live with her aunt, Luisa Rosales?
+- Did Ángela Rosales really fell from that cliff or was it a suicide?
 
 Well, actually I might never have the answers to these questions.
 
