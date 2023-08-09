@@ -17,7 +17,7 @@
 
 	const getSizes = (images): string => {
 		images.sort((a, b) => a.w - b.w);
-		return images.map((i) => i.w).reduce((a, b, i) => `${a}, (max-width: ${b}px) ${b}px`, '');
+		return images.map((i) => i.w).reduce((a, b) => `${a}, (max-width: ${b}px) ${b}px`, '');
 	};
 </script>
 
