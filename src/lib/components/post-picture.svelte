@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Picture } from 'svelte-picture';
+	import Picture from '$lib/components/picture/picture.svelte';
 
 	export let src: string;
 	export let alt: string;
 </script>
 
 <div>
-	<Picture {src} {alt} width="868;768;414" original={true} object-fit="cover" {...$$restProps} />
+	<Picture {src} {alt} width="868;768;414" object-fit="cover" {...$$restProps} />
 </div>
 
 <style>
