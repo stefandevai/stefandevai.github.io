@@ -89,6 +89,7 @@
 		font-weight: 700;
 		line-height: 1.4;
 		margin-top: 1rem;
+		color: var(--color-gray1);
 	}
 
 	figure {

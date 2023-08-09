@@ -100,12 +100,8 @@
 			<tspan>★</tspan> {data.birthDate}
 		{/if}
 
-		{#if data.birthDate && data.deathDate}
-			{'    '}
-		{/if}
-
 		{#if data.deathDate}
-			<tspan>✝</tspan>{'  '}{data.deathDate}
+			<tspan dx={data.birthDate ? 6 : 0}>✝</tspan>{'  '}{data.deathDate}
 		{/if}
 	</text>
 {/if}
