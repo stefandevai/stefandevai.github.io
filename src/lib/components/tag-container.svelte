@@ -25,7 +25,7 @@
 	}
 
 	a {
-		border-radius: calc(var(--border-radius-main) / 2);
+		border-radius: var(--border-radius-main);
 		display: block;
 		background-color: var(--color-gray2);
 		color: var(--color-gray1);

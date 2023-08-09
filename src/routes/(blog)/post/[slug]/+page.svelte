@@ -62,13 +62,14 @@
 	header {
 		color: var(--color-black);
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
 		padding: 2rem 4rem 0 4rem;
 		height: calc(100dvh - var(--nav-height) - 4rem);
 	}
 
 	header > div {
+		margin-top: 6rem;
+		margin-right: 2rem;
 		max-width: 600px;
 	}
 
@@ -176,5 +177,54 @@
 
 	.other-posts > a:last-child {
 		text-align: right;
+	}
+
+	@media (max-width: 1154px) {
+		header {
+			padding-top: 0;
+			align-items: center;
+		}
+
+		header > div {
+			margin-top: 0;
+		}
+
+		figure {
+			height: auto;
+		}
+	}
+
+	@media (max-width: 850px) {
+		header {
+			padding-top: 2rem;
+			flex-direction: column;
+			justify-content: center;
+			height: auto;
+		}
+
+		header > div {
+			margin-top: 0;
+			max-width: 100%;
+		}
+
+		figure {
+			max-width: 100%;
+			margin-bottom: 2rem;
+		}
+	}
+
+	@media (max-width: 750px) {
+		header {
+			padding: 2rem 1rem 0 1rem;
+		}
+	}
+
+	@media (max-width: 436px) {
+		header h1 {
+			font-size: var(--font-size-large);
+		}
+		header p {
+			font-weight: 400;
+		}
 	}
 </style>

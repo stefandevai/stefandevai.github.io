@@ -32,6 +32,28 @@ Hoy, 28 de abril, obreros en los piquetes de fábrica, estudiantes cerrando aven
 
 ¡Viva la huelga general brasileña!
 
+```lisp
+(fn draw-healthbar [x y amount]
+  "Draws a healthbar in (x, y) with a certain amount of health."
+  ;; Top UI sprites
+  (spr 384 (+ x 3) y 0 1 0 0 2 1)
+  (for [i 2 5 1]
+    (spr 385 (+ x (* 8 i) 3) y 0 1 0 0 1 1))
+  (spr 385 (+ x 42 3) y 0 1 0 0 2 1)
+
+  ;; Bottom UI sprites (same as top sprites, but flipped vertically)
+  (spr 384 (+ x 3) (+ y 5) 0 1 2 0 2 1)
+  (for [i 2 5 1]
+    (spr 385 (+ x (* 8 i) 3) (+ y 5) 0 1 2 0 1 1))
+  (spr 385 (+ x 42 3) (+ y 5) 0 1 2 0 2 1)
+
+  ;; Draw pixel lines proportional to the player's health
+  (var fill-color 1)
+  (for [j y (+ y 4) 1]
+    (for [i (+ x 3) (+ x 3 amount -1) 1]
+      (pix (+ i 4) (+ j 4) fill-color))))
+```
+
 [^1]: El País Brasil. “Por que o empresariado apoia a gestão Temer?” Brasil.elpais.com. https://brasil.elpais.com/brasil/2016/06/09/politica/1465424610_191054.html (visitada Abril 27, 2017)
 [^2]: Central Única dos Trabalhadores. “Terceirização e desenvolvimento: uma conta que não fecha.” Cut.org.br. https://www.cut.org.br/acao/dossie-terceirizacao-e-desenvolvimento-uma-conta-que-nao-fecha-7974 (visitada Abril 27, 2017)
 [^3]: Carta Capital. “Reforma trabalhista: entenda o que muda para o trabalhador.” Cartacapital.com.br. https://cartacapital.com.br/politica/reforma-trabalhista-entenda-o-que-muda-para-o-trabalhador (visitada Abril 27, 2017)

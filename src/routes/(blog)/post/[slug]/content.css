@@ -27,9 +27,13 @@ blockquote > p {
 
 pre[class*='language-'],
 code[class*='language-'] {
-	margin: 1.5rem 0 1.5rem 0;
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: var(--font-size-normal);
+	border-radius: var(--border-radius-main);
+}
+
+pre[class*='language-'] {
+	margin: var(--text-vertical-margin) var(--text-horizontal-margin);
 }
 
 article img {

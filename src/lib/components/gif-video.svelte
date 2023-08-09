@@ -11,6 +11,6 @@
 <style>
 	:global(.svelte-lazy) {
 		line-height: 0;
-		margin: 1.5rem 0;
+		margin: var(--text-vertical-margin) 0;
 	}
 </style>

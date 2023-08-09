@@ -33,7 +33,7 @@
 	--nav-height: 64px;
 	--text-horizontal-margin: 100px;
 	--text-vertical-margin: 1.5rem;
-	--border-radius-main: 4px;
+	--border-radius-main: 2px;
 }
 
 @media (max-width: 850px) {
