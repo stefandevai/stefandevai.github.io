@@ -56,7 +56,7 @@
 	}
 
 	h1 {
-		font-size: 4rem;
+		font-size: var(--font-size-very-large);
 		margin: 0 0 1.2rem 0;
 	}
 </style>

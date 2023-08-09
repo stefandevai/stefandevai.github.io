@@ -11,7 +11,9 @@
 
 <style>
 	div {
-		height: 400px;
-		margin-bottom: 2rem;
+		width: calc(100% - var(--text-horizontal-margin) * 2);
+		max-width: 868px;
+		margin: calc(var(--text-vertical-margin) + 0.5rem) auto;
+		line-height: 1.8;
 	}
 </style>

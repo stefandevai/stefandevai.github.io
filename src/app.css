@@ -26,10 +26,12 @@
 	--font-size-normal: 1.1rem;
 	--font-size-medium: 1.5rem;
 	--font-size-large: 2.2rem;
+	--font-size-large2: 2.8rem;
+	--font-size-very-large: 4rem;
 
-	--layout-max-width: 800px;
+	--layout-max-width: 900px;
 	--nav-height: 64px;
-	--text-horizontal-margin: 80px;
+	--text-horizontal-margin: 100px;
 	--text-vertical-margin: 1.5rem;
 	--border-radius-main: 4px;
 }
@@ -200,7 +202,7 @@ h3 {
 main {
 	max-width: var(--layout-max-width);
 	margin: 0 auto;
-	padding: 2rem 1rem 3rem 1rem;
+	padding: 0 1rem 3rem 1rem;
 }
 
 .brand-diamond {

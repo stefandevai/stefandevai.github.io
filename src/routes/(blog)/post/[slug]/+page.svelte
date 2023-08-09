@@ -2,7 +2,6 @@
 	import type { PageData } from './$types';
 	import { title, postUrlSection } from '$lib/config';
 	import Content from './content.svelte';
-	import BackToPostsButton from '$lib/components/back-to-posts-button.svelte';
 	import TwoLinePattern from '$lib/components/two-line-pattern.svelte';
 	import TagContainer from '$lib/components/tag-container.svelte';
 
@@ -15,34 +14,40 @@
 </svelte:head>
 
 <TwoLinePattern />
+<header>
+	<div>
+		<span class="date">
+			{data.post.date}
+		</span>
+		<h1>{data.post.title}</h1>
+		<p>{data.post.excerpt}</p>
+	</div>
+	<figure>
+		<picture>
+			{#each Object.entries(data.post.featuredImage.sources) as [format, images]}
+				<source
+					srcset={`${images[0].src} 868w, ${images[1].src} 736w, ${images[2].src} 382w`}
+					sizes={`(max-width: 414px) 382px, (max-width: 768px) 736px, 868w`}
+					type={`image/${format}`}
+				/>
+			{/each}
+			<img
+				style={`background:url(${data.post.featuredImageFallback}) no-repeat;`}
+				src={data.post.featuredImageFallback}
+				alt={data.post.featuredImageCaption}
+				loading="lazy"
+			/>
+		</picture>
+		<figcaption class="image-credits">{data.post.featuredImageCaption}</figcaption>
+	</figure>
+</header>
+
+<span class="dot-separator">◈ ◈ ◈</span>
+
 <main>
 	<article>
-		<header>
-			<BackToPostsButton />
-			<h1>{data.post.title} <span class="brand-diamond">◆</span></h1>
-			<picture>
-				{#each Object.entries(data.post.featuredImage.sources) as [format, images]}
-					<source
-						srcset={`${images[0].src} 868w, ${images[1].src} 736w, ${images[2].src} 382w`}
-						sizes={`(max-width: 414px) 382px, (max-width: 768px) 736px, 868w`}
-						type={`image/${format}`}
-					/>
-				{/each}
-				<img
-					style={`background:url(${data.post.featuredImageFallback}) no-repeat;`}
-					src={data.post.featuredImageFallback}
-					alt={data.post.featuredImageCaption}
-					loading="lazy"
-				/>
-			</picture>
-			<span>{data.post.featuredImageCaption}</span>
-		</header>
 		<Content postContent={data.component} />
-		<span class="dot-separator">◆ ◆ ◆</span>
-		<TagContainer
-			tags={[data.post.language, ...data.post.tags]}
-			style="padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);"
-		/>
+		<TagContainer tags={[data.post.language, ...data.post.tags]} />
 		<div class="other-posts">
 			<a href="/{postUrlSection}/{data.post.previous.slug}">⟵<br />{data.post.previous.title}</a>
 			<a href="/{postUrlSection}/{data.post.next.slug}">⟶<br />{data.post.next.title}</a>
@@ -52,11 +57,48 @@
 
 <style>
 	header {
-		margin-bottom: 2rem;
-		font-size: 18px;
+		color: var(--color-black);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 2rem 4rem 0 4rem;
+		height: calc(100dvh - var(--nav-height) - 4rem);
 	}
 
-	header > span {
+	header > div {
+		max-width: 600px;
+	}
+
+	span.date {
+		font-size: var(--font-size-small);
+		color: var(--color-gray1);
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	header h1 {
+		margin: 0;
+		font-size: var(--font-size-large2);
+		line-height: 1.3;
+	}
+
+	header p {
+		font-weight: 700;
+		line-height: 1.4;
+		margin-top: 1rem;
+	}
+
+	figure {
+		max-width: 450px;
+		height: 100%;
+	}
+
+	header img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+	}
+
+	.image-credits {
 		display: block;
 		margin-top: 0.3rem;
 		font-size: var(--font-size-small);
@@ -104,17 +146,6 @@
 		margin: 0.5rem 0 2rem 0;
 		margin-bottom: 2rem;
 		margin-top: 0.5rem;
-	}
-
-	img {
-		width: 100%;
-		height: auto;
-	}
-
-	.brand-diamond {
-		color: var(--color-red2);
-		font-size: var(--font-size-medium);
-		font-weight: 600;
 	}
 
 	.dot-separator {

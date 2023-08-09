@@ -9,3 +9,9 @@
 	<slot />
 	<Footer />
 </div>
+
+<style>
+	:global(main) {
+		margin-top: 2rem;
+	}
+</style>
