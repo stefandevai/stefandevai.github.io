@@ -47,7 +47,10 @@
 <main>
 	<article>
 		<Content postContent={data.component} />
-		<TagContainer tags={[data.post.language, ...data.post.tags]} />
+		<TagContainer
+			tags={[data.post.language, ...data.post.tags]}
+			style="padding-bottom:1rem;margin-left:var(--text-horizontal-margin)"
+		/>
 		<div class="other-posts">
 			<a href="/{postUrlSection}/{data.post.previous.slug}">⟵<br />{data.post.previous.title}</a>
 			<a href="/{postUrlSection}/{data.post.next.slug}">⟶<br />{data.post.next.title}</a>
@@ -157,7 +160,8 @@
 	}
 
 	.other-posts {
-		margin-top: 2rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 2rem;
 		margin-bottom: 1rem;
 		font-size: var(--font-size-very-small);
 		display: flex;
