@@ -32,3 +32,10 @@
 		{placeholderSrc}
 	/>
 {/if}
+
+<style>
+	a {
+		line-height: 0;
+		display: block;
+	}
+</style>
