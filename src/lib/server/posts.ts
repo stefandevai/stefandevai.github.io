@@ -46,7 +46,7 @@ const rawPosts = Object.entries(
 );
 
 export const posts = Object.entries(postsComponents)
-	.filter(([filepath, globEntry], index) => {
+	.filter(([globEntry]) => {
 		return dev ? true : globEntry.metadata.published;
 	})
 	.map(([filepath, globEntry], index) => {

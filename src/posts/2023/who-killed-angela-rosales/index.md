@@ -60,7 +60,7 @@ caption="Porfiria Pérez and Teodoro Islas marriage certificate."
 
 >
 
-    <strong>Figure 1:</strong> Porfiria Pérez and Teodoro Islas marriage certificate. Available.
+    Porfiria Pérez and Teodoro Islas marriage certificate. Available.
 
 </PostPicture>
 
