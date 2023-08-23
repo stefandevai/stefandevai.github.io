@@ -5,6 +5,7 @@ language: 'fr'
 featuredImage: 'cross.png'
 featuredImageCaption: 'Image généré avec Midjourney 5.2. Job ID: 5ba7ada4-bb56-46a3-8a36-44c02d15d517.'
 tags: ['history', 'essay']
+published: true
 ---
 
 Dans la deuxième moitié du XVIIe siècle, John Eliot, un puritain anglais, traduit lui même la bible au wôpanâak, une langue indienne qui n’avait pas d’expression écrite. Il habite avec des indiens et organise une communauté où ils cohabitent avec des puritains. Cette prétendue harmonie entre indiens et puritains cache une réalité complexe de supériorité religieuse du côté puritain et de soumission colonial du côté indien [^1].

@@ -5,6 +5,7 @@ language: 'en'
 featuredImage: 'woods.png'
 featuredImageCaption: 'Image generated with Midjourney 5.1. Job ID: 934d284c-7bb8-445a-b96a-87ad265f03b9.'
 tags: ['history', 'genealogy']
+published: false
 ---
 
 <script lang="ts">
@@ -59,7 +60,7 @@ caption="Porfiria Pérez and Teodoro Islas marriage certificate."
 
 >
 
-    <strong>Figure 1:</strong> Porfiria Pérez and Teodoro Islas marriage certificate. Available <a href="test">here</a>.
+    <strong>Figure 1:</strong> Porfiria Pérez and Teodoro Islas marriage certificate. Available.
 
 </PostPicture>
 

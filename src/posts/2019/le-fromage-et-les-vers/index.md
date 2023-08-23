@@ -5,6 +5,7 @@ language: 'fr'
 featuredImage: 'cheese.png'
 featuredImageCaption: 'Image généré avec Midjourney 5.1. Job ID : 6b3ddb41-6f40-402f-9e53-9f827bcc33fc.'
 tags: ['history', 'reading']
+published: true
 ---
 
 Cette fiche de lecture se propose à présenter les approches historiques de Carlo Ginzburg dans son ouvrage académique _Le fromage et les vers_, paru en 1980. L'édition utilisée est de 1993, traduite de l'italien par Monique Aymard (qui a traduit d'autres ouvrages de Ginzburg et de Antonio Gramsci). Ce livre contient 200 pages, ou 146 pages sans compter le préface et les notes ; il est divisé en 62 parties qui rassemblent et qui construisent un raisonnement global. Pour appuyer son argumentation, l'auteur utilise une grande variété de sources écrites, parmi lesquelles on trouve des archives ecclésiastiques — comme le _Archivio Segreto Vaticano_ —, des œuvres littéraires — comme _Le Décaméron_ de Boccace —, mais aussi de nombreux articles de revues d'histoire [^1].

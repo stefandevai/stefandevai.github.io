@@ -5,6 +5,7 @@ language: 'en'
 featuredImage: 'fish.png'
 featuredImageCaption: 'Image generated with Midjourney 5.1. Job ID: b9446a42-2b95-4066-8e0e-5ca91b45e828.'
 tags: ['gamedev', 'programming', 'lisp']
+published: true
 ---
 
 <script lang="ts">

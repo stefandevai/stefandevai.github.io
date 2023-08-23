@@ -5,6 +5,7 @@ language: 'es'
 featuredImage: 'plant.png'
 featuredImageCaption: 'Imagen generada con Midjourney 5.1. Job ID: ffd09586-4822-4d9d-a190-55f131d8879b.'
 tags: ['politics']
+published: true
 ---
 
 Hoy, 28 de abril, es un día histórico para la lucha de clases en Brasil: máquinas fuera de servicio, herramientas en sus gabinetes, calderas apagadas, micros y tractores en el estacionamiento, ferrocarriles silenciosos, azadones en un rincón y libros cerrados por todo el país. Una histórica huelga general se levanta a partir de la movilización de las masas trabajadoras de 9 centrales sindicales (más de 92 categorías de trabajo sólo en São Paulo), campesinos, estudiantes, intelectuales y otros movimientos sociales.

@@ -1,5 +1,6 @@
 import { dirname } from 'path';
 import { postsComponents } from '$lib/helpers/posts';
+import { dev } from '$app/environment';
 
 export interface Post {
 	title: string;
@@ -9,6 +10,7 @@ export interface Post {
 	featuredImageCaption: string;
 	tags: string[];
 	excerpt: string;
+	published: boolean;
 }
 
 export type GlobEntry = {
@@ -44,6 +46,9 @@ const rawPosts = Object.entries(
 );
 
 export const posts = Object.entries(postsComponents)
+	.filter(([filepath, globEntry], index) => {
+		return dev ? true : globEntry.metadata.published;
+	})
 	.map(([filepath, globEntry], index) => {
 		const dir = dirname(filepath);
 
