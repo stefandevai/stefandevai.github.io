@@ -46,8 +46,8 @@ const rawPosts = Object.entries(
 );
 
 export const posts = Object.entries(postsComponents)
-	.filter(([globEntry]) => {
-		return dev ? true : globEntry.metadata.published;
+	.filter((component) => {
+		return dev ? true : component[1].metadata.published;
 	})
 	.map(([filepath, globEntry], index) => {
 		const dir = dirname(filepath);
