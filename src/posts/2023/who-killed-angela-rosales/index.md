@@ -52,17 +52,12 @@ I logically begun this investigation from what was known by my family:
 Using this date to search through the archives I quickly found a promising document:
 
 <PostPicture
-src={porfiritaSrc}
-alt="Porfiria Pérez and Teodoro Islas marriage certificate"
-original={porfiritaSrcOriginal}
-title="Figure 1:"
-caption="Porfiria Pérez and Teodoro Islas marriage certificate."
-
->
-
-    Porfiria Pérez and Teodoro Islas marriage certificate. Available.
-
-</PostPicture>
+  src={porfiritaSrc}
+  alt="Porfiria Pérez and Teodoro Islas marriage certificate"
+  original={porfiritaSrcOriginal}
+  title="Figure 1:"
+  caption="Porfiria Pérez and Teodoro Islas marriage certificate."
+/>
 
 > "En la parroquia de Metepec de la Vicaría Foranea de Tulancingo á los veinticinco días de junio de mil novecientos catorce [...] asistí al matrimonio [...] de [...] Teodoro Islas [...] de cuarenta y dos ãnos de edad [...] con María Porfíria Pérez célibe de dieciocho años de edad originaria de Agua Blanca y vecina de la Pesuña del Buey y ultimamente de Temascalillos, hija legítima de Nestor Pérez y de Angela Rosales difuntos" [^2]
 
